@@ -37,5 +37,6 @@ module.exports = {
     'public/build',
     '.netlify',
     '.husky',
+    'app/styles',
   ],
 };
