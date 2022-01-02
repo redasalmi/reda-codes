@@ -7,6 +7,7 @@
     "build": "remix build",
     "dev": "cross-env NODE_ENV=development netlify dev",
     "lint": "eslint --ext js,jsx,ts,tsx .",
+    "format": "prettier --write \"**/*.+(js|jsx|ts|tsx|json|css)\"",
     "postinstall": "remix setup node"
   },
   "dependencies": {
@@ -25,8 +26,10 @@
     "@typescript-eslint/parser": "^5.8.1",
     "cross-env": "^7.0.3",
     "eslint": "^8.6.0",
+    "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-jsx-a11y": "^6.5.1",
     "eslint-plugin-react": "^7.28.0",
+    "prettier": "2.5.1",
     "typescript": "^4.1.2"
   },
   "engines": {
