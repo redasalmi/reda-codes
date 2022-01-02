@@ -1,5 +1,11 @@
+@import '_fonts.css';
+@import '_breakpoints.css';
+@import '_light.css';
+@import '_dark.css';
+
 html {
   box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
 }
 
 *,
