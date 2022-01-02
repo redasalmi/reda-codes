@@ -36,5 +36,6 @@ module.exports = {
     'netlify/functions/server/build',
     'public/build',
     '.netlify',
+    '.husky',
   ],
 };

@@ -7,13 +7,18 @@
     "build": "remix build",
     "dev": "cross-env NODE_ENV=development netlify dev",
     "lint": "eslint --ext js,jsx,ts,tsx .",
-    "format": "prettier --write \"**/*.+(js|jsx|ts|tsx|json|css)\"",
-    "postinstall": "remix setup node"
+    "validate": "concurrently --kill-others-on-fail --prefix [{name}] --names lint,build \"npm run lint --silent\" \"npm run build --silent\"",
+    "postinstall": "remix setup node",
+    "prepare": "husky install"
+  },
+  "lint-staged": {
+    "**/*.+(js|jsx|ts|tsx|json|css)": "prettier --write --ignore-unknown"
   },
   "dependencies": {
     "@netlify/functions": "^0.10.0",
     "@remix-run/netlify": "^1.1.1",
     "@remix-run/react": "^1.1.1",
+    "concurrently": "^6.5.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "remix": "^1.1.1"
@@ -29,6 +34,8 @@
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-jsx-a11y": "^6.5.1",
     "eslint-plugin-react": "^7.28.0",
+    "husky": "^6.0.0",
+    "lint-staged": "^12.1.4",
     "prettier": "2.5.1",
     "typescript": "^4.1.2"
   },
