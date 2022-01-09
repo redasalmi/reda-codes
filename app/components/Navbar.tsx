@@ -1,8 +1,9 @@
-import { useLoaderData, Link, Form } from 'remix';
+import { useLoaderData, Link } from 'remix';
 import type { LinksFunction } from 'remix';
 import type { Theme } from '~/types';
 
-import { Sun, Moon, Github } from '~/components/icons';
+import ThemeToggle from '~/components/ThemeToggle';
+import GithubLink from '~/components/GithubLink';
 import { NAV_LINKS } from '~/constant';
 
 import navbarStyles from '~/styles/components/navbar.css';
@@ -40,33 +41,20 @@ export default function Navbar() {
 
         <div className="navbar-icons">
           <div>
-            <Form method="post">
-              <input type="text" name="theme" value={theme} hidden readOnly />
-              <button type="submit" className="theme-btn navbar-icon">
-                <Sun
-                  className={
-                    theme === 'light' ? ' theme-sun' : 'fade theme-sun'
-                  }
-                />
-                <Moon
-                  className={
-                    theme === 'dark' ? 'theme-moon' : 'fade theme-moon'
-                  }
-                />
-              </button>
-            </Form>
+            <ThemeToggle
+              theme={theme}
+              btnClassName="theme-btn navbar-icon"
+              sunClassName="theme-sun"
+              moonClassName="theme-moon"
+              fadeClassName="fade"
+            />
           </div>
 
           <div>
-            <a
-              target="_blank"
-              className="navbar-icon"
-              rel="noopener noreferrer"
-              href="https://github.com/redasalmi"
-              aria-label="reda salmi github account"
-            >
-              <Github className="navbar-icon navbar-github" />
-            </a>
+            <GithubLink
+              linkClassName="navbar-icon"
+              svgClassName="navbar-icon navbar-github"
+            />
           </div>
         </div>
       </div>
