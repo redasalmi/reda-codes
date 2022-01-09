@@ -14,8 +14,9 @@ import type {
   ActionFunction,
 } from 'remix';
 
-import Navbar from '~/components/Navbar';
+import Navbar, { links as navbarLinks } from '~/components/Navbar';
 import { getuserTheme, toggleUserTheme } from '~/cookies';
+import type { Theme } from '~/types';
 
 import globalStyles from '~/styles/global.css';
 
@@ -32,6 +33,7 @@ export const links: LinksFunction = () => [
     rel: 'stylesheet',
     href: globalStyles,
   },
+  ...navbarLinks(),
 ];
 
 export const loader: LoaderFunction = async ({ request }) => {
@@ -43,7 +45,7 @@ export const action: ActionFunction = async ({ request }) => {
 };
 
 export default function App() {
-  const theme = useLoaderData<string>();
+  const theme = useLoaderData<Theme>();
 
   return (
     <html lang="en">

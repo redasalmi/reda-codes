@@ -1,0 +1,90 @@
+.navbar {
+  padding: 20px 0;
+  background-color: var(--bg-primary);
+}
+
+.navbar > .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar-links {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
+
+.navbar-link {
+  color: var(--fg-primary);
+  font-weight: bold;
+  font-size: 1.1rem;
+  text-decoration: none;
+}
+
+.navbar-link:hover {
+  color: var(--highlight);
+}
+
+.animated-link::after {
+  content: '';
+  width: 0;
+  height: 2px;
+  display: block;
+  background-color: var(--highlight);
+  transition: width 0.1s linear;
+}
+
+.animated-link:hover::after {
+  width: 100%;
+}
+
+.navbar-logo {
+  font-size: 1.5rem;
+}
+
+.navbar-icons {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.navbar-icon {
+  width: 40px;
+  height: 40px;
+  display: block;
+}
+
+.theme-btn {
+  cursor: pointer;
+  background: none;
+  border-radius: 50%;
+  border: 2px solid var(--fg-primary);
+}
+
+.theme-sun,
+.theme-moon {
+  width: 20px;
+  height: 20px;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.4s ease;
+}
+
+.theme-btn svg path,
+.navbar-github {
+  fill: var(--fg-primary);
+}
+
+.theme-sun {
+  transform: translateY(8px);
+}
+
+.theme-moon {
+  transform: translateY(-15px);
+}
+
+.fade {
+  opacity: 0;
+  visibility: hidden;
+}

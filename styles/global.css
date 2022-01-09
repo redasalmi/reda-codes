@@ -1,5 +1,4 @@
 @import '_fonts.css';
-@import '_breakpoints.css';
 @import '_light.css';
 @import '_dark.css';
 
@@ -14,4 +13,42 @@ html {
   margin: 0;
   padding: 0;
   box-sizing: inherit;
+}
+
+body {
+  font-size: 16px;
+  background-color: var(--bg-primary);
+  color: var(--fg-primary);
+}
+
+.container {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@media (--small) {
+  .container {
+    max-width: 540px;
+  }
+}
+
+@media screen and (--medium) {
+  .container {
+    max-width: 720px;
+  }
+}
+
+@media screen and (--large) {
+  .container {
+    max-width: 960px;
+  }
+}
+
+@media screen and (--extra-large) {
+  .container {
+    max-width: 1140px;
+  }
 }
