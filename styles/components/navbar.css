@@ -1,57 +1,94 @@
-.navbar {
+.nav {
   padding: 20px 0;
   background-color: var(--bg-primary);
 }
 
-.navbar > .container {
+.nav > .container {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.navbar-links {
-  list-style: none;
-  display: flex;
-  gap: 30px;
+.nav-logo,
+.nav-icons,
+.nav-hamburger {
+  z-index: 2;
 }
 
-.navbar-link {
+.nav-links {
+  position: absolute;
+  inset: 0;
+  display: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  background-color: var(--bg-primary);
+  z-index: 1;
+}
+
+.nav-links-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  padding-top: 100px;
+  height: 100%;
+}
+
+.nav-links-list li {
+  padding: 20px 0;
+  border-top: 1px solid #4c4c4c;
+}
+
+.nav-link {
   color: var(--fg-primary);
   font-weight: bold;
   font-size: 1.1rem;
   text-decoration: none;
 }
 
-.navbar-link:hover {
-  color: var(--highlight);
+.nav-links-list .nav-link {
+  padding: 0 15px;
 }
 
-.animated-link::after {
-  content: '';
-  width: 0;
-  height: 2px;
-  display: block;
-  background-color: var(--highlight);
-  transition: width 0.1s linear;
-}
-
-.animated-link:hover::after {
-  width: 100%;
-}
-
-.navbar-logo {
+.nav-logo-link {
   font-size: 1.5rem;
 }
 
-.navbar-icons {
+.nav-github-btn {
+  margin: auto;
+  width: 70%;
+  border-radius: 24px;
+  padding: 12px 4px;
   display: flex;
   align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: var(--fg-primary);
+  font-weight: bold;
+  border: 2px solid var(--highlight);
+}
+
+.nav-github-btn .nav-github {
+  margin-left: 10px;
+  width: 25px;
+  height: 25px;
+}
+
+.nav-icons {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0 15px;
   gap: 10px;
 }
 
-.navbar-icon {
-  width: 40px;
-  height: 40px;
+.nav-icons > div:last-child {
+  display: none;
+}
+
+.nav-icon {
+  width: 45px;
+  height: 45px;
   display: block;
 }
 
@@ -64,16 +101,11 @@
 
 .theme-sun,
 .theme-moon {
-  width: 20px;
-  height: 20px;
+  width: 25px;
+  height: 25px;
   opacity: 1;
   visibility: visible;
   transition: opacity 0.4s ease;
-}
-
-.theme-btn svg path,
-.navbar-github {
-  fill: var(--fg-primary);
 }
 
 .theme-sun {
@@ -81,10 +113,95 @@
 }
 
 .theme-moon {
-  transform: translateY(-15px);
+  transform: translateY(-20px);
+}
+
+.theme-btn svg path,
+.nav-github {
+  fill: var(--fg-primary);
 }
 
 .fade {
   opacity: 0;
   visibility: hidden;
+}
+
+.nav-hamburger {
+  z-index: 2;
+}
+
+.nav-hamburger-btn {
+  width: 45px;
+  height: 45px;
+  border: 2px solid var(--fg-primary);
+  border-radius: 50%;
+  background: none;
+  cursor: pointer;
+  display: block;
+  margin: auto;
+}
+
+.nav-hamburger-btn div {
+  width: 50%;
+  height: 1px;
+  border: 1px solid var(--fg-primary);
+  border-radius: 5px;
+  margin: 3px auto;
+  transition: transform 0.5s, visibility 0.2s;
+}
+
+.nav-hamburger-btn.transform > div:first-child {
+  transform: translateY(4px) rotateZ(-45deg);
+}
+
+.nav-hamburger-btn.transform > div:nth-child(2) {
+  visibility: hidden;
+}
+
+.nav-hamburger-btn.transform > div:nth-child(3) {
+  transform: translateY(-6px) rotateZ(45deg);
+}
+
+@media (--medium) {
+  .nav-links {
+    display: block;
+  }
+
+  .nav-links-list {
+    gap: 30px;
+  }
+
+  .nav-link:hover {
+    color: var(--highlight);
+  }
+
+  .nav-animated-link::after {
+    content: '';
+    width: 0;
+    height: 2px;
+    display: block;
+    background-color: var(--highlight);
+    transition: width 0.1s linear;
+  }
+
+  .nav-animated-link:hover::after {
+    width: 100%;
+  }
+
+  .nav-hamburger {
+    display: none;
+  }
+
+  .nav-icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .theme-sun {
+    transform: translateY(8px);
+  }
+
+  .theme-moon {
+    transform: translateY(-15px);
+  }
 }

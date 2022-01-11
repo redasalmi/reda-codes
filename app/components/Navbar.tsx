@@ -1,3 +1,4 @@
+import * as React from 'react';
 import { useLoaderData, Link } from 'remix';
 import type { LinksFunction } from 'remix';
 import type { Theme } from '~/types';
@@ -17,33 +18,66 @@ export const links: LinksFunction = () => [
 
 export default function Navbar() {
   const theme = useLoaderData<Theme>();
+  const linksRef = React.useRef<HTMLDivElement>(null!);
+  const hamburgerRef = React.useRef<HTMLButtonElement>(null!);
+
+  const handleToggleNavbar = () => {
+    let timer: NodeJS.Timeout;
+
+    if (linksRef.current.style.display !== 'block') {
+      hamburgerRef.current.classList.add('transform');
+      linksRef.current.style.display = 'block';
+      timer = setTimeout(() => {
+        linksRef.current.style.opacity = '1';
+      }, 100);
+    } else {
+      hamburgerRef.current.classList.remove('transform');
+      linksRef.current.style.opacity = '0';
+      timer = setTimeout(() => {
+        linksRef.current.style.display = 'none';
+      }, 400);
+    }
+
+    return () => {
+      clearTimeout(timer);
+    };
+  };
 
   return (
-    <nav className="navbar">
+    <nav className="nav">
       <div className="container">
-        <div>
-          <Link to="/" className="navbar-logo navbar-link">
+        <div className="nav-logo">
+          <Link to="/" className="nav-logo-link nav-link">
             Reda Salmi
           </Link>
         </div>
 
-        <div>
-          <ul className="navbar-links">
+        <div ref={linksRef} className="nav-links">
+          <ul className="nav-links-list">
             {NAV_LINKS.map(({ href, text }) => (
               <li key={href}>
-                <Link to={href} className="navbar-link animated-link">
+                <Link to={href} className="nav-link nav-animated-link">
                   {text}
                 </Link>
               </li>
             ))}
+
+            <li>
+              <GithubLink
+                linkClassName="nav-github-btn"
+                svgClassName="nav-github"
+              >
+                <span>Check out my github</span>
+              </GithubLink>
+            </li>
           </ul>
         </div>
 
-        <div className="navbar-icons">
+        <div className="nav-icons">
           <div>
             <ThemeToggle
               theme={theme}
-              btnClassName="theme-btn navbar-icon"
+              btnClassName="theme-btn nav-icon"
               sunClassName="theme-sun"
               moonClassName="theme-moon"
               fadeClassName="fade"
@@ -52,10 +86,23 @@ export default function Navbar() {
 
           <div>
             <GithubLink
-              linkClassName="navbar-icon"
-              svgClassName="navbar-icon navbar-github"
+              linkClassName="nav-icon"
+              svgClassName="nav-icon nav-github"
             />
           </div>
+        </div>
+
+        <div className="nav-hamburger">
+          <button
+            type="button"
+            ref={hamburgerRef}
+            className="nav-hamburger-btn"
+            onClick={handleToggleNavbar}
+          >
+            <div />
+            <div />
+            <div />
+          </button>
         </div>
       </div>
     </nav>

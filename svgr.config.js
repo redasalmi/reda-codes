@@ -1,9 +1,9 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-const svgTemplate = require('./svg/template');
+const template = require('./svg/template');
 
 module.exports = {
   outDir: 'app/components/icons',
-  template: svgTemplate,
+  template,
   typescript: true,
   expandProps: false,
   svgProps: { className: '{className}' },

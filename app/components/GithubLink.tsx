@@ -1,13 +1,16 @@
+import * as React from 'react';
 import { Github } from '~/components/icons';
 
 interface GithubLinkProps {
   linkClassName?: string;
   svgClassName?: string;
+  children?: React.ReactNode;
 }
 
 export default function GithubLink({
   linkClassName,
   svgClassName,
+  children,
 }: GithubLinkProps) {
   return (
     <a
@@ -17,6 +20,7 @@ export default function GithubLink({
       href="https://github.com/redasalmi"
       aria-label="reda salmi github account"
     >
+      {children}
       <Github className={svgClassName} />
     </a>
   );
