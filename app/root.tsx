@@ -14,7 +14,7 @@ import type {
   ActionFunction,
 } from 'remix';
 
-import Navbar, { links as navbarLinks } from '~/components/Navbar';
+import Navbar, { navbarLinks } from '~/components/Navbar';
 import { getuserTheme, toggleUserTheme } from '~/cookies';
 import type { Theme } from '~/types';
 

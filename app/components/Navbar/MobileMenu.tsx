@@ -1,10 +1,8 @@
 import * as React from 'react';
-import { Link } from 'remix';
 
-import GithubLink from '~/components/GithubLink';
-import { NAV_LINKS } from '~/constant';
+import Links from '~/components/Navbar/Links';
 
-export default function NavbarMobileMenu() {
+export default function MobileMenu() {
   const linksRef = React.useRef<HTMLDivElement>(null!);
   const hamburgerRef = React.useRef<HTMLButtonElement>(null!);
   const timerRef = React.useRef<NodeJS.Timeout | null>(null);
@@ -57,31 +55,7 @@ export default function NavbarMobileMenu() {
         </button>
       </div>
 
-      <div ref={linksRef} className="nav-mobile-links">
-        <ul className="nav-mobile-links-list">
-          {NAV_LINKS.map(({ href, text }) => (
-            <li key={href}>
-              <Link
-                to={href}
-                onClick={hideNavbar}
-                className="container nav-link"
-              >
-                {text}
-              </Link>
-            </li>
-          ))}
-
-          <li className="nav-github-link">
-            <GithubLink
-              onClick={hideNavbar}
-              linkClassName="nav-github-btn"
-              svgClassName="nav-github"
-            >
-              <span>Check out my github</span>
-            </GithubLink>
-          </li>
-        </ul>
-      </div>
+      <Links linksRef={linksRef} hideNavbar={hideNavbar} mobile />
     </>
   );
 }
