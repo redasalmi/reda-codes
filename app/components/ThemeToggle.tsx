@@ -21,7 +21,7 @@ export default function ThemeToggle({
   return (
     <Form method="post">
       <input type="text" name="theme" value={theme} hidden readOnly />
-      <button type="submit" className={btnClassName}>
+      <button type="submit" className={btnClassName} aria-label="theme toggle">
         <Sun
           className={
             theme === 'light'

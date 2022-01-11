@@ -162,6 +162,23 @@
   transform: translateY(-6px) rotateZ(45deg);
 }
 
+@media (--small) {
+  .nav-links {
+    left: initial;
+    right: 0;
+    width: 360px;
+  }
+
+  .nav-links-list {
+    padding-top: 80px;
+    box-shadow: 0px 1px 3px #4c4c4c;
+  }
+
+  .nav-links .nav-link {
+    padding: 0 54px;
+  }
+}
+
 @media (--medium) {
   .nav-links {
     display: block;

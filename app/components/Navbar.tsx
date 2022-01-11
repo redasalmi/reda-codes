@@ -20,27 +20,38 @@ export default function Navbar() {
   const theme = useLoaderData<Theme>();
   const linksRef = React.useRef<HTMLDivElement>(null!);
   const hamburgerRef = React.useRef<HTMLButtonElement>(null!);
+  const timerRef = React.useRef<NodeJS.Timeout | null>(null);
+
+  React.useEffect(() => {
+    return () => {
+      if (timerRef.current) {
+        clearTimeout(timerRef.current);
+      }
+    };
+  }, []);
+
+  const showNavbar = () => {
+    hamburgerRef.current.classList.add('transform');
+    linksRef.current.style.display = 'block';
+    timerRef.current = setTimeout(() => {
+      linksRef.current.style.opacity = '1';
+    }, 100);
+  };
+
+  const hideNavbar = () => {
+    hamburgerRef.current.classList.remove('transform');
+    linksRef.current.style.opacity = '0';
+    timerRef.current = setTimeout(() => {
+      linksRef.current.style.display = 'none';
+    }, 400);
+  };
 
   const handleToggleNavbar = () => {
-    let timer: NodeJS.Timeout;
-
     if (linksRef.current.style.display !== 'block') {
-      hamburgerRef.current.classList.add('transform');
-      linksRef.current.style.display = 'block';
-      timer = setTimeout(() => {
-        linksRef.current.style.opacity = '1';
-      }, 100);
+      showNavbar();
     } else {
-      hamburgerRef.current.classList.remove('transform');
-      linksRef.current.style.opacity = '0';
-      timer = setTimeout(() => {
-        linksRef.current.style.display = 'none';
-      }, 400);
+      hideNavbar();
     }
-
-    return () => {
-      clearTimeout(timer);
-    };
   };
 
   return (
@@ -56,7 +67,11 @@ export default function Navbar() {
           <ul className="nav-links-list">
             {NAV_LINKS.map(({ href, text }) => (
               <li key={href}>
-                <Link to={href} className="nav-link nav-animated-link">
+                <Link
+                  to={href}
+                  onClick={hideNavbar}
+                  className="nav-link nav-animated-link"
+                >
                   {text}
                 </Link>
               </li>
@@ -64,6 +79,7 @@ export default function Navbar() {
 
             <li>
               <GithubLink
+                onClick={hideNavbar}
                 linkClassName="nav-github-btn"
                 svgClassName="nav-github"
               >
@@ -96,6 +112,7 @@ export default function Navbar() {
           <button
             type="button"
             ref={hamburgerRef}
+            aria-label="hamburger menu"
             className="nav-hamburger-btn"
             onClick={handleToggleNavbar}
           >
