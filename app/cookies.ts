@@ -6,6 +6,7 @@ const userTheme = createCookie('theme', {
   sameSite: 'lax',
   httpOnly: true,
   secure: true,
+  expires: new Date('2092-01-01'),
 });
 
 const cookieResp = async (theme: Theme) =>
