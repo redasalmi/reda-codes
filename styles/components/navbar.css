@@ -1,3 +1,43 @@
+@keyframes slide-down {
+  from {
+    transform: translateY(-35px);
+  }
+
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-up {
+  from {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(-35px);
+  }
+}
+
+@keyframes slide-left {
+  from {
+    transform: translateX(120px);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-right {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(120px);
+  }
+}
+
 .nav {
   padding: 20px 0;
   background-color: var(--bg-primary);
@@ -23,8 +63,6 @@
   position: absolute;
   inset: 0;
   display: none;
-  opacity: 0;
-  transition: opacity 0.3s ease;
   background-color: var(--bg-primary);
   z-index: 1;
 }

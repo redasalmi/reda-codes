@@ -1,5 +1,6 @@
 import * as React from 'react';
 
+import { SMALL } from '~/constant';
 import Links from '~/components/Navbar/Links';
 
 export default function MobileMenu() {
@@ -18,17 +19,19 @@ export default function MobileMenu() {
   const showNavbar = () => {
     hamburgerRef.current.classList.add('transform');
     linksRef.current.style.display = 'block';
-    timerRef.current = setTimeout(() => {
-      linksRef.current.style.opacity = '1';
-    }, 100);
+    linksRef.current.style.animation = `0.3s slide-${
+      window.innerWidth > SMALL ? 'left' : 'down'
+    } ease`;
   };
 
   const hideNavbar = () => {
     hamburgerRef.current.classList.remove('transform');
-    linksRef.current.style.opacity = '0';
+    linksRef.current.style.animation = `0.3s slide-${
+      window.innerWidth > SMALL ? 'right' : 'up'
+    } ease`;
     timerRef.current = setTimeout(() => {
       linksRef.current.style.display = 'none';
-    }, 400);
+    }, 200);
   };
 
   const handleToggleNavbar = () => {
