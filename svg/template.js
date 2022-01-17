@@ -1,12 +1,14 @@
-function svgTemplate({ componentName, jsx }, { tpl }) {
+function svgTemplate({ imports, componentName, props, jsx, exports }, { tpl }) {
   return tpl`
-    import type { IconsProps } from '~/types';
+    ${imports}
 
-    export default function ${componentName}({ className }: IconsProps) {
+    function ${componentName}(${props}) {
       return (
         ${jsx}
       );
     }
+
+    ${exports}
   `;
 }
 

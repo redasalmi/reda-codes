@@ -3,10 +3,10 @@ const template = require('./svg/template');
 
 module.exports = {
   outDir: 'app/components/icons',
+  ref: true,
   template,
+  jsxRuntime: 'automatic',
   typescript: true,
-  expandProps: false,
-  svgProps: { className: '{className}' },
   svgoConfig: {
     plugins: [
       {

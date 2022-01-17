@@ -1,43 +1,3 @@
-@keyframes slide-down {
-  from {
-    transform: translateY(-35px);
-  }
-
-  to {
-    transform: translateY(0);
-  }
-}
-
-@keyframes slide-up {
-  from {
-    transform: translateY(0);
-  }
-
-  to {
-    transform: translateY(-35px);
-  }
-}
-
-@keyframes slide-left {
-  from {
-    transform: translateX(120px);
-  }
-
-  to {
-    transform: translateX(0);
-  }
-}
-
-@keyframes slide-right {
-  from {
-    transform: translateX(0);
-  }
-
-  to {
-    transform: translateX(120px);
-  }
-}
-
 .nav {
   padding: 20px 0;
   background-color: var(--bg-primary);
@@ -61,9 +21,9 @@
 
 .nav-mobile-links {
   position: absolute;
+  display: flex;
+  justify-content: flex-end;
   inset: 0;
-  display: none;
-  background-color: var(--bg-primary);
   z-index: 1;
 }
 
@@ -72,7 +32,10 @@
   display: flex;
   flex-direction: column;
   padding-top: 100px;
+  width: 100%;
   height: 100%;
+  background-color: var(--bg-primary);
+  transform: translateX(110%);
 }
 
 .nav-mobile-links-list li {
@@ -188,26 +151,21 @@
   transition: transform 0.5s, visibility 0.2s;
 }
 
-.nav-hamburger-btn.transform > div:first-child {
+.nav-hamburger-btn.transform-btn > div:first-child {
   transform: translateY(4px) rotateZ(-45deg);
 }
 
-.nav-hamburger-btn.transform > div:nth-child(2) {
+.nav-hamburger-btn.transform-btn > div:nth-child(2) {
   visibility: hidden;
 }
 
-.nav-hamburger-btn.transform > div:nth-child(3) {
+.nav-hamburger-btn.transform-btn > div:nth-child(3) {
   transform: translateY(-6px) rotateZ(45deg);
 }
 
 @media (--small) {
-  .nav-mobile-links {
-    left: initial;
-    right: 0;
-    width: 360px;
-  }
-
   .nav-mobile-links-list {
+    width: 320px;
     padding-top: 80px;
     box-shadow: 0px 1px 3px #4c4c4c;
   }
