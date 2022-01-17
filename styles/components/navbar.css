@@ -148,19 +148,6 @@
   border: 1px solid var(--fg-primary);
   border-radius: 5px;
   margin: 3px auto;
-  transition: transform 0.5s, visibility 0.2s;
-}
-
-.nav-hamburger-btn.transform-btn > div:first-child {
-  transform: translateY(4px) rotateZ(-45deg);
-}
-
-.nav-hamburger-btn.transform-btn > div:nth-child(2) {
-  visibility: hidden;
-}
-
-.nav-hamburger-btn.transform-btn > div:nth-child(3) {
-  transform: translateY(-6px) rotateZ(45deg);
 }
 
 @media (--small) {
@@ -172,6 +159,10 @@
 
   .nav-mobile-links .nav-link {
     padding: 0 54px;
+  }
+
+  .nav-github-btn {
+    width: 80%;
   }
 }
 

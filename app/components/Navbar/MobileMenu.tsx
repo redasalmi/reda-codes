@@ -1,15 +1,20 @@
 import * as React from 'react';
-import { useAnimation } from 'framer-motion';
+import { motion, useAnimation } from 'framer-motion';
 
 import Links from '~/components/Navbar/Links';
+import GithubLink from '~/components/Navbar/GithubLink';
+
+import { BTN_VARIANTS, LINKS_VARIANTS, LINKS_LIST_VARIANT } from '~/constant';
 
 export default function MobileMenu() {
-  const controls = useAnimation();
+  const btnControls = useAnimation();
+  const linkscontrols = useAnimation();
   const btnRef = React.useRef<HTMLButtonElement>(null!);
 
   const handleToggleNavbar = () => {
     const isOpen = btnRef.current.classList.toggle('transform-btn');
-    controls.start(isOpen ? 'slideLeft' : 'slideRight', {
+    btnControls.start(isOpen ? 'close' : 'open');
+    linkscontrols.start(isOpen ? 'slideLeft' : 'slideRight', {
       duration: 0.3,
     });
   };
@@ -17,24 +22,46 @@ export default function MobileMenu() {
   return (
     <>
       <div className="nav-hamburger">
-        <button
+        <motion.button
           ref={btnRef}
           type="button"
+          animate={btnControls}
           aria-label="hamburger menu"
           className="nav-hamburger-btn"
           onClick={handleToggleNavbar}
         >
-          <div />
-          <div />
-          <div />
-        </button>
+          {BTN_VARIANTS.map(({ key, variants, transition }) => (
+            <motion.div key={key} variants={variants} transition={transition} />
+          ))}
+        </motion.button>
       </div>
 
-      <Links
-        mobile
-        animationControls={controls}
-        hideNavbar={handleToggleNavbar}
-      />
+      <motion.div
+        variants={LINKS_VARIANTS}
+        animate={linkscontrols}
+        className="nav-mobile-links"
+      >
+        <motion.ul
+          variants={LINKS_LIST_VARIANT}
+          initial={{ x: '110%' }}
+          className="nav-mobile-links-list"
+        >
+          <Links
+            onClick={handleToggleNavbar}
+            linkClassName="container nav-link"
+          />
+
+          <li className="nav-github-link">
+            <GithubLink
+              onClick={handleToggleNavbar}
+              linkClassName="nav-github-btn"
+              svgClassName="nav-github"
+            >
+              <span>Check out my github</span>
+            </GithubLink>
+          </li>
+        </motion.ul>
+      </motion.div>
     </>
   );
 }

@@ -1,7 +1,7 @@
 import type { LinksFunction } from 'remix';
 
 import Logo from '~/components/Navbar/Logo';
-import Links from '~/components/Navbar/Links';
+import NavLinks from '~/components/Navbar/NavLinks';
 import Icons from '~/components/Navbar/Icons';
 import MobileMenu from '~/components/Navbar/MobileMenu';
 
@@ -19,7 +19,7 @@ export default function Navbar() {
     <nav className="nav">
       <div className="container">
         <Logo />
-        <Links />
+        <NavLinks />
         <Icons />
         <MobileMenu />
       </div>
