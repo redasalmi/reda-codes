@@ -122,11 +122,6 @@
   fill: var(--fg-primary);
 }
 
-.fade {
-  opacity: 0;
-  visibility: hidden;
-}
-
 .nav-hamburger {
   margin-left: 15px;
 }

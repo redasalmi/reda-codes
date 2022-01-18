@@ -1,10 +1,19 @@
 import { Form, useLoaderData } from 'remix';
+import { motion } from 'framer-motion';
 
 import { Sun, Moon } from '~/components/icons';
 import type { Theme } from '~/types';
 
+const MotionSun = motion(Sun);
+const MotionMoon = motion(Moon);
+
 export default function ThemeToggle() {
   const theme = useLoaderData<Theme>();
+
+  const variants = {
+    sun: { opacity: theme === 'light' ? 1 : 0 },
+    moon: { opacity: theme === 'dark' ? 1 : 0 },
+  };
 
   return (
     <Form method="post">
@@ -14,8 +23,20 @@ export default function ThemeToggle() {
         className="theme-btn nav-icon"
         aria-label="theme toggle"
       >
-        <Sun className={`theme-sun ${theme === 'light' ? '' : 'fade'}`} />
-        <Moon className={`theme-moon ${theme === 'dark' ? '' : 'fade'}`} />
+        <MotionSun
+          initial="sun"
+          animate="sun"
+          variants={variants}
+          transition={{ duration: 0.1 }}
+          className="theme-sun"
+        />
+        <MotionMoon
+          initial="moon"
+          animate="moon"
+          variants={variants}
+          transition={{ duration: 0.1 }}
+          className="theme-moon"
+        />
       </button>
     </Form>
   );
