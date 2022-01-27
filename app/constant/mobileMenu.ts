@@ -29,10 +29,12 @@ export const LINKS_VARIANTS = {
   slideLeft: {
     backgroundColor: 'rgba(0, 0, 0, 0.4)',
     backdropFilter: 'blur(4px)',
+    pointerEvents: 'auto' as const,
   },
   slideRight: {
     backgroundColor: 'rgba(0, 0, 0, 0)',
     backdropFilter: 'blur(0)',
+    pointerEvents: 'none' as const,
   },
 };
 

@@ -24,6 +24,8 @@
   display: flex;
   justify-content: flex-end;
   inset: 0;
+  overflow: hidden;
+  pointer-events: none;
   z-index: 1;
 }
 
@@ -53,6 +55,14 @@
 
 .nav-logo-link {
   font-size: 1.5rem;
+}
+
+.nav-logo-svg {
+  display: block;
+}
+
+.nav-logo-svg path {
+  fill: var(--fg-primary);
 }
 
 .nav-github-btn {

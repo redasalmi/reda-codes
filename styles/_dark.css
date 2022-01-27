@@ -3,8 +3,11 @@
   --fg-primary: #fffffe;
   --headline: #fffffe;
   --paragraphe: #94a1b2;
-  --btn-bg: #7f5af0;
+  --btn-bg: #6246ea;
   --btn-text: #fffffe;
-  --highlight: #7f5af0;
+  --highlight: #6246ea;
   --tertiary: #2cb67d;
+
+  --logo-bg: #1e1e1e;
+  --logo-shadow: #101010;
 }

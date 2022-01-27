@@ -2,13 +2,13 @@ import { Form, useLoaderData } from 'remix';
 import { motion } from 'framer-motion';
 
 import { Sun, Moon } from '~/components/icons';
-import type { Theme } from '~/types';
+import type { ThemeData } from '~/types';
 
 const MotionSun = motion(Sun);
 const MotionMoon = motion(Moon);
 
 export default function ThemeToggle() {
-  const theme = useLoaderData<Theme>();
+  const { theme } = useLoaderData<ThemeData>();
 
   const variants = {
     sun: { opacity: theme === 'light' ? 1 : 0 },

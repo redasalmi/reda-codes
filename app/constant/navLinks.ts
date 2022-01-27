@@ -1,4 +1,4 @@
-const NAV_LINKS = [
+export const NAV_LINKS = [
   {
     href: '#projects',
     text: 'Projects',
@@ -16,5 +16,3 @@ const NAV_LINKS = [
     text: 'Contact',
   },
 ];
-
-export default NAV_LINKS;

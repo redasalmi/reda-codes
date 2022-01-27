@@ -1,0 +1,188 @@
+@keyframes move {
+  0% {
+    transform: translateX(0);
+  }
+
+  25% {
+    transform: translateX(5px);
+  }
+
+  50% {
+    transform: translateX(0);
+  }
+
+  75% {
+    transform: translateX(-5px);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes wave {
+  0% {
+    transform: rotateZ(0);
+  }
+
+  100% {
+    transform: rotateZ(40deg);
+  }
+}
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.full-stack {
+  font-size: 1.8rem;
+}
+
+.hero-projects-link,
+.hero-about-link {
+  border-radius: 24px;
+  text-decoration: none;
+  padding: 12px 24px;
+  display: block;
+  width: 200px;
+  margin-top: 10px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.hero-projects-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  background-color: var(--highlight);
+}
+
+.hero-projects-link .chevron path {
+  fill: var(--white);
+}
+
+.hero-projects-link .chevron,
+.hero-about-link .hand {
+  display: inline-block;
+}
+
+.hero-about-link {
+  color: var(--fg-primary);
+  border: 2px solid var(--highlight);
+}
+
+.logo-animation {
+  visibility: hidden;
+  padding: 30px 0;
+  border-radius: 20px;
+  transform-style: preserve-3d;
+  background-color: var(--logo-bg);
+}
+
+.logo-animation-svg {
+  visibility: visible;
+  display: block;
+  width: 250px;
+  height: 100%;
+  margin: auto;
+}
+
+@media (--small) {
+  .hero-projects-link,
+  .hero-about-link {
+    width: 250px;
+  }
+
+  .logo-animation {
+    padding: 40px 0;
+  }
+
+  .logo-animation-svg {
+    width: 300px;
+  }
+}
+
+@media (--medium) {
+  .hero {
+    padding-top: 40px;
+    padding-bottom: 40px;
+    flex-direction: row;
+  }
+
+  .hero > div {
+    width: 50%;
+  }
+
+  .hero-info {
+    padding: 40px 0;
+  }
+
+  .full-stack {
+    font-size: 1.5rem;
+  }
+
+  .hero-projects-link .chevron {
+    width: 20px;
+    height: 20px;
+  }
+
+  .hero-projects-link:hover .chevron {
+    animation: 2s move infinite linear;
+  }
+
+  .hero-about-link:hover .hand {
+    animation: 0.6s wave infinite alternate linear;
+  }
+
+  .logo-animation-svg {
+    width: 250px;
+  }
+}
+
+@media (--large) {
+  .hero-info {
+    font-size: 1.2rem;
+    padding: 60px 0;
+  }
+
+  .full-stack {
+    font-size: 2rem;
+    line-height: 1.5;
+  }
+
+  .hero-links {
+    margin-top: 20px;
+  }
+
+  .logo-animation-svg {
+    width: 275px;
+  }
+}
+
+@media (--extra-large) {
+  .hero {
+    padding-top: 80px;
+    padding-bottom: 80px;
+    justify-content: space-between;
+  }
+
+  .hero > div:last-child {
+    width: 45%;
+  }
+
+  .full-stack {
+    font-size: 2.4rem;
+    line-height: 2;
+  }
+
+  .hero-links {
+    display: flex;
+    margin-top: 30px;
+    gap: 15px;
+  }
+}

@@ -2,7 +2,6 @@ import {
   Links,
   LiveReload,
   Meta,
-  Outlet,
   Scripts,
   ScrollRestoration,
   useLoaderData,
@@ -14,11 +13,15 @@ import type {
   ActionFunction,
 } from 'remix';
 
-import Navbar, { navbarLinks } from '~/components/Navbar';
-import { getuserTheme, toggleUserTheme } from '~/cookies';
-import type { Theme } from '~/types';
+import Navbar from '~/components/Navbar';
+import Hero from '~/components/Hero';
+
+import { getuserTheme, setUserTheme } from '~/cookies';
+import type { ThemeData } from '~/types';
 
 import globalStyles from '~/styles/global.css';
+import navbarStyles from '~/styles/components/navbar.css';
+import heroStyles from '~/styles/components/hero.css';
 
 export const meta: MetaFunction = () => {
   return { title: 'New Remix App' };
@@ -33,7 +36,14 @@ export const links: LinksFunction = () => [
     rel: 'stylesheet',
     href: globalStyles,
   },
-  ...navbarLinks(),
+  {
+    rel: 'stylesheet',
+    href: navbarStyles,
+  },
+  {
+    rel: 'stylesheet',
+    href: heroStyles,
+  },
 ];
 
 export const loader: LoaderFunction = async ({ request }) => {
@@ -41,11 +51,11 @@ export const loader: LoaderFunction = async ({ request }) => {
 };
 
 export const action: ActionFunction = async ({ request }) => {
-  return toggleUserTheme(request);
+  return setUserTheme(request);
 };
 
 export default function App() {
-  const theme = useLoaderData<Theme>();
+  const { theme } = useLoaderData<ThemeData>();
 
   return (
     <html lang="en">
@@ -57,7 +67,7 @@ export default function App() {
       </head>
       <body className={theme}>
         <Navbar />
-        <Outlet />
+        <Hero />
         <ScrollRestoration />
         <Scripts />
         {process.env.NODE_ENV === 'development' && <LiveReload />}
