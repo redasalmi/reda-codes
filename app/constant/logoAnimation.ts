@@ -1,6 +1,5 @@
 export const LOGO_DIV_VARIANTS = {
   perspective: {
-    visibility: 'visible' as const,
     perspective: 750,
     z: -250,
     rotateX: 27,

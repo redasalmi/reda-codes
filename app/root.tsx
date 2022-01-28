@@ -15,36 +15,15 @@ import type {
 
 import Navbar from '~/components/Navbar';
 import Hero from '~/components/Hero';
+import Projects from '~/components/Projects';
 
 import { getuserTheme, setUserTheme } from '~/cookies';
+import { META, LINKS } from '~/constant';
 import type { ThemeData } from '~/types';
 
-import globalStyles from '~/styles/global.css';
-import navbarStyles from '~/styles/components/navbar.css';
-import heroStyles from '~/styles/components/hero.css';
+export const meta: MetaFunction = () => META;
 
-export const meta: MetaFunction = () => {
-  return { title: 'New Remix App' };
-};
-
-export const links: LinksFunction = () => [
-  {
-    rel: 'icon',
-    href: '/favicon.ico',
-  },
-  {
-    rel: 'stylesheet',
-    href: globalStyles,
-  },
-  {
-    rel: 'stylesheet',
-    href: navbarStyles,
-  },
-  {
-    rel: 'stylesheet',
-    href: heroStyles,
-  },
-];
+export const links: LinksFunction = () => LINKS;
 
 export const loader: LoaderFunction = async ({ request }) => {
   return getuserTheme(request.headers);
@@ -68,6 +47,7 @@ export default function App() {
       <body className={theme}>
         <Navbar />
         <Hero />
+        <Projects />
         <ScrollRestoration />
         <Scripts />
         {process.env.NODE_ENV === 'development' && <LiveReload />}

@@ -41,7 +41,10 @@ export default function LogoAnimation() {
   const controls = useAnimation();
   const perspective = useMotionValue(0);
 
-  const startPerspectiveAnim = () => controls.start('perspective');
+  const startPerspectiveAnim = () => {
+    logoDivRef.current.classList.add('logo-animation-bg');
+    controls.start('perspective');
+  };
 
   const handleMouseEvent = (event: React.MouseEvent<HTMLDivElement>) => {
     if (perspective.get() === 750) {
