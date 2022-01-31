@@ -5,3 +5,4 @@ export * from './logoAnimation';
 export * from './hero';
 export * from './links';
 export * from './meta';
+export * from './projects';

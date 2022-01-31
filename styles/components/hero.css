@@ -3,7 +3,7 @@
   flex-direction: column;
   gap: 20px;
   padding-top: 20px;
-  padding-bottom: 20px;
+  padding-bottom: 60px;
 }
 
 .full-stack {
@@ -13,7 +13,6 @@
 .hero-projects-link,
 .hero-about-link {
   border-radius: 24px;
-  text-decoration: none;
   padding: 12px 24px;
   display: block;
   width: 200px;
@@ -124,6 +123,10 @@
     margin-top: 20px;
   }
 
+  .logo-animation {
+    padding: 60px 0;
+  }
+
   .logo-animation-svg {
     width: 275px;
   }
@@ -149,5 +152,9 @@
     display: flex;
     margin-top: 30px;
     gap: 15px;
+  }
+
+  .logo-animation {
+    padding: 40px 0;
   }
 }

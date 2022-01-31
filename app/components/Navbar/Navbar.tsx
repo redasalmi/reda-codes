@@ -1,7 +1,6 @@
 import Logo from '~/components/Navbar/Logo';
 import NavLinks from '~/components/Navbar/NavLinks';
-import Icons from '~/components/Navbar/Icons';
-import MobileMenu from '~/components/Navbar/MobileMenu';
+import NavButtons from '~/components/Navbar/NavButtons';
 
 export default function Navbar() {
   return (
@@ -9,8 +8,7 @@ export default function Navbar() {
       <div className="container">
         <Logo />
         <NavLinks />
-        <Icons />
-        <MobileMenu />
+        <NavButtons />
       </div>
     </nav>
   );

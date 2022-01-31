@@ -1,0 +1,173 @@
+.projects {
+  overflow: hidden;
+}
+
+.project {
+  margin: 20px 0;
+  height: 450px;
+  position: relative;
+}
+
+.project:first-of-type {
+  margin-top: 0;
+}
+
+.project-border {
+  border-radius: 18px;
+}
+
+.project-card {
+  position: absolute;
+  right: 0;
+  width: 100%;
+  height: 52%;
+  border: 2px solid var(--highlight);
+  background-color: var(--highlight);
+}
+
+.project-first-card {
+  top: 0;
+}
+
+.project-first-card,
+.project-first-card > div {
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+  clip-path: polygon(0% 0%, 100% 0%, 100% 96%, 0% 100%);
+}
+
+.project-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin: auto;
+  padding: 20px;
+  width: 100%;
+  height: 100%;
+  background-color: var(--bg-primary);
+}
+
+.project-title {
+  font-weight: bold;
+  font-size: 1.4rem;
+}
+
+.project-link {
+  font-weight: bold;
+  color: var(--highlight);
+}
+
+.project-desc {
+  text-align: justify;
+}
+
+.tech-stack {
+  color: var(--tertiary);
+}
+
+.project-owner,
+.source-code {
+  display: inline-block;
+}
+
+.source-code {
+  margin-left: 20px;
+}
+
+.project-last-card {
+  top: calc(50% - 2px);
+  z-index: 1;
+}
+
+.project-last-card,
+.project-last-card > div {
+  border-top-right-radius: 0;
+  border-top-left-radius: 0;
+  clip-path: polygon(0% 4%, 100% 0%, 100% 100%, 0% 100%);
+}
+
+.project-img {
+  margin: auto;
+  width: 100%;
+  height: 100%;
+  background-color: var(--bg-primary);
+}
+
+.project-img img {
+  width: 100%;
+  height: 100%;
+}
+
+.project-first-card img {
+  border-top-right-radius: 18px;
+  border-top-left-radius: 18px;
+}
+
+.project-last-card img {
+  border-bottom-right-radius: 18px;
+  border-bottom-left-radius: 18px;
+}
+
+@media (--small) {
+  .project {
+    height: 500px;
+  }
+}
+
+@media (--medium) {
+  .project {
+    height: 310px;
+    margin: 40px 0;
+  }
+
+  .project-card {
+    top: 0;
+    right: unset;
+    width: 52%;
+    height: 310px;
+  }
+
+  .project-first-card {
+    left: 0;
+  }
+
+  .project-first-card,
+  .project-first-card > div {
+    border-top-right-radius: 0;
+    border-bottom-left-radius: 18px;
+    clip-path: polygon(0% 0%, 100% 0%, 96% 100%, 0% 100%);
+  }
+
+  .project-first-card .project-info {
+    padding-right: 40px;
+  }
+
+  .project-last-card .project-info {
+    padding-left: 40px;
+  }
+
+  .project-last-card {
+    right: 0;
+  }
+
+  .project-last-card,
+  .project-last-card > div {
+    border-top-right-radius: 18px;
+    border-bottom-left-radius: 0;
+    clip-path: polygon(4% 0%, 100% 0%, 100% 100%, 0% 100%);
+  }
+
+  .project-first-card img {
+    border-bottom-left-radius: 18px;
+    border-top-right-radius: 0;
+  }
+
+  .project-last-card img {
+    border-top-right-radius: 18px;
+    border-bottom-left-radius: 0;
+  }
+
+  .project-title {
+    font-size: 1.125rem;
+  }
+}
