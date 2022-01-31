@@ -1,0 +1,47 @@
+.skills-list {
+  margin: 30px 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+}
+
+.skill {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 120px;
+  height: 120px;
+  padding: 25px 15px 15px 15px;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+  background-color: var(--skill-bg);
+  box-shadow: 0px 0px 3px var(--skill-bg);
+}
+
+.skill-svg {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 15px;
+}
+
+.express-skill {
+  width: 70px;
+  margin: auto;
+}
+
+.express-skill path {
+  stroke: var(--fg-primary);
+  stroke-width: 6px;
+}
+
+.dark .express-skill path,
+.dark .nextjs-skill path,
+.dark .remix-skill path {
+  fill: var(--fg-primary);
+}
+
+.mongodb-skill {
+  width: 90px;
+}

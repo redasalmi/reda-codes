@@ -16,6 +16,7 @@ import type {
 import Navbar from '~/components/Navbar';
 import Hero from '~/components/Hero';
 import Projects from '~/components/Projects';
+import Skills from '~/components/Skills';
 
 import { getuserTheme, setUserTheme } from '~/cookies';
 import { META, LINKS } from '~/constant';
@@ -48,6 +49,7 @@ export default function App() {
         <Navbar />
         <Hero />
         <Projects />
+        <Skills />
         <ScrollRestoration />
         <Scripts />
         {process.env.NODE_ENV === 'development' && <LiveReload />}
