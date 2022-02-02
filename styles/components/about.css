@@ -1,0 +1,47 @@
+.about-me {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.about-info {
+  letter-spacing: -0.5px;
+  text-align: justify;
+}
+
+.about-img {
+  text-align: center;
+}
+
+.about-img img {
+  border-radius: 50%;
+  width: auto;
+  height: 320px;
+}
+
+@media (--medium) {
+  .about-me {
+    align-items: center;
+    flex-direction: row;
+  }
+
+  .about-info {
+    width: 60%;
+  }
+
+  .about-img {
+    width: 40%;
+  }
+}
+
+@media (--large) {
+  .about-info {
+    font-size: 1.15rem;
+  }
+}
+
+@media (--extra-large) {
+  .about-info {
+    font-size: 1.25rem;
+  }
+}

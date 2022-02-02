@@ -3,6 +3,7 @@ import navbarStyles from '~/styles/components/navbar.css';
 import heroStyles from '~/styles/components/hero.css';
 import projectsStyles from '~/styles/components/projects.css';
 import skillsStyles from '~/styles/components/skills.css';
+import aboutStyles from '~/styles/components/about.css';
 
 export const LINKS = [
   {
@@ -28,5 +29,9 @@ export const LINKS = [
   {
     rel: 'stylesheet',
     href: skillsStyles,
+  },
+  {
+    rel: 'stylesheet',
+    href: aboutStyles,
   },
 ];
