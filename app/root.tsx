@@ -19,6 +19,7 @@ import Projects from '~/components/Projects';
 import Skills from '~/components/Skills';
 import About from '~/components/About';
 import Contact from '~/components/Contact';
+import Footer from '~/components/Footer';
 
 import { getuserTheme, setUserTheme } from '~/cookies';
 import { META, LINKS } from '~/constant';
@@ -54,6 +55,7 @@ export default function App() {
         <Skills />
         <About />
         <Contact />
+        <Footer />
         <ScrollRestoration />
         <Scripts />
         {process.env.NODE_ENV === 'development' && <LiveReload />}

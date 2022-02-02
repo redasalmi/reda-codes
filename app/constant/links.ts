@@ -5,6 +5,7 @@ import projectsStyles from '~/styles/components/projects.css';
 import skillsStyles from '~/styles/components/skills.css';
 import aboutStyles from '~/styles/components/about.css';
 import contactStyles from '~/styles/components/contact.css';
+import footerStyles from '~/styles/components/footer.css';
 
 export const LINKS = [
   {
@@ -38,5 +39,9 @@ export const LINKS = [
   {
     rel: 'stylesheet',
     href: contactStyles,
+  },
+  {
+    rel: 'stylesheet',
+    href: footerStyles,
   },
 ];

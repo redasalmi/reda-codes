@@ -4,7 +4,7 @@ import NavButtons from '~/components/Navbar/NavButtons';
 
 export default function Navbar() {
   return (
-    <nav className="nav">
+    <nav id="nav" className="nav">
       <div className="container">
         <Logo />
         <NavLinks />
