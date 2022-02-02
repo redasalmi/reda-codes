@@ -29,10 +29,6 @@
   background-color: var(--highlight);
 }
 
-.hero-projects-link .chevron path {
-  fill: var(--white);
-}
-
 .hero-projects-link .chevron,
 .hero-about-link .hand {
   display: inline-block;

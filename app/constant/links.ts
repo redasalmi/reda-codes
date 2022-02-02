@@ -4,6 +4,7 @@ import heroStyles from '~/styles/components/hero.css';
 import projectsStyles from '~/styles/components/projects.css';
 import skillsStyles from '~/styles/components/skills.css';
 import aboutStyles from '~/styles/components/about.css';
+import contactStyles from '~/styles/components/contact.css';
 
 export const LINKS = [
   {
@@ -33,5 +34,9 @@ export const LINKS = [
   {
     rel: 'stylesheet',
     href: aboutStyles,
+  },
+  {
+    rel: 'stylesheet',
+    href: contactStyles,
   },
 ];
