@@ -20,6 +20,7 @@ import Skills from '~/components/Skills';
 import About from '~/components/About';
 import Contact from '~/components/Contact';
 import Footer from '~/components/Footer';
+import ScrollUp from '~/components/ScrollUp';
 
 import { getuserTheme, setUserTheme } from '~/cookies';
 import { META, LINKS } from '~/constant';
@@ -48,7 +49,7 @@ export default function App() {
         <Meta />
         <Links />
       </head>
-      <body className={theme}>
+      <body id="home" className={theme}>
         <Navbar />
         <Hero />
         <Projects />
@@ -56,6 +57,7 @@ export default function App() {
         <About />
         <Contact />
         <Footer />
+        <ScrollUp />
         <ScrollRestoration />
         <Scripts />
         {process.env.NODE_ENV === 'development' && <LiveReload />}

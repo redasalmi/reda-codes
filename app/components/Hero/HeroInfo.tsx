@@ -1,10 +1,9 @@
-import { Link } from 'remix';
 import { motion } from 'framer-motion';
 
+import MotionLink from '~/components/MotionLink';
 import { ChevronRight } from '~/components/icons';
 import { chevronVariants, handVariants } from '~/constant';
 
-const MotionLink = motion(Link);
 const MotionChevron = motion(ChevronRight);
 
 export default function HeroInfo() {

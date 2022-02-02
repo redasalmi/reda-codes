@@ -7,3 +7,4 @@ export * from './links';
 export * from './meta';
 export * from './projects';
 export * from './skills';
+export * from './scrollUp';

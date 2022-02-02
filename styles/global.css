@@ -41,25 +41,45 @@ a {
   color: var(--highlight);
 }
 
+.scroll-up {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  right: 10px;
+  bottom: 10px;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background-color: var(--tertiary);
+  z-index: 130;
+}
+
+.scroll-up svg {
+  width: 19px;
+  height: 19px;
+  stroke: var(--white);
+}
+
 @media (--small) {
   .container {
     max-width: 540px;
   }
 }
 
-@media screen and (--medium) {
+@media (--medium) {
   .container {
     max-width: 720px;
   }
 }
 
-@media screen and (--large) {
+@media (--large) {
   .container {
     max-width: 960px;
   }
 }
 
-@media screen and (--extra-large) {
+@media (--extra-large) {
   .container {
     max-width: 1140px;
   }

@@ -5,7 +5,7 @@ import { NAV_LINKS } from '~/constant';
 export default function Footer() {
   const footerLinks = [
     {
-      href: '#nav',
+      href: '#home',
       text: 'Home',
     },
     ...NAV_LINKS,

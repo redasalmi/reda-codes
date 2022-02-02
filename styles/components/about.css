@@ -16,7 +16,7 @@
 .about-img img {
   border-radius: 50%;
   width: auto;
-  height: 320px;
+  height: 300px;
 }
 
 @media (--medium) {
@@ -26,17 +26,17 @@
   }
 
   .about-info {
-    width: 60%;
-  }
-
-  .about-img {
-    width: 40%;
+    flex: 1;
   }
 }
 
 @media (--large) {
+  .about-me {
+    gap: 40px;
+  }
+
   .about-info {
-    font-size: 1.15rem;
+    font-size: 1.175rem;
   }
 }
 
