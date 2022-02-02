@@ -1,3 +1,3 @@
-export const META = {
+export const metas = {
   title: 'Reda Salmi Portfolio',
 };

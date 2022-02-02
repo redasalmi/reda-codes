@@ -1,6 +1,6 @@
 import { Link } from 'remix';
 
-import { NAV_LINKS } from '~/constant';
+import { navLinks } from '~/constant';
 
 export default function Footer() {
   const footerLinks = [
@@ -8,7 +8,7 @@ export default function Footer() {
       href: '#home',
       text: 'Home',
     },
-    ...NAV_LINKS,
+    ...navLinks,
   ];
 
   return (

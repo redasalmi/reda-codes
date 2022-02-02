@@ -9,12 +9,16 @@ import {
 
 interface ProjectProps {
   title: string;
-  owner?: string;
-  ownerLink?: string;
+  owner?: {
+    name: string;
+    link: string;
+  };
   desc: string;
   techStack: string[];
-  img: string;
-  imgAlt: string;
+  img: {
+    src: string;
+    alt: string;
+  };
   imgFirst: boolean;
   link: string;
   code?: string;
@@ -23,44 +27,27 @@ interface ProjectProps {
 function Project({
   title,
   owner,
-  ownerLink,
   desc,
   techStack,
   img,
-  imgAlt,
   imgFirst,
   link,
   code,
 }: ProjectProps) {
-  const projectInfo = {
-    variants: imgFirst ? projectLastVariant : projectFirstVariant,
-    transition: { duration: 2 },
-    className: `project-border project-card ${
-      imgFirst ? 'project-last-card' : 'project-first-card'
-    }`,
-  };
-
-  const projectImg = {
-    variants: imgFirst ? projectFirstVariant : projectLastVariant,
-    transition: { duration: 2 },
-    className: `project-border project-card ${
-      imgFirst ? 'project-first-card' : 'project-last-card'
-    }`,
-  };
-
   return (
     <motion.div
       initial="hide"
       whileInView="show"
       variants={projectVariants}
       viewport={{ once: true }}
-      transition={{
-        duration: 2,
-        boxShadow: { delay: 1.7, duration: 1 },
-      }}
       className="project project-border"
     >
-      <motion.div {...projectInfo}>
+      <motion.div
+        variants={imgFirst ? projectLastVariant : projectFirstVariant}
+        className={`project-border project-card ${
+          imgFirst ? 'project-last-card' : 'project-first-card'
+        }`}
+      >
         <div className="project-border project-info">
           <div>
             <h2 className="project-title">{title}</h2>
@@ -71,12 +58,12 @@ function Project({
                 <>
                   <span>Made for </span>
                   <a
-                    href={ownerLink}
+                    href={owner.link}
                     target="_blank"
                     rel="noreferrer"
                     className="project-link"
                   >
-                    {owner}
+                    {owner.name}
                   </a>
                 </>
               )}
@@ -112,9 +99,14 @@ function Project({
         </div>
       </motion.div>
 
-      <motion.div {...projectImg}>
+      <motion.div
+        variants={imgFirst ? projectFirstVariant : projectLastVariant}
+        className={`project-border project-card ${
+          imgFirst ? 'project-first-card' : 'project-last-card'
+        }`}
+      >
         <div className="project-border project-img">
-          <img src={img} alt={imgAlt} />
+          <img src={img.src} alt={img.alt} />
         </div>
       </motion.div>
     </motion.div>

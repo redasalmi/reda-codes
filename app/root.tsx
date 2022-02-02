@@ -23,12 +23,12 @@ import Footer from '~/components/Footer';
 import ScrollUp from '~/components/ScrollUp';
 
 import { getuserTheme, setUserTheme } from '~/cookies';
-import { META, LINKS } from '~/constant';
+import { metas, links as appLinks } from '~/constant';
 import type { ThemeData } from '~/types';
 
-export const meta: MetaFunction = () => META;
+export const meta: MetaFunction = () => metas;
 
-export const links: LinksFunction = () => LINKS;
+export const links: LinksFunction = () => appLinks;
 
 export const loader: LoaderFunction = async ({ request }) => {
   return getuserTheme(request.headers);

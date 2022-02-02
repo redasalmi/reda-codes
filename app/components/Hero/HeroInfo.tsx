@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 
 import MotionLink from '~/components/MotionLink';
 import { ChevronRight } from '~/components/icons';
+
 import { chevronVariants, handVariants } from '~/constant';
 
 const MotionChevron = motion(ChevronRight);

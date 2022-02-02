@@ -7,9 +7,9 @@ import GithubLink from '~/components/Navbar/GithubLink';
 export default function NavButtons() {
   const navBtnsRef = React.useRef<HTMLDivElement>(null!);
 
-  const toggleNavIconsPosition = () => {
-    navBtnsRef.current.classList.toggle('container');
-    navBtnsRef.current.classList.toggle('nav-icons-fixed');
+  const fixNavIconsPosition = (fix: boolean) => {
+    navBtnsRef.current.classList.toggle('container', fix);
+    navBtnsRef.current.classList.toggle('nav-icons-fixed', fix);
   };
 
   return (
@@ -19,7 +19,7 @@ export default function NavButtons() {
       </div>
 
       <div>
-        <HamburgerMenu toggleNavIconsPosition={toggleNavIconsPosition} />
+        <HamburgerMenu fixNavIconsPosition={fixNavIconsPosition} />
       </div>
 
       <div>

@@ -1,15 +1,15 @@
+const transition = {
+  duration: 0.1,
+};
+
 export const scrollUpVariants = {
   hide: {
     opacity: 0,
-    transition: {
-      duration: 0.1,
-    },
+    transition,
   },
   show: {
     opacity: 1,
-    transition: {
-      duration: 0.1,
-    },
+    transition,
   },
   pulse: {
     boxShadow: [

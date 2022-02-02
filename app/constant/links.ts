@@ -7,7 +7,7 @@ import aboutStyles from '~/styles/components/about.css';
 import contactStyles from '~/styles/components/contact.css';
 import footerStyles from '~/styles/components/footer.css';
 
-export const LINKS = [
+export const links = [
   {
     rel: 'icon',
     href: '/favicon.ico',

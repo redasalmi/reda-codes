@@ -1,4 +1,4 @@
-export const BTN_VARIANTS = [
+export const hamburgerBtnVariants = [
   {
     key: 'btn1',
     transition: { duration: 0.3 },
@@ -25,7 +25,7 @@ export const BTN_VARIANTS = [
   },
 ];
 
-export const LINKS_VARIANTS = {
+export const linksVariants = {
   slideLeft: {
     backgroundColor: 'rgba(0, 0, 0, 0.4)',
     backdropFilter: 'blur(4px)',
@@ -38,7 +38,8 @@ export const LINKS_VARIANTS = {
   },
 };
 
-export const LINKS_LIST_VARIANT = {
+export const linksListVariants = {
+  init: { x: '110%' },
   slideLeft: { x: 0 },
   slideRight: { x: '110%' },
 };

@@ -1,6 +1,6 @@
 import { Link } from 'remix';
 
-import { NAV_LINKS } from '~/constant';
+import { navLinks } from '~/constant';
 
 interface LinksProps {
   linkClassName?: string;
@@ -10,7 +10,7 @@ interface LinksProps {
 export default function Links({ linkClassName, onClick }: LinksProps) {
   return (
     <>
-      {NAV_LINKS.map(({ href, text }) => (
+      {navLinks.map(({ href, text }) => (
         <li key={href}>
           <Link to={href} onClick={onClick} className={linkClassName}>
             {text}

@@ -1,4 +1,4 @@
-export const LOGO_DIV_VARIANTS = {
+export const logoBgVariants = {
   perspective: {
     perspective: 750,
     z: -250,
@@ -14,7 +14,22 @@ export const LOGO_DIV_VARIANTS = {
   },
 };
 
-export const CLIPS = [
+export const pathVariants = {
+  hide: {
+    pathLength: 0,
+    opacity: 0,
+  },
+  show: ({ duration, delay }: { duration: number; delay: number }) => ({
+    pathLength: 1,
+    opacity: 1,
+    transition: {
+      pathLength: { type: 'spring', duration, bounce: 0, delay },
+      opacity: { duration: 0.01, delay },
+    },
+  }),
+};
+
+export const clips = [
   {
     id: 'path-reda-r1',
     d: 'M15.215 3.124a21.89 21.89 0 0 0-.61.559c-.44.44-.965.99-1.575 1.651-.61.66-1.244 1.38-1.905 2.159-.66.762-1.27 1.558-1.829 2.388a15.872 15.872 0 0 0-1.371 2.387c-.356.78-.534 1.499-.534 2.16 0 .32.051.6.153.837.101.22.338.33.711.33v.204a.728.728 0 0 1-.33.076c-.288 0-.542-.11-.762-.33a2.532 2.532 0 0 1-.508-.813c-.119-.322-.178-.601-.178-.838 0-.559.144-1.202.432-1.93.288-.746.669-1.525 1.143-2.337.474-.813.99-1.618 1.55-2.413a44.667 44.667 0 0 1 1.726-2.286c.576-.712 1.101-1.33 1.575-1.855l.813-.863.076-.076a.487.487 0 0 1-.152-.356c0-.22.11-.432.33-.635.237-.22.491-.415.762-.584.27-.186.483-.339.635-.457.152 0 .364.042.635.127.27.067.508.169.711.304.22.136.33.305.33.508a.89.89 0 0 1-.05.28c-.068.152-.204.33-.407.533a8.04 8.04 0 0 1-.66.635',
@@ -69,7 +84,7 @@ export const CLIPS = [
   },
 ];
 
-export const PATHS = [
+export const paths = [
   {
     delay: 0,
     duration: 1,

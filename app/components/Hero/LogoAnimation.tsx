@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { motion, useAnimation, useMotionValue } from 'framer-motion';
 
-import { LOGO_DIV_VARIANTS, CLIPS, PATHS } from '~/constant';
+import { logoBgVariants, pathVariants, clips, paths } from '~/constant';
 
 interface MotionPathProps {
   d: string;
@@ -23,14 +23,12 @@ function MotionPath({
   return (
     <motion.path
       d={d}
+      initial="hide"
+      animate="show"
       clipPath={clipPath}
+      variants={pathVariants}
       strokeWidth={strokeWidth}
-      initial={{ pathLength: 0, opacity: 0 }}
-      animate={{ pathLength: 1, opacity: 1 }}
-      transition={{
-        pathLength: { type: 'spring', duration, bounce: 0, delay },
-        opacity: { duration: 0.01, delay },
-      }}
+      custom={{ duration, delay }}
       onAnimationComplete={onAnimationComplete}
     />
   );
@@ -75,7 +73,7 @@ export default function LogoAnimation() {
     <motion.div
       ref={logoDivRef}
       animate={controls}
-      variants={LOGO_DIV_VARIANTS}
+      variants={logoBgVariants}
       style={{ perspective }}
       className="logo-animation"
       onMouseMove={handleMouseEvent}
@@ -87,7 +85,7 @@ export default function LogoAnimation() {
         xmlns="http://www.w3.org/2000/svg"
       >
         <g>
-          {CLIPS.map(({ id, d }) => (
+          {clips.map(({ id, d }) => (
             <clipPath key={id} id={id}>
               <path d={d} />
             </clipPath>
@@ -100,11 +98,11 @@ export default function LogoAnimation() {
           strokeLinecap="round"
           strokeLinejoin="round"
         >
-          {PATHS.map((clip, index) => (
+          {paths.map((clip, index) => (
             <MotionPath
               key={clip.clipPath}
               onAnimationComplete={
-                index === PATHS.length - 1 ? startPerspectiveAnim : undefined
+                index === paths.length - 1 ? startPerspectiveAnim : undefined
               }
               {...clip}
             />
