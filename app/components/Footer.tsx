@@ -1,5 +1,7 @@
 import { Link } from 'remix';
 
+import Section from '~/components/Section';
+
 import { navLinks } from '~/constant';
 
 export default function Footer() {
@@ -12,24 +14,18 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="footer">
-      <div className="container">
-        <div className="footer-links">
-          {footerLinks.map(({ href, text }) => (
-            <Link
-              to={href}
-              key={`footer-${href}`}
-              className="nav-animated-link"
-            >
-              {text}
-            </Link>
-          ))}
-        </div>
-
-        <div className="footer-copyright">
-          <p>{new Date().getFullYear()} ©️ Reda Salmi. All rights reserved.</p>
-        </div>
+    <Section type="footer" className="footer">
+      <div className="footer-links">
+        {footerLinks.map(({ href, text }) => (
+          <Link to={href} key={`footer-${href}`} className="nav-animated-link">
+            {text}
+          </Link>
+        ))}
       </div>
-    </footer>
+
+      <div className="footer-copyright">
+        <p>{new Date().getFullYear()} ©️ Reda Salmi. All rights reserved.</p>
+      </div>
+    </Section>
   );
 }

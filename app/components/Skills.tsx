@@ -1,6 +1,8 @@
 import * as React from 'react';
 import { motion } from 'framer-motion';
 
+import Section from '~/components/Section';
+
 import { skills } from '~/constant';
 
 interface SkillProps {
@@ -23,17 +25,17 @@ function Skill({ title, iconClass, Icon }: SkillProps) {
 
 export default function Skills() {
   return (
-    <section id="skills" className="skills">
-      <div className="container">
-        <h2>My Skills</h2>
-        <p>These are the skills I use most of the time</p>
-
-        <div className="skills-list">
-          {skills.map(({ key, ...skill }) => (
-            <Skill key={key} {...skill} />
-          ))}
-        </div>
+    <Section
+      id="skills"
+      title="My Skills"
+      className="skills"
+      subTitle="These are the skills I use most of the time"
+    >
+      <div className="skills-list">
+        {skills.map(({ key, ...skill }) => (
+          <Skill key={key} {...skill} />
+        ))}
       </div>
-    </section>
+    </Section>
   );
 }

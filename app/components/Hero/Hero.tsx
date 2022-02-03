@@ -1,10 +1,11 @@
+import Section from '~/components/Section';
 import HeroInfo from '~/components/Hero/HeroInfo';
 import LogoAnimation from '~/components/Hero/LogoAnimation';
 import ScrollDown from '~/components/Hero/ScrollDown';
 
 export default function Hero() {
   return (
-    <section className="container hero">
+    <Section className="hero">
       <div className="hero-info">
         <HeroInfo />
       </div>
@@ -16,6 +17,6 @@ export default function Hero() {
       <div className="hero-scroll-down">
         <ScrollDown />
       </div>
-    </section>
+    </Section>
   );
 }

@@ -1,4 +1,4 @@
-.hero {
+.hero .container {
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -76,7 +76,7 @@
 }
 
 @media (--medium) {
-  .hero {
+  .hero .container {
     padding-top: 40px;
     padding-bottom: 40px;
     flex-direction: row;
@@ -174,7 +174,7 @@
 }
 
 @media (--extra-large) {
-  .hero {
+  .hero .container {
     padding-top: 80px;
     padding-bottom: 80px;
     justify-content: space-between;

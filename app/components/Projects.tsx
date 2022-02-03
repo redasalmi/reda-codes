@@ -1,5 +1,7 @@
 import { motion } from 'framer-motion';
 
+import Section from '~/components/Section';
+
 import {
   projectsData,
   projectVariants,
@@ -115,15 +117,15 @@ function Project({
 
 export default function Projects() {
   return (
-    <section id="projects" className="projects">
-      <div className="container">
-        <h2>My Projects</h2>
-        <p>These are some of the projects I worked on</p>
-
-        {projectsData.map(({ key, ...project }, index) => (
-          <Project key={key} imgFirst={index % 2 !== 0} {...project} />
-        ))}
-      </div>
-    </section>
+    <Section
+      id="projects"
+      title="My Projects"
+      className="projects"
+      subTitle="These are some of the projects I worked on"
+    >
+      {projectsData.map(({ key, ...project }, index) => (
+        <Project key={key} imgFirst={index % 2 !== 0} {...project} />
+      ))}
+    </Section>
   );
 }
