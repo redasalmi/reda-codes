@@ -39,6 +39,10 @@
   border: 2px solid var(--highlight);
 }
 
+.hero-scroll-down {
+  display: none;
+}
+
 .logo-animation {
   padding: 30px 0;
   border-radius: 20px;
@@ -76,10 +80,15 @@
     padding-top: 40px;
     padding-bottom: 40px;
     flex-direction: row;
+    flex-wrap: wrap;
   }
 
-  .hero > div {
+  .hero-info {
     width: 50%;
+  }
+
+  .hero-logo {
+    width: 47%;
   }
 
   .hero-info {
@@ -93,6 +102,42 @@
   .hero-projects-link .chevron {
     width: 20px;
     height: 20px;
+  }
+
+  .hero-scroll-down {
+    display: block;
+    width: 100%;
+    text-align: center;
+  }
+
+  .scroll-down-link {
+    font-weight: bold;
+    color: var(--tertiary);
+    display: inline-block;
+  }
+
+  .scroll-down-mouse {
+    display: block;
+    margin: auto;
+    width: 30px;
+    height: 50px;
+    border-radius: 18px;
+    border: 2px solid var(--tertiary);
+  }
+
+  .scroll-down-mouse > span {
+    display: block;
+    margin: 10px auto auto auto;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background-color: var(--tertiary);
+  }
+
+  .scroll-down-text {
+    display: block;
+    margin-top: 20px;
+    font-size: 1.2rem;
   }
 
   .logo-animation {
@@ -135,7 +180,7 @@
     justify-content: space-between;
   }
 
-  .hero > div:last-child {
+  .hero-logo {
     width: 45%;
   }
 

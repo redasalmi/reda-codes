@@ -79,7 +79,7 @@ export default function LogoAnimation() {
       onMouseMove={handleMouseEvent}
       onHoverEnd={handleMouseLeave}
     >
-      <motion.svg
+      <svg
         className="logo-animation-svg"
         viewBox="0 0 41.097 35.452"
         xmlns="http://www.w3.org/2000/svg"
@@ -108,7 +108,7 @@ export default function LogoAnimation() {
             />
           ))}
         </g>
-      </motion.svg>
+      </svg>
     </motion.div>
   );
 }

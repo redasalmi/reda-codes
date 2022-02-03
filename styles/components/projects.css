@@ -8,10 +8,6 @@
   position: relative;
 }
 
-.project:first-of-type {
-  margin-top: 0;
-}
-
 .project-border {
   border-radius: 18px;
 }
