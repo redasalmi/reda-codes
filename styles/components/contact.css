@@ -26,25 +26,3 @@
   width: 24px;
   height: 24px;
 }
-
-@media (--medium) {
-  .contact-links {
-    gap: 12px;
-  }
-
-  .contact-link {
-    width: 49%;
-    font-size: 1rem;
-  }
-}
-
-@media (--large) {
-  .contact-links {
-    gap: 16px;
-  }
-
-  .contact-link {
-    width: 49%;
-    font-size: 1.25rem;
-  }
-}

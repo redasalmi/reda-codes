@@ -1,0 +1,68 @@
+.nav-mobile-links {
+  display: none !important;
+}
+
+.nav-links {
+  display: block;
+}
+
+.nav-links-list {
+  display: flex;
+  list-style: none;
+  gap: 30px;
+}
+
+.nav-link:hover {
+  color: var(--highlight);
+}
+
+.nav-animated-link::after {
+  content: '';
+  width: 0;
+  height: 2px;
+  display: block;
+  background-color: var(--highlight);
+  transition: width 0.1s linear;
+}
+
+.nav-animated-link:hover::after {
+  width: 100%;
+}
+
+.nav-github-link {
+  display: none;
+}
+
+.nav-icons {
+  flex: 0;
+}
+
+.nav-icons-fixed {
+  position: initial;
+}
+
+.nav-icons.container {
+  max-width: unset;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-icons > div:last-child {
+  display: block;
+}
+
+.nav-icons > div:nth-child(2) {
+  display: none;
+}
+
+.theme-sun {
+  transform: translateY(8px);
+}
+
+.theme-moon {
+  transform: translateY(-20px);
+}
+
+.nav-hamburger {
+  display: none;
+}

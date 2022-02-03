@@ -1,0 +1,35 @@
+/* global */
+.container {
+  max-width: 1140px;
+}
+
+/* hero */
+.hero .container {
+  padding-top: 80px;
+  padding-bottom: 80px;
+  justify-content: space-between;
+}
+
+.hero-logo {
+  width: 45%;
+}
+
+.full-stack {
+  font-size: 2.4rem;
+  line-height: 2;
+}
+
+.hero-links {
+  display: flex;
+  margin-top: 30px;
+  gap: 15px;
+}
+
+.logo-animation {
+  padding: 40px 0;
+}
+
+/* about */
+.about-info {
+  font-size: 1.25rem;
+}

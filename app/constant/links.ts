@@ -1,11 +1,8 @@
 import globalStyles from '~/styles/global.css';
-import navbarStyles from '~/styles/components/navbar.css';
-import heroStyles from '~/styles/components/hero.css';
-import projectsStyles from '~/styles/components/projects.css';
-import skillsStyles from '~/styles/components/skills.css';
-import aboutStyles from '~/styles/components/about.css';
-import contactStyles from '~/styles/components/contact.css';
-import footerStyles from '~/styles/components/footer.css';
+import smallStyles from '~/styles/small.css';
+import mediumStyles from '~/styles/medium.css';
+import largeStyles from '~/styles/large.css';
+import extraLargeStyles from '~/styles/extra-large.css';
 
 export const links = [
   {
@@ -18,30 +15,22 @@ export const links = [
   },
   {
     rel: 'stylesheet',
-    href: navbarStyles,
+    href: smallStyles,
+    media: '(min-width: 576px)',
   },
   {
     rel: 'stylesheet',
-    href: heroStyles,
+    href: mediumStyles,
+    media: '(min-width: 768px)',
   },
   {
     rel: 'stylesheet',
-    href: projectsStyles,
+    href: largeStyles,
+    media: '(min-width: 992px)',
   },
   {
     rel: 'stylesheet',
-    href: skillsStyles,
-  },
-  {
-    rel: 'stylesheet',
-    href: aboutStyles,
-  },
-  {
-    rel: 'stylesheet',
-    href: contactStyles,
-  },
-  {
-    rel: 'stylesheet',
-    href: footerStyles,
+    href: extraLargeStyles,
+    media: '(min-width: 1200px)',
   },
 ];

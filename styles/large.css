@@ -1,0 +1,51 @@
+/* global */
+.container {
+  max-width: 960px;
+}
+
+/* navbar */
+.nav-links-list {
+  gap: 50px;
+}
+
+/* hero */
+.hero-info {
+  font-size: 1.2rem;
+  padding: 60px 0;
+}
+
+.full-stack {
+  font-size: 2rem;
+  line-height: 1.5;
+}
+
+.hero-links {
+  margin-top: 20px;
+}
+
+.logo-animation {
+  padding: 60px 0;
+}
+
+.logo-animation-svg {
+  width: 275px;
+}
+
+/* about */
+.about-me {
+  gap: 40px;
+}
+
+.about-info {
+  font-size: 1.175rem;
+}
+
+/* contact */
+.contact-links {
+  gap: 16px;
+}
+
+.contact-link {
+  width: 49%;
+  font-size: 1.25rem;
+}

@@ -16,24 +16,3 @@
   text-align: center;
   margin-top: 14px;
 }
-
-@media (--medium) {
-  .footer {
-    padding: 40px 0;
-  }
-
-  .footer .container {
-    display: flex;
-    justify-content: space-between;
-    gap: 40px;
-  }
-
-  .footer-links {
-    flex: 1;
-    max-width: 500px;
-  }
-
-  .footer-copyright {
-    margin-top: 0;
-  }
-}

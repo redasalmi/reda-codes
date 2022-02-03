@@ -4,7 +4,7 @@
   "description": "Reda Salmi Portfolio",
   "license": "MIT",
   "scripts": {
-    "css:build": "postcss styles --base styles --dir app/styles",
+    "css:build": "postcss styles/*.css --dir app/styles",
     "css:build:watch": "npm run css:build -- --watch",
     "css:build:prod": "npm run css:build -- --env production",
     "svg:build": "npx @svgr/cli -- svg",
@@ -51,7 +51,6 @@
     "nodemon": "^2.0.15",
     "postcss": "^8.4.5",
     "postcss-cli": "^9.1.0",
-    "postcss-custom-media": "^8.0.0",
     "postcss-import": "^14.0.2",
     "prettier": "2.5.1",
     "rimraf": "^3.0.2",

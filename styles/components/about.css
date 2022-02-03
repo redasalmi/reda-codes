@@ -18,30 +18,3 @@
   width: auto;
   height: 300px;
 }
-
-@media (--medium) {
-  .about-me {
-    align-items: center;
-    flex-direction: row;
-  }
-
-  .about-info {
-    flex: 1;
-  }
-}
-
-@media (--large) {
-  .about-me {
-    gap: 40px;
-  }
-
-  .about-info {
-    font-size: 1.175rem;
-  }
-}
-
-@media (--extra-large) {
-  .about-info {
-    font-size: 1.25rem;
-  }
-}
