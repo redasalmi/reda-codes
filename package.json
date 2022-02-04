@@ -1,8 +1,18 @@
 {
   "private": true,
   "name": "redasalmi-portfolio-v2",
+  "version": "1.0.0",
   "description": "Reda Salmi Portfolio",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/redasalmi/redasalmi-portfolio-v2.git"
+  },
+  "author": "Reda Salmi <reda.salmi.elt@gmail.com> (https://redasalmi.netlify.app/)",
   "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/redasalmi/redasalmi-portfolio-v2/issues"
+  },
+  "homepage": "https://github.com/redasalmi/redasalmi-portfolio-v2#readme",
   "scripts": {
     "css:build": "postcss styles/*.css --dir app/styles",
     "css:build:watch": "npm run css:build -- --watch",
