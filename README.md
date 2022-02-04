@@ -1,7 +1,5 @@
 # Reda Salmi Portfolio V2
 
-## About
-
 Second version of my Portfolio, presenting my projects and skills. found at:
 [Reda Salmi Portfolio](https://redasalmi.netlify.app).
 
@@ -21,6 +19,8 @@ Second version of my Portfolio, presenting my projects and skills. found at:
   [Cassie Evans website logo](https://www.cassie.codes/), she has a really good
   article explaining how it works found here:
   [logo animation article](https://www.cassie.codes/posts/creating-my-logo-animation/).
+- The favicon was made following this article:
+  [How to Favicon](https://evilmartians.com/chronicles/how-to-favicon-in-2021-six-files-that-fit-most-needs).
 
 ## Netlify Setup
 
