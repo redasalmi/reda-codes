@@ -64,10 +64,10 @@ export const projectVariants = {
     boxShadow: '0px 2px 12px var(--shadow-primary)',
     transition: {
       opacity: {
-        duration: 2,
+        duration: 1.6,
       },
       boxShadow: {
-        delay: 1.7,
+        delay: 1.2,
         duration: 1,
       },
     },
@@ -77,7 +77,7 @@ export const projectVariants = {
 const show = {
   x: 0,
   transition: {
-    duration: 2,
+    duration: 1.6,
   },
 };
 

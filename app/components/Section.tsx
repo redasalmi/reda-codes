@@ -33,8 +33,8 @@ export default function Section({
   return (
     <sectionEle.type {...props}>
       <div className="container">
-        {title ? <h2>{title}</h2> : null}
-        {subTitle ? <p>{subTitle}</p> : null}
+        {title ? <h2 className="section-title">{title}</h2> : null}
+        {subTitle ? <p className="section-title">{subTitle}</p> : null}
         {children}
       </div>
     </sectionEle.type>

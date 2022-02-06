@@ -3,6 +3,10 @@
   max-width: 720px;
 }
 
+.section-title {
+  text-align: left;
+}
+
 .projects,
 .skills,
 .about {

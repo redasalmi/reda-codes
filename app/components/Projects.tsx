@@ -41,8 +41,8 @@ function Project({
       initial="hide"
       whileInView="show"
       variants={projectVariants}
-      viewport={{ once: true }}
       className="project project-border"
+      viewport={{ once: true, amount: 'all' }}
     >
       <motion.div
         variants={imgFirst ? projectLastVariant : projectFirstVariant}

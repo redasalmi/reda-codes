@@ -7,6 +7,7 @@ interface MotionPathProps {
   d: string;
   clipPath: string;
   strokeWidth: number;
+  startDraw: boolean;
   duration: number;
   delay: number;
   onAnimationComplete?: () => void;
@@ -16,6 +17,7 @@ function MotionPath({
   d,
   clipPath,
   strokeWidth,
+  startDraw,
   duration,
   delay,
   onAnimationComplete,
@@ -24,17 +26,18 @@ function MotionPath({
     <motion.path
       d={d}
       initial="hide"
-      animate="show"
       clipPath={clipPath}
       variants={pathVariants}
       strokeWidth={strokeWidth}
       custom={{ duration, delay }}
+      animate={startDraw ? 'show' : undefined}
       onAnimationComplete={onAnimationComplete}
     />
   );
 }
 
 export default function LogoAnimation() {
+  const [startDraw, setStartDraw] = React.useState(false);
   const logoDivRef = React.useRef<HTMLDivElement>(null!);
   const controls = useAnimation();
   const perspective = useMotionValue(0);
@@ -74,6 +77,8 @@ export default function LogoAnimation() {
       ref={logoDivRef}
       animate={controls}
       variants={logoBgVariants}
+      viewport={{ once: true, amount: 'all' }}
+      onViewportEnter={() => setStartDraw(true)}
       style={{ perspective }}
       className="logo-animation"
       onMouseMove={handleMouseEvent}
@@ -101,6 +106,7 @@ export default function LogoAnimation() {
           {paths.map((clip, index) => (
             <MotionPath
               key={clip.clipPath}
+              startDraw={startDraw}
               onAnimationComplete={
                 index === paths.length - 1 ? startPerspectiveAnim : undefined
               }
