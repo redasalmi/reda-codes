@@ -53,7 +53,7 @@ a {
   height: 38px;
   border-radius: 50%;
   background-color: var(--secondary);
-  z-index: 130;
+  z-index: 2;
 }
 
 .scroll-up svg {

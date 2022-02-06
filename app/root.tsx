@@ -13,6 +13,7 @@ import type {
   ActionFunction,
 } from 'remix';
 
+import Fonts from '~/components/Fonts';
 import Navbar from '~/components/Navbar';
 import Hero from '~/components/Hero';
 import Projects from '~/components/Projects';
@@ -48,6 +49,7 @@ export default function App() {
         <meta name="viewport" content="width=device-width,initial-scale=1" />
         <Meta />
         <Links />
+        <Fonts />
       </head>
       <body className={theme}>
         <Navbar />
