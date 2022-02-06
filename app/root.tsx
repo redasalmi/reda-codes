@@ -49,11 +49,13 @@ export default function App() {
         <Meta />
         <Links />
       </head>
-      <body id="home" className={theme}>
+      <body className={theme}>
         <Navbar />
-        <Hero />
-        <Projects />
-        <Skills />
+        <main>
+          <Hero />
+          <Projects />
+          <Skills />
+        </main>
         <About />
         <Contact />
         <Footer />

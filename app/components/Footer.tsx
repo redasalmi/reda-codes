@@ -7,7 +7,7 @@ import { navLinks } from '~/constant';
 export default function Footer() {
   const footerLinks = [
     {
-      href: '#home',
+      href: '#top',
       text: 'Home',
     },
     ...navLinks,

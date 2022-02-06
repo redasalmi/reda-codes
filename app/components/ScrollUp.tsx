@@ -32,7 +32,7 @@ export default function ScrollUp() {
 
   return (
     <MotionLink
-      to="#home"
+      to="#top"
       ref={linkRef}
       initial="hide"
       whileHover="pulse"
