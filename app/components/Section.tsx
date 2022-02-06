@@ -19,7 +19,7 @@ export default function Section({
 }: SectionProps) {
   const props = {
     id,
-    className: `${!type ? 'section' : ''} ${className ? className : ''}`.trim(),
+    className,
   };
 
   let sectionEle = <section></section>;

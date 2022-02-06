@@ -6,7 +6,6 @@ export * from './logoAnimation';
 export * from './metas';
 export * from './navLinks';
 export * from './projects';
-export * from './scrollDown';
 export * from './scrollUp';
 export * from './skills';
 export * from './themeToggle';

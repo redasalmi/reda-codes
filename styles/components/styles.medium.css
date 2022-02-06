@@ -3,6 +3,12 @@
   max-width: 720px;
 }
 
+.projects,
+.skills,
+.about {
+  padding: 40px 0;
+}
+
 /* about */
 .about-me {
   align-items: center;

@@ -9,6 +9,10 @@
   position: relative;
 }
 
+.project:last-of-type {
+  margin-bottom: 0;
+}
+
 .project-border {
   border-radius: 18px;
 }

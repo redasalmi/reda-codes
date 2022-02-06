@@ -31,6 +31,12 @@ a {
   margin-left: auto;
 }
 
+.projects,
+.skills,
+.about {
+  padding: 20px 0;
+}
+
 .text-primary {
   font-weight: bold;
   color: var(--primary);
