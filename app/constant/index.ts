@@ -1,3 +1,4 @@
+export * from './contact';
 export * from './hamburgerMenu';
 export * from './hero';
 export * from './links';

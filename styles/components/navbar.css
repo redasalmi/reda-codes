@@ -1,6 +1,7 @@
 .nav {
   padding: 20px 0;
-  background-color: var(--bg-primary);
+  background-color: var(--bg-secondary);
+  border-bottom: 1px solid var(--nav-border);
 }
 
 .nav > .container {
@@ -73,7 +74,7 @@
   justify-content: center;
   color: var(--fg-primary);
   font-weight: bold;
-  border: 2px solid var(--highlight);
+  border: 2px solid var(--violet);
 }
 
 .nav-github-btn .nav-github {

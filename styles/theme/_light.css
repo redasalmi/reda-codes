@@ -1,16 +1,14 @@
 .light {
-  --bg-primary: #f8f9fa;
-  --fg-primary: #2b2c34;
-  --headline: #2b2c34;
-  --paragraphe: #2b2c34;
-  --btn-bg: #6246ea;
-  --btn-text: #fffffe;
-  --highlight: #6246ea;
-  --tertiary: #e45858;
-  --tertiary-opac: #e458583a;
+  --bg-primary: #f5f6fa;
+  --bg-secondary: #ffffff;
+  --bg-logo: #ffffff;
 
-  --logo-bg: #ffffff;
-  --logo-shadow: #e1e1e1;
-  --project-shadow: #b0b0b0;
-  --skill-bg: #e7e7e7;
+  --fg-primary: #2b2c34;
+
+  --primary: #cc6a00;
+  --secondary: #e45858;
+  --secondary-opac: #e458583a;
+
+  --nav-border: #d2d3d7;
+  --shadow-primary: #b0b0b0;
 }

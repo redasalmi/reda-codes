@@ -9,7 +9,7 @@
 }
 
 .footer-links a:hover {
-  color: var(--highlight);
+  color: var(--primary);
 }
 
 .footer-copyright {

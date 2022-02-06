@@ -16,8 +16,8 @@
   font-weight: bold;
   border-radius: 6px;
   cursor: pointer;
-  background-color: var(--skill-bg);
-  box-shadow: 0px 0px 3px var(--skill-bg);
+  background-color: var(--bg-secondary);
+  box-shadow: 0px 0px 10px var(--shadow-primary);
 }
 
 .skill-svg {

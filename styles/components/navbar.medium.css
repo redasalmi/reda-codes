@@ -13,19 +13,19 @@
 }
 
 .nav-link:hover {
-  color: var(--highlight);
+  color: var(--primary);
 }
 
-.nav-animated-link::after {
+.animated-link::after {
   content: '';
   width: 0;
   height: 2px;
   display: block;
-  background-color: var(--highlight);
+  background-color: var(--primary);
   transition: width 0.1s linear;
 }
 
-.nav-animated-link:hover::after {
+.animated-link:hover::after {
   width: 100%;
 }
 

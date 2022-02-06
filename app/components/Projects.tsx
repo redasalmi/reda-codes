@@ -63,7 +63,7 @@ function Project({
                     href={owner.link}
                     target="_blank"
                     rel="noreferrer"
-                    className="project-link"
+                    className="project-link animated-link"
                   >
                     {owner.name}
                   </a>
@@ -82,7 +82,7 @@ function Project({
               href={link}
               target="_blank"
               rel="noreferrer"
-              className="project-link project-owner"
+              className="project-link project-owner animated-link"
             >
               Visit Website
             </a>
@@ -92,7 +92,7 @@ function Project({
                 href={code}
                 target="_blank"
                 rel="noreferrer"
-                className="project-link source-code"
+                className="project-link source-code animated-link"
               >
                 Source code
               </a>

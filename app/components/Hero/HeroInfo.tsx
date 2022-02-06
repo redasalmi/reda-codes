@@ -16,7 +16,7 @@ export default function HeroInfo() {
         <p>
           I will help you bring your apps, websites and ideas to life while
           providing your users with a good
-          <span className="text-highlight"> UI/UX</span>.
+          <span className="text-primary"> UI/UX</span>.
         </p>
       </div>
 

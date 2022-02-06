@@ -31,9 +31,9 @@ a {
   margin-left: auto;
 }
 
-.text-highlight {
+.text-primary {
   font-weight: bold;
-  color: var(--highlight);
+  color: var(--primary);
 }
 
 .scroll-up {
@@ -46,7 +46,7 @@ a {
   width: 38px;
   height: 38px;
   border-radius: 50%;
-  background-color: var(--tertiary);
+  background-color: var(--secondary);
   z-index: 130;
 }
 

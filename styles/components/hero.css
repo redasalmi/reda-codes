@@ -26,7 +26,7 @@
   align-items: center;
   justify-content: center;
   color: var(--white);
-  background-color: var(--highlight);
+  background-color: var(--violet);
 }
 
 .hero-projects-link .chevron,
@@ -36,7 +36,7 @@
 
 .hero-about-link {
   color: var(--fg-primary);
-  border: 2px solid var(--highlight);
+  border: 2px solid var(--violet);
 }
 
 .hero-scroll-down {
@@ -50,7 +50,7 @@
 }
 
 .logo-animation-bg {
-  background-color: var(--logo-bg);
+  background-color: var(--bg-logo);
 }
 
 .logo-animation-svg {

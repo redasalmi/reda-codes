@@ -58,7 +58,7 @@ export default function LogoAnimation() {
 
       controls.start({
         rotateY,
-        boxShadow: `${-rotateY}px 70px 40px -20px var(--logo-shadow)`,
+        boxShadow: `${-rotateY}px 70px 40px -20px var(--shadow-primary)`,
       });
     }
   };
@@ -94,7 +94,7 @@ export default function LogoAnimation() {
 
         <g
           fill="none"
-          stroke="var(--highlight)"
+          stroke="var(--violet)"
           strokeLinecap="round"
           strokeLinejoin="round"
         >

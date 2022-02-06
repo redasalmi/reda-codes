@@ -1,16 +1,14 @@
 .dark {
   --bg-primary: #16161a;
-  --fg-primary: #fffffe;
-  --headline: #fffffe;
-  --paragraphe: #94a1b2;
-  --btn-bg: #6246ea;
-  --btn-text: #fffffe;
-  --highlight: #6246ea;
-  --tertiary: #2cb67d;
-  --tertiary-opac: #2cb67d3a;
+  --bg-secondary: #2a2a3b;
+  --bg-logo: #242629;
 
-  --logo-bg: #1e1e1e;
-  --logo-shadow: #101010;
-  --project-shadow: #0d0d0d;
-  --skill-bg: #2b2a3c;
+  --fg-primary: #fffffe;
+
+  --primary: #ff8906;
+  --secondary: #1ed760;
+  --secondary-opac: #1ed7603a;
+
+  --nav-border: #515151;
+  --shadow-primary: #0d0d0d;
 }

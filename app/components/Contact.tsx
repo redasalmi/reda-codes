@@ -4,6 +4,8 @@ import { motion } from 'framer-motion';
 import Section from '~/components/Section';
 import { Linkedin, Twitter, Github, Envelope } from '~/components/icons';
 
+import { contactLinkVariants, contactTextVariants } from '~/constant';
+
 interface ContactLinkProps {
   href: string;
   children: React.ReactNode;
@@ -13,18 +15,14 @@ function ContactLink({ href, children }: ContactLinkProps) {
   return (
     <motion.a
       href={href}
+      initial="init"
       target="_blank"
       rel="noreferrer"
       whileHover="hover"
       className="contact-link"
+      variants={contactLinkVariants}
     >
-      <motion.span
-        variants={{
-          hover: { scale: 1.1 },
-        }}
-      >
-        {children}
-      </motion.span>
+      <motion.span variants={contactTextVariants}>{children}</motion.span>
     </motion.a>
   );
 }

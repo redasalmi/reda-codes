@@ -1,5 +1,6 @@
 .projects {
   overflow: hidden;
+  background-color: var(--bg-secondary);
 }
 
 .project {
@@ -17,8 +18,8 @@
   right: 0;
   width: 100%;
   height: 52%;
-  border: 2px solid var(--highlight);
-  background-color: var(--highlight);
+  border: 2px solid var(--violet);
+  background-color: var(--violet);
 }
 
 .project-first-card {
@@ -49,8 +50,9 @@
 }
 
 .project-link {
+  display: inline-block;
   font-weight: bold;
-  color: var(--highlight);
+  color: var(--primary);
 }
 
 .project-desc {
@@ -58,7 +60,7 @@
 }
 
 .tech-stack {
-  color: var(--tertiary);
+  color: var(--secondary);
 }
 
 .project-owner,

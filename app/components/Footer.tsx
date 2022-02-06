@@ -17,7 +17,7 @@ export default function Footer() {
     <Section type="footer" className="footer">
       <div className="footer-links">
         {footerLinks.map(({ href, text }) => (
-          <Link to={href} key={`footer-${href}`} className="nav-animated-link">
+          <Link to={href} key={`footer-${href}`} className="animated-link">
             {text}
           </Link>
         ))}

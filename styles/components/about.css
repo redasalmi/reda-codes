@@ -1,3 +1,7 @@
+.about {
+  background-color: var(--bg-secondary);
+}
+
 .about-me {
   display: flex;
   flex-direction: column;
