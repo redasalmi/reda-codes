@@ -12,6 +12,7 @@ import type {
   LoaderFunction,
   ActionFunction,
 } from 'remix';
+import { MotionConfig } from 'framer-motion';
 
 import Fonts from '~/components/Fonts';
 import Navbar from '~/components/Navbar';
@@ -52,16 +53,18 @@ export default function App() {
         <Links />
       </head>
       <body className={theme}>
-        <Navbar />
-        <main>
-          <Hero />
-          <Projects />
-          <Skills />
-        </main>
-        <About />
-        <Contact />
-        <Footer />
-        <ScrollUp />
+        <MotionConfig reducedMotion="user">
+          <Navbar />
+          <main>
+            <Hero />
+            <Projects />
+            <Skills />
+          </main>
+          <About />
+          <Contact />
+          <Footer />
+          <ScrollUp />
+        </MotionConfig>
         <ScrollRestoration />
         <Scripts />
         {process.env.NODE_ENV === 'development' && <LiveReload />}

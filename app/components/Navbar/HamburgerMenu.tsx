@@ -17,17 +17,13 @@ interface HamburgerMenuProps {
 export default function HamburgerMenu({
   fixNavIconsPosition,
 }: HamburgerMenuProps) {
-  const btnControls = useAnimation();
-  const linkscontrols = useAnimation();
+  const controls = useAnimation();
   const linksRef = React.useRef<HTMLDivElement>(null!);
 
   const handleToggleNavbar = () => {
     const isOpen = linksRef.current.classList.toggle('nav-mobile-open');
     fixNavIconsPosition(isOpen);
-    btnControls.start(isOpen ? 'close' : 'open');
-    linkscontrols.start(isOpen ? 'slideLeft' : 'slideRight', {
-      duration: 0.3,
-    });
+    controls.start(isOpen ? 'show' : 'hide');
   };
 
   const closeNavbar = (event: React.MouseEvent) => {
@@ -37,8 +33,7 @@ export default function HamburgerMenu({
     if (isOpen && clickedOutsideNavbar) {
       linksRef.current.classList.remove('nav-mobile-open');
       fixNavIconsPosition(false);
-      btnControls.start('open');
-      linkscontrols.start('slideRight', { duration: 0.3 });
+      controls.start('hide');
     }
   };
 
@@ -46,7 +41,7 @@ export default function HamburgerMenu({
     <>
       <motion.button
         type="button"
-        animate={btnControls}
+        animate={controls}
         aria-label="hamburger menu"
         className="nav-hamburger-btn"
         onClick={handleToggleNavbar}
@@ -59,8 +54,8 @@ export default function HamburgerMenu({
       <motion.div
         ref={linksRef}
         initial="init"
+        animate={controls}
         onClick={closeNavbar}
-        animate={linkscontrols}
         variants={linksVariants}
         className="nav-mobile-links"
       >

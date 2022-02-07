@@ -2,10 +2,10 @@
 @import './components/styles.css';
 @import './theme/_light.css';
 @import './theme/_dark.css';
+@import './components/navbar.css';
+@import './components/hero.css';
+@import './components/projects.css';
+@import './components/skills.css';
 @import './components/about.css';
 @import './components/contact.css';
 @import './components/footer.css';
-@import './components/hero.css';
-@import './components/navbar.css';
-@import './components/projects.css';
-@import './components/skills.css';
