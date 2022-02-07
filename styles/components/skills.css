@@ -15,7 +15,6 @@
   padding: 25px 15px 15px 15px;
   font-weight: bold;
   border-radius: 6px;
-  cursor: pointer;
   background-color: var(--bg-secondary);
   box-shadow: 0px 0px 10px var(--shadow-primary);
 }
