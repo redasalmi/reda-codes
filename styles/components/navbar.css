@@ -53,6 +53,23 @@
   display: block;
 }
 
+.nav-link:hover {
+  color: var(--primary);
+}
+
+.animated-link::after {
+  content: '';
+  width: 0;
+  height: 2px;
+  display: block;
+  background-color: var(--primary);
+  transition: width 0.1s linear;
+}
+
+.animated-link:hover::after {
+  width: 100%;
+}
+
 .nav-logo-link {
   font-size: 1.5rem;
 }
