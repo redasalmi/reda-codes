@@ -47,7 +47,7 @@ export default function HamburgerMenu({
         onClick={handleToggleNavbar}
       >
         {hamburgerBtnVariants.map(({ key, variants, transition }) => (
-          <motion.div key={key} variants={variants} transition={transition} />
+          <motion.span key={key} variants={variants} transition={transition} />
         ))}
       </motion.button>
 

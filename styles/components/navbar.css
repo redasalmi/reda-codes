@@ -165,7 +165,8 @@
   margin: auto;
 }
 
-.nav-hamburger-btn div {
+.nav-hamburger-btn span {
+  display: block;
   width: 50%;
   height: 1px;
   border: 1px solid var(--fg-primary);

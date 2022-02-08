@@ -1,6 +1,5 @@
 export const logoBgVariants = {
-  perspective: {
-    perspective: 750,
+  rotate: {
     z: -250,
     rotateX: 27,
     rotateY: -27,

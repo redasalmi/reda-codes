@@ -40,15 +40,15 @@ export default function LogoAnimation() {
   const [startDraw, setStartDraw] = React.useState(false);
   const logoDivRef = React.useRef<HTMLDivElement>(null!);
   const controls = useAnimation();
-  const perspective = useMotionValue(0);
+  const z = useMotionValue(0);
 
-  const startPerspectiveAnim = () => {
+  const startRotation = () => {
     logoDivRef.current.classList.add('logo-animation-bg');
-    controls.start('perspective');
+    controls.start('rotate');
   };
 
   const handleMouseEvent = (event: React.MouseEvent<HTMLDivElement>) => {
-    if (perspective.get() === 750) {
+    if (z.get() === -250) {
       const { x, width } = logoDivRef.current.getBoundingClientRect();
       const logoDivCenter = (width + x * 2) / 2;
 
@@ -67,19 +67,19 @@ export default function LogoAnimation() {
   };
 
   const handleMouseLeave = () => {
-    if (perspective.get() === 750) {
+    if (z.get() === -250) {
       controls.start('hoverReset');
     }
   };
 
   return (
     <motion.div
+      style={{ z }}
       ref={logoDivRef}
       animate={controls}
       variants={logoBgVariants}
-      viewport={{ once: true, amount: 'all' }}
+      viewport={{ once: true, amount: 0.9 }}
       onViewportEnter={() => setStartDraw(true)}
-      style={{ perspective }}
       className="logo-animation"
       onMouseMove={handleMouseEvent}
       onHoverEnd={handleMouseLeave}
@@ -108,7 +108,7 @@ export default function LogoAnimation() {
               key={clip.clipPath}
               startDraw={startDraw}
               onAnimationComplete={
-                index === paths.length - 1 ? startPerspectiveAnim : undefined
+                index === paths.length - 1 ? startRotation : undefined
               }
               {...clip}
             />
