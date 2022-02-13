@@ -126,6 +126,9 @@
 }
 
 .theme-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   cursor: pointer;
   background: none;
   border-radius: 50%;
@@ -137,16 +140,6 @@
   width: 25px;
   height: 25px;
   opacity: 1;
-  visibility: visible;
-  transition: opacity 0.4s ease;
-}
-
-.theme-sun {
-  transform: translateY(8px);
-}
-
-.theme-moon {
-  transform: translateY(-20px);
 }
 
 .theme-btn svg path,
@@ -228,14 +221,6 @@
 
   .nav-icons > div:nth-child(2) {
     display: none;
-  }
-
-  .theme-sun {
-    transform: translateY(8px);
-  }
-
-  .theme-moon {
-    transform: translateY(-20px);
   }
 
   .nav-hamburger {

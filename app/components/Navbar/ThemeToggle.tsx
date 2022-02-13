@@ -1,5 +1,5 @@
 import { useFetcher, useLoaderData } from 'remix';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 
 import { Sun, Moon } from '~/components/icons';
 
@@ -21,20 +21,27 @@ export default function ThemeToggle() {
         className="theme-btn nav-icon"
         aria-label="theme toggle"
       >
-        <MotionSun
-          initial="sun"
-          animate="sun"
-          custom={theme}
-          className="theme-sun"
-          variants={themeVariants}
-        />
-        <MotionMoon
-          initial="moon"
-          animate="moon"
-          custom={theme}
-          className="theme-moon"
-          variants={themeVariants}
-        />
+        <AnimatePresence initial={false}>
+          {theme === 'light' ? (
+            <MotionSun
+              initial="hide"
+              animate="show"
+              exit="hide"
+              className="theme-sun"
+              variants={themeVariants}
+            />
+          ) : null}
+
+          {theme === 'dark' ? (
+            <MotionMoon
+              initial="hide"
+              animate="show"
+              exit="hide"
+              className="theme-moon"
+              variants={themeVariants}
+            />
+          ) : null}
+        </AnimatePresence>
       </button>
     </fetcher.Form>
   );
