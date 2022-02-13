@@ -1,0 +1,6 @@
+@import './shared/home.shared.css';
+@import './components/hero.css';
+@import './components/projects.css';
+@import './components/skills.css';
+@import './components/about.css';
+@import './components/contact.css';

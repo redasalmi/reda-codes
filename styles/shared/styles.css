@@ -1,0 +1,64 @@
+html {
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(0.75rem, 0.5rem + 1.2vw, 1rem);
+  scroll-behavior: smooth;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+body {
+  color: var(--fg-primary);
+  background-color: var(--bg-primary);
+}
+
+a {
+  color: var(--fg-primary);
+  text-decoration: none;
+}
+
+.container {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.container {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@media (--small) {
+  .container {
+    max-width: 540px;
+  }
+}
+
+@media (--medium) {
+  .container {
+    max-width: 720px;
+  }
+}
+
+@media (--large) {
+  .container {
+    max-width: 960px;
+  }
+}
+
+@media (--extra-large) {
+  .container {
+    max-width: 1140px;
+  }
+}

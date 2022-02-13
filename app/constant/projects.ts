@@ -67,8 +67,8 @@ export const projectVariants = {
         duration: 1.6,
       },
       boxShadow: {
-        delay: 1.2,
-        duration: 1,
+        delay: 1.6,
+        duration: 0.6,
       },
     },
   },

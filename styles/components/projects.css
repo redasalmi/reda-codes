@@ -107,3 +107,66 @@
   border-bottom-right-radius: 18px;
   border-bottom-left-radius: 18px;
 }
+
+@media (--small) {
+  .project {
+    height: 520px;
+  }
+}
+
+@media (--medium) {
+  .project {
+    height: 310px;
+  }
+
+  .project-card {
+    top: 0;
+    right: unset;
+    width: 52%;
+    height: 310px;
+  }
+
+  .project-first-card {
+    left: 0;
+  }
+
+  .project-first-card,
+  .project-first-card > div {
+    border-top-right-radius: 0;
+    border-bottom-left-radius: 18px;
+    clip-path: polygon(0% 0%, 100% 0%, 96% 100%, 0% 100%);
+  }
+
+  .project-first-card .project-info {
+    padding-right: 40px;
+  }
+
+  .project-last-card .project-info {
+    padding-left: 40px;
+  }
+
+  .project-last-card {
+    right: 0;
+  }
+
+  .project-last-card,
+  .project-last-card > div {
+    border-top-right-radius: 18px;
+    border-bottom-left-radius: 0;
+    clip-path: polygon(4% 0%, 100% 0%, 100% 100%, 0% 100%);
+  }
+
+  .project-first-card img {
+    border-bottom-left-radius: 18px;
+    border-top-right-radius: 0;
+  }
+
+  .project-last-card img {
+    border-top-right-radius: 18px;
+    border-bottom-left-radius: 0;
+  }
+
+  .project-title {
+    font-size: 1.125rem;
+  }
+}

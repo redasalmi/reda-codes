@@ -1,0 +1,19 @@
+.scroll-up {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  right: 10px;
+  bottom: 10px;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background-color: var(--secondary);
+  z-index: 2;
+}
+
+.scroll-up svg {
+  width: 19px;
+  height: 19px;
+  stroke: var(--white);
+}
