@@ -2,29 +2,20 @@ import {
   Links,
   LiveReload,
   Meta,
+  Outlet,
   Scripts,
   ScrollRestoration,
   useLoaderData,
 } from 'remix';
-import type {
-  MetaFunction,
-  LinksFunction,
-  LoaderFunction,
-  ActionFunction,
-} from 'remix';
+import type { MetaFunction, LinksFunction, LoaderFunction } from 'remix';
 import { MotionConfig } from 'framer-motion';
 
 import Fonts from '~/components/Fonts';
 import Navbar from '~/components/Navbar';
-import Hero from '~/components/Hero';
-import Projects from '~/components/Projects';
-import Skills from '~/components/Skills';
-import About from '~/components/About';
-import Contact from '~/components/Contact';
 import Footer from '~/components/Footer';
 import ScrollUp from '~/components/ScrollUp';
 
-import { getuserTheme, setUserTheme } from '~/cookies';
+import { getuserTheme } from '~/cookies';
 import { metas, links as appLinks } from '~/constant';
 import type { ThemeData } from '~/types';
 
@@ -34,10 +25,6 @@ export const links: LinksFunction = () => appLinks;
 
 export const loader: LoaderFunction = async ({ request }) => {
   return getuserTheme(request.headers);
-};
-
-export const action: ActionFunction = async ({ request }) => {
-  return setUserTheme(request);
 };
 
 export default function App() {
@@ -55,13 +42,7 @@ export default function App() {
       <body className={theme}>
         <MotionConfig reducedMotion="user">
           <Navbar />
-          <main>
-            <Hero />
-            <Projects />
-            <Skills />
-          </main>
-          <About />
-          <Contact />
+          <Outlet />
           <Footer />
           <ScrollUp />
         </MotionConfig>

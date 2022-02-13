@@ -1,5 +1,5 @@
 import { createCookie, json } from 'remix';
-import type { Theme } from '~/types';
+import type { Theme, ThemeData } from '~/types';
 
 const userTheme = createCookie('theme', {
   path: '/',
@@ -13,14 +13,14 @@ export const getuserTheme = async (headers: Headers) => {
   const cookieHeader = headers.get('Cookie');
   const theme: Theme = (await userTheme.parse(cookieHeader)) || 'light';
 
-  return json({ theme });
+  return json<ThemeData>({ theme });
 };
 
 export const setUserTheme = async (request: Request) => {
   const formData = await request.formData();
   const theme: Theme = formData.get('theme') === 'light' ? 'dark' : 'light';
 
-  return json(
+  return json<ThemeData>(
     { theme },
     {
       headers: {

@@ -1,4 +1,4 @@
-import { Form, useLoaderData } from 'remix';
+import { useFetcher, useLoaderData } from 'remix';
 import { motion } from 'framer-motion';
 
 import { Sun, Moon } from '~/components/icons';
@@ -11,9 +11,10 @@ const MotionMoon = motion(Moon);
 
 export default function ThemeToggle() {
   const { theme } = useLoaderData<ThemeData>();
+  const fetcher = useFetcher();
 
   return (
-    <Form method="post">
+    <fetcher.Form method="post" action="/action/set-theme">
       <input type="text" name="theme" value={theme} hidden readOnly />
       <button
         type="submit"
@@ -35,6 +36,6 @@ export default function ThemeToggle() {
           variants={themeVariants}
         />
       </button>
-    </Form>
+    </fetcher.Form>
   );
 }
