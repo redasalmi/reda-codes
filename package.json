@@ -21,6 +21,7 @@
     "svg:build:watch": "nodemon --watch svg --verbose -e svg --exec \"npm run svg:build\"",
     "dev": "concurrently \"npm run css:build:watch\" \"npm run svg:build:watch\" \"npm run dev:netlify\"",
     "dev:netlify": "cross-env NODE_ENV=development BROWSER=none netlify dev",
+    "start": "npm run build && cross-env NODE_ENV=production BROWSER=none netlify dev",
     "prebuild": "npm run clean",
     "build": "npm run css:build:prod && npm run svg:build && remix build",
     "lint": "eslint --ext js,jsx,ts,tsx .",
@@ -33,7 +34,7 @@
     "**/*.+(js|jsx|ts|tsx|json|css)": "prettier --write --ignore-unknown"
   },
   "dependencies": {
-    "@netlify/functions": "^0.11.0",
+    "@netlify/functions": "^0.10.0",
     "@remix-run/netlify": "^1.1.1",
     "@remix-run/react": "^1.1.1",
     "framer-motion": "^6.2.1",
