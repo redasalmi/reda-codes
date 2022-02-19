@@ -38,7 +38,7 @@ export const projectsData = [
       src: 'images/json-placeholder.webp',
       alt: 'json placeholder graphql, a graphql prototyping and testing API',
     },
-    link: 'https://jsonplaceholdergraphql.herokuapp.com/',
+    link: 'https://jsonplaceholder-graphql.onrender.com/',
     code: 'https://github.com/redasalmi/jsonplaceholder-graphql',
   },
   {
