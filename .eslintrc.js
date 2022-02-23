@@ -34,7 +34,7 @@ module.exports = {
   ignorePatterns: [
     'node_modules',
     '.cache',
-    'netlify/functions/server/build',
+    '/netlify/functions/server/index.js',
     'public/build',
     '.netlify',
     '.husky',
