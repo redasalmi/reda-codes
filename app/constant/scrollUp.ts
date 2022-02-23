@@ -5,12 +5,12 @@ const transition = {
 export const scrollUpVariants = {
   hide: {
     opacity: 0,
-    pointerEvents: 'none',
+    pointerEvents: 'none' as const,
     transition,
   },
   show: {
     opacity: 1,
-    pointerEvents: 'auto',
+    pointerEvents: 'auto' as const,
     transition,
   },
   pulse: {

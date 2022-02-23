@@ -1,9 +1,7 @@
 import * as React from 'react';
 import { motion, useAnimation } from 'framer-motion';
 
-import Links from '~/components/Navbar/Links';
-import GithubLink from '~/components/Navbar/GithubLink';
-
+import { Links, GithubLink } from '~/components/Navbar';
 import {
   hamburgerBtnVariants,
   linksVariants,

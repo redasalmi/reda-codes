@@ -1,9 +1,8 @@
 import * as React from 'react';
 import { motion } from 'framer-motion';
 
-import Section from '~/components/Section';
+import { Section } from '~/components';
 import { Linkedin, Twitter, Github, Envelope } from '~/components/icons';
-
 import { contactLinkVariants, contactTextVariants } from '~/constant';
 
 interface ContactLinkProps {

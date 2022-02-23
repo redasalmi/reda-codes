@@ -7,21 +7,61 @@ import {
   ScrollRestoration,
   useLoaderData,
 } from 'remix';
-import type { MetaFunction, LinksFunction, LoaderFunction } from 'remix';
 import { MotionConfig } from 'framer-motion';
 
-import Fonts from '~/components/Fonts';
-import Navbar from '~/components/Navbar';
-import Footer from '~/components/Footer';
-import ScrollUp from '~/components/ScrollUp';
-
 import { getuserTheme } from '~/cookies';
-import { metas, links as appLinks } from '~/constant';
+
+import { Fonts, Navbar, Footer, ScrollUp } from '~/components';
+import globalStyles from '~/styles/global.css';
+
+import type { MetaFunction, LinksFunction, LoaderFunction } from 'remix';
 import type { ThemeData } from '~/types';
 
-export const meta: MetaFunction = () => metas;
+export const meta: MetaFunction = () => {
+  return {
+    title: 'Reda Salmi Portfolio',
+    description:
+      'Reda Salmi personal website with projects, skills and contact informations.',
+    'twitter:card': 'summary',
+    'twitter:site': '@redsalmi',
+    'twitter:creator': '@redsalmi',
+    'og:title': 'Reda Salmi Portfolio',
+    'og:description':
+      'Reda Salmi personal website with projects, skills and contact informations',
+    'og:type': 'website',
+    'og:url': 'https://redasalmi.netlify.app/',
+    'og:image': 'https://redasalmi.netlify.app/images/preview.jpg',
+    'og:image:width': '1190',
+    'og:image:height': '750',
+  };
+};
 
-export const links: LinksFunction = () => appLinks;
+export const links: LinksFunction = () => {
+  return [
+    {
+      rel: 'manifest',
+      href: '/manifest.webmanifest',
+    },
+    {
+      rel: 'icon',
+      href: '/favicon.ico',
+      sizes: 'any',
+    },
+    {
+      rel: 'icon',
+      href: '/icon.svg',
+      type: 'image/svg+xml',
+    },
+    {
+      rel: 'apple-touch-icon',
+      href: '/apple-touch-icon.png',
+    },
+    {
+      rel: 'stylesheet',
+      href: globalStyles,
+    },
+  ];
+};
 
 export const loader: LoaderFunction = async ({ request }) => {
   return getuserTheme(request.headers);

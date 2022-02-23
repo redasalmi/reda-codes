@@ -1,7 +1,6 @@
 import { motion } from 'framer-motion';
 
-import Section from '~/components/Section';
-
+import { Section } from '~/components';
 import {
   projectsData,
   projectVariants,

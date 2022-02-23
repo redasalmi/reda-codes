@@ -1,8 +1,7 @@
 import * as React from 'react';
 import { motion } from 'framer-motion';
 
-import Section from '~/components/Section';
-
+import { Section } from '~/components';
 import { skills } from '~/constant';
 
 interface SkillProps {

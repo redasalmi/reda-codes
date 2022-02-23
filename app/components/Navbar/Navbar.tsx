@@ -1,7 +1,5 @@
-import Section from '~/components/Section';
-import Logo from '~/components/Navbar/Logo';
-import NavLinks from '~/components/Navbar/NavLinks';
-import NavButtons from '~/components/Navbar/NavButtons';
+import { Section } from '~/components';
+import { Logo, NavLinks, NavButtons } from '~/components/Navbar';
 
 export default function Navbar() {
   return (

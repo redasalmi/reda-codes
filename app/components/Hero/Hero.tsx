@@ -1,6 +1,5 @@
-import Section from '~/components/Section';
-import HeroInfo from '~/components/Hero/HeroInfo';
-import LogoAnimation from '~/components/Hero/LogoAnimation';
+import { Section } from '~/components';
+import { HeroInfo, LogoAnimation } from '~/components/Hero';
 
 export default function Hero() {
   return (

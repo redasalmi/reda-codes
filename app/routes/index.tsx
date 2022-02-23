@@ -1,11 +1,6 @@
 import type { LinksFunction } from 'remix';
 
-import Hero from '~/components/Hero';
-import Projects from '~/components/Projects';
-import Skills from '~/components/Skills';
-import About from '~/components/About';
-import Contact from '~/components/Contact';
-
+import { Hero, Projects, Skills, About, Contact } from '~/components';
 import homeStyles from '~/styles/home.css';
 
 export const links: LinksFunction = () => [

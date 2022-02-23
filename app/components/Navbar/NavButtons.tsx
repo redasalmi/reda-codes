@@ -1,8 +1,6 @@
 import * as React from 'react';
 
-import ThemeToggle from '~/components/Navbar/ThemeToggle';
-import HamburgerMenu from '~/components/Navbar/HamburgerMenu';
-import GithubLink from '~/components/Navbar/GithubLink';
+import { ThemeToggle, HamburgerMenu, GithubLink } from '~/components/Navbar';
 
 export default function NavButtons() {
   const navBtnsRef = React.useRef<HTMLDivElement>(null!);

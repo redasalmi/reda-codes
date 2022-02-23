@@ -3,8 +3,8 @@ import { useFetcher, useLoaderData } from 'remix';
 import { motion, AnimatePresence } from 'framer-motion';
 
 import { Sun, Moon } from '~/components/icons';
-
 import { themeVariants } from '~/constant';
+
 import type { ThemeData } from '~/types';
 
 const MotionSun = motion(Sun);

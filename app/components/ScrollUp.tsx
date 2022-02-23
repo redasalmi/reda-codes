@@ -1,9 +1,8 @@
 import * as React from 'react';
 import { useAnimation, useViewportScroll } from 'framer-motion';
 
-import MotionLink from '~/components/MotionLink';
+import { MotionLink } from '~/components';
 import { ArrowUp } from '~/components/icons';
-
 import { scrollUpVariants } from '~/constant';
 
 export default function ScrollUp() {

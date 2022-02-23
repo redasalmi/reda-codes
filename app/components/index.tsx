@@ -1,0 +1,11 @@
+export { default as About } from './About';
+export { default as Contact } from './Contact';
+export { default as Fonts } from './Fonts';
+export { default as Footer } from './Footer';
+export { Hero } from './Hero';
+export { default as MotionLink } from './MotionLink';
+export { Navbar } from './Navbar';
+export { default as Projects } from './Projects';
+export { default as ScrollUp } from './ScrollUp';
+export { default as Section } from './Section';
+export { default as Skills } from './Skills';

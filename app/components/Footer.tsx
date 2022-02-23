@@ -1,7 +1,6 @@
 import { Link } from 'remix';
 
-import Section from '~/components/Section';
-
+import { Section } from '~/components';
 import { navLinks } from '~/constant';
 
 export default function Footer() {
