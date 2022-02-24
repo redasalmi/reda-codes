@@ -9,7 +9,7 @@ import {
 } from 'remix';
 import { MotionConfig } from 'framer-motion';
 
-import { getuserTheme } from '~/cookies';
+import { getuserTheme } from '~/cookies.server';
 
 import { Fonts, Navbar, Footer, ScrollUp } from '~/components';
 import globalStyles from '~/styles/global.css';
