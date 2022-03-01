@@ -27,6 +27,7 @@ export default function ScrollUp() {
     return () => {
       unsubscribeY();
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
