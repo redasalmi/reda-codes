@@ -33,7 +33,7 @@ export const projectsData = [
     key: 'json-placeholder',
     title: '{JSON} Placeholder - GraphQL',
     desc: 'A GraphQL API for testing, learning or prototyping with GraphQL. This app is heavily inspired by the {JSON} Placeholder project and proposes a graphql alternative.',
-    techStack: ['Express', 'Express-graphql', 'GraphQL'],
+    techStack: ['Fastify', 'Mercurius', 'Prisma', 'GraphQL'],
     img: {
       src: 'images/json-placeholder.webp',
       alt: 'json placeholder graphql, a graphql prototyping and testing API',
