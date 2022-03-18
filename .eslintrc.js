@@ -1,7 +1,11 @@
 const ERROR = 2;
 
 module.exports = {
-  extends: ['@remix-run/eslint-config', 'prettier'],
+  extends: [
+    '@remix-run/eslint-config',
+    '@remix-run/eslint-config/node',
+    'prettier',
+  ],
   rules: {
     'prefer-const': ERROR,
     'react/prop-types': ERROR,
@@ -11,7 +15,7 @@ module.exports = {
     'node_modules',
     '.cache',
     '/netlify/functions/server/index.js',
-    'public/build',
+    '/public/build',
     '.netlify',
     '.husky',
   ],
