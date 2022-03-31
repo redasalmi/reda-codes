@@ -27,7 +27,7 @@
     "lint": "eslint --ext js,jsx,ts,tsx .",
     "typecheck": "tsc -b",
     "validate": "concurrently --kill-others-on-fail --prefix [{name}] --names lint,build \"npm run lint --silent\" \"npm run build --silent\" && npm run typecheck",
-    "clean": "rimraf ./node_modules/.cache ./app/styles ./app/components/icons ./public/build ./netlify/functions/server/build",
+    "clean": "rimraf ./node_modules/.cache ./app/styles ./app/components/icons ./public/build ./netlify",
     "postinstall": "remix setup node",
     "prepare": "husky install"
   },
@@ -63,7 +63,7 @@
     "postcss-cli": "^9.1.0",
     "postcss-custom-media": "^8.0.0",
     "postcss-import": "^14.0.2",
-    "prettier": "2.6.0",
+    "prettier": "2.6.1",
     "rimraf": "^3.0.2",
     "typescript": "4.5"
   },
