@@ -25,8 +25,8 @@
     "prebuild": "npm run clean",
     "build": "npm run css:build:prod && npm run svg:build && remix build",
     "lint": "eslint --ext js,jsx,ts,tsx .",
-    "typecheck": "tsc -b",
-    "validate": "concurrently --kill-others-on-fail --prefix [{name}] --names lint,build \"npm run lint --silent\" \"npm run build --silent\" && npm run typecheck",
+    "typecheck": "npm run svg:build && tsc -b",
+    "validate": "concurrently --kill-others-on-fail --prefix [{name}] --names lint,typecheck,build \"npm run lint --silent\" \"npm run typecheck --silent\" \"npm run build --silent\"",
     "clean": "rimraf ./node_modules/.cache ./app/styles ./app/components/icons ./public/build ./netlify",
     "postinstall": "remix setup node",
     "prepare": "husky install"
