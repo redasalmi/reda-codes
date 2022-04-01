@@ -107,7 +107,7 @@ function Project({
         }`}
       >
         <div className="project-border project-img">
-          <img src={img.src} alt={img.alt} />
+          <img src={img.src} alt={img.alt} loading="lazy" />
         </div>
       </motion.div>
     </motion.div>

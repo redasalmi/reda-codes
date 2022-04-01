@@ -20,7 +20,7 @@ export default function About() {
         </div>
 
         <div className="about-img">
-          <img src="images/reda-sahara.webp" alt="reda salmi" />
+          <img src="images/reda-sahara.webp" alt="reda salmi" loading="lazy" />
         </div>
       </div>
     </Section>
