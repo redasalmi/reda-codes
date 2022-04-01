@@ -46,7 +46,7 @@ jobs:
         uses: bahmutov/npm-install@v1
 
       - name: build svg
-        run: npm run build:svg
+        run: npm run svg:build
 
       - name: 🔎 Type check
         run: npm run typecheck --if-present
