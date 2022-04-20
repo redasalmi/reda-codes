@@ -62,7 +62,7 @@
     "postcss-cli": "^9.1.0",
     "postcss-custom-media": "^8.0.0",
     "postcss-import": "^14.0.2",
-    "prettier": "2.6.1",
+    "prettier": "2.6.2",
     "rimraf": "^3.0.2",
     "typescript": "4.5"
   },
