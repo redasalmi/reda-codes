@@ -1,4 +1,4 @@
-import { createCookie, json } from 'remix';
+import { createCookie, json } from '@remix-run/node';
 import invariant from 'tiny-invariant';
 
 import type { Theme, ThemeData } from '~/types';

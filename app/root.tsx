@@ -6,7 +6,7 @@ import {
   Scripts,
   ScrollRestoration,
   useLoaderData,
-} from 'remix';
+} from '@remix-run/react';
 import { MotionConfig } from 'framer-motion';
 
 import { getuserTheme } from '~/cookies.server';
@@ -14,7 +14,11 @@ import { getuserTheme } from '~/cookies.server';
 import { Fonts, Navbar, Footer, ScrollUp } from '~/components';
 import globalStyles from '~/styles/global.css';
 
-import type { MetaFunction, LinksFunction, LoaderFunction } from 'remix';
+import type {
+  LinksFunction,
+  LoaderFunction,
+  MetaFunction,
+} from '@remix-run/node';
 import type { ThemeData } from '~/types';
 
 export const meta: MetaFunction = () => {

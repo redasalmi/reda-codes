@@ -28,7 +28,6 @@
     "typecheck": "npm run svg:build && tsc -b",
     "validate": "concurrently --kill-others-on-fail --prefix [{name}] --names lint,typecheck,build \"npm run lint --silent\" \"npm run typecheck --silent\" \"npm run build --silent\"",
     "clean": "rimraf ./node_modules/.cache ./app/styles ./app/components/icons ./public/build ./netlify",
-    "postinstall": "remix setup node",
     "prepare": "husky install"
   },
   "lint-staged": {
@@ -36,17 +35,17 @@
   },
   "dependencies": {
     "@netlify/functions": "^0.10.0",
-    "@remix-run/netlify": "^1.1.1",
-    "@remix-run/react": "^1.1.1",
+    "@remix-run/netlify": "^1.3.3",
+    "@remix-run/node": "^1.3.3",
+    "@remix-run/react": "^1.3.3",
     "framer-motion": "^6.2.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "remix": "^1.1.1",
     "tiny-invariant": "^1.2.0"
   },
   "devDependencies": {
-    "@remix-run/dev": "^1.1.1",
-    "@remix-run/eslint-config": "^1.2.3",
+    "@remix-run/dev": "^1.3.3",
+    "@remix-run/eslint-config": "^1.3.3",
     "@svgr/cli": "^6.2.0",
     "@types/react": "^17.0.24",
     "@types/react-dom": "^17.0.9",

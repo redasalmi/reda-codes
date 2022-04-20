@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { useFetcher, useLoaderData } from 'remix';
+import { useFetcher, useLoaderData } from '@remix-run/react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 import { Sun, Moon } from '~/components/icons';

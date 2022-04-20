@@ -1,4 +1,4 @@
-import type { LinksFunction } from 'remix';
+import type { LinksFunction } from '@remix-run/node';
 
 import { Hero, Projects, Skills, About, Contact } from '~/components';
 import homeStyles from '~/styles/home.css';
