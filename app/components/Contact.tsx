@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 
 import { Section } from '~/components';
 import { Linkedin, Twitter, Github, Envelope } from '~/components/icons';
@@ -11,15 +11,17 @@ interface ContactLinkProps {
 }
 
 function ContactLink({ href, children }: ContactLinkProps) {
+  const shouldReduceMotion = useReducedMotion();
+
   return (
     <motion.a
       href={href}
       initial="init"
       target="_blank"
       rel="noreferrer"
-      whileHover="hover"
       className="contact-link"
       variants={contactLinkVariants}
+      whileHover={shouldReduceMotion ? undefined : 'hover'}
     >
       <motion.span variants={contactTextVariants}>{children}</motion.span>
     </motion.a>

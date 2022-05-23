@@ -1,5 +1,9 @@
 import * as React from 'react';
-import { useAnimation, useViewportScroll } from 'framer-motion';
+import {
+  useAnimation,
+  useReducedMotion,
+  useViewportScroll,
+} from 'framer-motion';
 
 import { MotionLink } from '~/components';
 import { ArrowUp } from '~/components/icons';
@@ -8,6 +12,7 @@ import { scrollUpVariants } from '~/constant';
 export default function ScrollUp() {
   const controls = useAnimation();
   const { scrollYProgress } = useViewportScroll();
+  const shouldReduceMotion = useReducedMotion();
   const linkRef = React.useRef<HTMLAnchorElement>(null!);
 
   React.useEffect(() => {
@@ -35,11 +40,11 @@ export default function ScrollUp() {
       to="#top"
       ref={linkRef}
       initial="hide"
-      whileHover="pulse"
       animate={controls}
       variants={scrollUpVariants}
       className="scroll-up"
       aria-label="Scroll back up"
+      whileHover={shouldReduceMotion ? undefined : 'pulse'}
     >
       <ArrowUp />
     </MotionLink>

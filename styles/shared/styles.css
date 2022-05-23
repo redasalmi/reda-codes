@@ -2,7 +2,6 @@ html {
   box-sizing: border-box;
   font-family: 'Poppins', sans-serif;
   font-size: clamp(0.75rem, 0.5rem + 1.2vw, 1rem);
-  scroll-behavior: smooth;
 }
 
 *,
@@ -11,6 +10,7 @@ html {
   margin: 0;
   padding: 0;
   box-sizing: inherit;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -60,5 +60,13 @@ a {
 @media (--extra-large) {
   .container {
     max-width: 1140px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    scroll-behavior: auto;
   }
 }

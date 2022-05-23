@@ -1,7 +1,11 @@
+const transition = {
+  duration: 0.3,
+};
+
 export const hamburgerBtnVariants = [
   {
     key: 'btn1',
-    transition: { duration: 0.3 },
+    transition,
     variants: {
       hide: { rotateZ: 0, y: 0 },
       show: { rotateZ: -45, y: 4 },
@@ -17,7 +21,7 @@ export const hamburgerBtnVariants = [
   },
   {
     key: 'btn3',
-    transition: { duration: 0.3 },
+    transition,
     variants: {
       hide: { rotateZ: 0, y: 0 },
       show: { rotateZ: 45, y: -6 },
@@ -36,10 +40,6 @@ export const linksVariants = {
     backdropFilter: 'blur(4px)',
     pointerEvents: 'auto' as const,
   },
-};
-
-const transition = {
-  duration: 0.3,
 };
 
 export const linksListVariants = {

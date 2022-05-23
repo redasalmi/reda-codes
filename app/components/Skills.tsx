@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 
 import { Section } from '~/components';
 import { skills } from '~/constant';
@@ -14,8 +14,13 @@ interface SkillProps {
 }
 
 function Skill({ title, iconClass, Icon }: SkillProps) {
+  const shouldReduceMotion = useReducedMotion();
+
   return (
-    <motion.div className="skill" whileHover={{ y: -10 }}>
+    <motion.div
+      className="skill"
+      whileHover={shouldReduceMotion ? undefined : { y: -10 }}
+    >
       <Icon className={`skill-svg ${iconClass ? iconClass : ''}`} />
       <p>{title}</p>
     </motion.div>

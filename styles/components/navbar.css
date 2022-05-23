@@ -238,3 +238,9 @@
     gap: 50px;
   }
 }
+
+@media (prefers-reduced-motion: reduce) {
+  .animated-link::after {
+    transition: none;
+  }
+}
