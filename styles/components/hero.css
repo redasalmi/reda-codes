@@ -165,3 +165,16 @@
     gap: 15px;
   }
 }
+
+@media (prefers-reduced-motion: reduce) {
+  .logo-animation {
+    background-color: var(--bg-logo);
+    transform: rotateX(27deg) rotateY(-27deg) !important;
+    box-shadow: 27px 70px 40px -20px var(--shadow-primary);
+  }
+
+  .logo-animation-svg g:last-child path {
+    opacity: 1;
+    stroke-dasharray: 1px 1px;
+  }
+}

@@ -1,5 +1,10 @@
 import * as React from 'react';
-import { motion, useAnimation, useMotionValue } from 'framer-motion';
+import {
+  motion,
+  useAnimation,
+  useMotionValue,
+  useReducedMotion,
+} from 'framer-motion';
 
 import { logoBgVariants, pathVariants, clips, paths } from '~/constant';
 
@@ -22,6 +27,8 @@ function MotionPath({
   delay,
   onAnimationComplete,
 }: MotionPathProps) {
+  const shouldReduceMotion = useReducedMotion();
+
   return (
     <motion.path
       d={d}
@@ -30,8 +37,8 @@ function MotionPath({
       variants={pathVariants}
       strokeWidth={strokeWidth}
       custom={{ duration, delay }}
-      animate={startDraw ? 'show' : undefined}
       onAnimationComplete={onAnimationComplete}
+      animate={!shouldReduceMotion && startDraw ? 'show' : undefined}
     />
   );
 }
@@ -41,6 +48,7 @@ export default function LogoAnimation() {
   const logoDivRef = React.useRef<HTMLDivElement>(null!);
   const controls = useAnimation();
   const z = useMotionValue(0);
+  const shouldReduceMotion = useReducedMotion();
 
   const startRotation = () => {
     logoDivRef.current.classList.add('logo-animation-bg');
@@ -72,17 +80,33 @@ export default function LogoAnimation() {
     }
   };
 
+  const handleViewPortEnter = () => {
+    if (shouldReduceMotion) {
+      return undefined;
+    }
+
+    setStartDraw(true);
+  };
+
+  const reducedAnimation = <T,>(callback: T) => {
+    if (shouldReduceMotion) {
+      return undefined;
+    }
+
+    return callback;
+  };
+
   return (
     <motion.div
       style={{ z }}
       ref={logoDivRef}
-      animate={controls}
       variants={logoBgVariants}
-      viewport={{ once: true, amount: 0.9 }}
-      onViewportEnter={() => setStartDraw(true)}
       className="logo-animation"
-      onMouseMove={handleMouseEvent}
-      onHoverEnd={handleMouseLeave}
+      animate={reducedAnimation(controls)}
+      onViewportEnter={handleViewPortEnter}
+      viewport={{ once: true, amount: 0.9 }}
+      onMouseMove={reducedAnimation(handleMouseEvent)}
+      onHoverEnd={reducedAnimation(handleMouseLeave)}
     >
       <svg
         className="logo-animation-svg"
