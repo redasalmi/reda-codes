@@ -172,6 +172,7 @@
   display: block;
   width: 50%;
   height: 1px;
+  background-color: var(--fg-primary);
   border: 1px solid var(--fg-primary);
   border-radius: 5px;
   margin: 3px auto;
