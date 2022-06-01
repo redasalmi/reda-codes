@@ -21,7 +21,11 @@ export default function ThemeToggle() {
 
   return (
     <fetcher.Form method="post" action="/action/set-theme">
-      <input type="text" name="theme" value={theme} hidden readOnly />
+      <label hidden>
+        theme toggle
+        <input type="text" name="theme" value={theme} hidden readOnly />
+      </label>
+
       <button
         type="submit"
         className="theme-btn nav-icon"

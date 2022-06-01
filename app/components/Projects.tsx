@@ -81,6 +81,7 @@ function Project({
               href={link}
               target="_blank"
               rel="noreferrer"
+              aria-label={`Visit ${title} website`}
               className="project-link project-owner animated-link"
             >
               Visit Website
@@ -91,6 +92,7 @@ function Project({
                 href={code}
                 target="_blank"
                 rel="noreferrer"
+                aria-label={`Check ${title} source code`}
                 className="project-link source-code animated-link"
               >
                 Source code

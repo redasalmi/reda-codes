@@ -1,12 +1,16 @@
-.scroll-up {
+.scroll-up-section {
   position: fixed;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   right: 10px;
   bottom: 10px;
   width: 38px;
   height: 38px;
+}
+
+.scroll-up {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
   border-radius: 50%;
   background-color: var(--secondary);
   z-index: 2;

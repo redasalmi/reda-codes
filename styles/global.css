@@ -3,5 +3,5 @@
 @import './theme/_light.css';
 @import './theme/_dark.css';
 @import './components/navbar.css';
-@import './components/footer.css';
 @import './components/scroll-up.css';
+@import './components/footer.css';

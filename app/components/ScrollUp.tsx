@@ -36,17 +36,19 @@ export default function ScrollUp() {
   }, []);
 
   return (
-    <MotionLink
-      to="#top"
-      ref={linkRef}
-      initial="hide"
-      animate={controls}
-      variants={scrollUpVariants}
-      className="scroll-up"
-      aria-label="Scroll back up"
-      whileHover={shouldReduceMotion ? undefined : 'pulse'}
-    >
-      <ArrowUp />
-    </MotionLink>
+    <section role="navigation" className="scroll-up-section">
+      <MotionLink
+        to="#top"
+        ref={linkRef}
+        initial="hide"
+        animate={controls}
+        variants={scrollUpVariants}
+        className="scroll-up"
+        aria-label="Scroll back up"
+        whileHover={shouldReduceMotion ? undefined : 'pulse'}
+      >
+        <ArrowUp />
+      </MotionLink>
+    </section>
   );
 }

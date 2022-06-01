@@ -87,8 +87,8 @@ export default function App() {
         <MotionConfig reducedMotion="user">
           <Navbar />
           <Outlet />
-          <Footer />
           <ScrollUp />
+          <Footer />
         </MotionConfig>
         <ScrollRestoration />
         <Scripts />
