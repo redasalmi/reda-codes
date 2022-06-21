@@ -1,7 +1,18 @@
+import { json } from '@remix-run/node';
+
+import { setUserTheme, themeCookie } from '~/cookies.server';
+
 import type { ActionFunction } from '@remix-run/node';
 
-import { setUserTheme } from '~/cookies.server';
-
 export const action: ActionFunction = async ({ request }) => {
-  return setUserTheme(request);
+  const theme = await setUserTheme(request);
+
+  return json(
+    { theme },
+    {
+      headers: {
+        'Set-Cookie': await themeCookie.serialize(theme),
+      },
+    },
+  );
 };

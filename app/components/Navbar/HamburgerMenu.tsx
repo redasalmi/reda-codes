@@ -16,12 +16,17 @@ export default function HamburgerMenu({
   fixNavIconsPosition,
 }: HamburgerMenuProps) {
   const controls = useAnimation();
+  const hamburgerBtnRef = React.useRef<HTMLButtonElement>(null!);
   const linksRef = React.useRef<HTMLDivElement>(null!);
 
   const handleToggleNavbar = () => {
     const isOpen = linksRef.current.classList.toggle('nav-mobile-open');
     fixNavIconsPosition(isOpen);
     controls.start(isOpen ? 'show' : 'hide');
+    hamburgerBtnRef.current.setAttribute(
+      'aria-label',
+      isOpen ? 'close navigation menu' : 'open navigation menu',
+    );
   };
 
   const closeNavbar = (event: React.MouseEvent) => {
@@ -40,7 +45,8 @@ export default function HamburgerMenu({
       <motion.button
         type="button"
         animate={controls}
-        aria-label="hamburger menu"
+        ref={hamburgerBtnRef}
+        aria-label="open navigation menu"
         className="nav-hamburger-btn"
         onClick={handleToggleNavbar}
       >

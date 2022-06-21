@@ -1,12 +1,12 @@
-import { createCookie, json } from '@remix-run/node';
+import { createCookie } from '@remix-run/node';
 import invariant from 'tiny-invariant';
 
-import type { Theme, ThemeData } from '~/types';
+import { Theme } from '~/types';
 
 const COOKIE_SECRET = process.env.COOKIE_SECRET;
 invariant(COOKIE_SECRET, 'COOKIE_SECRET must be set');
 
-const userTheme = createCookie('theme', {
+export const themeCookie = createCookie('theme', {
   path: '/',
   sameSite: 'lax',
   httpOnly: true,
@@ -15,23 +15,26 @@ const userTheme = createCookie('theme', {
   secure: process.env.NODE_ENV === 'production',
 });
 
-export const getuserTheme = async (headers: Headers) => {
+export const getUserTheme = async (headers: Headers) => {
   const cookieHeader = headers.get('Cookie');
-  const theme: Theme = (await userTheme.parse(cookieHeader)) || 'light';
+  const theme = (await themeCookie.parse(cookieHeader)) as Theme | null;
 
-  return json<ThemeData>({ theme });
+  if (!theme) {
+    return Theme.LIGHT;
+  }
+
+  return theme;
 };
 
 export const setUserTheme = async (request: Request) => {
   const formData = await request.formData();
-  const theme: Theme = formData.get('theme') === 'light' ? 'dark' : 'light';
+  const theme = formData.get('theme');
 
-  return json<ThemeData>(
-    { theme },
-    {
-      headers: {
-        'Set-Cookie': await userTheme.serialize(theme),
-      },
-    },
-  );
+  if (!theme) {
+    return Theme.LIGHT;
+  }
+
+  invariant(typeof theme === 'string', 'theme must be a string');
+
+  return theme === Theme.LIGHT ? Theme.DARK : Theme.LIGHT;
 };

@@ -7,9 +7,10 @@ import {
   ScrollRestoration,
   useLoaderData,
 } from '@remix-run/react';
+import { json } from '@remix-run/node';
 import { MotionConfig } from 'framer-motion';
 
-import { getuserTheme } from '~/cookies.server';
+import { getUserTheme } from '~/cookies.server';
 
 import { Fonts, Navbar, Footer, ScrollUp } from '~/components';
 import globalStyles from '~/styles/global.css';
@@ -19,7 +20,6 @@ import type {
   LoaderFunction,
   MetaFunction,
 } from '@remix-run/node';
-import type { ThemeData } from '~/types';
 
 export const meta: MetaFunction = () => {
   return {
@@ -69,12 +69,18 @@ export const links: LinksFunction = () => {
   ];
 };
 
+interface LoaderData {
+  theme: Awaited<ReturnType<typeof getUserTheme>>;
+}
+
 export const loader: LoaderFunction = async ({ request }) => {
-  return getuserTheme(request.headers);
+  const theme = await getUserTheme(request.headers);
+
+  return json({ theme });
 };
 
 export default function App() {
-  const { theme } = useLoaderData<ThemeData>();
+  const { theme } = useLoaderData() as LoaderData;
 
   return (
     <html lang="en">
