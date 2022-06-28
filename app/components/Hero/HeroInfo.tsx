@@ -29,7 +29,11 @@ export default function HeroInfo() {
           whileHover={shouldReduceMotion ? undefined : 'move'}
         >
           <span>See My Projects</span>
-          <MotionChevron className="chevron" variants={chevronVariants} />
+          <MotionChevron
+            className="chevron"
+            aria-label="right chevron"
+            variants={chevronVariants}
+          />
         </MotionLink>
 
         <MotionLink

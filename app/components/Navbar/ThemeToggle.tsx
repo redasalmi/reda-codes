@@ -40,6 +40,7 @@ export default function ThemeToggle() {
               initial="hide"
               animate="show"
               exit="hide"
+              aria-label="sun"
               className="theme-sun"
               variants={themeVariants}
             />
@@ -50,6 +51,7 @@ export default function ThemeToggle() {
               initial="hide"
               animate="show"
               exit="hide"
+              aria-label="moon"
               className="theme-moon"
               variants={themeVariants}
             />

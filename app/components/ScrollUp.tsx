@@ -47,7 +47,7 @@ export default function ScrollUp() {
         aria-label="Scroll back up"
         whileHover={shouldReduceMotion ? undefined : 'pulse'}
       >
-        <ArrowUp />
+        <ArrowUp aria-label="up arrow" />
       </MotionLink>
     </section>
   );

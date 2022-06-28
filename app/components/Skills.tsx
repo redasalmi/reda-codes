@@ -5,6 +5,7 @@ import { Section } from '~/components';
 import { skills } from '~/constant';
 
 interface SkillProps {
+  id: string;
   title: string;
   Icon: React.ForwardRefExoticComponent<
     React.PropsWithoutRef<React.SVGProps<SVGSVGElement>> &
@@ -13,7 +14,7 @@ interface SkillProps {
   iconClass?: string;
 }
 
-function Skill({ title, iconClass, Icon }: SkillProps) {
+function Skill({ id, title, iconClass, Icon }: SkillProps) {
   const shouldReduceMotion = useReducedMotion();
 
   return (
@@ -21,8 +22,11 @@ function Skill({ title, iconClass, Icon }: SkillProps) {
       className="skill"
       whileHover={shouldReduceMotion ? undefined : { y: -10 }}
     >
-      <Icon className={`skill-svg ${iconClass ? iconClass : ''}`} />
-      <p>{title}</p>
+      <Icon
+        aria-labelledby={id}
+        className={`skill-svg ${iconClass ? iconClass : ''}`}
+      />
+      <p id={id}>{title}</p>
     </motion.div>
   );
 }
@@ -36,8 +40,8 @@ export default function Skills() {
       subTitle="These are the skills I use most of the time"
     >
       <div className="skills-list">
-        {skills.map(({ key, ...skill }) => (
-          <Skill key={key} {...skill} />
+        {skills.map((skill) => (
+          <Skill key={skill.id} {...skill} />
         ))}
       </div>
     </Section>

@@ -25,7 +25,7 @@ export default function GithubLink({
       aria-label="reda salmi github account"
     >
       {children}
-      <Github className={svgClassName} />
+      <Github aria-label="github" className={svgClassName} />
     </a>
   );
 }
