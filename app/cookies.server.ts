@@ -11,7 +11,6 @@ export const themeCookie = createCookie('theme', {
   sameSite: 'lax',
   httpOnly: true,
   secrets: [COOKIE_SECRET],
-  expires: new Date('2092-01-01'),
   secure: process.env.NODE_ENV === 'production',
 });
 

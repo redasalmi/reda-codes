@@ -11,7 +11,9 @@ export const action: ActionFunction = async ({ request }) => {
     { theme },
     {
       headers: {
-        'Set-Cookie': await themeCookie.serialize(theme),
+        'Set-Cookie': await themeCookie.serialize(theme, {
+          expires: new Date('2092-01-01'),
+        }),
       },
     },
   );
