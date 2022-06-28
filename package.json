@@ -19,7 +19,7 @@
     "css:build:prod": "npm run css:build -- --env production",
     "svg:build": "npx @svgr/cli -- svg",
     "svg:build:watch": "nodemon --watch svg --verbose -e svg --exec \"npm run svg:build\"",
-    "dev": "concurrently \"npm run css:build:watch\" \"npm run svg:build:watch\" \"npm run dev:netlify\"",
+    "dev": "node ./scripts/dev",
     "dev:netlify": "cross-env NODE_ENV=development BROWSER=none netlify dev",
     "start": "npm run build && cross-env NODE_ENV=production BROWSER=none netlify dev",
     "prebuild": "npm run clean",
