@@ -24,7 +24,7 @@ Second version of my Portfolio, presenting my projects and skills. found at:
 
 ## Netlify Setup
 
-1. Install the [Netlify CLI](https://www.netlify.com/products/dev/):
+Install the [Netlify CLI](https://www.netlify.com/products/dev/):
 
 ```sh
 npm i -g netlify-cli
@@ -35,18 +35,6 @@ latest version:
 
 ```sh
 npm i -g netlify-cli@latest
-```
-
-2. Sign up and log in to Netlify:
-
-```sh
-netlify login
-```
-
-3. Create a new site:
-
-```sh
-netlify init
 ```
 
 ## Development
