@@ -3,7 +3,6 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 import { Sun, Moon } from '~/components/icons';
 import { themeVariants } from '~/constant';
-import { Theme } from '~/types';
 
 import type { getUserTheme } from '~/cookies.server';
 
@@ -28,14 +27,10 @@ export default function ThemeToggle() {
       <button
         type="submit"
         className="theme-btn nav-icon"
-        aria-label={
-          theme === Theme.LIGHT
-            ? `set ${Theme.DARK} theme`
-            : `set ${Theme.LIGHT} theme`
-        }
+        aria-label={theme === 'light' ? 'set dark theme' : 'set light theme'}
       >
         <AnimatePresence initial={false}>
-          {theme === Theme.LIGHT ? (
+          {theme === 'light' ? (
             <MotionSun
               initial="hide"
               animate="show"
@@ -46,7 +41,7 @@ export default function ThemeToggle() {
             />
           ) : null}
 
-          {theme === Theme.DARK ? (
+          {theme === 'dark' ? (
             <MotionMoon
               initial="hide"
               animate="show"
