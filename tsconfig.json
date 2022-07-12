@@ -13,8 +13,7 @@
     "forceConsistentCasingInFileNames": true,
     "baseUrl": ".",
     "paths": {
-      "~/*": ["./app/*"],
-      "~/types": ["./types/index.ts"]
+      "~/*": ["./app/*"]
     },
     "noEmit": true
   }
