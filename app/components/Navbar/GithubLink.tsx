@@ -3,6 +3,7 @@ import * as React from 'react';
 import { Github } from '~/components/icons';
 
 interface GithubLinkProps {
+  id: string;
   linkClassName?: string;
   onClick?: () => void;
   svgClassName?: string;
@@ -10,6 +11,7 @@ interface GithubLinkProps {
 }
 
 export default function GithubLink({
+  id,
   linkClassName,
   onClick,
   svgClassName,
@@ -17,6 +19,7 @@ export default function GithubLink({
 }: GithubLinkProps) {
   return (
     <a
+      id={id}
       target="_blank"
       rel="noreferrer"
       onClick={onClick}
@@ -25,7 +28,7 @@ export default function GithubLink({
       aria-label="reda salmi github account"
     >
       {children}
-      <Github aria-label="github" className={svgClassName} />
+      <Github role="img" aria-labelledby={id} className={svgClassName} />
     </a>
   );
 }

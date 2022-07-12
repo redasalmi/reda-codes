@@ -74,6 +74,7 @@ export default function HamburgerMenu({
 
           <li className="nav-github-link">
             <GithubLink
+              id="github-mobile-link"
               onClick={handleToggleNavbar}
               linkClassName="nav-github-btn"
               svgClassName="nav-github"

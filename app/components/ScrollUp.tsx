@@ -41,13 +41,14 @@ export default function ScrollUp() {
         to="#top"
         ref={linkRef}
         initial="hide"
+        id="scroll-up"
         animate={controls}
         variants={scrollUpVariants}
         className="scroll-up"
         aria-label="Scroll back up"
         whileHover={shouldReduceMotion ? undefined : 'pulse'}
       >
-        <ArrowUp aria-label="up arrow" />
+        <ArrowUp role="img" aria-labelledby="scroll-up" />
       </MotionLink>
     </section>
   );

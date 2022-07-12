@@ -24,20 +24,17 @@ export default function ThemeToggle() {
         <input type="text" name="theme" value={theme} hidden readOnly />
       </label>
 
-      <button
-        type="submit"
-        className="theme-btn nav-icon"
-        aria-label={theme === 'light' ? 'set dark theme' : 'set light theme'}
-      >
+      <button type="submit" className="theme-btn nav-icon">
         <AnimatePresence initial={false}>
           {theme === 'light' ? (
             <MotionSun
               initial="hide"
               animate="show"
               exit="hide"
-              aria-label="sun"
+              role="img"
               className="theme-sun"
               variants={themeVariants}
+              aria-label="toggle light theme"
             />
           ) : null}
 
@@ -46,9 +43,10 @@ export default function ThemeToggle() {
               initial="hide"
               animate="show"
               exit="hide"
-              aria-label="moon"
+              role="img"
               className="theme-moon"
               variants={themeVariants}
+              aria-label="toggle dark theme"
             />
           ) : null}
         </AnimatePresence>

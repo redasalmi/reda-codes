@@ -23,6 +23,7 @@ function Skill({ id, title, iconClass, Icon }: SkillProps) {
       whileHover={shouldReduceMotion ? undefined : { y: -10 }}
     >
       <Icon
+        role="img"
         aria-labelledby={id}
         className={`skill-svg ${iconClass ? iconClass : ''}`}
       />

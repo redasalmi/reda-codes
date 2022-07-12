@@ -30,6 +30,7 @@ export default function HeroInfo() {
         >
           <span>See My Projects</span>
           <MotionChevron
+            role="img"
             className="chevron"
             aria-label="right chevron"
             variants={chevronVariants}

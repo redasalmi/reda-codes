@@ -34,21 +34,22 @@ export default function Contact() {
       <div className="contact-links">
         <ContactLink href="https://www.linkedin.com/in/reda-salmi-424a30168/">
           <span>Know more about me Through</span>{' '}
-          <Linkedin aria-label="linkedin" />
+          <Linkedin role="img" aria-label="linkedin" />
         </ContactLink>
 
         <ContactLink href="https://twitter.com/redsalmi">
-          <span>Message me on</span> <Twitter aria-label="twitter" />{' '}
+          <span>Message me on</span> <Twitter role="img" aria-label="twitter" />{' '}
           <span>if you want</span>
         </ContactLink>
 
         <ContactLink href="mailto:reda.salmi.elt@gmail.com">
-          <span>Or just send me an email</span> <Envelope aria-label="gmail" />
+          <span>Or just send me an email</span>{' '}
+          <Envelope role="img" aria-label="(gmail)" />
         </ContactLink>
 
         <ContactLink href="https://github.com/redasalmi">
           <span>Don&apos;t forget to check my work</span>{' '}
-          <Github aria-label="github" />
+          <Github role="img" aria-label="(github)" />
         </ContactLink>
       </div>
     </Section>

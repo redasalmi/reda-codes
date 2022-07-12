@@ -109,6 +109,7 @@ export default function LogoAnimation() {
       onHoverEnd={reducedAnimation(handleMouseLeave)}
     >
       <svg
+        role="img"
         aria-label="reda codes logo"
         className="logo-animation-svg"
         viewBox="0 0 41.097 35.452"
