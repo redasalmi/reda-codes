@@ -4,11 +4,12 @@ import invariant from 'tiny-invariant';
 const COOKIE_SECRET = process.env.COOKIE_SECRET;
 invariant(COOKIE_SECRET, 'COOKIE_SECRET must be set');
 
-export type Theme = 'light' | 'dark';
-const defaultTheme = 'light';
+const themes = ['light', 'dark'] as const;
+export type Theme = typeof themes[number];
+export const defaultTheme = themes[0];
 
-const isTheme = (theme: string): theme is Theme => {
-  return (theme as Theme) !== undefined;
+const isTheme = (theme: any): theme is Theme => {
+  return themes.includes(theme);
 };
 
 export const themeCookie = createCookie('theme', {
@@ -23,7 +24,7 @@ export const getUserTheme = async (headers: Headers): Promise<Theme> => {
   const cookieHeader = headers.get('Cookie');
   const theme = (await themeCookie.parse(cookieHeader)) as Theme | null;
 
-  if (!theme) {
+  if (!theme || !isTheme(theme)) {
     return defaultTheme;
   }
 
@@ -34,14 +35,11 @@ export const setUserTheme = async (request: Request): Promise<Theme> => {
   const formData = await request.formData();
   const theme = formData.get('theme');
 
-  if (!theme) {
+  invariant(typeof theme === 'string', 'theme must be of type Theme');
+
+  if (!theme || !isTheme(theme)) {
     return defaultTheme;
   }
 
-  invariant(
-    typeof theme === 'string' && isTheme(theme),
-    'theme must be of type Theme',
-  );
-
-  return theme === 'light' ? 'dark' : 'light';
+  return theme;
 };

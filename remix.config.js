@@ -4,8 +4,8 @@
 module.exports = {
   serverBuildTarget: 'netlify',
   server: './server.js',
-  ignoredRouteFiles: ['**/.*'],
   devServerPort: 8002,
+  ignoredRouteFiles: ['**/.*', '**/*.css', '**/*.test.{js,jsx,ts,tsx}'],
   // appDirectory: 'app',
   // assetsBuildDirectory: 'public/build',
   // serverBuildPath: '.netlify/functions-internal/server.js',

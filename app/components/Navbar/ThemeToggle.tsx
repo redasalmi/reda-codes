@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Sun, Moon } from '~/components/icons';
 import { themeVariants } from '~/constant';
 
-import type { getUserTheme } from '~/cookies.server';
+import type { getUserTheme, Theme } from '~/cookies.server';
 
 const MotionSun = motion(Sun);
 const MotionMoon = motion(Moon);
@@ -17,11 +17,13 @@ export default function ThemeToggle() {
   const { theme } = useLoaderData() as LoaderData;
   const fetcher = useFetcher();
 
+  const newTheme: Theme = theme === 'dark' ? 'light' : 'dark';
+
   return (
     <fetcher.Form method="post" action="/action/set-theme">
       <label hidden>
         theme toggle
-        <input type="text" name="theme" value={theme} hidden readOnly />
+        <input type="text" name="theme" value={newTheme} hidden readOnly />
       </label>
 
       <button type="submit" className="theme-btn nav-icon">
