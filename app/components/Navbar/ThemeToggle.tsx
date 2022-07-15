@@ -4,17 +4,14 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Sun, Moon } from '~/components/icons';
 import { themeVariants } from '~/constant';
 
-import type { getUserTheme, Theme } from '~/cookies.server';
+import type { Theme } from '~/cookies.server';
+import type { loader } from '~/root';
 
 const MotionSun = motion(Sun);
 const MotionMoon = motion(Moon);
 
-interface LoaderData {
-  theme: Awaited<ReturnType<typeof getUserTheme>>;
-}
-
 export default function ThemeToggle() {
-  const { theme } = useLoaderData() as LoaderData;
+  const { theme } = useLoaderData<typeof loader>();
   const fetcher = useFetcher();
 
   const newTheme: Theme = theme === 'dark' ? 'light' : 'dark';

@@ -15,11 +15,7 @@ import { getUserTheme } from '~/cookies.server';
 import { Fonts, Navbar, Footer, ScrollUp } from '~/components';
 import globalStyles from '~/styles/global.css';
 
-import type {
-  LinksFunction,
-  LoaderFunction,
-  MetaFunction,
-} from '@remix-run/node';
+import type { LinksFunction, MetaFunction, LoaderArgs } from '@remix-run/node';
 
 export const meta: MetaFunction = () => {
   return {
@@ -69,18 +65,14 @@ export const links: LinksFunction = () => {
   ];
 };
 
-interface LoaderData {
-  theme: Awaited<ReturnType<typeof getUserTheme>>;
-}
-
-export const loader: LoaderFunction = async ({ request }) => {
+export const loader = async ({ request }: LoaderArgs) => {
   const theme = await getUserTheme(request.headers);
 
   return json({ theme });
 };
 
 export default function App() {
-  const { theme } = useLoaderData() as LoaderData;
+  const { theme } = useLoaderData<typeof loader>();
 
   return (
     <html lang="en">

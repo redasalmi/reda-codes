@@ -1,9 +1,5 @@
 import * as React from 'react';
-import {
-  useAnimation,
-  useReducedMotion,
-  useViewportScroll,
-} from 'framer-motion';
+import { useAnimation, useReducedMotion, useScroll } from 'framer-motion';
 
 import { MotionLink } from '~/components';
 import { ArrowUp } from '~/components/icons';
@@ -11,7 +7,7 @@ import { scrollUpVariants } from '~/constant';
 
 export default function ScrollUp() {
   const controls = useAnimation();
-  const { scrollYProgress } = useViewportScroll();
+  const { scrollYProgress } = useScroll();
   const shouldReduceMotion = useReducedMotion();
   const linkRef = React.useRef<HTMLAnchorElement>(null!);
 
