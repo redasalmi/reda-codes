@@ -1,7 +1,8 @@
 import { renderToString } from 'react-dom/server';
 import { RemixServer } from '@remix-run/react';
 
-import type { EntryContext } from '@remix-run/node';
+import setHeaders from '~/utils/headers';
+import type { EntryContext, HandleDataRequestFunction } from '@remix-run/node';
 
 export default function handleRequest(
   request: Request,
@@ -13,10 +14,18 @@ export default function handleRequest(
     <RemixServer context={remixContext} url={request.url} />,
   );
 
-  responseHeaders.set('Content-Type', 'text/html');
+  setHeaders(responseHeaders, 'text/html');
 
   return new Response('<!DOCTYPE html>' + markup, {
     status: responseStatusCode,
     headers: responseHeaders,
   });
 }
+
+export const handleDataRequest: HandleDataRequestFunction = (
+  response: Response,
+) => {
+  setHeaders(response.headers);
+
+  return response;
+};
