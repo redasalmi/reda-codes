@@ -1,4 +1,5 @@
-const defaultHeaders = [
+export const headers = [
+  ['Content-Type', 'text/html'],
   ['Strict-Transport-Security', 'max-age=63072000; includeSubDomains; preload'],
   [
     'Content-Security-Policy',
@@ -12,15 +13,3 @@ const defaultHeaders = [
     'geolocation=(), midi=(), sync-xhr=(), microphone=(), camera=(), magnetometer=(), gyroscope=(), fullscreen=(), payment=()',
   ],
 ];
-
-export default function setHeaders(
-  responseHeaders: Headers,
-  contentType?: string,
-) {
-  const headers = defaultHeaders;
-  if (contentType) {
-    headers.push(['Content-Type', contentType]);
-  }
-
-  headers.forEach(([name, value]) => responseHeaders.set(name, value));
-}
