@@ -21,7 +21,7 @@
     "svg:build:watch": "nodemon --watch svg --verbose -e svg --exec \"npm run svg:build\"",
     "dev": "node ./scripts/dev",
     "dev:netlify": "cross-env NODE_ENV=development BROWSER=none netlify dev --framework remix",
-    "start": "npm run build && cross-env NODE_ENV=production BROWSER=none netlify dev",
+    "start": "npm run build && cross-env NODE_ENV=production BROWSER=none netlify dev --framework remix",
     "prebuild": "npm run clean",
     "build": "npm run css:build:prod && npm run svg:build && remix build",
     "lint": "eslint --ext js,jsx,ts,tsx .",
