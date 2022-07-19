@@ -1,4 +1,21 @@
-export const projectsData = [
+export interface ProjectData {
+  key: string;
+  title: string;
+  owner?: {
+    name: string;
+    link: string;
+  };
+  desc: string;
+  techStack: string[];
+  img: {
+    src: string;
+    alt: string;
+  };
+  link: string;
+  code?: string;
+}
+
+export const projects: ProjectData[] = [
   {
     key: 'khedemni',
     title: 'Khedemni',

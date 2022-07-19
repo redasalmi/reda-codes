@@ -1,20 +1,10 @@
-import * as React from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 
 import { Section } from '~/components';
-import { skills } from '~/constant';
 
-interface SkillProps {
-  id: string;
-  title: string;
-  Icon: React.ForwardRefExoticComponent<
-    React.PropsWithoutRef<React.SVGProps<SVGSVGElement>> &
-      React.RefAttributes<SVGSVGElement>
-  >;
-  iconClass?: string;
-}
+import type { SkillData } from '~/constant';
 
-function Skill({ id, title, iconClass, Icon }: SkillProps) {
+function Skill({ id, title, iconClass, Icon }: SkillData) {
   const shouldReduceMotion = useReducedMotion();
 
   return (
@@ -32,7 +22,15 @@ function Skill({ id, title, iconClass, Icon }: SkillProps) {
   );
 }
 
-export default function Skills() {
+interface SkillsProps {
+  skills: SkillData[];
+}
+
+export default function Skills({ skills }: SkillsProps) {
+  if (!skills.length) {
+    return null;
+  }
+
   return (
     <Section
       id="skills"

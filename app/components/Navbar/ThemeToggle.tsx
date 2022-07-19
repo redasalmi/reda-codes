@@ -33,7 +33,7 @@ export default function ThemeToggle() {
               role="img"
               className="theme-sun"
               variants={themeVariants}
-              aria-label="toggle light theme"
+              aria-label="toggle dark theme"
             />
           ) : null}
 
@@ -45,7 +45,7 @@ export default function ThemeToggle() {
               role="img"
               className="theme-moon"
               variants={themeVariants}
-              aria-label="toggle dark theme"
+              aria-label="toggle light theme"
             />
           ) : null}
         </AnimatePresence>

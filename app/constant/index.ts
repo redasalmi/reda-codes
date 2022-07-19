@@ -1,4 +1,4 @@
-export * from './contact';
+export * from './contacts';
 export * from './hamburgerMenu';
 export * from './headers';
 export * from './hero';

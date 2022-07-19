@@ -10,7 +10,11 @@ export default defineConfig({
   test: {
     globals: true,
     environment: 'happy-dom',
-    setupFiles: ['dotenv/config', './test/setup-test-env.ts'],
+    setupFiles: [
+      'dotenv/config',
+      './test/setup-test-env.ts',
+      './test/setup-test.ts',
+    ],
     include: ['./app/**/*.{test,spec}.{js,ts,jsx,tsx}'],
     watchExclude: ['.*\\/node_modules\\/.*', '.*\\/build\\/.*'],
   },

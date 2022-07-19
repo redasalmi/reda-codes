@@ -2,28 +2,14 @@ import { motion } from 'framer-motion';
 
 import { Section } from '~/components';
 import {
-  projectsData,
   projectVariants,
   projectFirstVariant,
   projectLastVariant,
 } from '~/constant';
 
-interface ProjectProps {
-  title: string;
-  owner?: {
-    name: string;
-    link: string;
-  };
-  desc: string;
-  techStack: string[];
-  img: {
-    src: string;
-    alt: string;
-  };
-  imgFirst: boolean;
-  link: string;
-  code?: string;
-}
+import type { ProjectData } from '~/constant';
+
+type ProjectProps = Omit<ProjectData, 'key'> & { imgFirst: boolean };
 
 function Project({
   title,
@@ -116,7 +102,15 @@ function Project({
   );
 }
 
-export default function Projects() {
+interface ProjectsProps {
+  projects: ProjectData[];
+}
+
+export default function Projects({ projects }: ProjectsProps) {
+  if (!projects.length) {
+    return null;
+  }
+
   return (
     <Section
       id="projects"
@@ -124,7 +118,7 @@ export default function Projects() {
       className="projects"
       subTitle="These are some of the projects I worked on"
     >
-      {projectsData.map(({ key, ...project }, index) => (
+      {projects.map(({ key, ...project }, index) => (
         <Project key={key} imgFirst={index % 2 !== 0} {...project} />
       ))}
     </Section>

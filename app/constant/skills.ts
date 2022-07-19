@@ -14,7 +14,17 @@ import {
   Git,
 } from '~/components/icons';
 
-export const skills = [
+export interface SkillData {
+  id: string;
+  title: string;
+  Icon: React.ForwardRefExoticComponent<
+    React.PropsWithoutRef<React.SVGProps<SVGSVGElement>> &
+      React.RefAttributes<SVGSVGElement>
+  >;
+  iconClass?: string;
+}
+
+export const skills: SkillData[] = [
   {
     id: 'postcss',
     title: 'PostCSS',
