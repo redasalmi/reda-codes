@@ -3,15 +3,15 @@ import { Link } from '@remix-run/react';
 import { Section } from '~/components';
 import { navLinks } from '~/constant';
 
-export default function Footer() {
-  const footerLinks = [
-    {
-      href: '#top',
-      text: 'Home',
-    },
-    ...navLinks,
-  ];
+const footerLinks = [
+  {
+    href: '#top',
+    text: 'Home',
+  },
+  ...navLinks,
+];
 
+export default function Footer() {
   return (
     <Section type="footer" className="footer">
       <div className="footer-links">

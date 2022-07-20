@@ -11,7 +11,7 @@ import type { ProjectData } from '~/constant';
 
 type ProjectProps = Omit<ProjectData, 'key'> & { imgFirst: boolean };
 
-function Project({
+export function Project({
   title,
   owner,
   desc,
@@ -25,6 +25,7 @@ function Project({
     <motion.div
       initial="hide"
       whileInView="show"
+      data-testid="project"
       variants={projectVariants}
       className="project project-border"
       viewport={{ once: true, amount: 0.26 }}

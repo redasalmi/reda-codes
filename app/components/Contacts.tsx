@@ -7,7 +7,7 @@ import type { ContactData } from '~/constant';
 
 type ContactProps = Omit<ContactData, 'key'>;
 
-function Contact({ href, text, Icon, iconAriaLabel }: ContactProps) {
+export function Contact({ href, text }: ContactProps) {
   const shouldReduceMotion = useReducedMotion();
 
   return (
@@ -20,10 +20,7 @@ function Contact({ href, text, Icon, iconAriaLabel }: ContactProps) {
       variants={contactLinkVariants}
       whileHover={shouldReduceMotion ? undefined : 'hover'}
     >
-      <motion.span variants={contactTextVariants}>
-        <span>{text}</span>
-        <Icon role="img" aria-label={iconAriaLabel} />
-      </motion.span>
+      <motion.span variants={contactTextVariants}>{text}</motion.span>
     </motion.a>
   );
 }

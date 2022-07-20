@@ -4,12 +4,13 @@ import { Section } from '~/components';
 
 import type { SkillData } from '~/constant';
 
-function Skill({ id, title, iconClass, Icon }: SkillData) {
+export function Skill({ id, title, iconClass, Icon }: SkillData) {
   const shouldReduceMotion = useReducedMotion();
 
   return (
     <motion.div
       className="skill"
+      data-testid="skill"
       whileHover={shouldReduceMotion ? undefined : { y: -10 }}
     >
       <Icon

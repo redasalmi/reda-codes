@@ -5,3 +5,13 @@ import Link from '~/__mocks__/Link';
 vi.mock('~/components/MotionLink', () => ({
   default: Link,
 }));
+
+window.IntersectionObserver = vi.fn(() => ({
+  root: null,
+  rootMargin: '',
+  observe: vi.fn(),
+  unobserve: vi.fn(),
+  disconnect: vi.fn(),
+  thresholds: [],
+  takeRecords: vi.fn(() => []),
+}));
