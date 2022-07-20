@@ -22,15 +22,15 @@
     "dev": "node ./scripts/dev",
     "dev:netlify": "cross-env NODE_ENV=development BROWSER=none netlify dev --framework remix",
     "start": "npm run build && cross-env NODE_ENV=production BROWSER=none netlify dev --framework remix",
-    "prebuild": "npm run clean",
-    "build": "npm run css:build:prod && npm run svg:build && remix build",
+    "prebuild": "npm run clean && npm run css:build:prod && npm run svg:build",
+    "build": "remix build",
     "lint": "eslint --ext js,jsx,ts,tsx .",
-    "typecheck": "npm run svg:build && tsc -b",
+    "typecheck": "npm run prebuild && tsc -b",
     "validate": "concurrently --kill-others-on-fail --prefix [{name}] --names lint,typecheck,test,build \"npm run lint --silent\" \"npm run typecheck --silent\" \"npm run test:ci\" \"npm run build --silent\"",
     "clean": "rimraf ./node_modules/.cache ./app/styles ./app/components/icons ./public/build ./netlify",
     "prepare": "husky install",
-    "test": "npm run svg:build && vitest",
-    "test:ci": "npm run svg:build && vitest run"
+    "test": "npm run prebuild && vitest",
+    "test:ci": "npm run prebuild && vitest run"
   },
   "lint-staged": {
     "**/*.+(js|jsx|ts|tsx|json|css)": "prettier --write --ignore-unknown"
