@@ -17,7 +17,7 @@
   border-radius: 6px;
   color: var(--fg-primary);
   background-color: var(--bg-primary);
-  box-shadow: 6px 6px 0px var(--shadow-primary);
+  box-shadow: 6px 6px 0 var(--shadow-primary);
 }
 
 .contact-link > span {

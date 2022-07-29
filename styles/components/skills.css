@@ -12,11 +12,11 @@
   align-items: center;
   width: 120px;
   height: 120px;
-  padding: 25px 15px 15px 15px;
+  padding: 25px 15px 15px;
   font-weight: bold;
   border-radius: 6px;
   background-color: var(--bg-secondary);
-  box-shadow: 0px 0px 10px var(--shadow-primary);
+  box-shadow: 0 0 10px var(--shadow-primary);
 }
 
 .skill-svg {
