@@ -1,17 +1,16 @@
-import { motion, useReducedMotion } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 import { Section } from '~/components';
 
+import { useReducedAnimation } from '~/utils';
 import type { SkillData } from '~/constant';
 
 export function Skill({ id, title, iconClass, Icon }: SkillData) {
-  const shouldReduceMotion = useReducedMotion();
-
   return (
     <motion.div
       className="skill"
       data-testid="skill"
-      whileHover={shouldReduceMotion ? undefined : { y: -10 }}
+      whileHover={useReducedAnimation({ y: -10 })}
     >
       <Icon
         role="img"

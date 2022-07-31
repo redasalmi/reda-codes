@@ -6,6 +6,7 @@ import {
   useReducedMotion,
 } from 'framer-motion';
 
+import { useReducedAnimation } from '~/utils';
 import { logoBgVariants, pathVariants, clips, paths } from '~/constant';
 
 interface MotionPathProps {
@@ -48,14 +49,13 @@ export default function LogoAnimation() {
   const logoDivRef = React.useRef<HTMLDivElement>(null!);
   const controls = useAnimation();
   const z = useMotionValue(0);
-  const shouldReduceMotion = useReducedMotion();
 
   const startRotation = () => {
     logoDivRef.current.classList.add('logo-animation-bg');
     controls.start('rotate');
   };
 
-  const handleMouseEvent = (event: React.MouseEvent<HTMLDivElement>) => {
+  const handleMouseMove = (event: React.MouseEvent<HTMLDivElement>) => {
     if (z.get() === -250) {
       const { x, width } = logoDivRef.current.getBoundingClientRect();
       const logoDivCenter = (width + x * 2) / 2;
@@ -80,33 +80,17 @@ export default function LogoAnimation() {
     }
   };
 
-  const handleViewPortEnter = () => {
-    if (shouldReduceMotion) {
-      return undefined;
-    }
-
-    setStartDraw(true);
-  };
-
-  const reducedAnimation = <T,>(callback: T) => {
-    if (shouldReduceMotion) {
-      return undefined;
-    }
-
-    return callback;
-  };
-
   return (
     <motion.div
       style={{ z }}
       ref={logoDivRef}
       variants={logoBgVariants}
       className="logo-animation"
-      animate={reducedAnimation(controls)}
-      onViewportEnter={handleViewPortEnter}
+      animate={useReducedAnimation(controls)}
       viewport={{ once: true, amount: 0.9 }}
-      onMouseMove={reducedAnimation(handleMouseEvent)}
-      onHoverEnd={reducedAnimation(handleMouseLeave)}
+      onMouseMove={useReducedAnimation(handleMouseMove)}
+      onHoverEnd={useReducedAnimation(handleMouseLeave)}
+      onViewportEnter={useReducedAnimation(() => setStartDraw(true))}
     >
       <svg
         role="img"

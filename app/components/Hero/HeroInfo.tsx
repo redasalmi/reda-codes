@@ -1,14 +1,13 @@
-import { motion, useReducedMotion } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 import { MotionLink } from '~/components';
 import { ChevronRight } from '~/components/icons';
+import { useReducedAnimation } from '~/utils';
 import { chevronVariants, handVariants } from '~/constant';
 
 const MotionChevron = motion(ChevronRight);
 
 export default function HeroInfo() {
-  const shouldReduceMotion = useReducedMotion();
-
   return (
     <>
       <div>
@@ -26,7 +25,7 @@ export default function HeroInfo() {
           to="#projects"
           initial="still"
           className="hero-projects-link"
-          whileHover={shouldReduceMotion ? undefined : 'move'}
+          whileHover={useReducedAnimation('move')}
         >
           <span>See My Projects</span>
           <MotionChevron
@@ -41,7 +40,7 @@ export default function HeroInfo() {
           to="#about"
           initial="still"
           className="hero-about-link"
-          whileHover={shouldReduceMotion ? undefined : 'wave'}
+          whileHover={useReducedAnimation('wave')}
         >
           More About Me{' '}
           <motion.span className="hand" variants={handVariants}>

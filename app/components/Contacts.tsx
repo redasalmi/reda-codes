@@ -1,6 +1,7 @@
-import { motion, useReducedMotion } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 import { Section } from '~/components';
+import { useReducedAnimation } from '~/utils';
 import { contactLinkVariants, contactTextVariants } from '~/constant';
 
 import type { ContactData } from '~/constant';
@@ -8,8 +9,6 @@ import type { ContactData } from '~/constant';
 type ContactProps = Omit<ContactData, 'key'>;
 
 export function Contact({ href, text }: ContactProps) {
-  const shouldReduceMotion = useReducedMotion();
-
   return (
     <motion.a
       href={href}
@@ -18,7 +17,7 @@ export function Contact({ href, text }: ContactProps) {
       rel="noreferrer"
       className="contact-link"
       variants={contactLinkVariants}
-      whileHover={shouldReduceMotion ? undefined : 'hover'}
+      whileHover={useReducedAnimation('hover')}
     >
       <motion.span variants={contactTextVariants}>{text}</motion.span>
     </motion.a>
