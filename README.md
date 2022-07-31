@@ -37,6 +37,14 @@ latest version:
 npm i -g netlify-cli@latest
 ```
 
+## Environment variables
+
+Create a `.env` file in the root folder and put in the required env variables.
+
+```sh
+  COOKIE_SECRET="super_cookie_secret"
+```
+
 ## Development
 
 The Netlify CLI starts your app in development mode, rebuilding assets on file
