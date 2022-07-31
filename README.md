@@ -42,7 +42,7 @@ npm i -g netlify-cli@latest
 Create a `.env` file in the root folder and put in the required env variables.
 
 ```sh
-  COOKIE_SECRET="super_cookie_secret"
+COOKIE_SECRET="super_cookie_secret"
 ```
 
 ## Development
