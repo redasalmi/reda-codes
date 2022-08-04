@@ -1,4 +1,12 @@
 export const logoBgVariants = {
+  init: {
+    scale: 0.8,
+    z: 0,
+  },
+  scale: {
+    scale: 1,
+    transition: { duration: 0.6 },
+  },
   rotate: {
     z: -250,
     rotateX: 27,

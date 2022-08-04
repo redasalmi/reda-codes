@@ -2,8 +2,10 @@ import * as React from 'react';
 import {
   motion,
   useAnimation,
+  useMotionTemplate,
   useMotionValue,
   useReducedMotion,
+  useTransform,
 } from 'framer-motion';
 
 import { useReducedAnimation } from '~/utils';
@@ -47,16 +49,23 @@ function MotionPath({
 export default function LogoAnimation() {
   const [startDraw, setStartDraw] = React.useState(false);
   const logoDivRef = React.useRef<HTMLDivElement>(null!);
-  const controls = useAnimation();
-  const z = useMotionValue(0);
 
-  const startRotation = () => {
+  const controls = useAnimation();
+  const scale = useMotionValue(logoBgVariants.init.scale);
+  const z = useMotionValue(logoBgVariants.init.z);
+  const finishedRotation = () => z.get() === logoBgVariants.rotate.z;
+
+  const invertedScale = useTransform(scale, (v) => 1 / v);
+  const invertedTransform = useMotionTemplate`scale(${invertedScale})`;
+
+  const startRotation = async () => {
     logoDivRef.current.classList.add('logo-animation-bg');
-    controls.start('rotate');
+    await controls.start('scale');
+    await controls.start('rotate');
   };
 
   const handleMouseMove = (event: React.MouseEvent<HTMLDivElement>) => {
-    if (z.get() === -250) {
+    if (finishedRotation()) {
       const { x, width } = logoDivRef.current.getBoundingClientRect();
       const logoDivCenter = (width + x * 2) / 2;
 
@@ -75,29 +84,30 @@ export default function LogoAnimation() {
   };
 
   const handleMouseLeave = () => {
-    if (z.get() === -250) {
+    if (finishedRotation()) {
       controls.start('hoverReset');
     }
   };
 
   return (
     <motion.div
-      style={{ z }}
       ref={logoDivRef}
       variants={logoBgVariants}
       className="logo-animation"
+      style={{ z, scale }}
       animate={useReducedAnimation(controls)}
       viewport={{ once: true, amount: 0.9 }}
       onMouseMove={useReducedAnimation(handleMouseMove)}
       onHoverEnd={useReducedAnimation(handleMouseLeave)}
       onViewportEnter={useReducedAnimation(() => setStartDraw(true))}
     >
-      <svg
+      <motion.svg
         role="img"
         aria-label="reda codes logo"
         className="logo-animation-svg"
         viewBox="0 0 41.097 35.452"
         xmlns="http://www.w3.org/2000/svg"
+        style={useReducedAnimation({ transform: invertedTransform })}
       >
         <g>
           {clips.map(({ id, d }) => (
@@ -124,7 +134,7 @@ export default function LogoAnimation() {
             />
           ))}
         </g>
-      </svg>
+      </motion.svg>
     </motion.div>
   );
 }
