@@ -7,14 +7,14 @@
   port = 3000
 
 [[redirects]]
-  from = "/*"
-  to = "/.netlify/functions/server"
-  status = 200
-
-[[redirects]]
   from = "https://redasalmi.netlify.app/"
   to = "https://redacodes.com/"
   status = 301
+
+[[redirects]]
+  from = "/*"
+  to = "/.netlify/functions/server"
+  status = 200
 
 [[headers]]
   for = "/*"
