@@ -11,6 +11,11 @@
   to = "/.netlify/functions/server"
   status = 200
 
+[[redirects]]
+  from = "https://redasalmi.netlify.app/"
+  to = "https://redacodes.com/"
+  status = 301
+
 [[headers]]
   for = "/*"
   [headers.values]
