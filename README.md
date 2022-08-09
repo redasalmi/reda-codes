@@ -1,7 +1,7 @@
 # Reda Salmi Portfolio V2
 
 Second version of my Portfolio, presenting my projects and skills. found at:
-[Reda Salmi Portfolio](https://redasalmi.netlify.app).
+[Reda Salmi Portfolio](https://redacodes.com/).
 
 ## Built With
 
