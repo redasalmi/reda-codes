@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react';
 
 import { Skills, Skill } from '~/components';
-import { Javascript, Postcss, Typescript } from '~/components/icons';
+import { Javascript, Postcss, Typescript } from '~/components/Icons';
 
 const mockedSkills = [
   {

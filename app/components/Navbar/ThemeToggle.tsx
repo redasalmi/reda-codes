@@ -1,7 +1,7 @@
 import { useFetcher, useLoaderData } from '@remix-run/react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-import { Sun, Moon } from '~/components/icons';
+import { Sun, Moon } from '~/components/Icons';
 import { themeVariants } from '~/constant';
 
 import type { Theme } from '~/cookies.server';

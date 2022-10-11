@@ -12,15 +12,14 @@ import {
   RestApi,
   Graphql,
   Git,
-} from '~/components/icons';
+} from '~/components/Icons';
+
+import type { SvgPropsWithoutRef } from '~/components/Icons';
 
 export interface SkillData {
   id: string;
   title: string;
-  Icon: React.ForwardRefExoticComponent<
-    React.PropsWithoutRef<React.SVGProps<SVGSVGElement>> &
-      React.RefAttributes<SVGSVGElement>
-  >;
+  Icon: (props: SvgPropsWithoutRef) => JSX.Element;
   iconClass?: string;
 }
 

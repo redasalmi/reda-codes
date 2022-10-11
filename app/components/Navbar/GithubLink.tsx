@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { Github } from '~/components/icons';
+import { Github } from '~/components/Icons';
 
 interface GithubLinkProps {
   id: string;

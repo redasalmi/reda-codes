@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 
 import { MotionLink } from '~/components';
-import { ChevronRight } from '~/components/icons';
+import { ChevronRight } from '~/components/Icons';
 import { useReducedAnimation } from '~/utils';
 import { chevronVariants, handVariants } from '~/constant';
 

@@ -2,7 +2,7 @@ import * as React from 'react';
 import { useAnimation, useScroll } from 'framer-motion';
 
 import { MotionLink } from '~/components';
-import { ArrowUp } from '~/components/icons';
+import { ArrowUp } from '~/components/Icons';
 import { useReducedAnimation } from '~/utils';
 import { scrollUpVariants } from '~/constant';
 
