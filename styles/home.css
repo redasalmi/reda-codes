@@ -1,6 +1,6 @@
-@import './shared/home.shared.css';
-@import './components/hero.css';
-@import './components/projects.css';
-@import './components/skills.css';
-@import './components/about.css';
-@import './components/contact.css';
+@import url('./shared/home.shared.css');
+@import url('./components/hero.css');
+@import url('./components/projects.css');
+@import url('./components/skills.css');
+@import url('./components/about.css');
+@import url('./components/contact.css');

@@ -3,8 +3,10 @@
  */
 module.exports = {
   serverBuildTarget: 'netlify',
-  server: './server.js',
-  devServerPort: 8002,
+  server:
+    process.env.NETLIFY || process.env.NETLIFY_LOCAL
+      ? './server.js'
+      : undefined,
   ignoredRouteFiles: ['**/.*', '**/*.css', '**/*.test.{js,jsx,ts,tsx}'],
   // appDirectory: 'app',
   // assetsBuildDirectory: 'public/build',
