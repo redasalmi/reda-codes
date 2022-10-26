@@ -3,11 +3,14 @@ import { loader } from '~/root';
 import { defaultTheme, themeCookie } from '~/cookies.server';
 import type { Theme } from '~/cookies.server';
 
+const today = new Date().getTime();
+const year = 365 * 24 * 60 * 60 * 1000;
+
 const getTheme = async (theme: string | null): Promise<Theme> => {
   const headers: HeadersInit | undefined = theme
     ? {
         Cookie: await themeCookie.serialize(theme, {
-          expires: new Date('2092-01-01'),
+          expires: new Date(today + year),
         }),
       }
     : undefined;

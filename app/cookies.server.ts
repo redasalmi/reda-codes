@@ -12,18 +12,10 @@ const isTheme = (theme: any): theme is Theme => {
   return themes.includes(theme);
 };
 
-export const expiryDate = () => {
-  const year = 365 * 24 * 60 * 60 * 1000;
-  const today = new Date().getTime();
-
-  return new Date(today + year);
-};
-
 export const themeCookie = createCookie('theme', {
   path: '/',
   sameSite: 'lax',
   httpOnly: true,
-  expires: expiryDate(),
   secrets: [COOKIE_SECRET],
   secure: process.env.NODE_ENV === 'production',
 });
