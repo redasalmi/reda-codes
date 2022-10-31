@@ -7,6 +7,7 @@ invariant(COOKIE_SECRET, 'COOKIE_SECRET must be set');
 const themes = ['light', 'dark'] as const;
 export type Theme = typeof themes[number];
 export const defaultTheme = themes[0];
+export const cookieMaxAge = 365 * 24 * 60 * 60;
 
 const isTheme = (theme: any): theme is Theme => {
   return themes.includes(theme);
@@ -17,6 +18,7 @@ export const themeCookie = createCookie('theme', {
   sameSite: 'lax',
   httpOnly: true,
   secrets: [COOKIE_SECRET],
+  maxAge: cookieMaxAge,
   secure: process.env.NODE_ENV === 'production',
 });
 
