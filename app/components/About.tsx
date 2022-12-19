@@ -1,5 +1,7 @@
 import { Section } from '~/components';
 
+import redaPic from '~/assets/images/reda-sahara.webp';
+
 export default function About() {
   return (
     <Section id="about" className="about" title="About Me">
@@ -20,7 +22,7 @@ export default function About() {
         </div>
 
         <div className="about-img">
-          <img src="images/reda-sahara.webp" alt="reda salmi" loading="lazy" />
+          <img src={redaPic} alt="reda salmi" loading="lazy" />
         </div>
       </div>
     </Section>

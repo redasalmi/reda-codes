@@ -1,3 +1,8 @@
+import khedemni from '~/assets/images/khedemni.webp';
+import caronline from '~/assets/images/caronline.webp';
+import jsonPlaceholder from '~/assets/images/json-placeholder.webp';
+import itBooks from '~/assets/images/it-books.webp';
+
 export interface ProjectData {
   key: string;
   title: string;
@@ -26,7 +31,7 @@ export const projects: ProjectData[] = [
     desc: 'A recruitment web application specialized in the fields of hostelry and restoration where companies can post job offers. I made all the frontend for this application.',
     techStack: ['React', 'Redux', 'Bootstrap'],
     img: {
-      src: 'images/khedemni.webp',
+      src: khedemni,
       alt: 'khedemni, a recruitment website',
     },
     link: 'https://khedemni.com/',
@@ -41,7 +46,7 @@ export const projects: ProjectData[] = [
     desc: 'A car rental web application, that proposes to rent a car with or without a driver for a giving period of time. I made all the frontend and a part of the backend for this application.',
     techStack: ['React', 'Redux', 'Bootstrap', 'Symfony'],
     img: {
-      src: 'images/caronline.webp',
+      src: caronline,
       alt: 'caronline, a car rental website',
     },
     link: 'https://caronline-dz.buileo.com/',
@@ -52,7 +57,7 @@ export const projects: ProjectData[] = [
     desc: 'A GraphQL API for testing, learning or prototyping with GraphQL. This app is heavily inspired by the {JSON} Placeholder project and proposes a graphql alternative.',
     techStack: ['Fastify', 'Mercurius', 'Prisma', 'GraphQL'],
     img: {
-      src: 'images/json-placeholder.webp',
+      src: jsonPlaceholder,
       alt: 'json placeholder graphql, a graphql prototyping and testing API',
     },
     link: 'https://jsonplaceholder-graphql.onrender.com/',
@@ -64,7 +69,7 @@ export const projects: ProjectData[] = [
     desc: "A web site to search for it books using the 'IT Bookstore API', this is my personal playground where I test different libraries and frameworks.",
     techStack: ['Typescript', 'React', 'Remix', 'PostCSS'],
     img: {
-      src: 'images/it-books.webp',
+      src: itBooks,
       alt: 'it books, an IT books website',
     },
     link: 'https://itbooks-remix.netlify.app/',
