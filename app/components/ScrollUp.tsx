@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { useAnimation, useScroll } from 'framer-motion';
+import { useAnimation, useMotionValueEvent, useScroll } from 'framer-motion';
 
 import { MotionLink } from '~/components';
 import { ArrowUp } from '~/components/Icons';
@@ -11,25 +11,17 @@ export default function ScrollUp() {
   const { scrollYProgress } = useScroll();
   const linkRef = React.useRef<HTMLAnchorElement>(null!);
 
-  React.useEffect(() => {
-    const checkLinkVisibility = (value: number) => {
-      const isHidden = linkRef.current.style.opacity !== '1';
+  const checkLinkVisibility = (value: number) => {
+    const isHidden = linkRef.current.style.opacity !== '1';
 
-      if (isHidden && value > 0.4) {
-        controls.start('show');
-      } else if (!isHidden && value < 0.4) {
-        controls.start('hide');
-      }
-    };
+    if (isHidden && value > 0.4) {
+      controls.start('show');
+    } else if (!isHidden && value < 0.4) {
+      controls.start('hide');
+    }
+  };
 
-    checkLinkVisibility(scrollYProgress.get());
-    const unsubscribeY = scrollYProgress.onChange(checkLinkVisibility);
-
-    return () => {
-      unsubscribeY();
-    };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  useMotionValueEvent(scrollYProgress, 'change', checkLinkVisibility);
 
   return (
     <section role="navigation" className="scroll-up-section">

@@ -1,4 +1,5 @@
 @import url('./theme/_colors.css');
+@import url('./theme/_breakpoints.css');
 @import url('./shared/styles.css');
 @import url('./theme/_light.css');
 @import url('./theme/_dark.css');
