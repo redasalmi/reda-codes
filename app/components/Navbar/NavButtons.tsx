@@ -22,7 +22,6 @@ export default function NavButtons() {
 
       <div>
         <GithubLink
-          id="github-desktop-link"
           linkClassName="nav-icon"
           svgClassName="nav-icon nav-github"
         />

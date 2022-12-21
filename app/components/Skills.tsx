@@ -1,3 +1,4 @@
+import * as React from 'react';
 import { motion } from 'framer-motion';
 
 import { Section } from '~/components';
@@ -5,7 +6,9 @@ import { Section } from '~/components';
 import { useReducedAnimation } from '~/utils';
 import type { SkillData } from '~/constant';
 
-export function Skill({ id, title, iconClass, Icon }: SkillData) {
+export function Skill({ title, iconClass, Icon }: SkillData) {
+  const id = React.useId();
+
   return (
     <motion.div
       className="skill"
@@ -40,7 +43,7 @@ export default function Skills({ skills }: SkillsProps) {
     >
       <div className="skills-list">
         {skills.map((skill) => (
-          <Skill key={skill.id} {...skill} />
+          <Skill key={skill.title} {...skill} />
         ))}
       </div>
     </Section>

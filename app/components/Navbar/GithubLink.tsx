@@ -3,7 +3,6 @@ import * as React from 'react';
 import { Github } from '~/components/Icons';
 
 interface GithubLinkProps {
-  id: string;
   linkClassName?: string;
   onClick?: () => void;
   svgClassName?: string;
@@ -11,12 +10,13 @@ interface GithubLinkProps {
 }
 
 export default function GithubLink({
-  id,
   linkClassName,
   onClick,
   svgClassName,
   children,
 }: GithubLinkProps) {
+  const id = React.useId();
+
   return (
     <a
       id={id}
