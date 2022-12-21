@@ -1,5 +1,32 @@
 import * as React from 'react';
 
+type SectionWrapperProps = Pick<
+  SectionProps,
+  'type' | 'id' | 'className' | 'children'
+>;
+
+function SectionWrapper({
+  type,
+  id,
+  className,
+  children,
+}: SectionWrapperProps) {
+  const props = {
+    id,
+    className,
+  };
+
+  if (type === 'nav') {
+    return <nav {...props}>{children}</nav>;
+  }
+
+  if (type === 'footer') {
+    return <footer {...props}>{children}</footer>;
+  }
+
+  return <section {...props}>{children}</section>;
+}
+
 interface SectionProps {
   type?: 'nav' | 'footer';
   id?: string;
@@ -17,26 +44,13 @@ export default function Section({
   subTitle,
   children,
 }: SectionProps) {
-  const props = {
-    id,
-    className,
-  };
-
-  let sectionEle = <section></section>;
-  if (type === 'nav') {
-    sectionEle = <nav></nav>;
-  }
-  if (type === 'footer') {
-    sectionEle = <footer></footer>;
-  }
-
   return (
-    <sectionEle.type {...props}>
+    <SectionWrapper type={type} id={id} className={className}>
       <div className="container">
         {title ? <h2 className="section-title">{title}</h2> : null}
         {subTitle ? <p className="section-title">{subTitle}</p> : null}
         {children}
       </div>
-    </sectionEle.type>
+    </SectionWrapper>
   );
 }
