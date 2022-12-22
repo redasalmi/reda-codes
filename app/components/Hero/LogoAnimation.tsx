@@ -76,10 +76,13 @@ export default function LogoAnimation() {
         rotateY = -35;
       }
 
-      controls.start({
-        rotateY,
-        boxShadow: `${-rotateY}px 70px 40px -20px var(--shadow-primary)`,
-      });
+      controls.start(
+        {
+          rotateY,
+          boxShadow: `${-rotateY}px 70px 40px -20px var(--shadow-primary)`,
+        },
+        { type: 'spring' },
+      );
     }
   };
 
