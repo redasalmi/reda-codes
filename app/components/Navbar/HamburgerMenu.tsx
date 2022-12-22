@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { motion, useAnimation } from 'framer-motion';
+import { motion, useAnimationControls } from 'framer-motion';
 
 import { Links, GithubLink } from '~/components/Navbar';
 import {
@@ -15,7 +15,7 @@ interface HamburgerMenuProps {
 export default function HamburgerMenu({
   fixNavIconsPosition,
 }: HamburgerMenuProps) {
-  const controls = useAnimation();
+  const controls = useAnimationControls();
   const hamburgerBtnRef = React.useRef<HTMLButtonElement>(null!);
   const linksRef = React.useRef<HTMLDivElement>(null!);
 
