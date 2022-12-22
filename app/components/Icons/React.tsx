@@ -6,7 +6,6 @@ export default function SvgReact(props: SvgPropsWithoutRef) {
       width={256}
       height={228}
       viewBox="0 0 256 228"
-      xmlns="http://www.w3.org/2000/svg"
       preserveAspectRatio="xMidYMid"
       {...props}
     >

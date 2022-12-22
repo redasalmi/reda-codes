@@ -6,7 +6,6 @@ export default function SvgSass(props: SvgPropsWithoutRef) {
       width={256}
       height={192}
       viewBox="0 0 256 192"
-      xmlns="http://www.w3.org/2000/svg"
       preserveAspectRatio="xMidYMid"
       {...props}
     >

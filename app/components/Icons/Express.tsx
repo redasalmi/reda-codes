@@ -6,7 +6,6 @@ export default function SvgExpress(props: SvgPropsWithoutRef) {
       width={512}
       height={149}
       viewBox="0 0 512 149"
-      xmlns="http://www.w3.org/2000/svg"
       preserveAspectRatio="xMidYMid"
       {...props}
     >

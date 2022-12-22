@@ -2,13 +2,7 @@ import type { SvgPropsWithoutRef } from '~/components/Icons';
 
 export default function SvgLogoSmall(props: SvgPropsWithoutRef) {
   return (
-    <svg
-      width={132.64}
-      height={28.482}
-      viewBox="0 0 35.094 7.536"
-      xmlns="http://www.w3.org/2000/svg"
-      {...props}
-    >
+    <svg width={132.64} height={28.482} viewBox="0 0 35.094 7.536" {...props}>
       <g
         style={{
           strokeWidth: 0.264583,
