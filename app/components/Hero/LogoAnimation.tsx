@@ -1,11 +1,5 @@
 import * as React from 'react';
-import {
-  motion,
-  useAnimationControls,
-  useMotionTemplate,
-  useMotionValue,
-  useTransform,
-} from 'framer-motion';
+import { motion, useAnimationControls, useMotionValue } from 'framer-motion';
 
 import { useReducedAnimation } from '~/utils';
 import { logoBgVariants, pathVariants, clips, paths } from '~/constant';
@@ -52,8 +46,6 @@ export default function LogoAnimation() {
 
   const scale = useMotionValue(logoBgVariants.init.scale);
   const z = useMotionValue(logoBgVariants.init.z);
-  const invertedScale = useTransform(scale, (v) => 1 / v);
-  const invertedTransform = useMotionTemplate`scale(${invertedScale})`;
 
   if (startDrawing) {
     pathsControls.start('show').then(async () => {
@@ -109,7 +101,6 @@ export default function LogoAnimation() {
         aria-label="reda codes logo"
         className="logo-animation-svg"
         viewBox="0 0 41.097 35.452"
-        style={{ transform: invertedTransform }}
       >
         <g>
           {clips.map(({ id, d }) => (
