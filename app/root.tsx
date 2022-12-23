@@ -68,7 +68,14 @@ export const links: LinksFunction = () => {
 export const loader = async ({ request }: LoaderArgs) => {
   const theme = await getUserTheme(request.headers);
 
-  return json({ theme });
+  return json(
+    { theme },
+    {
+      headers: {
+        Vary: 'Cookie',
+      },
+    },
+  );
 };
 
 export default function App() {
