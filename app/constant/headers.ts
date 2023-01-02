@@ -1,6 +1,5 @@
 export const headers = [
   ['Content-Type', 'text/html'],
-  ['Cache-Control', 'max-age=300, stale-while-revalidate=86400'],
   ['Strict-Transport-Security', 'max-age=63072000; includeSubDomains; preload'],
   [
     'Content-Security-Policy',
