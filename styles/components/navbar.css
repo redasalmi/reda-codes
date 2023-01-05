@@ -141,6 +141,7 @@
 }
 
 .theme-btn {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -150,11 +151,11 @@
   border: 2px solid var(--fg-primary);
 }
 
-.theme-sun,
-.theme-moon {
+.theme-svg {
   width: 25px;
   height: 25px;
   opacity: 1;
+  position: absolute;
 }
 
 html[data-theme='dark'] .theme-btn .theme-sun {

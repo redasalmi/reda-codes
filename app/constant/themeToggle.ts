@@ -5,10 +5,17 @@ const transition = {
 export const themeVariants = {
   hide: {
     opacity: 0,
+    transitionEnd: {
+      display: 'none',
+    },
     transition,
   },
   show: {
     opacity: 1,
-    transition,
+    display: 'block',
+    transition: {
+      ...transition,
+      delay: 0.2,
+    },
   },
 };

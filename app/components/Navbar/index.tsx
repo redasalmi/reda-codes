@@ -5,4 +5,3 @@ export { default as Logo } from './Logo';
 export { default as Navbar } from './Navbar';
 export { default as NavButtons } from './NavButtons';
 export { default as NavLinks } from './NavLinks';
-export { default as ThemeToggle } from './ThemeToggle';

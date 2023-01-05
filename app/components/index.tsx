@@ -9,4 +9,4 @@ export { default as Projects, Project } from './Projects';
 export { default as ScrollUp } from './ScrollUp';
 export { default as Section } from './Section';
 export { default as Skills, Skill } from './Skills';
-export { default as ThemeScript, themeToggleId } from './ThemeScript';
+export { ThemeScript, ThemeToggle } from './Theme';
