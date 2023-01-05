@@ -157,6 +157,14 @@
   opacity: 1;
 }
 
+html[data-theme='dark'] .theme-btn .theme-sun {
+  display: none;
+}
+
+html[data-theme='light'] .theme-btn .theme-moon {
+  display: none;
+}
+
 .nav-hamburger-btn {
   width: 45px;
   height: 45px;

@@ -1,4 +1,4 @@
-.dark {
+html[data-theme='dark'] {
   --bg-primary: #16161a;
   --bg-secondary: #2a2a3b;
   --bg-logo: #242629;

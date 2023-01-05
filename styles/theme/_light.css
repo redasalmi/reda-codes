@@ -1,4 +1,4 @@
-.light {
+html[data-theme='light'] {
   --bg-primary: #f5f6fa;
   --bg-secondary: #fff;
   --bg-logo: #fff;

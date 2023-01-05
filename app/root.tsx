@@ -5,17 +5,13 @@ import {
   Outlet,
   Scripts,
   ScrollRestoration,
-  useLoaderData,
 } from '@remix-run/react';
-import { json } from '@remix-run/node';
 import { MotionConfig } from 'framer-motion';
 
-import { getUserTheme } from '~/cookies.server';
-
-import { Fonts, Navbar, Footer, ScrollUp } from '~/components';
+import { ThemeScript, Fonts, Navbar, Footer, ScrollUp } from '~/components';
 import globalStyles from '~/styles/global.css';
 
-import type { LinksFunction, MetaFunction, LoaderArgs } from '@remix-run/node';
+import type { LinksFunction, MetaFunction } from '@remix-run/node';
 
 export const meta: MetaFunction = () => {
   return {
@@ -65,23 +61,16 @@ export const links: LinksFunction = () => {
   ];
 };
 
-export const loader = async ({ request }: LoaderArgs) => {
-  const theme = await getUserTheme(request.headers);
-
-  return json({ theme });
-};
-
 export default function App() {
-  const { theme } = useLoaderData<typeof loader>();
-
   return (
     <html lang="en">
       <head>
         <Meta />
+        <ThemeScript />
         <Fonts />
         <Links />
       </head>
-      <body className={theme}>
+      <body>
         <MotionConfig reducedMotion="user">
           <Navbar />
           <Outlet />
