@@ -89,9 +89,15 @@ export function ThemeToggle() {
     toggleSvg();
     const toggleBtn = btnRef.current;
     toggleBtn.addEventListener('click', toggleSvg);
+    window
+      .matchMedia('(prefers-color-scheme: dark')
+      .addEventListener('change', toggleSvg);
 
     return () => {
       toggleBtn.removeEventListener('click', toggleSvg);
+      window
+        .matchMedia('(prefers-color-scheme: dark')
+        .removeEventListener('change', toggleSvg);
     };
   }, [toggleSvg]);
 
