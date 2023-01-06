@@ -77,7 +77,7 @@ export function ThemeToggle() {
   const moonControls = useAnimationControls();
 
   const toggleSvg = React.useCallback(() => {
-    const theme = localStorage?.getItem(themeKey) as Theme | null;
+    const theme = btnRef.current.getAttribute('aria-label') as Theme | null;
 
     if (theme) {
       sunControls.start(theme === dark ? 'hide' : 'show');
