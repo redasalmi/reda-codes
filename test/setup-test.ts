@@ -15,5 +15,3 @@ window.IntersectionObserver = vi.fn(() => ({
   thresholds: [],
   takeRecords: vi.fn(() => []),
 }));
-
-process.env.COOKIE_SECRET = 'super_strong_cookie_secret';

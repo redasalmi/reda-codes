@@ -15,6 +15,8 @@ Second version of my Portfolio, presenting my projects and skills. found at:
   [Happy Hues](https://www.happyhues.co/palettes/6).
 - The dark theme was inspired by this color palette:
   [Happy Hues](https://www.happyhues.co/palettes/4).
+- The light/dark theme toggle was made following this article:
+  [Building a Theme Switch Component](https://web.dev/building-a-theme-switch-component/).
 - The logo animation was inspired by
   [Cassie Evans website logo](https://www.cassie.codes/), she has a really good
   article explaining how it works found here:
@@ -35,14 +37,6 @@ latest version:
 
 ```sh
 npm i -g netlify-cli@latest
-```
-
-## Environment variables
-
-Create a `.env` file in the root folder and put in the required env variables.
-
-```sh
-COOKIE_SECRET="super_cookie_secret"
 ```
 
 ## Development
