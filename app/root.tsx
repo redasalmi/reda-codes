@@ -27,8 +27,8 @@ export const meta: MetaFunction = () => {
     'og:description':
       'Reda Salmi personal website with projects, skills and contact informations',
     'og:type': 'website',
-    'og:url': 'https://redasalmi.netlify.app/',
-    'og:image': 'https://redasalmi.netlify.app/images/preview.jpg',
+    'og:url': 'https://redacodes.com',
+    'og:image': 'https://redacodes.com/preview.jpg',
     'og:image:width': '1190',
     'og:image:height': '750',
   };
