@@ -1,7 +1,8 @@
 import * as React from 'react';
 import { motion, useAnimationControls } from 'framer-motion';
 
-import { Moon, Sun } from './Icons';
+import { Moon, Sun } from '~/components/Icons';
+import { useReducedAnimation } from '~/utils';
 import { themeVariants } from '~/constant';
 
 const light = 'light';
@@ -76,16 +77,16 @@ export function ThemeToggle() {
   const sunControls = useAnimationControls();
   const moonControls = useAnimationControls();
 
-  const toggleSvg = React.useCallback(() => {
-    const theme = btnRef.current.getAttribute('aria-label') as Theme | null;
-
-    if (theme) {
-      sunControls.start(theme === dark ? 'hide' : 'show');
-      moonControls.start(theme === light ? 'hide' : 'show');
-    }
-  }, [sunControls, moonControls]);
-
   React.useEffect(() => {
+    const toggleSvg = () => {
+      const theme = btnRef.current.getAttribute('aria-label') as Theme | null;
+
+      if (theme) {
+        sunControls.start(theme === dark ? 'hide' : 'show');
+        moonControls.start(theme === light ? 'hide' : 'show');
+      }
+    };
+
     toggleSvg();
     const toggleBtn = btnRef.current;
     toggleBtn.addEventListener('click', toggleSvg);
@@ -99,7 +100,7 @@ export function ThemeToggle() {
         .matchMedia('(prefers-color-scheme: dark')
         .removeEventListener('change', toggleSvg);
     };
-  }, [toggleSvg]);
+  }, [sunControls, moonControls]);
 
   return (
     <button
@@ -110,17 +111,17 @@ export function ThemeToggle() {
     >
       <MotionSun
         role="img"
-        animate={sunControls}
-        variants={themeVariants}
         className="theme-svg theme-sun"
         aria-label="toggle dark theme"
+        animate={useReducedAnimation(sunControls)}
+        variants={useReducedAnimation(themeVariants)}
       />
       <MotionMoon
         role="img"
-        animate={moonControls}
-        variants={themeVariants}
         className="theme-svg theme-moon"
         aria-label="toggle light theme"
+        animate={useReducedAnimation(moonControls)}
+        variants={useReducedAnimation(themeVariants)}
       />
     </button>
   );
