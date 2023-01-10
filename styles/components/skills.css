@@ -35,9 +35,9 @@
   stroke-width: 6px;
 }
 
-.dark .express-skill path,
-.dark .nextjs-skill path,
-.dark .remix-skill path {
+html[data-theme='dark'] .express-skill path,
+html[data-theme='dark'] .nextjs-skill path,
+html[data-theme='dark'] .remix-skill path {
   fill: var(--fg-primary);
 }
 
