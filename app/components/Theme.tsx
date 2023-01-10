@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { motion, useAnimationControls } from 'framer-motion';
+import { motion, useAnimationControls, useReducedMotion } from 'framer-motion';
 
 import { Moon, Sun } from '~/components/Icons';
 import { useReducedAnimation } from '~/utils';
@@ -74,33 +74,36 @@ const MotionMoon = motion(Moon);
 
 export function ThemeToggle() {
   const btnRef = React.useRef<HTMLButtonElement>(null!);
+  const shouldReduceMotion = useReducedMotion();
   const sunControls = useAnimationControls();
   const moonControls = useAnimationControls();
 
   React.useEffect(() => {
-    const toggleSvg = () => {
-      const theme = btnRef.current.getAttribute('aria-label') as Theme | null;
+    if (!shouldReduceMotion) {
+      const toggleSvg = () => {
+        const theme = btnRef.current.getAttribute('aria-label') as Theme | null;
 
-      if (theme) {
-        sunControls.start(theme === dark ? 'hide' : 'show');
-        moonControls.start(theme === light ? 'hide' : 'show');
-      }
-    };
+        if (theme) {
+          sunControls.start(theme === dark ? 'hide' : 'show');
+          moonControls.start(theme === light ? 'hide' : 'show');
+        }
+      };
 
-    toggleSvg();
-    const toggleBtn = btnRef.current;
-    toggleBtn.addEventListener('click', toggleSvg);
-    window
-      .matchMedia('(prefers-color-scheme: dark')
-      .addEventListener('change', toggleSvg);
-
-    return () => {
-      toggleBtn.removeEventListener('click', toggleSvg);
+      toggleSvg();
+      const toggleBtn = btnRef.current;
+      toggleBtn.addEventListener('click', toggleSvg);
       window
         .matchMedia('(prefers-color-scheme: dark')
-        .removeEventListener('change', toggleSvg);
-    };
-  }, [sunControls, moonControls]);
+        .addEventListener('change', toggleSvg);
+
+      return () => {
+        toggleBtn.removeEventListener('click', toggleSvg);
+        window
+          .matchMedia('(prefers-color-scheme: dark')
+          .removeEventListener('change', toggleSvg);
+      };
+    }
+  }, [shouldReduceMotion, sunControls, moonControls]);
 
   return (
     <button
