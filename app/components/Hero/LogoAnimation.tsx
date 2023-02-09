@@ -1,5 +1,10 @@
 import * as React from 'react';
-import { motion, useAnimationControls, useMotionValue } from 'framer-motion';
+import {
+  motion,
+  useAnimationControls,
+  useInView,
+  useMotionValue,
+} from 'framer-motion';
 
 import useReducedAnimation from '~/hooks/useReducedAnimation';
 import { clamp } from '~/utils';
@@ -42,17 +47,19 @@ export default function LogoAnimation() {
 
   const controls = useAnimationControls();
   const pathsControls = useAnimationControls();
+  const isInView = useInView(logoDivRef, { once: true, amount: 0.9 });
 
   const scale = useMotionValue(logoBgVariants.init.scale);
   const z = useMotionValue(logoBgVariants.init.z);
 
-  const showLogo = async () => {
-    await pathsControls.start('show');
-    logoDivRef.current.classList.add('logo-animation-bg');
-    await controls.start('scale');
-    await controls.start('rotate');
-    logoDivRef.current.classList.add('logo-drawed');
-  };
+  if (isInView) {
+    pathsControls.start('show').then(async () => {
+      logoDivRef.current.classList.add('logo-animation-bg');
+      await controls.start('scale');
+      await controls.start('rotate');
+      logoDivRef.current.classList.add('logo-drawed');
+    });
+  }
 
   const hasFinishedDrawing = () =>
     logoDivRef.current.classList.contains('logo-drawed');
@@ -88,10 +95,8 @@ export default function LogoAnimation() {
       className="logo-animation"
       style={{ z, scale }}
       animate={useReducedAnimation(controls)}
-      viewport={{ once: true, amount: 0.9 }}
       onMouseMove={useReducedAnimation(handleMouseMove)}
       onHoverEnd={useReducedAnimation(handleMouseLeave)}
-      onViewportEnter={useReducedAnimation(showLogo)}
     >
       <motion.svg
         role="img"
