@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 
 import { MotionLink } from '~/components';
 import { ChevronRight } from '~/components/Icons';
-import { useReducedAnimation } from '~/utils';
+import useReducedAnimation from '~/hooks/useReducedAnimation';
 import { chevronVariants, handVariants } from '~/constant';
 
 const MotionChevron = motion(ChevronRight);

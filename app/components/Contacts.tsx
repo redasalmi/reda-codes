@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 
 import { Section } from '~/components';
-import { useReducedAnimation } from '~/utils';
+import useReducedAnimation from '~/hooks/useReducedAnimation';
 import { contactLinkVariants, contactTextVariants } from '~/constant';
 
 import type { ContactData } from '~/constant';

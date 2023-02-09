@@ -1,7 +1,8 @@
 import * as React from 'react';
 import { motion, useAnimationControls, useMotionValue } from 'framer-motion';
 
-import { clamp, useReducedAnimation } from '~/utils';
+import useReducedAnimation from '~/hooks/useReducedAnimation';
+import { clamp } from '~/utils';
 import { logoBgVariants, pathVariants, clips, paths } from '~/constant';
 
 import type { AnimationControls } from 'framer-motion';

@@ -2,13 +2,13 @@ import * as React from 'react';
 import { motion, useAnimationControls, useReducedMotion } from 'framer-motion';
 
 import { Moon, Sun } from '~/components/Icons';
-import { useReducedAnimation } from '~/utils';
+import useReducedAnimation from '~/hooks/useReducedAnimation';
 import { themeVariants } from '~/constant';
 
 const light = 'light';
 const dark = 'dark';
 const themes = [light, dark] as const;
-type Theme = typeof themes[number];
+type Theme = (typeof themes)[number];
 
 const themeKey = 'theme';
 const themeToggleId = 'theme-toggle';

@@ -7,7 +7,7 @@ import {
 
 import { MotionLink } from '~/components';
 import { ArrowUp } from '~/components/Icons';
-import { useReducedAnimation } from '~/utils';
+import useReducedAnimation from '~/hooks/useReducedAnimation';
 import { scrollUpVariants } from '~/constant';
 
 export default function ScrollUp() {
