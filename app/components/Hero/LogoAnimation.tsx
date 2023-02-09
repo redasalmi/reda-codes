@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { motion, useAnimationControls, useMotionValue } from 'framer-motion';
 
-import { useReducedAnimation } from '~/utils';
+import { clamp, useReducedAnimation } from '~/utils';
 import { logoBgVariants, pathVariants, clips, paths } from '~/constant';
 
 import type { AnimationControls } from 'framer-motion';
@@ -37,8 +37,6 @@ function MotionPath({
 }
 
 export default function LogoAnimation() {
-  const [startDrawing, setStartDrawing] = React.useState(false);
-  const [finishedDrawing, setFinishedDrawing] = React.useState(false);
   const logoDivRef = React.useRef<HTMLDivElement>(null!);
 
   const controls = useAnimationControls();
@@ -47,26 +45,24 @@ export default function LogoAnimation() {
   const scale = useMotionValue(logoBgVariants.init.scale);
   const z = useMotionValue(logoBgVariants.init.z);
 
-  if (startDrawing) {
-    pathsControls.start('show').then(async () => {
-      logoDivRef.current.classList.add('logo-animation-bg');
-      await controls.start('scale');
-      await controls.start('rotate');
-      setFinishedDrawing(true);
-    });
-  }
+  const showLogo = async () => {
+    await pathsControls.start('show');
+    logoDivRef.current.classList.add('logo-animation-bg');
+    await controls.start('scale');
+    await controls.start('rotate');
+    logoDivRef.current.classList.add('logo-drawed');
+  };
+
+  const hasFinishedDrawing = () =>
+    logoDivRef.current.classList.contains('logo-drawed');
 
   const handleMouseMove = (event: React.MouseEvent<HTMLDivElement>) => {
-    if (finishedDrawing) {
+    if (hasFinishedDrawing()) {
       const { x, width } = logoDivRef.current.getBoundingClientRect();
       const logoDivCenter = (width + x * 2) / 2;
 
       let rotateY = (event.clientX - logoDivCenter) / 6;
-      if (rotateY > 35) {
-        rotateY = 35;
-      } else if (rotateY < -35) {
-        rotateY = -35;
-      }
+      rotateY = clamp(rotateY, -35, 35);
 
       controls.start(
         {
@@ -79,7 +75,7 @@ export default function LogoAnimation() {
   };
 
   const handleMouseLeave = () => {
-    if (finishedDrawing) {
+    if (hasFinishedDrawing()) {
       controls.start('hoverReset');
     }
   };
@@ -94,7 +90,7 @@ export default function LogoAnimation() {
       viewport={{ once: true, amount: 0.9 }}
       onMouseMove={useReducedAnimation(handleMouseMove)}
       onHoverEnd={useReducedAnimation(handleMouseLeave)}
-      onViewportEnter={useReducedAnimation(() => setStartDrawing(true))}
+      onViewportEnter={useReducedAnimation(showLogo)}
     >
       <motion.svg
         role="img"
