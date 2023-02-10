@@ -95,6 +95,7 @@
 .nav-github-btn {
   margin: auto;
   width: 70%;
+  font-size: 1.2rem;
   border-radius: 24px;
   padding: 12px 4px;
   display: flex;
@@ -203,6 +204,7 @@ html[data-theme='light'] .theme-btn .theme-moon {
   }
 
   .nav-github-btn {
+    font-size: 1rem;
     width: 80%;
   }
 }
