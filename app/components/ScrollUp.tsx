@@ -28,7 +28,10 @@ export default function ScrollUp() {
   useMotionValueEvent(scrollYProgress, 'change', checkLinkVisibility);
 
   return (
-    <section role="navigation" className="scroll-up-section">
+    <section
+      role="navigation"
+      className="fixed right-[10px] bottom-[10px] w-[38px] h-[38px] z-10"
+    >
       <MotionLink
         to="#top"
         ref={linkRef}
@@ -36,11 +39,15 @@ export default function ScrollUp() {
         id="scroll-up"
         animate={controls}
         variants={scrollUpVariants}
-        className="scroll-up"
         aria-label="Scroll back up"
         whileHover={useReducedAnimation('pulse')}
+        className="flex justify-center items-center h-full rounded-full bg-secondary-col dark:bg-secondary-col-dark"
       >
-        <ArrowUp role="img" aria-labelledby="scroll-up" />
+        <ArrowUp
+          role="img"
+          aria-labelledby="scroll-up"
+          className="w-[19px] h-[19px] stroke-white-col"
+        />
       </MotionLink>
     </section>
   );

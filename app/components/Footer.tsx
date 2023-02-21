@@ -23,7 +23,7 @@ export default function Footer() {
           <Link
             to={href}
             key={`footer-${href}`}
-            className="animated-link hover:text-primary hover:dark:text-primary-dark"
+            className="animated-link hover:text-primary-col hover:dark:text-primary-col-dark"
           >
             {text}
           </Link>
