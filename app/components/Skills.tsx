@@ -38,6 +38,7 @@ export default function Skills({ skills }: SkillsProps) {
     <Section
       id="skills"
       title="My Skills"
+      className="py-5 md:py-10 lg:py-[60px]"
       subTitle="These are the skills I use most of the time"
     >
       <div className="mt-[30px] flex flex-wrap justify-center gap-[15px]">

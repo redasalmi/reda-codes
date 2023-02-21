@@ -116,7 +116,7 @@ export default function Projects({ projects }: ProjectsProps) {
     <Section
       id="projects"
       title="My Projects"
-      className="projects"
+      className="projects py-5 md:py-10 lg:py-[60px]"
       subTitle="These are some of the projects I worked on"
     >
       {projects.map(({ key, ...project }, index) => (

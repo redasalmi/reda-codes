@@ -34,6 +34,7 @@ interface SectionProps {
   containerclassName?: string;
   title?: string;
   subTitle?: string;
+  titleClassName?: string;
   children: React.ReactNode;
 }
 
@@ -44,13 +45,30 @@ export default function Section({
   containerclassName,
   title,
   subTitle,
+  titleClassName,
   children,
 }: SectionProps) {
   return (
     <SectionWrapper type={type} id={id} className={className}>
       <div className={`container ${containerclassName || ''}`}>
-        {title ? <h2 className="section-title">{title}</h2> : null}
-        {subTitle ? <p className="section-title">{subTitle}</p> : null}
+        {title ? (
+          <h2
+            className={`section-title text-center ${
+              titleClassName || ''
+            } md:text-left`}
+          >
+            {title}
+          </h2>
+        ) : null}
+        {subTitle ? (
+          <p
+            className={`section-title text-center ${
+              titleClassName || ''
+            } md:text-left`}
+          >
+            {subTitle}
+          </p>
+        ) : null}
         {children}
       </div>
     </SectionWrapper>

@@ -1,4 +1,3 @@
 @import url('./theme/_breakpoints.css');
-@import url('./shared/home.shared.css');
 @import url('./components/hero.css');
 @import url('./components/projects.css');

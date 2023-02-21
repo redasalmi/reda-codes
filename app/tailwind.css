@@ -3,25 +3,32 @@
 @tailwind utilities;
 
 @layer base {
-  @font-face {
-    font-family: Poppins;
-    font-style: normal;
-    font-display: block;
-    font-weight: 400;
-    src: url('./assets/fonts/poppins-latin-400-normal.woff2') format('woff2'),
-      url('./assets/fonts/poppins-latin-400-normal.woff') format('woff');
-  }
-
-  @font-face {
-    font-family: Poppins;
-    font-style: normal;
-    font-display: block;
-    font-weight: 700;
-    src: url('./assets/fonts/poppins-latin-700-normal.woff2') format('woff2'),
-      url('./assets/fonts/poppins-latin-700-normal.woff') format('woff');
-  }
-
   html {
     font-family: Poppins, system-ui, sans-serif;
+    font-size: clamp(0.75rem, 0.5rem + 1.2vw, 1rem);
+  }
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    color: var(--fg-primary);
+    background-color: var(--bg-primary);
+  }
+
+  a {
+    color: var(--fg-primary);
+    text-decoration: none;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    ::before,
+    ::after {
+      scroll-behavior: auto;
+    }
   }
 }

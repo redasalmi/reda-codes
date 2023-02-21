@@ -7,7 +7,8 @@ export default function About() {
     <Section
       id="about"
       title="About Me"
-      className="bg-bg-secondary dark:bg-bg-secondary-dark"
+      titleClassName="text-left"
+      className="py-5 bg-bg-secondary dark:bg-bg-secondary-dark md:py-10 lg:py-[60px]"
     >
       <div className="flex flex-col gap-5 md:items-center md:flex-row lg:gap-10">
         <div className="text-justify md:flex-1 lg:text-[1.175rem] xl:text-xl">

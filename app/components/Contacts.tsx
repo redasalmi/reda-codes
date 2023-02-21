@@ -42,6 +42,7 @@ export default function Contacts({ contacts }: ContactsProps) {
     <Section
       id="contact"
       title="Contact"
+      titleClassName="text-left"
       className="pb-[120px] bg-bg-secondary dark:bg-bg-secondary-dark"
     >
       <div className="flex flex-wrap justify-between gap-[10px] md:gap-3 lg:gap-4">
