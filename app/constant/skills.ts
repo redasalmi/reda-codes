@@ -46,12 +46,10 @@ export const skills: SkillData[] = [
   {
     title: 'Next.js',
     Icon: Nextjs,
-    iconClass: 'nextjs-skill',
   },
   {
     title: 'Remix',
     Icon: Remix,
-    iconClass: 'remix-skill',
   },
   {
     title: 'Node.js',
@@ -60,12 +58,12 @@ export const skills: SkillData[] = [
   {
     title: 'Express',
     Icon: Express,
-    iconClass: 'express-skill',
+    iconClass: 'w-[70px] m-auto',
   },
   {
     title: 'MongoDB',
     Icon: Mongodb,
-    iconClass: 'mongodb-skill',
+    iconClass: 'w-[90px]',
   },
   {
     title: 'Rest API',
