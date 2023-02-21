@@ -38,6 +38,11 @@ function setThemePreference(theme) {
 function reflectThemePreference() {
   const theme = getThemePreference();
   document.firstElementChild?.setAttribute('data-theme', theme);
+  if (theme === '${dark}') {
+    document.firstElementChild?.classList.add(theme);
+  } else {
+    document.firstElementChild?.classList.remove('${dark}');
+  }
   document.querySelector('#${themeToggleId}')?.setAttribute('aria-label', theme);
 }
 
