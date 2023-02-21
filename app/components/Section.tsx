@@ -31,6 +31,7 @@ interface SectionProps {
   type?: 'nav' | 'footer';
   id?: string;
   className?: string;
+  containerclassName?: string;
   title?: string;
   subTitle?: string;
   children: React.ReactNode;
@@ -40,13 +41,14 @@ export default function Section({
   type,
   id,
   className,
+  containerclassName,
   title,
   subTitle,
   children,
 }: SectionProps) {
   return (
     <SectionWrapper type={type} id={id} className={className}>
-      <div className="container">
+      <div className={`container ${containerclassName || ''}`}>
         {title ? <h2 className="section-title">{title}</h2> : null}
         {subTitle ? <p className="section-title">{subTitle}</p> : null}
         {children}
