@@ -23,7 +23,7 @@ export default function HamburgerMenu({
     const isOpen = linksRef.current.classList.toggle('nav-mobile-open');
     fixNavIconsPosition(isOpen);
     controls.start(isOpen ? 'show' : 'hide');
-    document.body.style.overflow = 'hidden';
+    document.body.style.overflow = isOpen ? 'hidden' : 'initial';
     hamburgerBtnRef.current.setAttribute(
       'aria-label',
       isOpen ? 'close navigation menu' : 'open navigation menu',
@@ -36,7 +36,7 @@ export default function HamburgerMenu({
 
     if (isOpen && clickedOutsideNavbar) {
       linksRef.current.classList.remove('nav-mobile-open');
-      document.body.style.overflow = 'visible';
+      document.body.style.overflow = 'initial';
       fixNavIconsPosition(false);
       controls.start('hide');
     }
