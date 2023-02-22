@@ -115,21 +115,21 @@ export function ThemeToggle() {
       ref={btnRef}
       id={themeToggleId}
       aria-live="polite"
-      className="theme-btn nav-icon"
+      className="w-[45px] h-[45px] relative flex justify-center items-center cursor-pointer bg-none rounded-full border-2 border-fg-primary dark:border-fg-primary-dark"
     >
       <MotionSun
         role="img"
-        className="theme-svg theme-sun"
         aria-label="toggle dark theme"
         animate={useReducedAnimation(sunControls)}
         variants={useReducedAnimation(themeVariants)}
+        className="w-[25px] h-[25px] absolute dark:hidden"
       />
       <MotionMoon
         role="img"
-        className="theme-svg theme-moon"
         aria-label="toggle light theme"
         animate={useReducedAnimation(moonControls)}
         variants={useReducedAnimation(themeVariants)}
+        className="w-[25px] h-[25px] absolute hidden dark:block"
       />
     </button>
   );
