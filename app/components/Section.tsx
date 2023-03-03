@@ -51,24 +51,8 @@ export default function Section({
   return (
     <SectionWrapper type={type} id={id} className={className}>
       <div className={`container ${containerclassName || ''}`}>
-        {title ? (
-          <h2
-            className={`section-title text-center ${
-              titleClassName || ''
-            } md:text-left`}
-          >
-            {title}
-          </h2>
-        ) : null}
-        {subTitle ? (
-          <p
-            className={`section-title text-center ${
-              titleClassName || ''
-            } md:text-left`}
-          >
-            {subTitle}
-          </p>
-        ) : null}
+        {title ? <h2 className={titleClassName}>{title}</h2> : null}
+        {subTitle ? <p className={titleClassName}>{subTitle}</p> : null}
         {children}
       </div>
     </SectionWrapper>

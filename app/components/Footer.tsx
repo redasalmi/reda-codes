@@ -20,11 +20,7 @@ export default function Footer() {
     >
       <div className="flex justify-between md:flex-1 md:max-w-[500px]">
         {footerLinks.map(({ href, text }) => (
-          <Link
-            to={href}
-            key={`footer-${href}`}
-            className="animated-link hover:text-primary-col hover:dark:text-primary-col-dark"
-          >
+          <Link to={href} key={`footer-${href}`} className="animated-link">
             {text}
           </Link>
         ))}

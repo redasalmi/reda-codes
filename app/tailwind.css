@@ -32,3 +32,54 @@
     }
   }
 }
+
+@layer utilities {
+  .project-card-first-clip {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 96%, 0% 100%);
+  }
+
+  .project-card-last-clip {
+    clip-path: polygon(0% 4%, 100% 0%, 100% 100%, 0% 100%);
+  }
+
+  .animated-link:hover {
+    color: theme('colors.primary-col');
+  }
+
+  html.dark .animated-link:hover {
+    color: theme('colors.primary-col-dark');
+  }
+
+  .animated-link::after {
+    content: '';
+    width: 0;
+    height: 2px;
+    display: block;
+    background-color: theme('colors.primary-col');
+    transition: width 0.1s linear;
+  }
+
+  html.dark .animated-link::after {
+    background-color: theme('colors.primary-col-dark');
+  }
+
+  .animated-link:hover::after {
+    width: 100%;
+  }
+
+  @media screen(md) {
+    .project-card-first-clip {
+      clip-path: polygon(0% 0%, 100% 0%, 96% 100%, 0% 100%);
+    }
+
+    .project-card-last-clip {
+      clip-path: polygon(4% 0%, 100% 0%, 100% 100%, 0% 100%);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    animated-link::after {
+      transition: none;
+    }
+  }
+}
