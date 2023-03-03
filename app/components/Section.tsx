@@ -1,34 +1,6 @@
 import * as React from 'react';
 
-type SectionWrapperProps = Pick<
-  SectionProps,
-  'type' | 'id' | 'className' | 'children'
->;
-
-function SectionWrapper({
-  type,
-  id,
-  className,
-  children,
-}: SectionWrapperProps) {
-  const props = {
-    id,
-    className,
-  };
-
-  if (type === 'nav') {
-    return <nav {...props}>{children}</nav>;
-  }
-
-  if (type === 'footer') {
-    return <footer {...props}>{children}</footer>;
-  }
-
-  return <section {...props}>{children}</section>;
-}
-
 interface SectionProps {
-  type?: 'nav' | 'footer';
   id?: string;
   className?: string;
   containerclassName?: string;
@@ -39,7 +11,6 @@ interface SectionProps {
 }
 
 export default function Section({
-  type,
   id,
   className,
   containerclassName,
@@ -49,12 +20,12 @@ export default function Section({
   children,
 }: SectionProps) {
   return (
-    <SectionWrapper type={type} id={id} className={className}>
+    <section id={id} className={className}>
       <div className={`container ${containerclassName || ''}`}>
         {title ? <h2 className={titleClassName}>{title}</h2> : null}
         {subTitle ? <p className={titleClassName}>{subTitle}</p> : null}
         {children}
       </div>
-    </SectionWrapper>
+    </section>
   );
 }
