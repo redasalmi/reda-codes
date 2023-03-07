@@ -38,6 +38,7 @@ function MotionPath({
       strokeWidth={strokeWidth}
       custom={{ duration, delay }}
       animate={useReducedAnimation(controls)}
+      className="opacity-100 motion-reduce:logo-svg-path"
     />
   );
 }
@@ -54,7 +55,7 @@ export default function LogoAnimation() {
 
   if (isInView) {
     pathsControls.start('show').then(async () => {
-      logoDivRef.current.classList.add('logo-animation-bg');
+      logoDivRef.current.classList.add('bg-bg-logo', 'dark:bg-bg-logo-dark');
       await controls.start('scale');
       await controls.start('rotate');
       logoDivRef.current.classList.add('logo-drawed');
@@ -92,17 +93,17 @@ export default function LogoAnimation() {
     <motion.div
       ref={logoDivRef}
       variants={logoBgVariants}
-      className="logo-animation"
       style={{ z, scale }}
       animate={useReducedAnimation(controls)}
       onMouseMove={useReducedAnimation(handleMouseMove)}
       onHoverEnd={useReducedAnimation(handleMouseLeave)}
+      className="transform-preserve-3d py-10 rounded-[20px] md:-mr-5 lg:py-[60px] motion-reduce:bg-bg-logo motion-reduce:dark:bg-bg-logo-dark motion-reduce:shadow-[27px_70px_40px_-20px_var(--shadow-primary)] motion-reduce:rotate-logo"
     >
       <motion.svg
         role="img"
-        aria-label="reda codes logo"
-        className="logo-animation-svg"
         viewBox="0 0 41.097 35.452"
+        aria-label="reda codes logo"
+        className="block w-[250px] h-full m-auto origin-center sm:w-[300px] md:w-[250px] lg:w-[275px]"
       >
         <g>
           {clips.map(({ id, d }) => (

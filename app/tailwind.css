@@ -67,6 +67,18 @@
     width: 100%;
   }
 
+  .transform-preserve-3d {
+    transform-style: preserve-3d;
+  }
+
+  .rotate-logo {
+    transform: rotateX(27deg) rotateY(-27deg);
+  }
+
+  .logo-svg-path {
+    stroke-dasharray: 1px 1px;
+  }
+
   @media screen(md) {
     .project-card-first-clip {
       clip-path: polygon(0% 0%, 100% 0%, 96% 100%, 0% 100%);
