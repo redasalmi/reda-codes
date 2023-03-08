@@ -12,8 +12,8 @@ const footerLinks = [
 
 export default function Footer() {
   return (
-    <footer className="py-5 md:py-10">
-      <div className="container md:flex md:justify-between md:gap-10">
+    <footer className="py-5 md:py-10 bg-bg-primary dark:bg-bg-primary-dark">
+      <div className="container mx-auto md:flex md:justify-between md:gap-10">
         <div className="flex justify-between md:flex-1 md:max-w-[500px]">
           {footerLinks.map(({ href, text }) => (
             <Link to={href} key={`footer-${href}`} className="animated-link">

@@ -9,7 +9,6 @@ import {
 import { MotionConfig } from 'framer-motion';
 
 import { ThemeScript, Fonts, Navbar, Footer, ScrollUp } from '~/components';
-import globalStyles from '~/styles/global.css';
 import styles from '~/tailwind.css';
 
 import type { LinksFunction, MetaFunction } from '@remix-run/node';
@@ -54,10 +53,6 @@ export const links: LinksFunction = () => {
     {
       rel: 'apple-touch-icon',
       href: '/apple-touch-icon.png',
-    },
-    {
-      rel: 'stylesheet',
-      href: globalStyles,
     },
     {
       rel: 'stylesheet',

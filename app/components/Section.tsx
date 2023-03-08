@@ -21,7 +21,7 @@ export default function Section({
 }: SectionProps) {
   return (
     <section id={id} className={className}>
-      <div className={`container ${containerclassName || ''}`}>
+      <div className={`container mx-auto ${containerclassName || ''}`}>
         {title ? <h2 className={titleClassName}>{title}</h2> : null}
         {subTitle ? <p className={titleClassName}>{subTitle}</p> : null}
         {children}
