@@ -20,6 +20,5 @@ module.exports = {
     '/public/build',
     '.netlify',
     '.husky',
-    '/app/components/icons',
   ],
 };

@@ -15,8 +15,8 @@
   "homepage": "https://github.com/redasalmi/redasalmi-portfolio-v2#readme",
   "scripts": {
     "remix:dev": "remix dev",
-    "netlify:dev": "cross-env NODE_ENV=development BROWSER=none netlify dev",
-    "netlify:start": "cross-env NODE_ENV=production BROWSER=none netlify dev",
+    "netlify:dev": "cross-env NODE_ENV=development netlify dev",
+    "netlify:start": "cross-env NODE_ENV=production netlify dev",
     "build": "remix build",
     "lint": "eslint --ext js,jsx,ts,tsx .",
     "typecheck": "tsc -b",
