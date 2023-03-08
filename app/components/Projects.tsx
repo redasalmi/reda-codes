@@ -22,10 +22,10 @@ function ProjectInfo({
 }: ProjectInfoProps) {
   return (
     <div
-      className={`md:px-10 flex flex-col justify-around m-auto p-5 h-full ${border}`}
+      className={`m-auto flex h-full flex-col justify-around p-5 md:px-10 ${border}`}
     >
       <div>
-        <h2 className="font-bold text-[1.4rem] md:text-lg">{title}</h2>
+        <h2 className="text-[1.4rem] font-bold md:text-lg">{title}</h2>
         <p>
           {!owner ? (
             'Personal Project'
@@ -36,7 +36,7 @@ function ProjectInfo({
                 href={owner.link}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-block font-bold text-primary-col dark:text-primary-col-dark animated-link"
+                className="animated-link inline-block font-bold text-primary-col dark:text-primary-col-dark"
               >
                 {owner.name}
               </a>
@@ -58,7 +58,7 @@ function ProjectInfo({
           target="_blank"
           rel="noreferrer"
           aria-label={`Visit ${title} website`}
-          className="inline-block font-bold text-primary-col dark:text-primary-col-dark animated-link"
+          className="animated-link inline-block font-bold text-primary-col dark:text-primary-col-dark"
         >
           Visit Website
         </a>
@@ -69,7 +69,7 @@ function ProjectInfo({
             target="_blank"
             rel="noreferrer"
             aria-label={`Check ${title} source code`}
-            className="inline-block font-bold text-primary-col dark:text-primary-col-dark ml-5 animated-link"
+            className="animated-link ml-5 inline-block font-bold text-primary-col dark:text-primary-col-dark"
           >
             Source code
           </a>
@@ -83,12 +83,12 @@ type ProjectImageProps = Pick<ProjectData, 'img'> & { border: string };
 
 function ProjectImage({ img, border }: ProjectImageProps) {
   return (
-    <div className={`w-full h-full ${border}`}>
+    <div className={`h-full w-full ${border}`}>
       <img
         src={img.src}
         alt={img.alt}
         loading="lazy"
-        className={`w-full h-full ${border}`}
+        className={`h-full w-full ${border}`}
       />
     </div>
   );
@@ -133,12 +133,12 @@ export function Project({
       whileInView="show"
       data-testid="project"
       variants={projectVariants}
-      className="flex flex-col md:flex-row rounded-[18px] my-[30px] h-[480px] sm:h-[520px] md:h-[310px] relative last-of-type:mb-0"
+      className="relative my-[30px] flex h-[480px] flex-col rounded-[18px] last-of-type:mb-0 sm:h-[520px] md:h-[310px] md:flex-row"
       viewport={{ once: true, amount: 0.26 }}
     >
       <motion.div
         variants={imgFirst ? projectLastVariant : projectFirstVariant}
-        className={`h-[52%] w-full md:h-full md:w-[52%] bg-bg-primary dark:bg-bg-primary-dark ${
+        className={`h-[52%] w-full bg-bg-primary dark:bg-bg-primary-dark md:h-full md:w-[52%] ${
           imgFirst ? projectCard.last : projectCard.first
         }`}
       >
@@ -184,7 +184,7 @@ export default function Projects({ projects }: ProjectsProps) {
       id="projects"
       title="My Projects"
       titleClassName="text-center md:text-left"
-      className="overflow-hidden bg-bg-secondary dark:bg-bg-secondary-dark py-5 md:py-10 lg:py-[60px]"
+      className="overflow-hidden bg-bg-secondary py-5 dark:bg-bg-secondary-dark md:py-10 lg:py-[60px]"
       subTitle="These are some of the projects I worked on"
     >
       {projects.map(({ key, ...project }, index) => (

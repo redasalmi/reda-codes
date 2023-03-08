@@ -30,7 +30,7 @@ export default function ScrollUp() {
   return (
     <section
       role="navigation"
-      className="fixed right-[10px] bottom-[10px] w-[38px] h-[38px] z-10"
+      className="fixed right-[10px] bottom-[10px] z-10 h-[38px] w-[38px]"
     >
       <MotionLink
         to="#top"
@@ -41,12 +41,12 @@ export default function ScrollUp() {
         variants={scrollUpVariants}
         aria-label="Scroll back up"
         whileHover={useReducedAnimation('pulse')}
-        className="flex justify-center items-center h-full rounded-full bg-secondary-col dark:bg-secondary-col-dark"
+        className="flex h-full items-center justify-center rounded-full bg-secondary-col dark:bg-secondary-col-dark"
       >
         <ArrowUp
           role="img"
           aria-labelledby="scroll-up"
-          className="w-[19px] h-[19px] stroke-white-col"
+          className="h-[19px] w-[19px] stroke-white-col"
         />
       </MotionLink>
     </section>

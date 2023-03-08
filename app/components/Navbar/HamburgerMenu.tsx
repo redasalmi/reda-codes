@@ -49,7 +49,7 @@ export default function HamburgerMenu({
         animate={controls}
         ref={hamburgerBtnRef}
         aria-label="open navigation menu"
-        className="w-[45px] h-[45px] border-2 border-fg-primary dark:border-fg-primary-dark rounded-full cursor-pointer block m-auto"
+        className="m-auto block h-[45px] w-[45px] cursor-pointer rounded-full border-2 border-fg-primary dark:border-fg-primary-dark"
         onClick={handleToggleNavbar}
       >
         {hamburgerBtnVariants.map(({ key, variants, transition }) => (
@@ -57,7 +57,7 @@ export default function HamburgerMenu({
             key={key}
             variants={variants}
             transition={transition}
-            className="block w-1/2 h-[1px] bg-fg-primary dark:bg-fg-primary-dark border border-fg-primary dark:border-fg-primary-dark rounded-[5px] my-[3px] mx-auto"
+            className="my-[3px] mx-auto block h-[1px] w-1/2 rounded-[5px] border border-fg-primary bg-fg-primary dark:border-fg-primary-dark dark:bg-fg-primary-dark"
           />
         ))}
       </motion.button>
@@ -68,18 +68,18 @@ export default function HamburgerMenu({
         animate={controls}
         onClick={closeNavbar}
         variants={linksVariants}
-        className="fixed flex justify-end inset-0 overflow-hidden pointer-events-none z-[-1] md:hidden"
+        className="pointer-events-none fixed inset-0 z-[-1] flex justify-end overflow-hidden md:hidden"
       >
         <motion.ul
           variants={linksListVariants}
-          className="list-none flex flex-col text-center pt-[90px] w-full h-full bg-bg-primary dark:bg-bg-primary-dark translate-x-[110%] sm:w-[320px] sm:text-left sm:shadow-[0_1px_3px] sm:shadow-[#4c4c4c]"
+          className="flex h-full w-full translate-x-[110%] list-none flex-col bg-bg-primary pt-[90px] text-center dark:bg-bg-primary-dark sm:w-[320px] sm:text-left sm:shadow-[0_1px_3px] sm:shadow-[#4c4c4c]"
         >
           <Links
             onClick={handleToggleNavbar}
             linkClassName="text-[1.1rem] font-bold block py-5 border-t border-[#4c4c4c] hover:text-primary-col hover:dark:text-primary-col-dark sm:px-[54px] sm:text-[1.1rem]"
           />
 
-          <li className="py-5 border-t border-[#4c4c4c] md:hidden">
+          <li className="border-t border-[#4c4c4c] py-5 md:hidden">
             <GithubLink
               onClick={handleToggleNavbar}
               linkClassName="m-auto w-[70%] text-[1.2rem] rounded-3xl py-3 px-1 flex items-center justify-center text-fg-primary dark:text-fg-primary-dark font-bold border-2 border-violet-col sm:text-base sm:w-[80%]"

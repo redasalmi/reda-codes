@@ -26,17 +26,17 @@ export default function HeroInfo() {
         </p>
       </div>
 
-      <div className="lg:mt-5 xl:flex xl:mt-[30px] xl:gap-[15px]">
+      <div className="lg:mt-5 xl:mt-[30px] xl:flex xl:gap-[15px]">
         <MotionLink
           to="#projects"
           initial="still"
-          className="rounded-3xl py-3 px-6 w-[200px] mt-[10px] font-bold text-center flex items-center justify-center text-white-col bg-violet-col sm:w-[250px]"
+          className="mt-[10px] flex w-[200px] items-center justify-center rounded-3xl bg-violet-col py-3 px-6 text-center font-bold text-white-col sm:w-[250px]"
           whileHover={useReducedAnimation('move')}
         >
           <span>See My Projects</span>
           <MotionChevron
             role="img"
-            className="inline-block md:w-5 md:h-5"
+            className="inline-block md:h-5 md:w-5"
             aria-label="right chevron"
             variants={chevronVariants}
           />
@@ -45,7 +45,7 @@ export default function HeroInfo() {
         <MotionLink
           to="#about"
           initial="still"
-          className="rounded-3xl py-3 px-6 w-[200px] mt-[10px] font-bold text-center flex items-center justify-center text-fg-primary dark:text-fg-primary-dark border-2 border-violet-col sm:w-[250px]"
+          className="mt-[10px] flex w-[200px] items-center justify-center rounded-3xl border-2 border-violet-col py-3 px-6 text-center font-bold text-fg-primary dark:text-fg-primary-dark sm:w-[250px]"
           whileHover={useReducedAnimation('wave')}
         >
           More About Me{' '}

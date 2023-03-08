@@ -5,7 +5,7 @@ export default function Logo() {
     <div className="z-[3]">
       <Link
         to="/"
-        className="font-bold text-[1.1rem] block text-2xl hover:text-primary-col hover:dark:text-primary-col-dark"
+        className="block text-[1.1rem] text-2xl font-bold hover:text-primary-col hover:dark:text-primary-col-dark"
       >
         Reda Codes
       </Link>

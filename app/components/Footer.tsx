@@ -12,9 +12,9 @@ const footerLinks = [
 
 export default function Footer() {
   return (
-    <footer className="py-5 md:py-10 bg-bg-primary dark:bg-bg-primary-dark">
+    <footer className="bg-bg-primary py-5 dark:bg-bg-primary-dark md:py-10">
       <div className="container mx-auto md:flex md:justify-between md:gap-10">
-        <div className="flex justify-between md:flex-1 md:max-w-[500px]">
+        <div className="flex justify-between md:max-w-[500px] md:flex-1">
           {footerLinks.map(({ href, text }) => (
             <Link to={href} key={`footer-${href}`} className="animated-link">
               {text}
@@ -22,7 +22,7 @@ export default function Footer() {
           ))}
         </div>
 
-        <div className="text-center mt-[14px] md:mt-0">
+        <div className="mt-[14px] text-center md:mt-0">
           <p>{new Date().getFullYear()} ©️ Reda Salmi. All rights reserved.</p>
         </div>
       </div>

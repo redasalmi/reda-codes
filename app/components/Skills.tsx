@@ -13,12 +13,12 @@ export function Skill({ title, iconClass, Icon }: SkillData) {
     <motion.div
       data-testid="skill"
       whileHover={useReducedAnimation({ y: -10 })}
-      className="font-bold rounded-md flex flex-col items-center w-[120px] h-[120px] p-[25px_15px_15px] bg-bg-secondary dark:bg-bg-secondary-dark shadow-[0_0_10px_var(--shadow-primary)]"
+      className="flex h-[120px] w-[120px] flex-col items-center rounded-md bg-bg-secondary p-[25px_15px_15px] font-bold shadow-[0_0_10px_var(--shadow-primary)] dark:bg-bg-secondary-dark"
     >
       <Icon
         role="img"
         aria-labelledby={id}
-        className={`w-10 h-10 mb-[15px] ${iconClass || ''}`}
+        className={`mb-[15px] h-10 w-10 ${iconClass || ''}`}
       />
       <p id={id}>{title}</p>
     </motion.div>
@@ -38,7 +38,7 @@ export default function Skills({ skills }: SkillsProps) {
     <Section
       id="skills"
       title="My Skills"
-      className="py-5 md:py-10 lg:py-[60px] bg-bg-primary dark:bg-bg-primary-dark"
+      className="bg-bg-primary py-5 dark:bg-bg-primary-dark md:py-10 lg:py-[60px]"
       titleClassName="text-center md:text-left"
       subTitle="These are the skills I use most of the time"
     >

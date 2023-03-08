@@ -8,9 +8,9 @@ export default function About() {
       id="about"
       title="About Me"
       titleClassName="text-left"
-      className="py-5 bg-bg-secondary dark:bg-bg-secondary-dark md:py-10 lg:py-[60px]"
+      className="bg-bg-secondary py-5 dark:bg-bg-secondary-dark md:py-10 lg:py-[60px]"
     >
-      <div className="flex flex-col gap-5 md:items-center md:flex-row lg:gap-10">
+      <div className="flex flex-col gap-5 md:flex-row md:items-center lg:gap-10">
         <div className="text-justify md:flex-1 lg:text-[1.175rem] xl:text-xl">
           <p>
             My first encounter with programming was in 2014 when I did the
@@ -31,7 +31,7 @@ export default function About() {
             src={redaPic}
             loading="lazy"
             alt="reda salmi"
-            className="rounded-full w-[300px] h-[300px] m-auto md:m-0"
+            className="m-auto h-[300px] w-[300px] rounded-full md:m-0"
           />
         </div>
       </div>

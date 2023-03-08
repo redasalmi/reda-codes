@@ -38,7 +38,7 @@ function MotionPath({
       strokeWidth={strokeWidth}
       custom={{ duration, delay }}
       animate={useReducedAnimation(controls)}
-      className="opacity-100 motion-reduce:logo-svg-path"
+      className="motion-reduce:logo-svg-path opacity-100"
     />
   );
 }
@@ -97,13 +97,13 @@ export default function LogoAnimation() {
       animate={useReducedAnimation(controls)}
       onMouseMove={useReducedAnimation(handleMouseMove)}
       onHoverEnd={useReducedAnimation(handleMouseLeave)}
-      className="transform-preserve-3d py-10 rounded-[20px] md:-mr-5 lg:py-[60px] motion-reduce:bg-bg-logo motion-reduce:dark:bg-bg-logo-dark motion-reduce:shadow-[27px_70px_40px_-20px_var(--shadow-primary)] motion-reduce:rotate-logo"
+      className="transform-preserve-3d motion-reduce:rotate-logo rounded-[20px] py-10 motion-reduce:bg-bg-logo motion-reduce:shadow-[27px_70px_40px_-20px_var(--shadow-primary)] motion-reduce:dark:bg-bg-logo-dark md:-mr-5 lg:py-[60px]"
     >
       <motion.svg
         role="img"
         viewBox="0 0 41.097 35.452"
         aria-label="reda codes logo"
-        className="block w-[250px] h-full m-auto origin-center sm:w-[300px] md:w-[250px] lg:w-[275px]"
+        className="m-auto block h-full w-[250px] origin-center sm:w-[300px] md:w-[250px] lg:w-[275px]"
       >
         <g>
           {clips.map(({ id, d }) => (

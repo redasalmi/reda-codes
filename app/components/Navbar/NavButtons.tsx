@@ -10,9 +10,9 @@ export default function NavButtons() {
 
   return (
     <div
-      className={`z-[3] flex-1 flex items-center justify-end gap-[10px] md:flex-[0] ${
+      className={`z-[3] flex flex-1 items-center justify-end gap-[10px] md:flex-[0] ${
         open
-          ? 'fixed left-0 right-0 md:m-0 md:p-0 md:max-w-none md:static container'
+          ? 'container fixed left-0 right-0 md:static md:m-0 md:max-w-none md:p-0'
           : ''
       }`}
     >
