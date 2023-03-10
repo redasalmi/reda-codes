@@ -15,13 +15,20 @@
   }
 
   body {
-    color: var(--fg-primary);
-    background-color: var(--bg-primary);
+    color: theme('colors.fg-primary');
   }
 
   a {
-    color: var(--fg-primary);
+    color: theme('colors.fg-primary');
     text-decoration: none;
+  }
+
+  html.dark body {
+    color: theme('colors.fg-primary-dark');
+  }
+
+  html.dark a {
+    color: theme('colors.fg-primary-dark');
   }
 
   @media (prefers-reduced-motion: reduce) {

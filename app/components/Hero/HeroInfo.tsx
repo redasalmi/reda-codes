@@ -12,7 +12,7 @@ export default function HeroInfo() {
     <>
       <div>
         <p>Hi, I&apos;m Reda Salmi</p>
-        <h1 className="text-[1.8rem] md:text-2xl lg:text-[2rem] lg:leading-normal xl:text-[2.4rem] xl:leading-loose">
+        <h1 className="text-[1.8rem] font-bold md:text-2xl lg:text-[2rem] lg:leading-normal xl:text-[2.4rem] xl:leading-loose">
           A Full Stack Web Developer
         </h1>
         <p>
@@ -30,13 +30,13 @@ export default function HeroInfo() {
         <MotionLink
           to="#projects"
           initial="still"
-          className="mt-[10px] flex w-[200px] items-center justify-center rounded-3xl bg-violet-col py-3 px-6 text-center font-bold text-white-col sm:w-[250px]"
+          className="mt-[10px] flex h-14 w-[200px] items-center justify-center rounded-3xl bg-violet-col py-3 px-6 text-center font-bold leading-none text-white-col sm:w-[250px]"
           whileHover={useReducedAnimation('move')}
         >
           <span>See My Projects</span>
           <MotionChevron
             role="img"
-            className="inline-block md:h-5 md:w-5"
+            className="inline-block h-5 w-5"
             aria-label="right chevron"
             variants={chevronVariants}
           />
@@ -45,11 +45,11 @@ export default function HeroInfo() {
         <MotionLink
           to="#about"
           initial="still"
-          className="mt-[10px] flex w-[200px] items-center justify-center rounded-3xl border-2 border-violet-col py-3 px-6 text-center font-bold text-fg-primary dark:text-fg-primary-dark sm:w-[250px]"
+          className="mt-[10px] flex h-14 w-[200px] items-center justify-center rounded-3xl border-2 border-violet-col py-3 px-6 text-center font-bold leading-none text-fg-primary dark:text-fg-primary-dark sm:w-[250px]"
           whileHover={useReducedAnimation('wave')}
         >
           More About Me{' '}
-          <motion.span className="inline-block" variants={handVariants}>
+          <motion.span className="inline-block pl-1" variants={handVariants}>
             👋
           </motion.span>
         </MotionLink>

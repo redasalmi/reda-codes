@@ -6,7 +6,7 @@ export default function Navbar() {
       id="top"
       className="h-[90px] border-b-[1px] border-nav-border bg-bg-secondary py-5 dark:border-nav-border-dark dark:bg-bg-secondary-dark"
     >
-      <div className="container mx-auto flex h-[54px] items-center justify-between">
+      <div className="container mx-auto flex h-[54px] items-center justify-between px-4">
         <Logo />
         <NavLinks />
         <NavButtons />
