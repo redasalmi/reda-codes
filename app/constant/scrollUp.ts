@@ -1,16 +1,18 @@
+import type { Variants } from 'framer-motion';
+
 const transition = {
   duration: 0.1,
 };
 
-export const scrollUpVariants = {
+export const scrollUpVariants: Variants = {
   hide: {
     opacity: 0,
-    pointerEvents: 'none' as const,
+    pointerEvents: 'none',
     transition,
   },
   show: {
     opacity: 1,
-    pointerEvents: 'auto' as const,
+    pointerEvents: 'auto',
     transition,
   },
   pulse: {

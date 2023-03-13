@@ -3,6 +3,8 @@ import caronline from '~/assets/images/caronline.webp';
 import jsonPlaceholder from '~/assets/images/json-placeholder.webp';
 import itBooks from '~/assets/images/it-books.webp';
 
+import type { Variants } from 'framer-motion';
+
 export interface ProjectData {
   key: string;
   title: string;
@@ -77,7 +79,7 @@ export const projects: ProjectData[] = [
   },
 ];
 
-export const projectVariants = {
+export const projectVariants: Variants = {
   hide: {
     opacity: 0,
   },
@@ -103,14 +105,14 @@ const show = {
   },
 };
 
-export const projectFirstVariant = {
+export const projectFirstVariant: Variants = {
   hide: {
     x: -120,
   },
   show,
 };
 
-export const projectLastVariant = {
+export const projectLastVariant: Variants = {
   hide: {
     x: 120,
   },

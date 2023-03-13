@@ -1,8 +1,12 @@
-export const logoBgVariants = {
-  init: {
-    scale: 0.8,
-    z: 0,
-  },
+import type { Variants } from 'framer-motion';
+
+export const logoBgInit = {
+  scale: 0.8,
+  z: 0,
+};
+
+export const logoBgVariants: Variants = {
+  init: logoBgInit,
   scale: {
     scale: 1,
     transition: { duration: 0.6 },
@@ -21,7 +25,7 @@ export const logoBgVariants = {
   },
 };
 
-export const pathVariants = {
+export const pathVariants: Variants = {
   hide: {
     pathLength: 0,
     opacity: 0,

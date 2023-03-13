@@ -1,8 +1,16 @@
+import type { Transition, Variants } from 'framer-motion';
+
 const transition = {
   duration: 0.3,
 };
 
-export const hamburgerBtnVariants = [
+interface HamburgerBtnVariant {
+  key: string;
+  transition: Transition;
+  variants: Variants;
+}
+
+export const hamburgerBtnVariants: HamburgerBtnVariant[] = [
   {
     key: 'btn1',
     transition,
@@ -29,20 +37,20 @@ export const hamburgerBtnVariants = [
   },
 ];
 
-export const linksVariants = {
+export const linksVariants: Variants = {
   hide: {
     backgroundColor: 'rgba(0, 0, 0, 0)',
     backdropFilter: 'blur(0)',
-    pointerEvents: 'none' as const,
+    pointerEvents: 'none',
   },
   show: {
     backgroundColor: 'rgba(0, 0, 0, 0.4)',
     backdropFilter: 'blur(4px)',
-    pointerEvents: 'auto' as const,
+    pointerEvents: 'auto',
   },
 };
 
-export const linksListVariants = {
+export const linksListVariants: Variants = {
   init: { x: '110%' },
   hide: { x: '110%', transition },
   show: { x: 0, transition },

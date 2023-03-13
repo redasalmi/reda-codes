@@ -1,4 +1,6 @@
-export const chevronVariants = {
+import type { Variants } from 'framer-motion';
+
+export const chevronVariants: Variants = {
   still: {
     x: 0,
   },
@@ -12,7 +14,7 @@ export const chevronVariants = {
   },
 };
 
-export const handVariants = {
+export const handVariants: Variants = {
   still: {
     rotateZ: 0,
   },
@@ -22,7 +24,7 @@ export const handVariants = {
       duration: 0.6,
       ease: 'linear',
       repeat: Infinity,
-      repeatType: 'reverse' as const,
+      repeatType: 'reverse',
     },
   },
 };

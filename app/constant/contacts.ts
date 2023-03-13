@@ -1,3 +1,5 @@
+import type { Variants } from 'framer-motion';
+
 export interface ContactData {
   key: string;
   href: string;
@@ -27,7 +29,7 @@ export const contacts: ContactData[] = [
   },
 ];
 
-export const contactLinkVariants = {
+export const contactLinkVariants: Variants = {
   init: {
     boxShadow: '6px 6px 0px var(--shadow-primary)',
   },
@@ -36,7 +38,7 @@ export const contactLinkVariants = {
   },
 };
 
-export const contactTextVariants = {
+export const contactTextVariants: Variants = {
   hover: {
     scale: 1.1,
   },

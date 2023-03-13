@@ -8,7 +8,13 @@ import {
 
 import useReducedAnimation from '~/hooks/useReducedAnimation';
 import { clamp } from '~/utils';
-import { logoBgVariants, pathVariants, clips, paths } from '~/constant';
+import {
+  logoBgVariants,
+  pathVariants,
+  clips,
+  paths,
+  logoBgInit,
+} from '~/constant';
 
 import type { AnimationControls } from 'framer-motion';
 
@@ -38,7 +44,7 @@ function MotionPath({
       strokeWidth={strokeWidth}
       custom={{ duration, delay }}
       animate={useReducedAnimation(controls)}
-      className="motion-reduce:logo-svg-path opacity-100"
+      className="motion-reduce:logo-svg-path motion-reduce:opacity-100"
     />
   );
 }
@@ -50,8 +56,8 @@ export default function LogoAnimation() {
   const pathsControls = useAnimationControls();
   const isInView = useInView(logoDivRef, { once: true, amount: 0.9 });
 
-  const scale = useMotionValue(logoBgVariants.init.scale);
-  const z = useMotionValue(logoBgVariants.init.z);
+  const scale = useMotionValue(logoBgInit.scale);
+  const z = useMotionValue(logoBgInit.z);
 
   if (isInView) {
     pathsControls.start('show').then(async () => {

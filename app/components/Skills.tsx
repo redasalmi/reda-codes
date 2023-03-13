@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { Section } from '~/components';
 
 import useReducedAnimation from '~/hooks/useReducedAnimation';
+
 import type { SkillData } from '~/constant';
 
 export function Skill({ title, iconClass, Icon }: SkillData) {
