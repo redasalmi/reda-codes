@@ -13,7 +13,7 @@ export function Skill({ title, iconClass, Icon }: SkillData) {
     <motion.div
       data-testid="skill"
       whileHover={useReducedAnimation({ y: -10 })}
-      className="flex h-[120px] w-[120px] flex-col items-center rounded-md bg-bg-secondary p-[25px_15px_15px] font-bold shadow-[0_0_10px_var(--shadow-primary)] dark:bg-bg-secondary-dark"
+      className="flex h-[120px] w-[120px] flex-col items-center rounded-md bg-bg-secondary p-[25px_15px_15px] font-bold shadow-[0_0_10px] shadow-shadow-primary dark:bg-bg-secondary-dark dark:shadow-shadow-primary-dark"
     >
       <Icon
         role="img"

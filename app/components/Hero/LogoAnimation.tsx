@@ -97,7 +97,7 @@ export default function LogoAnimation() {
       animate={useReducedAnimation(controls)}
       onMouseMove={useReducedAnimation(handleMouseMove)}
       onHoverEnd={useReducedAnimation(handleMouseLeave)}
-      className="transform-preserve-3d motion-reduce:rotate-logo rounded-[20px] py-10 motion-reduce:bg-bg-logo motion-reduce:shadow-[27px_70px_40px_-20px_var(--shadow-primary)] motion-reduce:dark:bg-bg-logo-dark md:-mr-5 lg:py-[60px]"
+      className="transform-preserve-3d motion-reduce:rotate-logo rounded-[20px] py-10 shadow-shadow-primary motion-reduce:bg-bg-logo motion-reduce:shadow-[27px_70px_40px_-20px] dark:shadow-shadow-primary-dark motion-reduce:dark:bg-bg-logo-dark md:-mr-5 lg:py-[60px]"
     >
       <motion.svg
         role="img"
@@ -115,7 +115,7 @@ export default function LogoAnimation() {
 
         <g
           fill="none"
-          stroke="var(--violet)"
+          stroke="var(--violet-col)"
           strokeLinecap="round"
           strokeLinejoin="round"
         >

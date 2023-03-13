@@ -3,6 +3,12 @@
 @tailwind utilities;
 
 @layer base {
+  :root {
+    --violet-col: #6246ea;
+    --secondary-opac: #0055af3a;
+    --shadow-primary: #b0b0b0;
+  }
+
   html {
     font-family: Poppins, system-ui, sans-serif;
     font-size: clamp(0.75rem, 0.5rem + 1.2vw, 1rem);
@@ -21,6 +27,11 @@
   a {
     color: theme('colors.fg-primary');
     text-decoration: none;
+  }
+
+  html.dark {
+    --secondary-opac: #1ed7603a;
+    --shadow-primary: #0d0d0d;
   }
 
   html.dark body {

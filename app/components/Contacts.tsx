@@ -15,7 +15,7 @@ export function Contact({ href, text }: ContactProps) {
       initial="init"
       target="_blank"
       rel="noreferrer"
-      className="w-full rounded-md bg-bg-primary p-5 text-xl  text-fg-primary shadow-[6px_6px_0_var(--shadow-primay)] dark:bg-bg-primary-dark dark:text-fg-primary-dark md:w-[49%] md:text-base lg:text-xl"
+      className="w-full rounded-md bg-bg-primary p-5 text-xl  text-fg-primary shadow-[6px_6px_0] shadow-shadow-primary dark:bg-bg-primary-dark dark:text-fg-primary-dark dark:shadow-shadow-primary-dark md:w-[49%] md:text-base lg:text-xl"
       variants={contactLinkVariants}
       whileHover={useReducedAnimation('hover')}
     >

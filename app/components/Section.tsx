@@ -22,7 +22,9 @@ export default function Section({
   return (
     <section id={id} className={className}>
       <div className={`container mx-auto px-4 ${containerclassName || ''}`}>
-        {title ? <h2 className={titleClassName}>{title}</h2> : null}
+        {title ? (
+          <h2 className={`text-2xl font-bold ${titleClassName}`}>{title}</h2>
+        ) : null}
         {subTitle ? <p className={titleClassName}>{subTitle}</p> : null}
         {children}
       </div>

@@ -37,7 +37,6 @@ function setThemePreference(theme) {
 
 function reflectThemePreference() {
   const theme = getThemePreference();
-  document.firstElementChild?.setAttribute('data-theme', theme);
   if (theme === '${dark}') {
     document.firstElementChild?.classList.add(theme);
   } else {
