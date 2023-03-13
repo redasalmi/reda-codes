@@ -9,7 +9,7 @@ const MotionChevron = motion(ChevronRight);
 
 export default function HeroInfo() {
   return (
-    <>
+    <div className="md:w-1/2 md:py-10 lg:py-[60px] lg:text-[1.2rem] xl:py-20">
       <div>
         <p>Hi, I&apos;m Reda Salmi</p>
         <h1 className="text-[1.8rem] font-bold md:text-2xl lg:text-[2rem] lg:leading-normal xl:text-[2.4rem] xl:leading-loose">
@@ -54,6 +54,6 @@ export default function HeroInfo() {
           </motion.span>
         </MotionLink>
       </div>
-    </>
+    </div>
   );
 }

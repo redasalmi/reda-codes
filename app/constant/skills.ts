@@ -14,7 +14,14 @@ import {
   Git,
 } from '~/components/Icons';
 
+import type { Variants } from 'framer-motion';
 import type { SvgPropsWithoutRef } from '~/components/Icons';
+
+export const skillsVariants: Variants = {
+  up: {
+    y: -10,
+  },
+};
 
 export interface SkillData {
   title: string;

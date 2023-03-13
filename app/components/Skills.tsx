@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { Section } from '~/components';
 
 import useReducedAnimation from '~/hooks/useReducedAnimation';
+import { skillsVariants } from '~/constant';
 
 import type { SkillData } from '~/constant';
 
@@ -13,7 +14,8 @@ export function Skill({ title, iconClass, Icon }: SkillData) {
   return (
     <motion.div
       data-testid="skill"
-      whileHover={useReducedAnimation({ y: -10 })}
+      variants={skillsVariants}
+      whileHover={useReducedAnimation('up')}
       className="flex h-[120px] w-[120px] flex-col items-center rounded-md bg-bg-secondary p-[25px_15px_15px] font-bold shadow-[0_0_10px] shadow-shadow-primary dark:bg-bg-secondary-dark dark:shadow-shadow-primary-dark"
     >
       <Icon

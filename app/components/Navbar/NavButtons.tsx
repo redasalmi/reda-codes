@@ -4,15 +4,13 @@ import { ThemeToggle } from '~/components';
 import { HamburgerMenu, GithubLink } from '~/components/Navbar';
 
 export default function NavButtons() {
-  const [open, setOpen] = React.useState(false);
-
-  const fixNavIconsPosition = (fix: boolean) => setOpen(fix);
+  const [isOpen, setIsOpen] = React.useState(false);
 
   return (
     <div
       className={`z-[3] flex flex-1 items-center justify-end gap-[10px] md:flex-[0] ${
-        open
-          ? 'container fixed left-0 right-0 md:static md:m-0 md:max-w-none md:p-0'
+        isOpen
+          ? 'container fixed left-0 right-0 mx-auto px-4 md:static md:m-0 md:max-w-none md:p-0'
           : ''
       }`}
     >
@@ -21,7 +19,7 @@ export default function NavButtons() {
       </div>
 
       <div className="md:hidden">
-        <HamburgerMenu fixNavIconsPosition={fixNavIconsPosition} />
+        <HamburgerMenu isOpen={isOpen} setIsOpen={setIsOpen} />
       </div>
 
       <div className="hidden md:block">

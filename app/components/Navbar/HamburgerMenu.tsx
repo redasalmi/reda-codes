@@ -9,35 +9,35 @@ import {
 } from '~/constant';
 
 interface HamburgerMenuProps {
-  fixNavIconsPosition: (fix: boolean) => void;
+  isOpen: boolean;
+  setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export default function HamburgerMenu({
-  fixNavIconsPosition,
+  isOpen,
+  setIsOpen,
 }: HamburgerMenuProps) {
   const controls = useAnimationControls();
   const hamburgerBtnRef = React.useRef<HTMLButtonElement>(null!);
   const linksRef = React.useRef<HTMLDivElement>(null!);
 
   const handleToggleNavbar = () => {
-    const isOpen = linksRef.current.classList.toggle('nav-mobile-open');
-    fixNavIconsPosition(isOpen);
-    controls.start(isOpen ? 'show' : 'hide');
-    document.body.style.overflow = isOpen ? 'hidden' : 'initial';
+    const toggleIsOpen = !isOpen;
+    setIsOpen(toggleIsOpen);
+    controls.start(toggleIsOpen ? 'show' : 'hide');
+    document.body.style.overflow = toggleIsOpen ? 'hidden' : 'initial';
     hamburgerBtnRef.current.setAttribute(
       'aria-label',
-      isOpen ? 'close navigation menu' : 'open navigation menu',
+      toggleIsOpen ? 'close navigation menu' : 'open navigation menu',
     );
   };
 
   const closeNavbar = (event: React.MouseEvent) => {
-    const isOpen = linksRef.current.classList.contains('nav-mobile-open');
     const clickedOutsideNavbar = linksRef.current === event.target;
 
     if (isOpen && clickedOutsideNavbar) {
-      linksRef.current.classList.remove('nav-mobile-open');
+      setIsOpen(false);
       document.body.style.overflow = 'initial';
-      fixNavIconsPosition(false);
       controls.start('hide');
     }
   };

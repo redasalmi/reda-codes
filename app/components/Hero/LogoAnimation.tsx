@@ -50,6 +50,7 @@ function MotionPath({
 }
 
 export default function LogoAnimation() {
+  const [hasFinishedDrawing, setHasFinishedDrawing] = React.useState(false);
   const logoDivRef = React.useRef<HTMLDivElement>(null!);
 
   const controls = useAnimationControls();
@@ -64,15 +65,12 @@ export default function LogoAnimation() {
       logoDivRef.current.classList.add('bg-bg-logo', 'dark:bg-bg-logo-dark');
       await controls.start('scale');
       await controls.start('rotate');
-      logoDivRef.current.classList.add('logo-drawed');
+      setHasFinishedDrawing(true);
     });
   }
 
-  const hasFinishedDrawing = () =>
-    logoDivRef.current.classList.contains('logo-drawed');
-
   const handleMouseMove = (event: React.MouseEvent<HTMLDivElement>) => {
-    if (hasFinishedDrawing()) {
+    if (hasFinishedDrawing) {
       const { x, width } = logoDivRef.current.getBoundingClientRect();
       const logoDivCenter = (width + x * 2) / 2;
 
@@ -90,50 +88,52 @@ export default function LogoAnimation() {
   };
 
   const handleMouseLeave = () => {
-    if (hasFinishedDrawing()) {
+    if (hasFinishedDrawing) {
       controls.start('hoverReset');
     }
   };
 
   return (
-    <motion.div
-      ref={logoDivRef}
-      variants={logoBgVariants}
-      style={{ z, scale }}
-      animate={useReducedAnimation(controls)}
-      onMouseMove={useReducedAnimation(handleMouseMove)}
-      onHoverEnd={useReducedAnimation(handleMouseLeave)}
-      className="transform-preserve-3d motion-reduce:rotate-logo rounded-[20px] py-10 shadow-shadow-primary motion-reduce:bg-bg-logo motion-reduce:shadow-[27px_70px_40px_-20px] dark:shadow-shadow-primary-dark motion-reduce:dark:bg-bg-logo-dark md:-mr-5 lg:py-[60px]"
-    >
-      <motion.svg
-        role="img"
-        viewBox="0 0 41.097 35.452"
-        aria-label="reda codes logo"
-        className="m-auto block h-full w-[250px] origin-center sm:w-[300px] md:w-[250px] lg:w-[275px]"
+    <div className="md:w-1/2 xl:w-[45%]">
+      <motion.div
+        ref={logoDivRef}
+        variants={logoBgVariants}
+        style={{ z, scale }}
+        animate={useReducedAnimation(controls)}
+        onMouseMove={useReducedAnimation(handleMouseMove)}
+        onHoverEnd={useReducedAnimation(handleMouseLeave)}
+        className="transform-preserve-3d motion-reduce:rotate-logo rounded-[20px] py-10 shadow-shadow-primary motion-reduce:bg-bg-logo motion-reduce:shadow-[27px_70px_40px_-20px] dark:shadow-shadow-primary-dark motion-reduce:dark:bg-bg-logo-dark md:-mr-5 lg:py-[60px]"
       >
-        <g>
-          {clips.map(({ id, d }) => (
-            <clipPath key={id} id={id}>
-              <path d={d} />
-            </clipPath>
-          ))}
-        </g>
-
-        <g
-          fill="none"
-          stroke="var(--violet-col)"
-          strokeLinecap="round"
-          strokeLinejoin="round"
+        <motion.svg
+          role="img"
+          viewBox="0 0 41.097 35.452"
+          aria-label="reda codes logo"
+          className="m-auto block h-full w-[250px] origin-center sm:w-[300px] md:w-[250px] lg:w-[275px]"
         >
-          {paths.map((clip) => (
-            <MotionPath
-              key={clip.clipPath}
-              controls={pathsControls}
-              {...clip}
-            />
-          ))}
-        </g>
-      </motion.svg>
-    </motion.div>
+          <g>
+            {clips.map(({ id, d }) => (
+              <clipPath key={id} id={id}>
+                <path d={d} />
+              </clipPath>
+            ))}
+          </g>
+
+          <g
+            fill="none"
+            stroke="var(--violet-col)"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            {paths.map((clip) => (
+              <MotionPath
+                key={clip.clipPath}
+                controls={pathsControls}
+                {...clip}
+              />
+            ))}
+          </g>
+        </motion.svg>
+      </motion.div>
+    </div>
   );
 }
