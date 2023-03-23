@@ -36,7 +36,7 @@ function ProjectInfo({
                 href={owner.link}
                 target="_blank"
                 rel="noreferrer"
-                className="animated-link inline-block font-bold text-primary-col dark:text-primary-col-dark"
+                className="animated-link inline-block font-bold text-primary dark:text-primary-dark"
               >
                 {owner.name}
               </a>
@@ -47,7 +47,7 @@ function ProjectInfo({
 
       <div>
         <p className="text-justify">{desc}</p>
-        <p className="text-secondary-col dark:text-secondary-col-dark">
+        <p className="text-secondary dark:text-secondary-dark">
           Tech Stack: {techStack.join(', ')}.
         </p>
       </div>
@@ -58,7 +58,7 @@ function ProjectInfo({
           target="_blank"
           rel="noreferrer"
           aria-label={`Visit ${title} website`}
-          className="animated-link inline-block font-bold text-primary-col dark:text-primary-col-dark"
+          className="animated-link inline-block font-bold text-primary dark:text-primary-dark"
         >
           Visit Website
         </a>
@@ -69,7 +69,7 @@ function ProjectInfo({
             target="_blank"
             rel="noreferrer"
             aria-label={`Check ${title} source code`}
-            className="animated-link ml-5 inline-block font-bold text-primary-col dark:text-primary-col-dark"
+            className="animated-link ml-5 inline-block font-bold text-primary dark:text-primary-dark"
           >
             Source code
           </a>

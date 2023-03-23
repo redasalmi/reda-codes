@@ -41,12 +41,12 @@ export default function ScrollUp() {
         variants={scrollUpVariants}
         aria-label="Scroll back up"
         whileHover={useReducedAnimation('pulse')}
-        className="flex h-full items-center justify-center rounded-full bg-secondary-col dark:bg-secondary-col-dark"
+        className="flex h-full items-center justify-center rounded-full bg-secondary dark:bg-secondary-dark"
       >
         <ArrowUp
           role="img"
           aria-labelledby="scroll-up"
-          className="h-[19px] w-[19px] stroke-white-col"
+          className="h-[19px] w-[19px] stroke-white"
         />
       </MotionLink>
     </section>

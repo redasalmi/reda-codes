@@ -76,13 +76,13 @@ export default function HamburgerMenu({
         >
           <Links
             onClick={handleToggleNavbar}
-            linkClassName="text-[1.1rem] font-bold block py-5 border-t border-[#4c4c4c] hover:text-primary-col hover:dark:text-primary-col-dark sm:px-[54px] sm:text-[1.1rem]"
+            linkClassName="text-[1.1rem] font-bold block py-5 border-t border-[#4c4c4c] hover:text-primary hover:dark:text-primary-dark sm:px-[54px] sm:text-[1.1rem]"
           />
 
           <li className="border-t border-[#4c4c4c] py-5 md:hidden">
             <GithubLink
               onClick={handleToggleNavbar}
-              linkClassName="m-auto w-[70%] text-[1.2rem] rounded-3xl py-3 px-1 flex items-center justify-center text-fg-primary dark:text-fg-primary-dark font-bold border-2 border-violet-col sm:text-base sm:w-[80%]"
+              linkClassName="m-auto w-[70%] text-[1.2rem] rounded-3xl py-3 px-1 flex items-center justify-center text-fg-primary dark:text-fg-primary-dark font-bold border-2 border-violet-primary sm:text-base sm:w-[80%]"
               svgClassName="w-[25px] h-[25px] ml-[10px]"
             >
               <span>Check out my github</span>

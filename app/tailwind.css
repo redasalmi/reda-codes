@@ -4,9 +4,9 @@
 
 @layer base {
   :root {
-    --violet-col: #6246ea;
-    --secondary-opac: #0055af3a;
-    --shadow-primary: #b0b0b0;
+    --violet-primary: theme(colors.violet-primary);
+    --secondary-opac: theme(colors.secondary-opac);
+    --shadow-primary: theme(colors.shadow-primary);
   }
 
   html {
@@ -20,24 +20,17 @@
     scroll-behavior: smooth;
   }
 
-  body {
-    color: theme('colors.fg-primary');
-  }
-
+  body,
   a {
     color: theme('colors.fg-primary');
-    text-decoration: none;
   }
 
   html.dark {
-    --secondary-opac: #1ed7603a;
-    --shadow-primary: #0d0d0d;
+    --secondary-opac: theme(colors.secondary-opac-dark);
+    --shadow-primary: theme(colors.shadow-primary-dark);
   }
 
-  html.dark body {
-    color: theme('colors.fg-primary-dark');
-  }
-
+  html.dark body,
   html.dark a {
     color: theme('colors.fg-primary-dark');
   }
@@ -61,11 +54,11 @@
   }
 
   .animated-link:hover {
-    color: theme('colors.primary-col');
+    color: theme('colors.primary');
   }
 
   html.dark .animated-link:hover {
-    color: theme('colors.primary-col-dark');
+    color: theme('colors.primary-dark');
   }
 
   .animated-link::after {
@@ -73,12 +66,12 @@
     width: 0;
     height: 2px;
     display: block;
-    background-color: theme('colors.primary-col');
+    background-color: theme('colors.primary');
     transition: width 0.1s linear;
   }
 
   html.dark .animated-link::after {
-    background-color: theme('colors.primary-col-dark');
+    background-color: theme('colors.primary-dark');
   }
 
   .animated-link:hover::after {
