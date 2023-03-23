@@ -4,9 +4,9 @@
 
 @layer base {
   :root {
-    --violet-primary: theme(colors.violet-primary);
-    --secondary-opac: theme(colors.secondary-opac);
-    --shadow-primary: theme(colors.shadow-primary);
+    --violet: theme(colors.violet);
+    --secondary-opac: theme(colors.secondary-opac.DEFAULT);
+    --shadow-primary: theme(colors.shadow-primary.DEFAULT);
   }
 
   html {
@@ -22,17 +22,17 @@
 
   body,
   a {
-    color: theme('colors.fg-primary');
+    color: theme('colors.fg-primary.DEFAULT');
   }
 
   html.dark {
-    --secondary-opac: theme(colors.secondary-opac-dark);
-    --shadow-primary: theme(colors.shadow-primary-dark);
+    --secondary-opac: theme(colors.secondary-opac.dark);
+    --shadow-primary: theme(colors.shadow-primary.dark);
   }
 
   html.dark body,
   html.dark a {
-    color: theme('colors.fg-primary-dark');
+    color: theme('colors.fg-primary.dark');
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -54,11 +54,11 @@
   }
 
   .animated-link:hover {
-    color: theme('colors.primary');
+    color: theme('colors.primary.DEFAULT');
   }
 
   html.dark .animated-link:hover {
-    color: theme('colors.primary-dark');
+    color: theme('colors.primary.dark');
   }
 
   .animated-link::after {
@@ -66,12 +66,12 @@
     width: 0;
     height: 2px;
     display: block;
-    background-color: theme('colors.primary');
+    background-color: theme('colors.primary.DEFAULT');
     transition: width 0.1s linear;
   }
 
   html.dark .animated-link::after {
-    background-color: theme('colors.primary-dark');
+    background-color: theme('colors.primary.dark');
   }
 
   .animated-link:hover::after {

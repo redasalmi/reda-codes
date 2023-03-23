@@ -82,7 +82,7 @@ export default function HamburgerMenu({
           <li className="border-t border-[#4c4c4c] py-5 md:hidden">
             <GithubLink
               onClick={handleToggleNavbar}
-              linkClassName="m-auto w-[70%] text-[1.2rem] rounded-3xl py-3 px-1 flex items-center justify-center text-fg-primary dark:text-fg-primary-dark font-bold border-2 border-violet-primary sm:text-base sm:w-[80%]"
+              linkClassName="m-auto w-[70%] text-[1.2rem] rounded-3xl py-3 px-1 flex items-center justify-center text-fg-primary dark:text-fg-primary-dark font-bold border-2 border-violet sm:text-base sm:w-[80%]"
               svgClassName="w-[25px] h-[25px] ml-[10px]"
             >
               <span>Check out my github</span>

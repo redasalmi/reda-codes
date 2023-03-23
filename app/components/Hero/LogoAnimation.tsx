@@ -128,7 +128,7 @@ export default function LogoAnimation() {
 
           <g
             fill="none"
-            stroke="var(--violet-primary)"
+            stroke="var(--violet)"
             strokeLinecap="round"
             strokeLinejoin="round"
           >
