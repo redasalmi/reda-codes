@@ -3,10 +3,10 @@ import type { Variants } from 'framer-motion';
 export const logoBgInit = {
   scale: 0.8,
   z: 0,
+  rotateY: -27,
 };
 
 export const logoBgVariants: Variants = {
-  init: logoBgInit,
   scale: {
     scale: 1,
     transition: { duration: 0.6 },

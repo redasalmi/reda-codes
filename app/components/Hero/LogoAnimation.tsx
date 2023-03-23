@@ -4,6 +4,7 @@ import {
   useAnimationControls,
   useInView,
   useMotionValue,
+  useMotionTemplate,
 } from 'framer-motion';
 
 import useReducedAnimation from '~/hooks/useReducedAnimation';
@@ -59,6 +60,19 @@ export default function LogoAnimation() {
 
   const scale = useMotionValue(logoBgInit.scale);
   const z = useMotionValue(logoBgInit.z);
+  const rotateY = useMotionValue(logoBgInit.rotateY);
+  const boxShadow = useMotionTemplate`${-rotateY.get()}px 70px 40px -20px var(--shadow-primary)`;
+
+  const style = {
+    z,
+    scale,
+    ...(hasFinishedDrawing
+      ? {
+          rotateY,
+          boxShadow,
+        }
+      : undefined),
+  };
 
   if (isInView) {
     pathsControls.start('show').then(async () => {
@@ -71,19 +85,13 @@ export default function LogoAnimation() {
 
   const handleMouseMove = (event: React.MouseEvent<HTMLDivElement>) => {
     if (hasFinishedDrawing) {
+      controls.stop();
       const { x, width } = logoDivRef.current.getBoundingClientRect();
       const logoDivCenter = (width + x * 2) / 2;
 
-      let rotateY = (event.clientX - logoDivCenter) / 6;
-      rotateY = clamp(rotateY, -35, 35);
-
-      controls.start(
-        {
-          rotateY,
-          boxShadow: `${-rotateY}px 70px 40px -20px var(--shadow-primary)`,
-        },
-        { type: 'spring' },
-      );
+      let newRotateY = (event.clientX - logoDivCenter) / 6;
+      newRotateY = clamp(newRotateY, -35, 35);
+      rotateY.set(newRotateY);
     }
   };
 
@@ -96,9 +104,9 @@ export default function LogoAnimation() {
   return (
     <div className="md:w-1/2 xl:w-[45%]">
       <motion.div
+        style={style}
         ref={logoDivRef}
         variants={logoBgVariants}
-        style={{ z, scale }}
         animate={useReducedAnimation(controls)}
         onMouseMove={useReducedAnimation(handleMouseMove)}
         onHoverEnd={useReducedAnimation(handleMouseLeave)}
