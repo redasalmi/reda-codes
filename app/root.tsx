@@ -70,7 +70,7 @@ export default function App() {
         <Fonts />
         <Links />
       </head>
-      <body>
+      <body id="top" tabIndex={-1}>
         <MotionConfig reducedMotion="user">
           <Navbar />
           <Outlet />
