@@ -1,6 +1,6 @@
 import { Section } from '~/components';
 
-import redaPic from '~/assets/images/reda-sahara.webp';
+import redaPic from '~/assets/images/reda.webp';
 
 export default function About() {
   return (
@@ -31,7 +31,7 @@ export default function About() {
             src={redaPic}
             loading="lazy"
             alt="reda salmi"
-            className="m-auto h-[300px] w-[300px] rounded-full md:m-0"
+            className="m-auto h-[300px] w-[300px] rounded-full bg-bg-primary shadow shadow-shadow-primary dark:bg-bg-primary-dark dark:shadow-shadow-primary-dark md:m-0"
           />
         </div>
       </div>
