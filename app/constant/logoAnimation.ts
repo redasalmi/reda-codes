@@ -6,6 +6,10 @@ export const logoBgInit = {
   rotateY: -27,
 };
 
+export const getLogoBoxShadow = (rotateY: number) => {
+  return `${rotateY}px 70px 40px -20px var(--element-shadow)`;
+};
+
 export const logoBgVariants: Variants = {
   scale: {
     scale: 1,
@@ -15,12 +19,12 @@ export const logoBgVariants: Variants = {
     z: -250,
     rotateX: 27,
     rotateY: -27,
-    boxShadow: '27px 70px 40px -20px var(--element-shadow)',
+    boxShadow: getLogoBoxShadow(27),
     transition: { duration: 1.5 },
   },
   hoverReset: {
     rotateY: -27,
-    boxShadow: '27px 70px 40px -20px var(--element-shadow)',
+    boxShadow: getLogoBoxShadow(27),
     transition: { duration: 0.4 },
   },
 };

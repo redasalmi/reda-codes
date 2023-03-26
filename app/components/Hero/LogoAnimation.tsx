@@ -15,6 +15,7 @@ import {
   clips,
   paths,
   logoBgInit,
+  getLogoBoxShadow,
 } from '~/constant';
 
 import type { AnimationControls } from 'framer-motion';
@@ -61,7 +62,7 @@ export default function LogoAnimation() {
   const scale = useMotionValue(logoBgInit.scale);
   const z = useMotionValue(logoBgInit.z);
   const rotateY = useMotionValue(logoBgInit.rotateY);
-  const boxShadow = useMotionTemplate`${-rotateY.get()}px 70px 40px -20px var(--element-shadow)`;
+  const boxShadow = useMotionTemplate`${getLogoBoxShadow(-rotateY.get())}`;
 
   const style = {
     z,
@@ -92,6 +93,7 @@ export default function LogoAnimation() {
       let newRotateY = (event.clientX - logoDivCenter) / 6;
       newRotateY = clamp(newRotateY, -35, 35);
       rotateY.set(newRotateY);
+      boxShadow.set(getLogoBoxShadow(-newRotateY));
     }
   };
 
