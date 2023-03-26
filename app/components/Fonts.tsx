@@ -4,10 +4,10 @@ import poppins700Woff2 from '~/assets/fonts/poppins-latin-700-normal.woff2';
 import poppins700Woff from '~/assets/fonts/poppins-latin-700-normal.woff';
 
 export default function Fonts() {
-  return (
-    <style
-      dangerouslySetInnerHTML={{
-        __html: `
+	return (
+		<style
+			dangerouslySetInnerHTML={{
+				__html: `
           @font-face {
             font-family: 'Poppins';
             font-style: normal;
@@ -26,7 +26,7 @@ export default function Fonts() {
               url(${poppins700Woff}) format('woff');
           }
     `,
-      }}
-    />
-  );
+			}}
+		/>
+	);
 }

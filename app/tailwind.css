@@ -3,105 +3,105 @@
 @tailwind utilities;
 
 @layer base {
-  :root {
-    --element-shadow: theme(colors.dark-gray);
-    --scroll-up-pulse: theme(colors.royal-blue.opac);
-  }
+	:root {
+		--element-shadow: theme(colors.dark-gray);
+		--scroll-up-pulse: theme(colors.royal-blue.opac);
+	}
 
-  html {
-    font-family: Poppins, system-ui, sans-serif;
-    font-size: clamp(0.75rem, 0.5rem + 1.2vw, 1rem);
-  }
+	html {
+		font-family: Poppins, system-ui, sans-serif;
+		font-size: clamp(0.75rem, 0.5rem + 1.2vw, 1rem);
+	}
 
-  *,
-  *::before,
-  *::after {
-    scroll-behavior: smooth;
-  }
+	*,
+	*::before,
+	*::after {
+		scroll-behavior: smooth;
+	}
 
-  body,
-  a {
-    color: theme(colors.fg.black);
-  }
+	body,
+	a {
+		color: theme(colors.fg.black);
+	}
 
-  html.dark {
-    --element-shadow: theme(colors.bg.shadow-black);
-    --scroll-up-pulse: theme(colors.lime-green.opac);
-  }
+	html.dark {
+		--element-shadow: theme(colors.bg.shadow-black);
+		--scroll-up-pulse: theme(colors.lime-green.opac);
+	}
 
-  html.dark body,
-  html.dark a {
-    color: theme(colors.fg.white);
-  }
+	html.dark body,
+	html.dark a {
+		color: theme(colors.fg.white);
+	}
 
-  @media (prefers-reduced-motion: reduce) {
-    *,
-    ::before,
-    ::after {
-      scroll-behavior: auto;
-    }
-  }
+	@media (prefers-reduced-motion: reduce) {
+		*,
+		::before,
+		::after {
+			scroll-behavior: auto;
+		}
+	}
 }
 
 @layer utilities {
-  .project-card-first-clip {
-    clip-path: polygon(0% 0%, 100% 0%, 100% 96%, 0% 100%);
-  }
+	.project-card-first-clip {
+		clip-path: polygon(0% 0%, 100% 0%, 100% 96%, 0% 100%);
+	}
 
-  .project-card-last-clip {
-    clip-path: polygon(0% 4%, 100% 0%, 100% 100%, 0% 100%);
-  }
+	.project-card-last-clip {
+		clip-path: polygon(0% 4%, 100% 0%, 100% 100%, 0% 100%);
+	}
 
-  .animated-link:hover {
-    color: theme(colors.chocolate);
-  }
+	.animated-link:hover {
+		color: theme(colors.chocolate);
+	}
 
-  html.dark .animated-link:hover {
-    color: theme(colors.dark-orange);
-  }
+	html.dark .animated-link:hover {
+		color: theme(colors.dark-orange);
+	}
 
-  .animated-link::after {
-    content: '';
-    width: 0;
-    height: 2px;
-    display: block;
-    background-color: theme(colors.chocolate);
-    transition: width 0.1s linear;
-  }
+	.animated-link::after {
+		content: '';
+		width: 0;
+		height: 2px;
+		display: block;
+		background-color: theme(colors.chocolate);
+		transition: width 0.1s linear;
+	}
 
-  html.dark .animated-link::after {
-    background-color: theme(colors.dark-orange);
-  }
+	html.dark .animated-link::after {
+		background-color: theme(colors.dark-orange);
+	}
 
-  .animated-link:hover::after {
-    width: 100%;
-  }
+	.animated-link:hover::after {
+		width: 100%;
+	}
 
-  .transform-preserve-3d {
-    transform-style: preserve-3d;
-  }
+	.transform-preserve-3d {
+		transform-style: preserve-3d;
+	}
 
-  .rotate-logo {
-    transform: rotateX(27deg) rotateY(-27deg) !important;
-  }
+	.rotate-logo {
+		transform: rotateX(27deg) rotateY(-27deg) !important;
+	}
 
-  .logo-svg-path {
-    stroke-dasharray: 1px 1px;
-  }
+	.logo-svg-path {
+		stroke-dasharray: 1px 1px;
+	}
 
-  @media screen(md) {
-    .project-card-first-clip {
-      clip-path: polygon(0% 0%, 100% 0%, 96% 100%, 0% 100%);
-    }
+	@media screen(md) {
+		.project-card-first-clip {
+			clip-path: polygon(0% 0%, 100% 0%, 96% 100%, 0% 100%);
+		}
 
-    .project-card-last-clip {
-      clip-path: polygon(4% 0%, 100% 0%, 100% 100%, 0% 100%);
-    }
-  }
+		.project-card-last-clip {
+			clip-path: polygon(4% 0%, 100% 0%, 100% 100%, 0% 100%);
+		}
+	}
 
-  @media (prefers-reduced-motion: reduce) {
-    .animated-link::after {
-      transition: none;
-    }
-  }
+	@media (prefers-reduced-motion: reduce) {
+		.animated-link::after {
+			transition: none;
+		}
+	}
 }

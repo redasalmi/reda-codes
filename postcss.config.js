@@ -5,14 +5,14 @@ const postcssPresetEnv = require('postcss-preset-env');
 const cssnano = require('cssnano');
 
 module.exports = (ctx) => {
-  const isProduction = ctx.env === 'production';
-  const plugins = [tailwindcss, autoprefixer, postcssImport, postcssPresetEnv];
+	const isProduction = ctx.env === 'production';
+	const plugins = [tailwindcss, autoprefixer, postcssImport, postcssPresetEnv];
 
-  if (isProduction) {
-    plugins.push(cssnano);
-  }
+	if (isProduction) {
+		plugins.push(cssnano);
+	}
 
-  return {
-    plugins,
-  };
+	return {
+		plugins,
+	};
 };

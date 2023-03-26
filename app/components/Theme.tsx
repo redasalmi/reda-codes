@@ -14,10 +14,10 @@ const themeKey = 'theme';
 const themeToggleId = 'theme-toggle';
 
 export function ThemeScript() {
-  return (
-    <script
-      dangerouslySetInnerHTML={{
-        __html: `
+	return (
+		<script
+			dangerouslySetInnerHTML={{
+				__html: `
 function getThemePreference() {
   const storedTheme = localStorage.getItem('${themeKey}');
 
@@ -68,68 +68,68 @@ window
     setThemePreference(theme)
   })
 `,
-      }}
-    />
-  );
+			}}
+		/>
+	);
 }
 
 const MotionSun = motion(Sun);
 const MotionMoon = motion(Moon);
 
 export function ThemeToggle() {
-  const btnRef = React.useRef<HTMLButtonElement>(null!);
-  const shouldReduceMotion = useReducedMotion();
-  const sunControls = useAnimationControls();
-  const moonControls = useAnimationControls();
+	const btnRef = React.useRef<HTMLButtonElement>(null!);
+	const shouldReduceMotion = useReducedMotion();
+	const sunControls = useAnimationControls();
+	const moonControls = useAnimationControls();
 
-  React.useEffect(() => {
-    if (!shouldReduceMotion) {
-      const toggleSvg = () => {
-        const theme = btnRef.current.getAttribute('aria-label') as Theme | null;
+	React.useEffect(() => {
+		if (!shouldReduceMotion) {
+			const toggleSvg = () => {
+				const theme = btnRef.current.getAttribute('aria-label') as Theme | null;
 
-        if (theme) {
-          sunControls.start(theme === dark ? 'hide' : 'show');
-          moonControls.start(theme === light ? 'hide' : 'show');
-        }
-      };
+				if (theme) {
+					sunControls.start(theme === dark ? 'hide' : 'show');
+					moonControls.start(theme === light ? 'hide' : 'show');
+				}
+			};
 
-      toggleSvg();
-      const toggleBtn = btnRef.current;
-      toggleBtn.addEventListener('click', toggleSvg);
-      window
-        .matchMedia('(prefers-color-scheme: dark')
-        .addEventListener('change', toggleSvg);
+			toggleSvg();
+			const toggleBtn = btnRef.current;
+			toggleBtn.addEventListener('click', toggleSvg);
+			window
+				.matchMedia('(prefers-color-scheme: dark')
+				.addEventListener('change', toggleSvg);
 
-      return () => {
-        toggleBtn.removeEventListener('click', toggleSvg);
-        window
-          .matchMedia('(prefers-color-scheme: dark')
-          .removeEventListener('change', toggleSvg);
-      };
-    }
-  }, [shouldReduceMotion, sunControls, moonControls]);
+			return () => {
+				toggleBtn.removeEventListener('click', toggleSvg);
+				window
+					.matchMedia('(prefers-color-scheme: dark')
+					.removeEventListener('change', toggleSvg);
+			};
+		}
+	}, [shouldReduceMotion, sunControls, moonControls]);
 
-  return (
-    <button
-      ref={btnRef}
-      id={themeToggleId}
-      aria-live="polite"
-      className="relative flex h-[45px] w-[45px] cursor-pointer items-center justify-center rounded-full border-2 border-fg-black bg-none dark:border-fg-white"
-    >
-      <MotionSun
-        role="img"
-        aria-label="toggle dark theme"
-        animate={useReducedAnimation(sunControls)}
-        variants={useReducedAnimation(themeVariants)}
-        className="absolute h-[25px] w-[25px] dark:hidden"
-      />
-      <MotionMoon
-        role="img"
-        aria-label="toggle light theme"
-        animate={useReducedAnimation(moonControls)}
-        variants={useReducedAnimation(themeVariants)}
-        className="absolute hidden h-[25px] w-[25px] dark:block"
-      />
-    </button>
-  );
+	return (
+		<button
+			ref={btnRef}
+			id={themeToggleId}
+			aria-live="polite"
+			className="relative flex h-[45px] w-[45px] cursor-pointer items-center justify-center rounded-full border-2 border-fg-black bg-none dark:border-fg-white"
+		>
+			<MotionSun
+				role="img"
+				aria-label="toggle dark theme"
+				animate={useReducedAnimation(sunControls)}
+				variants={useReducedAnimation(themeVariants)}
+				className="absolute h-[25px] w-[25px] dark:hidden"
+			/>
+			<MotionMoon
+				role="img"
+				aria-label="toggle light theme"
+				animate={useReducedAnimation(moonControls)}
+				variants={useReducedAnimation(themeVariants)}
+				className="absolute hidden h-[25px] w-[25px] dark:block"
+			/>
+		</button>
+	);
 }
