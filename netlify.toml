@@ -1,10 +1,12 @@
 [build]
-  command = "npm run build:prod"
+  command = "npm run build"
   publish = "public"
 
 [dev]
   command = "remix watch"
   port = 3000
+  framework = "remix"
+  autoLaunch = false
 
 [[redirects]]
   from = "https://redasalmi.netlify.app/"
