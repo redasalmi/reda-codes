@@ -53,11 +53,11 @@
   }
 
   .animated-link:hover {
-    color: theme('colors.chocolate');
+    color: theme(colors.chocolate);
   }
 
   html.dark .animated-link:hover {
-    color: theme('colors.dark-orange');
+    color: theme(colors.dark-orange);
   }
 
   .animated-link::after {
@@ -65,12 +65,12 @@
     width: 0;
     height: 2px;
     display: block;
-    background-color: theme('colors.chocolate');
+    background-color: theme(colors.chocolate);
     transition: width 0.1s linear;
   }
 
   html.dark .animated-link::after {
-    background-color: theme('colors.dark-orange');
+    background-color: theme(colors.dark-orange);
   }
 
   .animated-link:hover::after {
@@ -82,7 +82,7 @@
   }
 
   .rotate-logo {
-    transform: rotateX(27deg) rotateY(-27deg);
+    transform: rotateX(27deg) rotateY(-27deg) !important;
   }
 
   .logo-svg-path {
@@ -100,7 +100,7 @@
   }
 
   @media (prefers-reduced-motion: reduce) {
-    animated-link::after {
+    .animated-link::after {
       transition: none;
     }
   }

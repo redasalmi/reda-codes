@@ -106,9 +106,9 @@ export default function LogoAnimation() {
   return (
     <div className="md:w-1/2 xl:w-[45%]">
       <motion.div
-        style={style}
         ref={logoDivRef}
         variants={logoBgVariants}
+        style={useReducedAnimation(style)}
         animate={useReducedAnimation(controls)}
         onMouseMove={useReducedAnimation(handleMouseMove)}
         onHoverEnd={useReducedAnimation(handleMouseLeave)}
