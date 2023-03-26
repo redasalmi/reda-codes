@@ -21,7 +21,7 @@
 		"lint": "eslint --ext js,jsx,ts,tsx .",
 		"typecheck": "tsc -b",
 		"validate": "npm-run-all -p lint typecheck test:ci build",
-		"clean": "rimraf ./node_modules/.cache ./public/build ./netlify",
+		"clean": "rimraf ./node_modules/.cache ./public/build ./netlify ./build",
 		"prepare": "husky install",
 		"test": "vitest",
 		"test:ci": "vitest run"

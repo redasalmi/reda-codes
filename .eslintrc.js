@@ -18,6 +18,7 @@ module.exports = {
 		'.cache',
 		'/netlify/functions/server/index.js',
 		'/public/build',
+		'/build',
 		'.netlify',
 		'.husky',
 	],

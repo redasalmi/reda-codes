@@ -8,9 +8,10 @@ module.exports = {
 		v2_routeConvention: true,
 	},
 	ignoredRouteFiles: ['**/.*', '**/*.css', '**/*.test.{js,jsx,ts,tsx}'],
-	server:
-		process.env.NETLIFY || process.env.NETLIFY_LOCAL
-			? './server.js'
-			: undefined,
-	serverBuildPath: '.netlify/functions-internal/server.js',
+	...(process.env.NODE_ENV === 'production'
+		? {
+				server: './server.js',
+				serverBuildPath: '.netlify/functions-internal/server.js',
+		  }
+		: undefined),
 };
