@@ -1,14 +1,15 @@
 import {
   Postcss,
   Sass,
+  Tailwindcss,
   Javascript,
   Typescript,
   React,
   Nextjs,
   Remix,
   Nodejs,
+  Shopify,
   Express,
-  Mongodb,
   RestApi,
   Graphql,
   Git,
@@ -39,6 +40,10 @@ export const skills: SkillData[] = [
     Icon: Sass,
   },
   {
+    title: 'Tailwindcss',
+    Icon: Tailwindcss,
+  },
+  {
     title: 'Javascript',
     Icon: Javascript,
   },
@@ -59,6 +64,10 @@ export const skills: SkillData[] = [
     Icon: Remix,
   },
   {
+    title: 'Shopify',
+    Icon: Shopify,
+  },
+  {
     title: 'Node.js',
     Icon: Nodejs,
   },
@@ -66,11 +75,6 @@ export const skills: SkillData[] = [
     title: 'Express',
     Icon: Express,
     iconClass: 'w-[70px] m-auto',
-  },
-  {
-    title: 'MongoDB',
-    Icon: Mongodb,
-    iconClass: 'w-[90px]',
   },
   {
     title: 'Rest API',

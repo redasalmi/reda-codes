@@ -42,7 +42,7 @@ export default function Contacts({ contacts }: ContactsProps) {
     <Section
       id="contact"
       title="Contact"
-      className="bg-white pb-[120px] dark:bg-bg-section-dark-gray"
+      className="bg-white pb-20 dark:bg-bg-section-dark-gray sm:pb-[120px]"
     >
       <div className="flex flex-wrap justify-between gap-[10px] md:gap-3 lg:gap-4">
         {contacts.map(({ key, ...contact }) => (
