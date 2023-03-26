@@ -16,7 +16,7 @@ export function Skill({ title, iconClass, Icon }: SkillData) {
       data-testid="skill"
       variants={skillsVariants}
       whileHover={useReducedAnimation('up')}
-      className="flex h-[120px] w-[120px] flex-col items-center rounded-md bg-bg-secondary p-[25px_15px_15px] font-bold shadow-[0_0_10px] shadow-shadow-primary dark:bg-bg-secondary-dark dark:shadow-shadow-primary-dark"
+      className="flex h-[120px] w-[120px] flex-col items-center rounded-md bg-white p-[25px_15px_15px] font-bold shadow-[0_0_10px] shadow-dark-gray dark:bg-bg-section-dark-gray dark:shadow-bg-shadow-black"
     >
       <Icon
         role="img"
@@ -41,7 +41,7 @@ export default function Skills({ skills }: SkillsProps) {
     <Section
       id="skills"
       title="My Skills"
-      className="bg-bg-primary py-5 dark:bg-bg-primary-dark md:py-10 lg:py-[60px]"
+      className="bg-ghost-white py-5 dark:bg-bg-section-black md:py-10 lg:py-[60px]"
       titleClassName="text-center md:text-left"
       subTitle="These are the skills I use most of the time"
     >

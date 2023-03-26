@@ -61,7 +61,7 @@ export default function LogoAnimation() {
   const scale = useMotionValue(logoBgInit.scale);
   const z = useMotionValue(logoBgInit.z);
   const rotateY = useMotionValue(logoBgInit.rotateY);
-  const boxShadow = useMotionTemplate`${-rotateY.get()}px 70px 40px -20px var(--shadow-primary)`;
+  const boxShadow = useMotionTemplate`${-rotateY.get()}px 70px 40px -20px var(--element-shadow)`;
 
   const style = {
     z,
@@ -76,7 +76,7 @@ export default function LogoAnimation() {
 
   if (isInView) {
     pathsControls.start('show').then(async () => {
-      logoDivRef.current.classList.add('bg-bg-logo', 'dark:bg-bg-logo-dark');
+      logoDivRef.current.classList.add('bg-white', 'dark:bg-bg-logo-black');
       await controls.start('scale');
       await controls.start('rotate');
       setHasFinishedDrawing(true);
@@ -110,7 +110,7 @@ export default function LogoAnimation() {
         animate={useReducedAnimation(controls)}
         onMouseMove={useReducedAnimation(handleMouseMove)}
         onHoverEnd={useReducedAnimation(handleMouseLeave)}
-        className="transform-preserve-3d motion-reduce:rotate-logo rounded-[20px] py-10 shadow-shadow-primary motion-reduce:bg-bg-logo motion-reduce:shadow-[27px_70px_40px_-20px] dark:shadow-shadow-primary-dark motion-reduce:dark:bg-bg-logo-dark md:-mr-5 lg:py-[60px]"
+        className="transform-preserve-3d motion-reduce:rotate-logo rounded-[20px] py-10 shadow-dark-gray motion-reduce:bg-white motion-reduce:shadow-[27px_70px_40px_-20px] dark:shadow-bg-shadow-black motion-reduce:dark:bg-bg-logo-black md:-mr-5 lg:py-[60px]"
       >
         <motion.svg
           role="img"
@@ -128,9 +128,9 @@ export default function LogoAnimation() {
 
           <g
             fill="none"
-            stroke="var(--violet)"
             strokeLinecap="round"
             strokeLinejoin="round"
+            className="stroke-slate-blue"
           >
             {paths.map((clip) => (
               <MotionPath

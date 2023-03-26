@@ -4,9 +4,8 @@
 
 @layer base {
   :root {
-    --violet: theme(colors.violet);
-    --secondary-opac: theme(colors.secondary-opac.DEFAULT);
-    --shadow-primary: theme(colors.shadow-primary.DEFAULT);
+    --element-shadow: theme(colors.dark-gray);
+    --scroll-up-pulse: theme(colors.royal-blue.opac);
   }
 
   html {
@@ -22,17 +21,17 @@
 
   body,
   a {
-    color: theme('colors.fg-primary.DEFAULT');
+    color: theme(colors.fg.black);
   }
 
   html.dark {
-    --secondary-opac: theme(colors.secondary-opac.dark);
-    --shadow-primary: theme(colors.shadow-primary.dark);
+    --element-shadow: theme(colors.bg.shadow-black);
+    --scroll-up-pulse: theme(colors.lime-green.opac);
   }
 
   html.dark body,
   html.dark a {
-    color: theme('colors.fg-primary.dark');
+    color: theme(colors.fg.white);
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -54,11 +53,11 @@
   }
 
   .animated-link:hover {
-    color: theme('colors.primary.DEFAULT');
+    color: theme('colors.chocolate');
   }
 
   html.dark .animated-link:hover {
-    color: theme('colors.primary.dark');
+    color: theme('colors.dark-orange');
   }
 
   .animated-link::after {
@@ -66,12 +65,12 @@
     width: 0;
     height: 2px;
     display: block;
-    background-color: theme('colors.primary.DEFAULT');
+    background-color: theme('colors.chocolate');
     transition: width 0.1s linear;
   }
 
   html.dark .animated-link::after {
-    background-color: theme('colors.primary.dark');
+    background-color: theme('colors.dark-orange');
   }
 
   .animated-link:hover::after {

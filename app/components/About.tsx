@@ -8,7 +8,7 @@ export default function About() {
       id="about"
       title="About Me"
       titleClassName="text-left"
-      className="bg-bg-secondary py-5 dark:bg-bg-secondary-dark md:py-10 lg:py-[60px]"
+      className="bg-white py-5 dark:bg-bg-section-dark-gray md:py-10 lg:py-[60px]"
     >
       <div className="flex flex-col gap-5 md:flex-row md:items-center lg:gap-10">
         <div className="text-justify md:flex-1 lg:text-[1.175rem] xl:text-xl">
@@ -31,7 +31,7 @@ export default function About() {
             src={redaPic}
             loading="lazy"
             alt="reda salmi"
-            className="m-auto h-[300px] w-[300px] rounded-full bg-bg-primary shadow shadow-shadow-primary dark:bg-bg-primary-dark dark:shadow-shadow-primary-dark md:m-0"
+            className="m-auto h-[300px] w-[300px] rounded-full bg-ghost-white shadow shadow-dark-gray dark:bg-bg-section-black dark:shadow-bg-shadow-black md:m-0"
           />
         </div>
       </div>

@@ -15,12 +15,12 @@ export const logoBgVariants: Variants = {
     z: -250,
     rotateX: 27,
     rotateY: -27,
-    boxShadow: '27px 70px 40px -20px var(--shadow-primary)',
+    boxShadow: '27px 70px 40px -20px var(--element-shadow)',
     transition: { duration: 1.5 },
   },
   hoverReset: {
     rotateY: -27,
-    boxShadow: '27px 70px 40px -20px var(--shadow-primary)',
+    boxShadow: '27px 70px 40px -20px var(--element-shadow)',
     transition: { duration: 0.4 },
   },
 };

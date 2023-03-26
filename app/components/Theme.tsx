@@ -114,7 +114,7 @@ export function ThemeToggle() {
       ref={btnRef}
       id={themeToggleId}
       aria-live="polite"
-      className="relative flex h-[45px] w-[45px] cursor-pointer items-center justify-center rounded-full border-2 border-fg-primary bg-none dark:border-fg-primary-dark"
+      className="relative flex h-[45px] w-[45px] cursor-pointer items-center justify-center rounded-full border-2 border-fg-black bg-none dark:border-fg-white"
     >
       <MotionSun
         role="img"

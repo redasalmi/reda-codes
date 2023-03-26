@@ -85,7 +85,7 @@ export const projectVariants: Variants = {
   },
   show: {
     opacity: 1,
-    boxShadow: '0px 2px 12px var(--shadow-primary)',
+    boxShadow: '0px 2px 12px var(--element-shadow)',
     transition: {
       opacity: {
         duration: 1.6,

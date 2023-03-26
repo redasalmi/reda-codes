@@ -17,8 +17,8 @@ export const scrollUpVariants: Variants = {
   },
   pulse: {
     boxShadow: [
-      '0px 0px 0px 0px var(--secondary-opac)',
-      '0px 0px 0px 5px var(--secondary-opac)',
+      '0px 0px 0px 0px var(--scroll-up-pulse)',
+      '0px 0px 0px 5px var(--scroll-up-pulse)',
     ],
     transition: {
       repeat: Infinity,

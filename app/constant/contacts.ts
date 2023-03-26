@@ -31,10 +31,10 @@ export const contacts: ContactData[] = [
 
 export const contactLinkVariants: Variants = {
   init: {
-    boxShadow: '6px 6px 0px var(--shadow-primary)',
+    boxShadow: '6px 6px 0px var(--element-shadow)',
   },
   hover: {
-    boxShadow: '0px 0px 0px var(--shadow-primary)',
+    boxShadow: '0px 0px 0px var(--element-shadow)',
   },
 };
 

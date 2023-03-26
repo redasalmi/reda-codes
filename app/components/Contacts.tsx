@@ -15,7 +15,7 @@ export function Contact({ href, text }: ContactProps) {
       initial="init"
       target="_blank"
       rel="noreferrer"
-      className="w-full rounded-md bg-bg-primary p-5 text-xl text-fg-primary shadow-[6px_6px_0] shadow-shadow-primary dark:bg-bg-primary-dark dark:text-fg-primary-dark dark:shadow-shadow-primary-dark md:w-[49%] md:text-base lg:text-xl"
+      className="w-full rounded-md bg-ghost-white p-5 text-xl text-fg-black shadow-[6px_6px_0] shadow-dark-gray dark:bg-bg-section-black dark:text-fg-white dark:shadow-bg-shadow-black md:w-[49%] md:text-base lg:text-xl"
       variants={contactLinkVariants}
       whileHover={useReducedAnimation('hover')}
     >
@@ -42,7 +42,7 @@ export default function Contacts({ contacts }: ContactsProps) {
     <Section
       id="contact"
       title="Contact"
-      className="bg-bg-secondary pb-[120px] dark:bg-bg-secondary-dark"
+      className="bg-white pb-[120px] dark:bg-bg-section-dark-gray"
     >
       <div className="flex flex-wrap justify-between gap-[10px] md:gap-3 lg:gap-4">
         {contacts.map(({ key, ...contact }) => (

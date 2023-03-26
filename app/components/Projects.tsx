@@ -36,7 +36,7 @@ function ProjectInfo({
                 href={owner.link}
                 target="_blank"
                 rel="noreferrer"
-                className="animated-link inline-block font-bold text-primary dark:text-primary-dark"
+                className="animated-link inline-block font-bold text-chocolate dark:text-dark-orange"
               >
                 {owner.name}
               </a>
@@ -47,7 +47,7 @@ function ProjectInfo({
 
       <div>
         <p className="text-justify">{desc}</p>
-        <p className="text-secondary dark:text-secondary-dark">
+        <p className="text-royal-blue dark:text-lime-green">
           Tech Stack: {techStack.join(', ')}.
         </p>
       </div>
@@ -58,7 +58,7 @@ function ProjectInfo({
           target="_blank"
           rel="noreferrer"
           aria-label={`Visit ${title} website`}
-          className="animated-link inline-block font-bold text-primary dark:text-primary-dark"
+          className="animated-link inline-block font-bold text-chocolate dark:text-dark-orange"
         >
           Visit Website
         </a>
@@ -69,7 +69,7 @@ function ProjectInfo({
             target="_blank"
             rel="noreferrer"
             aria-label={`Check ${title} source code`}
-            className="animated-link ml-5 inline-block font-bold text-primary dark:text-primary-dark"
+            className="animated-link ml-5 inline-block font-bold text-chocolate dark:text-dark-orange"
           >
             Source code
           </a>
@@ -138,7 +138,7 @@ export function Project({
     >
       <motion.div
         variants={imgFirst ? projectLastVariant : projectFirstVariant}
-        className={`h-[52%] w-full bg-bg-primary dark:bg-bg-primary-dark md:h-full md:w-[52%] ${
+        className={`h-[52%] w-full bg-ghost-white dark:bg-bg-section-black md:h-full md:w-[52%] ${
           imgFirst ? projectCard.last : projectCard.first
         }`}
       >
@@ -184,7 +184,7 @@ export default function Projects({ projects }: ProjectsProps) {
       id="projects"
       title="My Projects"
       titleClassName="text-center md:text-left"
-      className="overflow-hidden bg-bg-secondary py-5 dark:bg-bg-secondary-dark md:py-10 lg:py-[60px]"
+      className="overflow-hidden bg-white py-5 dark:bg-bg-section-dark-gray md:py-10 lg:py-[60px]"
       subTitle="These are some of the projects I worked on"
     >
       {projects.map(({ key, ...project }, index) => (
