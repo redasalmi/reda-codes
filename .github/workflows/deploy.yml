@@ -1,161 +1,160 @@
 name: 🚀 Deploy
 on:
- push:
-  branches:
-   - main
- pull_request: {}
- workflow_dispatch:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
 
 jobs:
- lint:
-  name: ESLint
-  runs-on: ubuntu-latest
-  steps:
-   - name: 🛑 Cancel Previous Runs
-     uses: styfle/cancel-workflow-action@0.9.1
+  lint:
+    name: ESLint
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🛑 Cancel Previous Runs
+        uses: styfle/cancel-workflow-action@0.9.1
 
-   - name: ⬇️ Checkout repo
-     uses: actions/checkout@v3
+      - name: ⬇️ Checkout repo
+        uses: actions/checkout@v3
 
-   - name: ⎔ Setup node
-     uses: actions/setup-node@v3
-     with:
-      node-version: 16
+      - name: ⎔ Setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
 
-   - name: 📥 Download deps
-     uses: bahmutov/npm-install@v1
+      - name: 📥 Download deps
+        uses: bahmutov/npm-install@v1
 
-   - name: Lint
-     run: npm run lint
+      - name: Lint
+        run: npm run lint
 
- stylelint:
-  name: Stylelint
-  runs-on: ubuntu-latest
-  steps:
-   - name: 🛑 Cancel Previous Runs
-     uses: styfle/cancel-workflow-action@0.9.1
+  stylelint:
+    name: Stylelint
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🛑 Cancel Previous Runs
+        uses: styfle/cancel-workflow-action@0.9.1
 
-   - name: ⬇️ Checkout repo
-     uses: actions/checkout@v3
+      - name: ⬇️ Checkout repo
+        uses: actions/checkout@v3
 
-   - name: ⎔ Setup node
-     uses: actions/setup-node@v3
-     with:
-      node-version: 16
+      - name: ⎔ Setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
 
-   - name: 📥 Download deps
-     uses: bahmutov/npm-install@v1
+      - name: 📥 Download deps
+        uses: bahmutov/npm-install@v1
 
-   - name: Stylelint
-     run: npm run stylelint
+      - name: Stylelint
+        run: npm run stylelint
 
- typecheck:
-  name: Type Check
-  runs-on: ubuntu-latest
-  steps:
-   - name: 🛑 Cancel Previous Runs
-     uses: styfle/cancel-workflow-action@0.9.1
+  typecheck:
+    name: Type Check
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🛑 Cancel Previous Runs
+        uses: styfle/cancel-workflow-action@0.9.1
 
-   - name: ⬇️ Checkout repo
-     uses: actions/checkout@v3
+      - name: ⬇️ Checkout repo
+        uses: actions/checkout@v3
 
-   - name: ⎔ Setup node
-     uses: actions/setup-node@v3
-     with:
-      node-version: 16
+      - name: ⎔ Setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
 
-   - name: 📥 Download deps
-     uses: bahmutov/npm-install@v1
+      - name: 📥 Download deps
+        uses: bahmutov/npm-install@v1
 
-   - name: 🔎 Type check
-     run: npm run typecheck
+      - name: 🔎 Type check
+        run: npm run typecheck
 
- test:
-  name: Test
-  runs-on: ubuntu-latest
-  steps:
-   - name: 🛑 Cancel Previous Runs
-     uses: styfle/cancel-workflow-action@0.9.1
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🛑 Cancel Previous Runs
+        uses: styfle/cancel-workflow-action@0.9.1
 
-   - name: ⬇️ Checkout repo
-     uses: actions/checkout@v3
+      - name: ⬇️ Checkout repo
+        uses: actions/checkout@v3
 
-   - name: ⎔ Setup node
-     uses: actions/setup-node@v3
-     with:
-      node-version: 16
+      - name: ⎔ Setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
 
-   - name: 📥 Download deps
-     uses: bahmutov/npm-install@v1
+      - name: 📥 Download deps
+        uses: bahmutov/npm-install@v1
 
-   - name: Build css
-     run: npm run css:build:prod
+      - name: Build css
+        run: npm run css:build:prod
 
-   - name: Test
-     run: npm run test:ci
+      - name: Test
+        run: npm run test:ci
 
- build-remix:
-  name: Build Remix
-  if: ${{ (github.ref == 'refs/heads/main' ) && github.event_name == 'push' }}
-  runs-on: ubuntu-latest
-  steps:
-   - name: 🛑 Cancel Previous Runs
-     uses: styfle/cancel-workflow-action@0.9.1
+  build-remix:
+    name: Build Remix
+    if: ${{ (github.ref == 'refs/heads/main' ) && github.event_name == 'push' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🛑 Cancel Previous Runs
+        uses: styfle/cancel-workflow-action@0.9.1
 
-   - name: ⬇️ Checkout repo
-     uses: actions/checkout@v3
+      - name: ⬇️ Checkout repo
+        uses: actions/checkout@v3
 
-   - name: ⎔ Setup node
-     uses: actions/setup-node@v3
-     with:
-      node-version: 16
+      - name: ⎔ Setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
 
-   - name: 📥 Download deps
-     uses: bahmutov/npm-install@v1
+      - name: 📥 Download deps
+        uses: bahmutov/npm-install@v1
 
-   - name: Build css
-     run: npm run css:build:prod
+      - name: Build css
+        run: npm run css:build:prod
 
-   - name: Build Remix
-     run: npm run build:remix
+      - name: Build Remix
+        run: npm run build:remix
 
- deploy:
-  name: 🚀 Deploy
-  runs-on: ubuntu-latest
-  needs: [lint, stylelint, typecheck, test, build-remix]
-  if: ${{ (github.ref == 'refs/heads/main' ) && github.event_name == 'push' }}
+  deploy:
+    name: 🚀 Deploy
+    runs-on: ubuntu-latest
+    needs: [lint, stylelint, typecheck, test, build-remix]
+    if: ${{ (github.ref == 'refs/heads/main' ) && github.event_name == 'push' }}
 
-  steps:
-   - name: 🛑 Cancel Previous Runs
-     uses: styfle/cancel-workflow-action@0.9.1
+    steps:
+      - name: 🛑 Cancel Previous Runs
+        uses: styfle/cancel-workflow-action@0.9.1
 
-   - name: ⬇️ Checkout repo
-     uses: actions/checkout@v3
+      - name: ⬇️ Checkout repo
+        uses: actions/checkout@v3
 
-   - name: ⎔ Setup node
-     uses: actions/setup-node@v3
-     with:
-      node-version: 16
+      - name: ⎔ Setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
 
-   - name: 📥 Download deps
-     uses: bahmutov/npm-install@v1
+      - name: 📥 Download deps
+        uses: bahmutov/npm-install@v1
 
-   - name: Build
-     run: npm run build:prod
+      - name: Build
+        run: npm run build:prod
 
-   - name: Deploy to Netlify
-     uses: nwtgck/actions-netlify@v1.2
-     with:
-      publish-dir: './public'
-      production-branch: main
-      github-token: ${{ secrets.GITHUB_TOKEN }}
-      deploy-message: 'Deploy from GitHub Actions'
-      netlify-config-path: 'netlify.toml'
-      functions-dir: '.netlify/functions-internal'
-      enable-pull-request-comment: false
-      enable-commit-comment: true
-      overwrites-pull-request-comment: true
-     env:
-      NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-      NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
-     timeout-minutes: 1
+      - name: Deploy to Netlify
+        uses: nwtgck/actions-netlify@v1.2
+        with:
+          publish-dir: './public'
+          production-branch: main
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          deploy-message: 'Deploy from GitHub Actions'
+          netlify-config-path: 'netlify.toml'
+          functions-dir: '.netlify/functions-internal'
+          enable-pull-request-comment: false
+          enable-commit-comment: true
+          overwrites-pull-request-comment: true
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+        timeout-minutes: 1
