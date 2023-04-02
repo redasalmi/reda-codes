@@ -9,6 +9,11 @@ import {
 import { MotionConfig } from 'framer-motion';
 
 import { ThemeScript, Fonts, Navbar, Footer, ScrollUp } from '~/components';
+
+import poppins400Woff2 from '~/assets/fonts/poppins-latin-400-normal.woff2';
+import poppins400Woff from '~/assets/fonts/poppins-latin-400-normal.woff';
+import poppins700Woff2 from '~/assets/fonts/poppins-latin-700-normal.woff2';
+import poppins700Woff from '~/assets/fonts/poppins-latin-700-normal.woff';
 import styles from '~/tailwind.css';
 
 import type { LinksFunction, V2_MetaFunction } from '@remix-run/node';
@@ -122,6 +127,30 @@ export const links: LinksFunction = () => {
 		{
 			rel: 'stylesheet',
 			href: styles,
+		},
+		{
+			rel: 'preload',
+			as: 'font',
+			href: poppins400Woff2,
+			crossOrigin: 'anonymous',
+		},
+		{
+			rel: 'preload',
+			as: 'font',
+			href: poppins400Woff,
+			crossOrigin: 'anonymous',
+		},
+		{
+			rel: 'preload',
+			as: 'font',
+			href: poppins700Woff2,
+			crossOrigin: 'anonymous',
+		},
+		{
+			rel: 'preload',
+			as: 'font',
+			href: poppins700Woff,
+			crossOrigin: 'anonymous',
 		},
 	];
 };

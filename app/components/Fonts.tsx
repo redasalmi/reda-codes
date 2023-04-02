@@ -13,7 +13,8 @@ export default function Fonts() {
             font-style: normal;
             font-display: block;
             font-weight: 400;
-            src: url(${poppins400Woff2}) format('woff2'),
+            src: local('Poppins'),
+              url(${poppins400Woff2}) format('woff2'),
               url(${poppins400Woff}) format('woff');
           }
 
@@ -22,7 +23,8 @@ export default function Fonts() {
             font-style: normal;
             font-display: block;
             font-weight: 700;
-            src: url(${poppins700Woff2}) format('woff2'),
+            src: local('Poppins'),
+              url(${poppins700Woff2}) format('woff2'),
               url(${poppins700Woff}) format('woff');
           }
     `,
