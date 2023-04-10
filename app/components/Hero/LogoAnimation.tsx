@@ -75,14 +75,16 @@ export default function LogoAnimation() {
 			: undefined),
 	};
 
-	if (isInView) {
-		pathsControls.start('show').then(async () => {
-			logoDivRef.current.classList.add('bg-white', 'dark:bg-bg-logo-black');
-			await controls.start('scale');
-			await controls.start('rotate');
-			setHasFinishedDrawing(true);
-		});
-	}
+	React.useEffect(() => {
+		if (isInView && !hasFinishedDrawing) {
+			pathsControls.start('show').then(async () => {
+				logoDivRef.current.classList.add('bg-white', 'dark:bg-bg-logo-black');
+				await controls.start('scale');
+				await controls.start('rotate');
+				setHasFinishedDrawing(true);
+			});
+		}
+	}, [isInView, hasFinishedDrawing, controls, pathsControls]);
 
 	const handleMouseMove = (event: React.MouseEvent<HTMLDivElement>) => {
 		if (hasFinishedDrawing) {
