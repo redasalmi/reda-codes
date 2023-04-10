@@ -30,7 +30,7 @@ export default function ScrollUp() {
 	return (
 		<section
 			role="navigation"
-			className="fixed right-[10px] bottom-[10px] z-10 h-[38px] w-[38px]"
+			className="fixed bottom-[10px] right-[10px] z-10 h-[38px] w-[38px]"
 		>
 			<MotionLink
 				to="#top"
