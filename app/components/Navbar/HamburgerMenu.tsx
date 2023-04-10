@@ -57,7 +57,7 @@ export default function HamburgerMenu({
 						key={key}
 						variants={variants}
 						transition={transition}
-						className="my-[3px] mx-auto block h-[1px] w-1/2 rounded-[5px] border border-fg-black bg-fg-black dark:border-fg-white dark:bg-fg-white"
+						className="mx-auto my-[3px] block h-[1px] w-1/2 rounded-[5px] border border-fg-black bg-fg-black dark:border-fg-white dark:bg-fg-white"
 					/>
 				))}
 			</motion.button>

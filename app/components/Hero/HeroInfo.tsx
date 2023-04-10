@@ -30,7 +30,7 @@ export default function HeroInfo() {
 				<MotionLink
 					to="#projects"
 					initial="still"
-					className="mt-[10px] flex h-14 w-[200px] items-center justify-center rounded-3xl bg-slate-blue py-3 px-6 text-center font-bold leading-none text-fg-white sm:w-[250px]"
+					className="mt-[10px] flex h-14 w-[200px] items-center justify-center rounded-3xl bg-slate-blue px-6 py-3 text-center font-bold leading-none text-fg-white sm:w-[250px]"
 					whileHover={useReducedAnimation('move')}
 				>
 					<span>See My Projects</span>
@@ -45,7 +45,7 @@ export default function HeroInfo() {
 				<MotionLink
 					to="#about"
 					initial="still"
-					className="mt-[10px] flex h-14 w-[200px] items-center justify-center rounded-3xl border-2 border-slate-blue py-3 px-6 text-center font-bold leading-none text-fg-black dark:text-fg-white sm:w-[250px]"
+					className="mt-[10px] flex h-14 w-[200px] items-center justify-center rounded-3xl border-2 border-slate-blue px-6 py-3 text-center font-bold leading-none text-fg-black dark:text-fg-white sm:w-[250px]"
 					whileHover={useReducedAnimation('wave')}
 				>
 					More About Me{' '}

@@ -158,7 +158,7 @@ export function Project({
 				className={`h-[52%] w-full md:h-full md:w-[52%] ${
 					imgFirst
 						? `${projectCard.first} mb-[-4%] sm:mb-[-3%] md:mb-0 md:mr-[-3%]`
-						: `${projectCard.last} mt-[-4%] sm:mt-[-3%] md:mt-0 md:ml-[-3%]`
+						: `${projectCard.last} mt-[-4%] sm:mt-[-3%] md:ml-[-3%] md:mt-0`
 				}`}
 			>
 				<ProjectImage
