@@ -5,7 +5,7 @@ import itBooks from '~/assets/images/it-books.webp';
 
 import type { Variants } from 'framer-motion';
 
-export interface ProjectData {
+export type ProjectData = {
 	key: string;
 	title: string;
 	owner?: {
@@ -20,7 +20,7 @@ export interface ProjectData {
 	};
 	link: string;
 	code?: string;
-}
+};
 
 export const projects: ProjectData[] = [
 	{

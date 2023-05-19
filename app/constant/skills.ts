@@ -24,11 +24,11 @@ export const skillsVariants: Variants = {
 	},
 };
 
-export interface SkillData {
+export type SkillData = {
 	title: string;
 	Icon: (props: SvgPropsWithoutRef) => JSX.Element;
 	iconClass?: string;
-}
+};
 
 export const skills: SkillData[] = [
 	{

@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-interface SectionProps {
+type SectionProps = {
 	id?: string;
 	className?: string;
 	containerclassName?: string;
@@ -8,7 +8,7 @@ interface SectionProps {
 	subTitle?: string;
 	titleClassName?: string;
 	children: React.ReactNode;
-}
+};
 
 export default function Section({
 	id,

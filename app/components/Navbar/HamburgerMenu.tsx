@@ -8,10 +8,10 @@ import {
 	linksListVariants,
 } from '~/constant';
 
-interface HamburgerMenuProps {
+type HamburgerMenuProps = {
 	isOpen: boolean;
 	setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
-}
+};
 
 export default function HamburgerMenu({
 	isOpen,

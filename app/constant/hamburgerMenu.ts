@@ -4,11 +4,11 @@ const transition = {
 	duration: 0.3,
 };
 
-interface HamburgerBtnVariant {
+type HamburgerBtnVariant = {
 	key: string;
 	transition: Transition;
 	variants: Variants;
-}
+};
 
 export const hamburgerBtnVariants: HamburgerBtnVariant[] = [
 	{

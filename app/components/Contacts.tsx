@@ -29,9 +29,9 @@ export function Contact({ href, text }: ContactProps) {
 	);
 }
 
-interface ContactsProps {
+type ContactsProps = {
 	contacts: ContactData[];
-}
+};
 
 export default function Contacts({ contacts }: ContactsProps) {
 	if (!contacts.length) {

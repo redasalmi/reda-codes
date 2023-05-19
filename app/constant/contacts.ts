@@ -1,10 +1,10 @@
 import type { Variants } from 'framer-motion';
 
-export interface ContactData {
+export type ContactData = {
 	key: string;
 	href: string;
 	text: string;
-}
+};
 
 export const contacts: ContactData[] = [
 	{

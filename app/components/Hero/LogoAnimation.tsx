@@ -20,14 +20,14 @@ import {
 
 import type { AnimationControls } from 'framer-motion';
 
-interface MotionPathProps {
+type MotionPathProps = {
 	d: string;
 	clipPath: string;
 	strokeWidth: number;
 	duration: number;
 	delay: number;
 	controls: AnimationControls;
-}
+};
 
 function MotionPath({
 	d,

@@ -2,12 +2,12 @@ import * as React from 'react';
 
 import { Github } from '~/components/Icons';
 
-interface GithubLinkProps {
+type GithubLinkProps = {
 	linkClassName?: string;
 	onClick?: () => void;
 	svgClassName?: string;
 	children?: React.ReactNode;
-}
+};
 
 export default function GithubLink({
 	linkClassName,

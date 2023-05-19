@@ -28,9 +28,9 @@ export function Skill({ title, iconClass, Icon }: SkillData) {
 	);
 }
 
-interface SkillsProps {
+type SkillsProps = {
 	skills: SkillData[];
-}
+};
 
 export default function Skills({ skills }: SkillsProps) {
 	if (!skills.length) {

@@ -170,9 +170,9 @@ export function Project({
 	);
 }
 
-interface ProjectsProps {
+type ProjectsProps = {
 	projects: ProjectData[];
-}
+};
 
 export default function Projects({ projects }: ProjectsProps) {
 	if (!projects.length) {
