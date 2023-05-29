@@ -21,15 +21,48 @@ export default function HamburgerMenu({
 	const hamburgerBtnRef = React.useRef<HTMLButtonElement>(null!);
 	const linksRef = React.useRef<HTMLDivElement>(null!);
 
+	const updateNavbarAttributes = React.useCallback(
+		async (isNavbarOpen: boolean) => {
+			const links = linksRef.current;
+			const hamburgerBtn = hamburgerBtnRef.current;
+
+			if (isNavbarOpen) {
+				links.style.display = 'flex';
+			}
+			await controls.start(isNavbarOpen ? 'show' : 'hide');
+			if (!isNavbarOpen) {
+				links.style.display = 'none';
+			}
+
+			document.body.style.overflow = isNavbarOpen ? 'hidden' : 'initial';
+			hamburgerBtn.setAttribute(
+				'aria-label',
+				isNavbarOpen ? 'close navigation menu' : 'open navigation menu',
+			);
+			hamburgerBtn.setAttribute('aria-expanded', isNavbarOpen.toString());
+		},
+		[controls],
+	);
+
+	React.useEffect(() => {
+		const handleEscapeKey = (event: KeyboardEvent) => {
+			if (event.key.toLowerCase() === 'escape') {
+				setIsOpen(false);
+				updateNavbarAttributes(false);
+			}
+		};
+
+		window.addEventListener('keydown', handleEscapeKey);
+
+		return () => {
+			window.removeEventListener('keydown', handleEscapeKey);
+		};
+	}, [setIsOpen, updateNavbarAttributes]);
+
 	const handleToggleNavbar = () => {
 		const toggleIsOpen = !isOpen;
 		setIsOpen(toggleIsOpen);
-		controls.start(toggleIsOpen ? 'show' : 'hide');
-		document.body.style.overflow = toggleIsOpen ? 'hidden' : 'initial';
-		hamburgerBtnRef.current.setAttribute(
-			'aria-label',
-			toggleIsOpen ? 'close navigation menu' : 'open navigation menu',
-		);
+		updateNavbarAttributes(toggleIsOpen);
 	};
 
 	const closeNavbar = (event: React.MouseEvent) => {
@@ -37,8 +70,7 @@ export default function HamburgerMenu({
 
 		if (isOpen && clickedOutsideNavbar) {
 			setIsOpen(false);
-			document.body.style.overflow = 'initial';
-			controls.start('hide');
+			updateNavbarAttributes(false);
 		}
 	};
 
@@ -51,6 +83,8 @@ export default function HamburgerMenu({
 				aria-label="open navigation menu"
 				className="m-auto block h-[45px] w-[45px] cursor-pointer rounded-full border-2 border-fg-black dark:border-fg-white"
 				onClick={handleToggleNavbar}
+				aria-expanded={false}
+				aria-controls="mobile-nav-menu"
 			>
 				{hamburgerBtnVariants.map(({ key, variants, transition }) => (
 					<motion.span
@@ -63,12 +97,14 @@ export default function HamburgerMenu({
 			</motion.button>
 
 			<motion.div
+				tabIndex={-1}
 				ref={linksRef}
 				initial="init"
 				animate={controls}
+				id="mobile-nav-menu"
 				onClick={closeNavbar}
 				variants={linksVariants}
-				className="pointer-events-none fixed inset-0 z-[-1] flex justify-end overflow-hidden md:hidden"
+				className="pointer-events-none fixed inset-0 z-[-1] hidden justify-end overflow-hidden md:hidden"
 			>
 				<motion.ul
 					variants={linksListVariants}
