@@ -28,27 +28,22 @@ export default function ScrollUp() {
 	useMotionValueEvent(scrollYProgress, 'change', checkLinkVisibility);
 
 	return (
-		<section
-			role="navigation"
-			className="fixed bottom-[10px] right-[10px] z-10 h-[38px] w-[38px]"
+		<MotionLink
+			to="#top"
+			ref={linkRef}
+			initial="hide"
+			id="scroll-up"
+			animate={controls}
+			variants={scrollUpVariants}
+			aria-label="Scroll back up"
+			whileHover={useReducedAnimation('pulse')}
+			className="fixed bottom-[10px] right-[10px] z-10 flex h-[38px] w-[38px] items-center justify-center rounded-full bg-royal-blue dark:bg-lime-green"
 		>
-			<MotionLink
-				to="#top"
-				ref={linkRef}
-				initial="hide"
-				id="scroll-up"
-				animate={controls}
-				variants={scrollUpVariants}
-				aria-label="Scroll back up"
-				whileHover={useReducedAnimation('pulse')}
-				className="flex h-full items-center justify-center rounded-full bg-royal-blue dark:bg-lime-green"
-			>
-				<ArrowUp
-					role="img"
-					aria-labelledby="scroll-up"
-					className="h-[19px] w-[19px] stroke-fg-white"
-				/>
-			</MotionLink>
-		</section>
+			<ArrowUp
+				role="img"
+				aria-labelledby="scroll-up"
+				className="h-[19px] w-[19px] stroke-fg-white"
+			/>
+		</MotionLink>
 	);
 }

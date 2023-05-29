@@ -167,8 +167,10 @@ export default function App() {
 			<body id="top" tabIndex={-1}>
 				<MotionConfig reducedMotion="user">
 					<Navbar />
-					<Outlet />
-					<ScrollUp />
+					<main>
+						<Outlet />
+						<ScrollUp />
+					</main>
 					<Footer />
 				</MotionConfig>
 				<ScrollRestoration />
