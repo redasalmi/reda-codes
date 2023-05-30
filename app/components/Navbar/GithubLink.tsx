@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { Github } from '~/components/Icons';
+import github from '~/components/Icons/github.svg';
 
 type GithubLinkProps = {
 	linkClassName?: string;
@@ -28,7 +28,11 @@ export default function GithubLink({
 			aria-label="reda salmi github account"
 		>
 			{children}
-			<Github role="img" aria-labelledby={id} className={svgClassName} />
+			<img
+				src={github}
+				aria-labelledby={id}
+				className={`invert-0 dark:invert ${svgClassName}`}
+			/>
 		</a>
 	);
 }

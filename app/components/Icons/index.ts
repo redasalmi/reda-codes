@@ -1,10 +1,5 @@
-export { default as ChevronRight } from './ChevronRight';
-export { default as Envelope } from './Envelope';
-export { default as Github } from './Github';
-export { default as Linkedin } from './Linkedin';
 export { default as LogoBig } from './LogoBig';
 export { default as LogoSmall } from './LogoSmall';
 export { default as Moon } from './Moon';
 export { default as Sun } from './Sun';
-export { default as Twitter } from './Twitter';
 export * from './types';
