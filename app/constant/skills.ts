@@ -71,7 +71,7 @@ export const skills: SkillData[] = [
 	{
 		title: 'Express',
 		imgSrc: express,
-		imgClass: 'm-auto w-auto invert-0 dark:invert',
+		imgClass: 'm-auto w-20 invert-0 dark:invert',
 	},
 	{
 		title: 'Rest API',
