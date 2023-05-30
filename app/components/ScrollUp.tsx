@@ -6,7 +6,7 @@ import {
 } from 'framer-motion';
 
 import { MotionLink } from '~/components';
-import { ArrowUp } from '~/components/Icons';
+import arrowUp from '~/components/Icons/arrow-up.svg';
 import useReducedAnimation from '~/hooks/useReducedAnimation';
 import { scrollUpVariants } from '~/constant';
 
@@ -35,13 +35,12 @@ export default function ScrollUp() {
 			id="scroll-up"
 			animate={controls}
 			variants={scrollUpVariants}
-			aria-label="Scroll back up"
 			whileHover={useReducedAnimation('pulse')}
 			className="fixed bottom-[10px] right-[10px] z-10 flex h-[38px] w-[38px] items-center justify-center rounded-full bg-royal-blue dark:bg-lime-green"
 		>
-			<ArrowUp
-				role="img"
-				aria-labelledby="scroll-up"
+			<img
+				src={arrowUp}
+				alt="Back to top"
 				className="h-[19px] w-[19px] stroke-fg-white"
 			/>
 		</MotionLink>

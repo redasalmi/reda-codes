@@ -1,4 +1,3 @@
-export { default as ArrowUp } from './ArrowUp';
 export { default as ChevronRight } from './ChevronRight';
 export { default as Envelope } from './Envelope';
 export { default as Github } from './Github';
