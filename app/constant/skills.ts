@@ -1,22 +1,19 @@
-import {
-	Postcss,
-	Sass,
-	Tailwindcss,
-	Javascript,
-	Typescript,
-	React,
-	Nextjs,
-	Remix,
-	Nodejs,
-	Shopify,
-	Express,
-	RestApi,
-	Graphql,
-	Git,
-} from '~/components/Icons';
+import postcss from '~/components/Icons/postcss.svg';
+import sass from '~/components/Icons/sass.svg';
+import tailwindcss from '~/components/Icons/tailwindcss.svg';
+import javascript from '~/components/Icons/javascript.svg';
+import typescript from '~/components/Icons/typescript.svg';
+import react from '~/components/Icons/react.svg';
+import nextjs from '~/components/Icons/nextjs.svg';
+import remix from '~/components/Icons/remix.svg';
+import nodejs from '~/components/Icons/nodejs.svg';
+import shopify from '~/components/Icons/shopify.svg';
+import express from '~/components/Icons/express.svg';
+import restapi from '~/components/Icons/restapi.svg';
+import graphql from '~/components/Icons/graphql.svg';
+import git from '~/components/Icons/git.svg';
 
 import type { Variants } from 'framer-motion';
-import type { SvgPropsWithoutRef } from '~/components/Icons';
 
 export const skillsVariants: Variants = {
 	up: {
@@ -26,66 +23,66 @@ export const skillsVariants: Variants = {
 
 export type SkillData = {
 	title: string;
-	Icon: (props: SvgPropsWithoutRef) => JSX.Element;
-	iconClass?: string;
+	imgSrc: string;
+	imgClass?: string;
 };
 
 export const skills: SkillData[] = [
 	{
 		title: 'PostCSS',
-		Icon: Postcss,
+		imgSrc: postcss,
 	},
 	{
 		title: 'Sass',
-		Icon: Sass,
+		imgSrc: sass,
 	},
 	{
 		title: 'Tailwindcss',
-		Icon: Tailwindcss,
+		imgSrc: tailwindcss,
 	},
 	{
 		title: 'Javascript',
-		Icon: Javascript,
+		imgSrc: javascript,
 	},
 	{
 		title: 'Typescript',
-		Icon: Typescript,
+		imgSrc: typescript,
 	},
 	{
 		title: 'React',
-		Icon: React,
+		imgSrc: react,
 	},
 	{
 		title: 'Next.js',
-		Icon: Nextjs,
+		imgSrc: nextjs,
 	},
 	{
 		title: 'Remix',
-		Icon: Remix,
+		imgSrc: remix,
 	},
 	{
 		title: 'Shopify',
-		Icon: Shopify,
+		imgSrc: shopify,
 	},
 	{
 		title: 'Node.js',
-		Icon: Nodejs,
+		imgSrc: nodejs,
 	},
 	{
 		title: 'Express',
-		Icon: Express,
-		iconClass: 'w-[70px] m-auto',
+		imgSrc: express,
+		imgClass: 'm-auto w-auto invert-0 dark:invert',
 	},
 	{
 		title: 'Rest API',
-		Icon: RestApi,
+		imgSrc: restapi,
 	},
 	{
 		title: 'GraphQL',
-		Icon: Graphql,
+		imgSrc: graphql,
 	},
 	{
 		title: 'Git',
-		Icon: Git,
+		imgSrc: git,
 	},
 ];

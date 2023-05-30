@@ -1,25 +1,27 @@
 import { render, screen } from '@testing-library/react';
 
 import { Skills, Skill } from '~/components';
-import { Javascript, Postcss, Typescript } from '~/components/Icons';
+import javascript from '~/components/Icons/javascript.svg';
+import tailwindcss from '~/components/Icons/tailwindcss.svg';
+import typescript from '~/components/Icons/typescript.svg';
 
 const mockedSkills = [
 	{
 		id: 'javascript',
 		title: 'Javascript',
-		Icon: Javascript,
+		imgSrc: javascript,
 	},
 	{
 		id: 'typescript',
 		title: 'Typescript',
-		Icon: Typescript,
+		imgSrc: typescript,
 	},
 ];
 
 const mockedSkill = {
 	id: 'postcss',
 	title: 'PostCSS',
-	Icon: Postcss,
+	imgSrc: tailwindcss,
 };
 
 describe('Skills', () => {

@@ -8,7 +8,7 @@ import { skillsVariants } from '~/constant';
 
 import type { SkillData } from '~/constant';
 
-export function Skill({ title, iconClass, Icon }: SkillData) {
+export function Skill({ title, imgSrc, imgClass }: SkillData) {
 	const id = React.useId();
 
 	return (
@@ -18,10 +18,11 @@ export function Skill({ title, iconClass, Icon }: SkillData) {
 			whileHover={useReducedAnimation('up')}
 			className="flex h-[120px] w-[120px] flex-col items-center rounded-md bg-white p-[25px_15px_15px] font-bold shadow-[0_0_10px] shadow-dark-gray dark:bg-bg-section-dark-gray dark:shadow-bg-shadow-black"
 		>
-			<Icon
-				role="img"
+			<img
+				src={imgSrc}
+				loading="lazy"
 				aria-labelledby={id}
-				className={`mb-[15px] h-10 w-10 ${iconClass || ''}`}
+				className={`mb-[15px] h-10 w-10 ${imgClass || ''}`}
 			/>
 			<p id={id}>{title}</p>
 		</motion.div>
