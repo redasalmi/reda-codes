@@ -114,7 +114,7 @@ export default function LogoAnimation() {
 				animate={useReducedAnimation(controls)}
 				onMouseMove={useReducedAnimation(handleMouseMove)}
 				onHoverEnd={useReducedAnimation(handleMouseLeave)}
-				className="transform-preserve-3d motion-reduce:rotate-logo rounded-[20px] py-10 shadow-dark-gray motion-reduce:bg-white motion-reduce:shadow-[27px_70px_40px_-20px] dark:shadow-bg-shadow-black motion-reduce:dark:bg-bg-logo-black md:-mr-5 lg:py-[60px]"
+				className="transform-preserve-3d motion-reduce:rotate-logo rounded-[20px] py-10 shadow-dark-gray motion-reduce:bg-white motion-reduce:shadow-[27px_70px_40px_-20px] motion-reduce:shadow-dark-gray dark:shadow-bg-shadow-black motion-reduce:dark:bg-bg-logo-black md:-mr-5 lg:py-[60px]"
 			>
 				<motion.svg
 					role="img"

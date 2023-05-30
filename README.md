@@ -1,4 +1,4 @@
-# Reda Salmi Portfolio V2
+# Reda Codes
 
 Second version of my Portfolio, presenting my projects and skills. found at:
 [Reda Salmi Portfolio](https://redacodes.com/).
@@ -6,7 +6,7 @@ Second version of my Portfolio, presenting my projects and skills. found at:
 ## Built With
 
 - [Remix](https://remix.run/)
-- [PostCSS](https://postcss.org/)
+- [Tailwindcss](https://tailwindcss.com/)
 - [Framer motion](https://www.framer.com/motion/)
 
 ## Inspirations
