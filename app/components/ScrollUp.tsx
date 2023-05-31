@@ -6,9 +6,9 @@ import {
 } from 'framer-motion';
 
 import { MotionLink } from '~/components';
-import arrowUp from '~/components/Icons/arrow-up.svg';
 import useReducedAnimation from '~/hooks/useReducedAnimation';
 import { scrollUpVariants } from '~/constant';
+import arrowUp from '~/assets/icons/arrow-up.svg';
 
 export default function ScrollUp() {
 	const controls = useAnimationControls();

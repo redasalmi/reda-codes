@@ -1,10 +1,10 @@
 import * as React from 'react';
 import { motion, useAnimationControls, useReducedMotion } from 'framer-motion';
 
-import moon from '~/components/Icons/moon.svg';
-import sun from '~/components/Icons/sun.svg';
 import useReducedAnimation from '~/hooks/useReducedAnimation';
 import { themeVariants } from '~/constant';
+import moon from '~/assets/icons/moon.svg';
+import sun from '~/assets/icons/sun.svg';
 
 const light = 'light';
 const dark = 'dark';

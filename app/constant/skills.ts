@@ -1,17 +1,17 @@
-import postcss from '~/components/Icons/postcss.svg';
-import sass from '~/components/Icons/sass.svg';
-import tailwindcss from '~/components/Icons/tailwindcss.svg';
-import javascript from '~/components/Icons/javascript.svg';
-import typescript from '~/components/Icons/typescript.svg';
-import react from '~/components/Icons/react.svg';
-import nextjs from '~/components/Icons/nextjs.svg';
-import remix from '~/components/Icons/remix.svg';
-import nodejs from '~/components/Icons/nodejs.svg';
-import shopify from '~/components/Icons/shopify.svg';
-import express from '~/components/Icons/express.svg';
-import restapi from '~/components/Icons/restapi.svg';
-import graphql from '~/components/Icons/graphql.svg';
-import git from '~/components/Icons/git.svg';
+import postcss from '~/assets/icons/postcss.svg';
+import sass from '~/assets/icons/sass.svg';
+import tailwindcss from '~/assets/icons/tailwindcss.svg';
+import javascript from '~/assets/icons/javascript.svg';
+import typescript from '~/assets/icons/typescript.svg';
+import react from '~/assets/icons/react.svg';
+import nextjs from '~/assets/icons/nextjs.svg';
+import remix from '~/assets/icons/remix.svg';
+import nodejs from '~/assets/icons/nodejs.svg';
+import shopify from '~/assets/icons/shopify.svg';
+import express from '~/assets/icons/express.svg';
+import restapi from '~/assets/icons/restapi.svg';
+import graphql from '~/assets/icons/graphql.svg';
+import git from '~/assets/icons/git.svg';
 
 import type { Variants } from 'framer-motion';
 

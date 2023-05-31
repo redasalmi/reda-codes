@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import github from '~/components/Icons/github.svg';
+import github from '~/assets/icons/github.svg';
 
 type GithubLinkProps = {
 	linkClassName?: string;

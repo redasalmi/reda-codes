@@ -1,9 +1,9 @@
 import { motion } from 'framer-motion';
 
 import { MotionLink } from '~/components';
-import chevronRight from '~/components/Icons/chevron-right.svg';
 import useReducedAnimation from '~/hooks/useReducedAnimation';
 import { chevronVariants, handVariants } from '~/constant';
+import chevronRight from '~/assets/icons/chevron-right.svg';
 
 export default function HeroInfo() {
 	return (

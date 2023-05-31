@@ -1,9 +1,9 @@
 import { render, screen } from '@testing-library/react';
 
 import { Skills, Skill } from '~/components';
-import javascript from '~/components/Icons/javascript.svg';
-import tailwindcss from '~/components/Icons/tailwindcss.svg';
-import typescript from '~/components/Icons/typescript.svg';
+import javascript from '~/assets/icons/javascript.svg';
+import tailwindcss from '~/assets/icons/tailwindcss.svg';
+import typescript from '~/assets/icons/typescript.svg';
 
 const mockedSkills = [
 	{
