@@ -1,7 +1,8 @@
 import * as React from 'react';
 import { motion, useAnimationControls, useReducedMotion } from 'framer-motion';
 
-import { Moon, Sun } from '~/components/Icons';
+import moon from '~/components/Icons/moon.svg';
+import sun from '~/components/Icons/sun.svg';
 import useReducedAnimation from '~/hooks/useReducedAnimation';
 import { themeVariants } from '~/constant';
 
@@ -42,7 +43,7 @@ function reflectThemePreference() {
   } else {
     document.firstElementChild?.classList.remove('${dark}');
   }
-  document.querySelector('#${themeToggleId}')?.setAttribute('aria-label', theme);
+  document.querySelector('#${themeToggleId}')?.setAttribute('data-theme', theme);
 }
 
 function toggleTheme() {
@@ -73,9 +74,6 @@ window
 	);
 }
 
-const MotionSun = motion(Sun);
-const MotionMoon = motion(Moon);
-
 export function ThemeToggle() {
 	const btnRef = React.useRef<HTMLButtonElement>(null!);
 	const shouldReduceMotion = useReducedMotion();
@@ -85,7 +83,7 @@ export function ThemeToggle() {
 	React.useEffect(() => {
 		if (!shouldReduceMotion) {
 			const toggleSvg = () => {
-				const theme = btnRef.current.getAttribute('aria-label') as Theme | null;
+				const theme = btnRef.current.getAttribute('data-theme') as Theme | null;
 
 				if (theme) {
 					sunControls.start(theme === dark ? 'hide' : 'show');
@@ -116,19 +114,21 @@ export function ThemeToggle() {
 			aria-live="polite"
 			className="relative flex h-[45px] w-[45px] cursor-pointer items-center justify-center rounded-full border-2 border-fg-black bg-none dark:border-fg-white"
 		>
-			<MotionSun
-				role="img"
+			<motion.img
+				src={sun}
+				alt="sun"
 				aria-label="toggle dark theme"
 				animate={useReducedAnimation(sunControls)}
 				variants={useReducedAnimation(themeVariants)}
-				className="absolute h-[25px] w-[25px] dark:hidden"
+				className="absolute h-[32px] w-[32px] invert-0 dark:hidden dark:invert"
 			/>
-			<MotionMoon
-				role="img"
+			<motion.img
+				src={moon}
+				alt="moon"
 				aria-label="toggle light theme"
 				animate={useReducedAnimation(moonControls)}
 				variants={useReducedAnimation(themeVariants)}
-				className="absolute hidden h-[25px] w-[25px] dark:block"
+				className="absolute hidden h-[28px] w-[28px] invert-0 dark:block dark:invert"
 			/>
 		</button>
 	);
