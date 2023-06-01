@@ -39,6 +39,7 @@ export const skills: SkillData[] = [
 	{
 		title: 'Tailwindcss',
 		imgSrc: tailwindcss,
+		imgClass: 'w-[32px] h-[20px] m-auto',
 	},
 	{
 		title: 'Javascript',
@@ -59,6 +60,7 @@ export const skills: SkillData[] = [
 	{
 		title: 'Remix',
 		imgSrc: remix,
+		imgClass: 'w-[34px] h-[40px] m-auto',
 	},
 	{
 		title: 'Shopify',
