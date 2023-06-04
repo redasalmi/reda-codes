@@ -30,9 +30,6 @@ export default function HamburgerMenu({
 				links.style.display = 'flex';
 			}
 			await controls.start(isNavbarOpen ? 'show' : 'hide');
-			if (!isNavbarOpen) {
-				links.style.display = 'none';
-			}
 
 			document.body.style.overflow = isNavbarOpen ? 'hidden' : 'initial';
 			hamburgerBtn.setAttribute(
@@ -46,7 +43,7 @@ export default function HamburgerMenu({
 
 	const handleToggleNavbar = React.useCallback(
 		(toggleNavbar?: boolean) => {
-			const toggleIsOpen = toggleNavbar || !isOpen;
+			const toggleIsOpen = toggleNavbar ?? !isOpen;
 			setIsOpen(toggleIsOpen);
 			updateNavbarAttributes(toggleIsOpen);
 		},
@@ -60,10 +57,19 @@ export default function HamburgerMenu({
 			}
 		};
 
+		const handleTabKey = (event: KeyboardEvent) => {
+			if (event.key.toLowerCase() === 'tab') {
+				const toggleNavbar = linksRef.current.contains(document.activeElement);
+				handleToggleNavbar(toggleNavbar);
+			}
+		};
+
 		window.addEventListener('keydown', handleEscapeKey);
+		window.addEventListener('keyup', handleTabKey);
 
 		return () => {
 			window.removeEventListener('keydown', handleEscapeKey);
+			window.removeEventListener('keyup', handleTabKey);
 		};
 	}, [setIsOpen, handleToggleNavbar]);
 
@@ -105,7 +111,7 @@ export default function HamburgerMenu({
 				id="mobile-nav-menu"
 				onClick={handleClickOutSide}
 				variants={linksVariants}
-				className="pointer-events-none fixed inset-0 z-[-1] hidden justify-end overflow-hidden md:hidden"
+				className="pointer-events-none fixed inset-0 z-[-1] justify-end overflow-hidden md:hidden"
 			>
 				<motion.ul
 					variants={linksListVariants}

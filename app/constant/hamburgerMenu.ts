@@ -51,7 +51,7 @@ export const linksVariants: Variants = {
 };
 
 export const linksListVariants: Variants = {
-	init: { x: '110%' },
-	hide: { x: '110%', transition },
+	init: { x: '100vw' },
+	hide: { x: '100vw', transition },
 	show: { x: 0, transition },
 };
