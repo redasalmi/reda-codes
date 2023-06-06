@@ -13,6 +13,7 @@ type Theme = (typeof themes)[number];
 
 const themeKey = 'theme';
 const themeToggleId = 'theme-toggle';
+const themeDataAtt = 'data-theme';
 
 export function ThemeScript() {
 	return (
@@ -43,7 +44,7 @@ function reflectThemePreference() {
   } else {
     document.firstElementChild?.classList.remove('${dark}');
   }
-  document.querySelector('#${themeToggleId}')?.setAttribute('data-theme', theme);
+  document.querySelector('#${themeToggleId}')?.setAttribute('${themeDataAtt}', theme);
 }
 
 function toggleTheme() {
@@ -54,13 +55,10 @@ function toggleTheme() {
 
 reflectThemePreference();
 
-window.addEventListener('load', () => {
-  reflectThemePreference();
-
-  document
-    .querySelector('#${themeToggleId}')
-    .addEventListener('click', toggleTheme)
-});
+window.__theme__ = {
+	toggleTheme,
+	reflectThemePreference
+};
 
 window
   .matchMedia('(prefers-color-scheme: ${dark})')
@@ -82,8 +80,10 @@ export function ThemeToggle() {
 
 	React.useEffect(() => {
 		if (!shouldReduceMotion) {
-			const toggleSvg = () => {
-				const theme = btnRef.current.getAttribute('data-theme') as Theme | null;
+			const toggleBtn = btnRef.current;
+
+			const animateIcons = () => {
+				const theme = toggleBtn.getAttribute(themeDataAtt) as Theme | null;
 
 				if (theme) {
 					sunControls.start(theme === dark ? 'hide' : 'show');
@@ -91,18 +91,24 @@ export function ThemeToggle() {
 				}
 			};
 
-			toggleSvg();
-			const toggleBtn = btnRef.current;
-			toggleBtn.addEventListener('click', toggleSvg);
+			const updateTheme = () => {
+				window.__theme__.toggleTheme();
+				animateIcons();
+			};
+
+			window.__theme__.reflectThemePreference();
+			animateIcons();
+
+			toggleBtn.addEventListener('click', updateTheme);
 			window
-				.matchMedia('(prefers-color-scheme: dark')
-				.addEventListener('change', toggleSvg);
+				.matchMedia(`(prefers-color-scheme: ${dark})`)
+				.addEventListener('change', updateTheme);
 
 			return () => {
-				toggleBtn.removeEventListener('click', toggleSvg);
+				toggleBtn.removeEventListener('click', updateTheme);
 				window
-					.matchMedia('(prefers-color-scheme: dark')
-					.removeEventListener('change', toggleSvg);
+					.matchMedia(`(prefers-color-scheme: ${dark})`)
+					.removeEventListener('change', updateTheme);
 			};
 		}
 	}, [shouldReduceMotion, sunControls, moonControls]);
