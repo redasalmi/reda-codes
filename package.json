@@ -1,18 +1,18 @@
 {
 	"private": true,
-	"name": "redasalmi-portfolio-v2",
-	"version": "1.0.0",
+	"name": "reda-codes",
+	"version": "2.1.0",
 	"description": "Reda Salmi Portfolio",
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/redasalmi/redasalmi-portfolio-v2.git"
+		"url": "git+https://github.com/redasalmi/reda-codes.git"
 	},
 	"author": "Reda Salmi <reda.salmi.elt@gmail.com> (https://redasalmi.netlify.app/)",
 	"license": "MIT",
 	"bugs": {
-		"url": "https://github.com/redasalmi/redasalmi-portfolio-v2/issues"
+		"url": "https://github.com/redasalmi/reda-codes/issues"
 	},
-	"homepage": "https://github.com/redasalmi/redasalmi-portfolio-v2#readme",
+	"homepage": "https://github.com/redasalmi/reda-codes#readme",
 	"scripts": {
 		"predev": "rimraf ./public/_redirects",
 		"dev": "remix dev",
