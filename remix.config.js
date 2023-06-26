@@ -9,7 +9,7 @@ module.exports = {
 	serverBuildPath: '.netlify/functions-internal/server.js',
 	server: process.env.NODE_ENV === 'production' ? './server.ts' : undefined,
 	future: {
-		unstable_dev: true,
+		v2_dev: true,
 		v2_routeConvention: true,
 		v2_errorBoundary: true,
 		v2_normalizeFormMethod: true,
