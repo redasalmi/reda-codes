@@ -79,38 +79,38 @@ export function ThemeToggle() {
 	const moonControls = useAnimationControls();
 
 	React.useEffect(() => {
-		if (!shouldReduceMotion) {
-			const toggleBtn = btnRef.current;
+		const toggleBtn = btnRef.current;
 
-			const animateIcons = () => {
+		const animateIcons = () => {
+			if (!shouldReduceMotion) {
 				const theme = toggleBtn.getAttribute(themeDataAtt) as Theme | null;
 
 				if (theme) {
 					sunControls.start(theme === dark ? 'hide' : 'show');
 					moonControls.start(theme === light ? 'hide' : 'show');
 				}
-			};
+			}
+		};
 
-			const updateTheme = () => {
-				window.__theme__.toggleTheme();
-				animateIcons();
-			};
-
-			window.__theme__.reflectThemePreference();
+		const updateTheme = () => {
+			window.__theme__.toggleTheme();
 			animateIcons();
+		};
 
-			toggleBtn.addEventListener('click', updateTheme);
+		window.__theme__.reflectThemePreference();
+		animateIcons();
+
+		toggleBtn.addEventListener('click', updateTheme);
+		window
+			.matchMedia(`(prefers-color-scheme: ${dark})`)
+			.addEventListener('change', updateTheme);
+
+		return () => {
+			toggleBtn.removeEventListener('click', updateTheme);
 			window
 				.matchMedia(`(prefers-color-scheme: ${dark})`)
-				.addEventListener('change', updateTheme);
-
-			return () => {
-				toggleBtn.removeEventListener('click', updateTheme);
-				window
-					.matchMedia(`(prefers-color-scheme: ${dark})`)
-					.removeEventListener('change', updateTheme);
-			};
-		}
+				.removeEventListener('change', updateTheme);
+		};
 	}, [shouldReduceMotion, sunControls, moonControls]);
 
 	return (
