@@ -7,7 +7,10 @@ module.exports = {
 	serverModuleFormat: 'cjs',
 	ignoredRouteFiles: ['**/.*', '**/*.css', '**/*.test.{js,jsx,ts,tsx}'],
 	serverBuildPath: '.netlify/functions-internal/server.js',
-	server: process.env.NODE_ENV === 'production' ? './server.ts' : undefined,
+	server:
+		process.env.NETLIFY || process.env.NETLIFY_LOCAL
+			? './server.ts'
+			: undefined,
 	future: {
 		v2_dev: true,
 		v2_routeConvention: true,
