@@ -16,7 +16,7 @@ export const themeVariants: Variants = {
 		opacity: 1,
 		display: 'block',
 		transition: {
-			...transition,
+			duration: transition.duration,
 			delay: 0.2,
 		},
 	},

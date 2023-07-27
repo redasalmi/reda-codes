@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { motion } from 'framer-motion';
+import clsx from 'clsx';
 
 import { Section } from '~/components';
 
@@ -22,7 +23,7 @@ export function Skill({ title, imgSrc, imgClass }: SkillData) {
 				src={imgSrc}
 				loading="lazy"
 				aria-labelledby={id}
-				className={`mb-[15px] h-10 w-10 ${imgClass || ''}`}
+				className={clsx('mb-[15px] h-10 w-10', imgClass)}
 			/>
 			<p id={id}>{title}</p>
 		</motion.div>

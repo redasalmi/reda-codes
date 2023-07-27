@@ -1,4 +1,5 @@
 import * as React from 'react';
+import clsx from 'clsx';
 
 import { ThemeToggle } from '~/components';
 import { HamburgerMenu, GithubLink } from '~/components/Navbar';
@@ -8,11 +9,11 @@ export default function NavButtons() {
 
 	return (
 		<div
-			className={`z-[3] flex flex-1 items-center justify-end gap-[10px] md:flex-[0] ${
-				isOpen
-					? 'container fixed left-0 right-0 mx-auto px-4 md:static md:m-0 md:max-w-none md:p-0'
-					: ''
-			}`}
+			className={clsx(
+				'z-[3] flex flex-1 items-center justify-end gap-[10px] md:flex-[0]',
+				isOpen &&
+					'container fixed left-0 right-0 mx-auto px-4 md:static md:m-0 md:max-w-none md:p-0',
+			)}
 		>
 			<div>
 				<ThemeToggle />

@@ -1,4 +1,5 @@
 import * as React from 'react';
+import clsx from 'clsx';
 
 type SectionProps = {
 	id?: string;
@@ -21,9 +22,11 @@ export default function Section({
 }: SectionProps) {
 	return (
 		<section id={id} className={className}>
-			<div className={`container mx-auto px-4 ${containerclassName || ''}`}>
+			<div className={clsx('container mx-auto px-4', containerclassName)}>
 				{title ? (
-					<h2 className={`text-2xl font-bold ${titleClassName}`}>{title}</h2>
+					<h2 className={clsx('text-2xl font-bold', titleClassName)}>
+						{title}
+					</h2>
 				) : null}
 				{subTitle ? <p className={titleClassName}>{subTitle}</p> : null}
 				{children}

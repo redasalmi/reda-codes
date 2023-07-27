@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import clsx from 'clsx';
 
 import { Section } from '~/components';
 import {
@@ -22,7 +23,10 @@ function ProjectInfo({
 }: ProjectInfoProps) {
 	return (
 		<div
-			className={`m-auto flex h-full flex-col justify-around p-5 md:px-10 ${border}`}
+			className={clsx(
+				'm-auto flex h-full flex-col justify-around p-5 md:px-10',
+				border,
+			)}
 		>
 			<div>
 				<h2 className="text-[1.4rem] font-bold md:text-lg">{title}</h2>
@@ -83,12 +87,12 @@ type ProjectImageProps = Pick<ProjectData, 'img'> & { border: string };
 
 function ProjectImage({ img, border }: ProjectImageProps) {
 	return (
-		<div className={`h-full w-full ${border}`}>
+		<div className={clsx('h-full w-full', border)}>
 			<img
 				src={img.src}
 				alt={img.alt}
 				loading="lazy"
-				className={`h-full w-full ${border}`}
+				className={clsx('h-full w-full', border)}
 			/>
 		</div>
 	);
@@ -138,9 +142,10 @@ export function Project({
 		>
 			<motion.div
 				variants={imgFirst ? projectLastVariant : projectFirstVariant}
-				className={`h-[52%] w-full bg-ghost-white dark:bg-bg-section-black md:h-full md:w-[52%] ${
-					imgFirst ? projectCard.last : projectCard.first
-				}`}
+				className={clsx(
+					'h-[52%] w-full bg-ghost-white dark:bg-bg-section-black md:h-full md:w-[52%]',
+					imgFirst ? projectCard.last : projectCard.first,
+				)}
 			>
 				<ProjectInfo
 					title={title}
@@ -155,11 +160,12 @@ export function Project({
 
 			<motion.div
 				variants={imgFirst ? projectFirstVariant : projectLastVariant}
-				className={`h-[52%] w-full md:h-full md:w-[52%] ${
+				className={clsx(
+					'h-[52%] w-full md:h-full md:w-[52%]',
 					imgFirst
 						? `${projectCard.first} mb-[-4%] sm:mb-[-3%] md:mb-0 md:mr-[-3%]`
-						: `${projectCard.last} mt-[-4%] sm:mt-[-3%] md:ml-[-3%] md:mt-0`
-				}`}
+						: `${projectCard.last} mt-[-4%] sm:mt-[-3%] md:ml-[-3%] md:mt-0`,
+				)}
 			>
 				<ProjectImage
 					img={img}

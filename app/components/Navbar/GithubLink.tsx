@@ -1,4 +1,5 @@
 import * as React from 'react';
+import clsx from 'clsx';
 
 import github from '~/assets/icons/github.svg';
 
@@ -31,7 +32,7 @@ export default function GithubLink({
 			<img
 				src={github}
 				aria-labelledby={id}
-				className={`invert-0 dark:invert ${svgClassName}`}
+				className={clsx('invert-0 dark:invert', svgClassName)}
 			/>
 		</a>
 	);
