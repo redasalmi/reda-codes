@@ -11,7 +11,6 @@ import shopify from '~/assets/icons/shopify.svg';
 import express from '~/assets/icons/express.svg';
 import restapi from '~/assets/icons/restapi.svg';
 import graphql from '~/assets/icons/graphql.svg';
-import git from '~/assets/icons/git.svg';
 
 import type { Variants } from 'framer-motion';
 
@@ -82,9 +81,5 @@ export const skills: SkillData[] = [
 	{
 		title: 'GraphQL',
 		imgSrc: graphql,
-	},
-	{
-		title: 'Git',
-		imgSrc: git,
 	},
 ];
