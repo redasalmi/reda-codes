@@ -1,12 +1,19 @@
 import * as React from 'react';
-import { motion, useAnimationControls } from 'framer-motion';
+import { useAnimate } from 'framer-motion';
 
 import { Links, GithubLink } from '~/components/Navbar';
 import {
-	hamburgerBtnVariants,
 	linksVariants,
 	linksListVariants,
+	hamMenuTransition,
+	hamburgerBtnAnimations,
 } from '~/constant';
+
+function HamburgerBtnSpan() {
+	return (
+		<span className="mx-auto my-[3px] block h-[1px] w-1/2 rounded-[5px] border border-fg-black bg-fg-black dark:border-fg-white dark:bg-fg-white" />
+	);
+}
 
 type HamburgerMenuProps = {
 	isOpen: boolean;
@@ -17,9 +24,8 @@ export default function HamburgerMenu({
 	isOpen,
 	setIsOpen,
 }: HamburgerMenuProps) {
-	const controls = useAnimationControls();
-	const hamburgerBtnRef = React.useRef<HTMLButtonElement>(null!);
-	const linksRef = React.useRef<HTMLDivElement>(null!);
+	const [hamburgerBtnRef, animateHamburger] = useAnimate<HTMLButtonElement>();
+	const [linksRef, animateLink] = useAnimate<HTMLDivElement>();
 
 	const updateNavbarAttributes = React.useCallback(
 		async (isNavbarOpen: boolean) => {
@@ -28,17 +34,29 @@ export default function HamburgerMenu({
 
 			if (isNavbarOpen) {
 				links.style.display = 'flex';
-			}
-			await controls.start(isNavbarOpen ? 'show' : 'hide');
 
-			document.body.style.overflow = isNavbarOpen ? 'hidden' : 'initial';
-			hamburgerBtn.setAttribute(
-				'aria-label',
-				isNavbarOpen ? 'close navigation menu' : 'open navigation menu',
-			);
+				hamburgerBtnAnimations.forEach((element) => {
+					animateHamburger(element.selector, element.show, hamMenuTransition);
+				});
+				animateLink(linksRef.current, linksVariants.show, hamMenuTransition);
+				animateLink('ul', linksListVariants.show, hamMenuTransition);
+
+				document.body.style.overflow = 'hidden';
+				hamburgerBtn.setAttribute('aria-label', 'close navigation menu');
+			} else {
+				hamburgerBtnAnimations.forEach((element) => {
+					animateHamburger(element.selector, element.hide, hamMenuTransition);
+				});
+				animateLink(linksRef.current, linksVariants.hide, hamMenuTransition);
+				animateLink('ul', linksListVariants.hide, hamMenuTransition);
+
+				document.body.style.overflow = 'initial';
+				hamburgerBtn.setAttribute('aria-label', 'open navigation menu');
+			}
+
 			hamburgerBtn.setAttribute('aria-expanded', isNavbarOpen.toString());
 		},
-		[controls],
+		[hamburgerBtnRef, linksRef, animateHamburger, animateLink],
 	);
 
 	const handleToggleNavbar = React.useCallback(
@@ -71,7 +89,7 @@ export default function HamburgerMenu({
 			window.removeEventListener('keydown', handleEscapeKey);
 			window.removeEventListener('keyup', handleTabKey);
 		};
-	}, [setIsOpen, handleToggleNavbar]);
+	}, [setIsOpen, handleToggleNavbar, linksRef]);
 
 	const handleClickOutSide = (event: React.MouseEvent) => {
 		const clickedOutsideNavbar = linksRef.current === event.target;
@@ -83,9 +101,8 @@ export default function HamburgerMenu({
 
 	return (
 		<>
-			<motion.button
+			<button
 				type="button"
-				animate={controls}
 				ref={hamburgerBtnRef}
 				aria-label="open navigation menu"
 				className="m-auto block h-[45px] w-[45px] cursor-pointer rounded-full border-2 border-fg-black dark:border-fg-white"
@@ -93,30 +110,19 @@ export default function HamburgerMenu({
 				aria-expanded={false}
 				aria-controls="mobile-nav-menu"
 			>
-				{hamburgerBtnVariants.map(({ key, variants, transition }) => (
-					<motion.span
-						key={key}
-						variants={variants}
-						transition={transition}
-						className="mx-auto my-[3px] block h-[1px] w-1/2 rounded-[5px] border border-fg-black bg-fg-black dark:border-fg-white dark:bg-fg-white"
-					/>
-				))}
-			</motion.button>
+				<HamburgerBtnSpan />
+				<HamburgerBtnSpan />
+				<HamburgerBtnSpan />
+			</button>
 
-			<motion.div
-				tabIndex={-1}
+			<div
 				ref={linksRef}
-				initial="init"
-				animate={controls}
+				tabIndex={-1}
 				id="mobile-nav-menu"
 				onClick={handleClickOutSide}
-				variants={linksVariants}
-				className="pointer-events-none fixed inset-0 z-[-1] justify-end overflow-hidden md:hidden"
+				className="pointer-events-none fixed inset-0 z-[-1] justify-end overflow-hidden blur-0 md:hidden"
 			>
-				<motion.ul
-					variants={linksListVariants}
-					className="flex h-full w-full translate-x-[110%] list-none flex-col bg-ghost-white pt-[90px] text-center dark:bg-bg-section-black sm:w-[320px] sm:text-left sm:shadow-[0_1px_3px] sm:shadow-[#4c4c4c]"
-				>
+				<ul className="flex h-full w-full translate-x-[100vw] list-none flex-col bg-ghost-white pt-[90px] text-center dark:bg-bg-section-black sm:w-[320px] sm:text-left sm:shadow-[0_1px_3px] sm:shadow-[#4c4c4c]">
 					<Links
 						onClick={() => handleToggleNavbar()}
 						linkClassName="text-[1.1rem] font-bold block py-5 border-t border-[#4c4c4c] hover:text-primary hover:dark:text-primary-dark sm:px-[54px] sm:text-[1.1rem]"
@@ -131,8 +137,8 @@ export default function HamburgerMenu({
 							<span>Check out my github</span>
 						</GithubLink>
 					</li>
-				</motion.ul>
-			</motion.div>
+				</ul>
+			</div>
 		</>
 	);
 }

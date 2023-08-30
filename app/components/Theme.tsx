@@ -1,8 +1,7 @@
 import * as React from 'react';
-import { motion, useAnimationControls, useReducedMotion } from 'framer-motion';
+import { useAnimate, useReducedMotion } from 'framer-motion';
 
-import useReducedAnimation from '~/hooks/useReducedAnimation';
-import { themeVariants } from '~/constant';
+import { hideIcon, showIcon } from '~/constant';
 import moon from '~/assets/icons/moon.svg';
 import sun from '~/assets/icons/sun.svg';
 
@@ -10,6 +9,9 @@ const light = 'light';
 const dark = 'dark';
 const themes = [light, dark] as const;
 type Theme = (typeof themes)[number];
+
+const sunId = 'sun';
+const moonId = 'moon';
 
 const themeKey = 'theme';
 const themeToggleId = 'theme-toggle';
@@ -73,10 +75,8 @@ window
 }
 
 export function ThemeToggle() {
-	const btnRef = React.useRef<HTMLButtonElement>(null!);
 	const shouldReduceMotion = useReducedMotion();
-	const sunControls = useAnimationControls();
-	const moonControls = useAnimationControls();
+	const [btnRef, animate] = useAnimate<HTMLButtonElement>();
 
 	React.useEffect(() => {
 		const toggleBtn = btnRef.current;
@@ -86,8 +86,13 @@ export function ThemeToggle() {
 				const theme = toggleBtn.getAttribute(themeDataAtt) as Theme | null;
 
 				if (theme) {
-					sunControls.start(theme === dark ? 'hide' : 'show');
-					moonControls.start(theme === light ? 'hide' : 'show');
+					if (theme === dark) {
+						animate(`#${sunId}`, hideIcon.animation, hideIcon.transition);
+						animate(`#${moonId}`, showIcon.animation, showIcon.transition);
+					} else {
+						animate(`#${sunId}`, showIcon.animation, showIcon.transition);
+						animate(`#${moonId}`, hideIcon.animation, hideIcon.transition);
+					}
 				}
 			}
 		};
@@ -111,7 +116,7 @@ export function ThemeToggle() {
 				.matchMedia(`(prefers-color-scheme: ${dark})`)
 				.removeEventListener('change', updateTheme);
 		};
-	}, [shouldReduceMotion, sunControls, moonControls]);
+	}, [shouldReduceMotion, btnRef, animate]);
 
 	return (
 		<button
@@ -120,20 +125,18 @@ export function ThemeToggle() {
 			aria-live="polite"
 			className="relative flex h-[45px] w-[45px] cursor-pointer items-center justify-center rounded-full border-2 border-fg-black bg-none dark:border-fg-white"
 		>
-			<motion.img
+			<img
 				src={sun}
 				alt="sun"
+				id={sunId}
 				aria-label="toggle dark theme"
-				animate={useReducedAnimation(sunControls)}
-				variants={useReducedAnimation(themeVariants)}
 				className="absolute h-[32px] w-[32px] invert-0 dark:hidden dark:invert"
 			/>
-			<motion.img
+			<img
 				src={moon}
 				alt="moon"
+				id={moonId}
 				aria-label="toggle light theme"
-				animate={useReducedAnimation(moonControls)}
-				variants={useReducedAnimation(themeVariants)}
 				className="absolute hidden h-[28px] w-[28px] invert-0 dark:block dark:invert"
 			/>
 		</button>
