@@ -2,12 +2,12 @@ import { Link } from '@remix-run/react';
 
 import { navLinks } from '~/constant';
 
-const footerLinks = navLinks.concat([
+const footerLinks = [
 	{
 		href: '#top',
 		text: 'Home',
 	},
-]);
+].concat(navLinks);
 
 export default function Footer() {
 	return (
