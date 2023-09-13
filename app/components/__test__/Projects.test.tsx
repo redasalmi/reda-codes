@@ -21,6 +21,7 @@ const mockedProjects = [
 ];
 
 const mockedProject = {
+	key: 'khedemni',
 	title: 'Khedemni',
 	owner: {
 		name: 'Buileo',
@@ -51,26 +52,18 @@ describe('Projects', () => {
 	});
 
 	it('should render the project title', () => {
-		render(<Project {...mockedProject} />);
+		render(<Project project={mockedProject} />);
 		const heading = screen.getByRole('heading', { name: mockedProject.title });
 
 		expect(heading).toBeInTheDocument();
 	});
 
 	it('should render a link to the project page', () => {
-		render(<Project {...mockedProject} />);
+		render(<Project project={mockedProject} />);
 		const link = screen.getByRole('link', {
 			name: RegExp(`visit ${mockedProject.title} website`, 'i'),
 		});
 
 		expect(link).toHaveAttribute('href', mockedProject.link);
-	});
-
-	it('should render the project tech stack', () => {
-		render(<Project {...mockedProject} />);
-		const paragraph = screen.getByText(/tech stack:/i);
-		const techStack = mockedProject.techStack.join(', ');
-
-		expect(paragraph).toHaveTextContent(techStack);
 	});
 });

@@ -6,17 +6,13 @@ import { projectVariants } from '~/constant';
 
 import type { ProjectData } from '~/constant';
 
-type ProjectInfoProps = Omit<ProjectData, 'img' | 'key'> & { border: string };
+type ProjectInfoProps = { project: Omit<ProjectData, 'img'> } & {
+	border: string;
+};
 
-function ProjectInfo({
-	title,
-	owner,
-	desc,
-	techStack,
-	link,
-	code,
-	border,
-}: ProjectInfoProps) {
+function ProjectInfo({ project, border }: ProjectInfoProps) {
+	const { key, title, owner, desc, techStack, link, code } = project;
+
 	return (
 		<div
 			className={clsx(
@@ -47,9 +43,16 @@ function ProjectInfo({
 
 			<div>
 				<p className="text-justify">{desc}</p>
-				<p className="text-royal-blue dark:text-lime-green">
-					Tech Stack: {techStack.join(', ')}.
-				</p>
+				<ul className="my-2 flex flex-wrap gap-2 text-sm text-royal-blue dark:text-lime-green">
+					{techStack.map((teck) => (
+						<li
+							key={`${key}-${teck}`}
+							className="rounded-3xl bg-white px-4 py-1  dark:bg-bg-section-dark-gray"
+						>
+							{teck}
+						</li>
+					))}
+				</ul>
 			</div>
 
 			<div>
@@ -115,18 +118,9 @@ const projectCard = {
 	last: `${order.last} ${border.bottom} ${clip.last}`,
 };
 
-type ProjectProps = Omit<ProjectData, 'key'> & { imgFirst: boolean };
+type ProjectProps = { project: ProjectData } & { imgFirst: boolean };
 
-export function Project({
-	title,
-	owner,
-	desc,
-	techStack,
-	img,
-	imgFirst,
-	link,
-	code,
-}: ProjectProps) {
+export function Project({ project, imgFirst }: ProjectProps) {
 	return (
 		<motion.div
 			initial="hide"
@@ -143,12 +137,7 @@ export function Project({
 				)}
 			>
 				<ProjectInfo
-					title={title}
-					owner={owner}
-					desc={desc}
-					techStack={techStack}
-					link={link}
-					code={code}
+					project={project}
 					border={imgFirst ? border.bottom : border.top}
 				/>
 			</motion.div>
@@ -162,7 +151,7 @@ export function Project({
 				)}
 			>
 				<ProjectImage
-					img={img}
+					img={project.img}
 					border={imgFirst ? border.top : border.bottom}
 				/>
 			</motion.div>
@@ -187,8 +176,12 @@ export default function Projects({ projects }: ProjectsProps) {
 			className="overflow-hidden bg-white py-5 dark:bg-bg-section-dark-gray md:py-10 lg:py-[60px]"
 			subTitle="These are some of the projects I worked on"
 		>
-			{projects.map(({ key, ...project }, index) => (
-				<Project key={key} imgFirst={index % 2 !== 0} {...project} />
+			{projects.map((project, index) => (
+				<Project
+					key={project.key}
+					imgFirst={index % 2 !== 0}
+					project={project}
+				/>
 			))}
 		</Section>
 	);
