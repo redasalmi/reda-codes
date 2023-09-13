@@ -5,7 +5,7 @@ import itBooks from '~/assets/images/it-books.webp';
 
 import type { Variants } from 'framer-motion';
 
-export interface ProjectData {
+export type ProjectData = {
 	key: string;
 	title: string;
 	owner?: {
@@ -20,7 +20,7 @@ export interface ProjectData {
 	};
 	link: string;
 	code?: string;
-}
+};
 
 export const projects: ProjectData[] = [
 	{
@@ -96,25 +96,4 @@ export const projectVariants: Variants = {
 			},
 		},
 	},
-};
-
-const show = {
-	x: 0,
-	transition: {
-		duration: 1.6,
-	},
-};
-
-export const projectFirstVariant: Variants = {
-	hide: {
-		x: -120,
-	},
-	show,
-};
-
-export const projectLastVariant: Variants = {
-	hide: {
-		x: 120,
-	},
-	show,
 };

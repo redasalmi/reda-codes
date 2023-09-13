@@ -1,54 +1,37 @@
-import * as React from 'react';
-import {
-	useAnimationControls,
-	useMotionValueEvent,
-	useScroll,
-} from 'framer-motion';
+import { Link } from '@remix-run/react';
+import { useAnimate, useMotionValueEvent, useScroll } from 'framer-motion';
 
-import { MotionLink } from '~/components';
-import { ArrowUp } from '~/components/Icons';
-import useReducedAnimation from '~/hooks/useReducedAnimation';
-import { scrollUpVariants } from '~/constant';
+import { scrollUpTransition, scrollUpVariants } from '~/constant';
+import arrowUp from '~/assets/icons/arrow-up.svg';
 
 export default function ScrollUp() {
-	const controls = useAnimationControls();
+	const [linkRef, animate] = useAnimate();
 	const { scrollYProgress } = useScroll();
-	const linkRef = React.useRef<HTMLAnchorElement>(null!);
 
 	const checkLinkVisibility = (value: number) => {
 		const isHidden = linkRef.current.style.opacity !== '1';
 
 		if (isHidden && value > 0.4) {
-			controls.start('show');
+			animate(linkRef.current, scrollUpVariants.show, scrollUpTransition);
 		} else if (!isHidden && value < 0.4) {
-			controls.start('hide');
+			animate(linkRef.current, scrollUpVariants.hide, scrollUpTransition);
 		}
 	};
 
 	useMotionValueEvent(scrollYProgress, 'change', checkLinkVisibility);
 
 	return (
-		<section
-			role="navigation"
-			className="fixed bottom-[10px] right-[10px] z-10 h-[38px] w-[38px]"
+		<Link
+			to="#top"
+			ref={linkRef}
+			id="scroll-up"
+			className="pointer-events-none fixed bottom-[10px] right-[10px] z-10 flex h-[38px] w-[38px] items-center justify-center rounded-full bg-royal-blue opacity-0 dark:bg-lime-green"
 		>
-			<MotionLink
-				to="#top"
-				ref={linkRef}
-				initial="hide"
-				id="scroll-up"
-				animate={controls}
-				variants={scrollUpVariants}
-				aria-label="Scroll back up"
-				whileHover={useReducedAnimation('pulse')}
-				className="flex h-full items-center justify-center rounded-full bg-royal-blue dark:bg-lime-green"
-			>
-				<ArrowUp
-					role="img"
-					aria-labelledby="scroll-up"
-					className="h-[19px] w-[19px] stroke-fg-white"
-				/>
-			</MotionLink>
-		</section>
+			<img
+				src={arrowUp}
+				alt="Back to top"
+				className="h-[19px] w-[19px] stroke-fg-white"
+			/>
+		</Link>
 	);
 }

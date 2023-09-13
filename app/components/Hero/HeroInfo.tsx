@@ -1,11 +1,9 @@
 import { motion } from 'framer-motion';
 
 import { MotionLink } from '~/components';
-import { ChevronRight } from '~/components/Icons';
 import useReducedAnimation from '~/hooks/useReducedAnimation';
 import { chevronVariants, handVariants } from '~/constant';
-
-const MotionChevron = motion(ChevronRight);
+import chevronRight from '~/assets/icons/chevron-right.svg';
 
 export default function HeroInfo() {
 	return (
@@ -34,10 +32,10 @@ export default function HeroInfo() {
 					whileHover={useReducedAnimation('move')}
 				>
 					<span>See My Projects</span>
-					<MotionChevron
-						role="img"
-						className="inline-block h-5 w-5"
-						aria-label="right chevron"
+					<motion.img
+						alt="right chevron"
+						src={chevronRight}
+						className="inline-block h-6 w-6"
 						variants={chevronVariants}
 					/>
 				</MotionLink>

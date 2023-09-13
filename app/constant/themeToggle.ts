@@ -1,23 +1,20 @@
-import type { Variants } from 'framer-motion';
-
-const transition = {
-	duration: 0.4,
+export const hideIcon = {
+	animation: {
+		opacity: 0,
+		display: 'none',
+	},
+	transition: {
+		duration: 0.5,
+	},
 };
 
-export const themeVariants: Variants = {
-	hide: {
-		opacity: 0,
-		transitionEnd: {
-			display: 'none',
-		},
-		transition,
-	},
-	show: {
+export const showIcon = {
+	animation: {
 		opacity: 1,
 		display: 'block',
-		transition: {
-			...transition,
-			delay: 0.2,
-		},
+	},
+	transition: {
+		duration: 0.5,
+		delay: 0.1,
 	},
 };

@@ -2,10 +2,10 @@ import { Link } from '@remix-run/react';
 
 import { navLinks } from '~/constant';
 
-interface LinksProps {
+type LinksProps = {
 	linkClassName?: string;
-	onClick?: () => void;
-}
+	onClick?: React.MouseEventHandler<HTMLAnchorElement>;
+};
 
 export default function Links({ linkClassName, onClick }: LinksProps) {
 	return (

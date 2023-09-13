@@ -1,13 +1,14 @@
 import * as React from 'react';
+import clsx from 'clsx';
 
-import { Github } from '~/components/Icons';
+import github from '~/assets/icons/github.svg';
 
-interface GithubLinkProps {
+type GithubLinkProps = {
 	linkClassName?: string;
 	onClick?: () => void;
 	svgClassName?: string;
 	children?: React.ReactNode;
-}
+};
 
 export default function GithubLink({
 	linkClassName,
@@ -28,7 +29,11 @@ export default function GithubLink({
 			aria-label="reda salmi github account"
 		>
 			{children}
-			<Github role="img" aria-labelledby={id} className={svgClassName} />
+			<img
+				src={github}
+				aria-labelledby={id}
+				className={clsx('invert-0 dark:invert', svgClassName)}
+			/>
 		</a>
 	);
 }
