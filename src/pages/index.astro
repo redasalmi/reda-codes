@@ -1,9 +1,19 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Card from '../components/Card.astro';
+
+const title = 'Reda Salmi Portfolio';
+const description =
+	'Reda Salmi personal website with projects, skills and contact informations';
+const previewImage = {
+	src: 'https://redacodes.com/preview.jpg',
+	alt: 'Reda codes website preview',
+	width: '1190',
+	height: '750',
+};
 ---
 
-<Layout title="Welcome to Astro.">
+<Layout title={title} description={description} previewImage={previewImage}>
 	<main>
 		<svg
 			class="astro-a"
