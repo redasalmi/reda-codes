@@ -1,68 +1,57 @@
-# Reda Codes
-
-Second version of my Portfolio, presenting my projects and skills. found at:
-[Reda Salmi Portfolio](https://redacodes.com/).
-
-## Built With
-
-- [Remix](https://remix.run/)
-- [Tailwindcss](https://tailwindcss.com/)
-- [Framer motion](https://www.framer.com/motion/)
-
-## Inspirations
-
-- The light theme was inspired by this color palette:
-  [Happy Hues](https://www.happyhues.co/palettes/6).
-- The dark theme was inspired by this color palette:
-  [Happy Hues](https://www.happyhues.co/palettes/4).
-- The light/dark theme toggle was made following this article:
-  [Building a Theme Switch Component](https://web.dev/building-a-theme-switch-component/).
-- The logo animation was inspired by
-  [Cassie Evans website logo](https://www.cassie.codes/), she has a really good
-  article explaining how it works found here:
-  [logo animation article](https://www.cassie.codes/posts/creating-my-logo-animation/).
-- The favicon was made following this article:
-  [How to Favicon](https://evilmartians.com/chronicles/how-to-favicon-in-2021-six-files-that-fit-most-needs).
-
-## Netlify Setup
-
-Install the [Netlify CLI](https://www.netlify.com/products/dev/):
+# Astro Starter Kit: Basics
 
 ```sh
-npm i -g netlify-cli
+npm create astro@latest -- --template basics
 ```
 
-If you have previously installed the Netlify CLI, you should update it to the
-latest version:
+[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
+[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
 
-```sh
-npm i -g netlify-cli@latest
+> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+
+![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
+
+## 🚀 Project Structure
+
+Inside of your Astro project, you'll see the following folders and files:
+
+```text
+/
+├── public/
+│   └── favicon.svg
+├── src/
+│   ├── components/
+│   │   └── Card.astro
+│   ├── layouts/
+│   │   └── Layout.astro
+│   └── pages/
+│       └── index.astro
+└── package.json
 ```
 
-## Development
+Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page
+is exposed as a route based on its file name.
 
-The Netlify CLI starts your app in development mode, rebuilding assets on file
-changes.
+There's nothing special about `src/components/`, but that's where we like to put
+any Astro/React/Vue/Svelte/Preact components.
 
-```sh
-npm run dev
-```
+Any static assets, like images, can be placed in the `public/` directory.
 
-Open up [http://localhost:3000](http://localhost:3000), and you should be ready
-to go!
+## 🧞 Commands
 
-## Deployment
+All commands are run from the root of the project, from a terminal:
 
-There are two ways to deploy your app to Netlify, you can either link your app
-to your git repo and have it auto deploy changes to Netlify, or you can deploy
-your app manually. If you've followed the setup instructions already, all you
-need to do is run this:
+| Command                   | Action                                           |
+| :------------------------ | :----------------------------------------------- |
+| `npm install`             | Installs dependencies                            |
+| `npm run dev`             | Starts local dev server at `localhost:4321`      |
+| `npm run build`           | Build your production site to `./dist/`          |
+| `npm run preview`         | Preview your build locally, before deploying     |
+| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
+| `npm run astro -- --help` | Get help using the Astro CLI                     |
 
-```sh
-$ npm run build
-# preview deployment
-$ netlify deploy
+## 👀 Want to learn more?
 
-# production deployment
-$ netlify deploy --prod
-```
+Feel free to check [our documentation](https://docs.astro.build) or jump into
+our [Discord server](https://astro.build/chat).

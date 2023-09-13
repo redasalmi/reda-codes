@@ -1,16 +1,13 @@
 import type { Config } from 'tailwindcss';
 
 export default {
-	content: ['./app/**/*.{ts,tsx,jsx,js}'],
+	content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
 	darkMode: 'class',
 	theme: {
-		screens: {
-			sm: '576px',
-			md: '768px',
-			lg: '992px',
-			xl: '1200px',
-		},
 		extend: {
+			fontFamily: {
+				sans: ['Poppins', 'system-ui', 'sans-serif'],
+			},
 			colors: {
 				'ghost-white': 'hsl(228 33.3% 97.1%)',
 				'slate-blue': 'hsl(250 79.6% 59.6%)',
