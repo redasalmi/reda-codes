@@ -97,24 +97,3 @@ export const projectVariants: Variants = {
 		},
 	},
 };
-
-const show = {
-	x: 0,
-	transition: {
-		duration: 1.6,
-	},
-};
-
-export const projectFirstVariant: Variants = {
-	hide: {
-		x: -120,
-	},
-	show,
-};
-
-export const projectLastVariant: Variants = {
-	hide: {
-		x: 120,
-	},
-	show,
-};

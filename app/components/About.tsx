@@ -20,9 +20,9 @@ export default function About() {
 						mostly using platforms like Coursera, Udemy and Youtube for
 						learning. By the end of 2019 I decided to go serious and seek a full
 						time job as a web developer and got it (while dumping electrical
-						engineering in which I hold a master&apos;s degree 😅), since then I
-						became a full time web developer. My interests are programming 👨‍💻
-						and gaming 🕹️.
+						engineering in which I hold a master&apos;s degree), since then I
+						became a full time web developer. My interests are programming and
+						gaming.
 					</p>
 				</div>
 

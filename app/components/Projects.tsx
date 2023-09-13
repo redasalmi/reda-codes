@@ -2,11 +2,7 @@ import { motion } from 'framer-motion';
 import clsx from 'clsx';
 
 import { Section } from '~/components';
-import {
-	projectVariants,
-	projectFirstVariant,
-	projectLastVariant,
-} from '~/constant';
+import { projectVariants } from '~/constant';
 
 import type { ProjectData } from '~/constant';
 
@@ -141,7 +137,6 @@ export function Project({
 			viewport={{ once: true, amount: 0.26 }}
 		>
 			<motion.div
-				variants={imgFirst ? projectLastVariant : projectFirstVariant}
 				className={clsx(
 					'h-[52%] w-full bg-ghost-white dark:bg-bg-section-black md:h-full md:w-[52%]',
 					imgFirst ? projectCard.last : projectCard.first,
@@ -159,7 +154,6 @@ export function Project({
 			</motion.div>
 
 			<motion.div
-				variants={imgFirst ? projectFirstVariant : projectLastVariant}
 				className={clsx(
 					'h-[52%] w-full md:h-full md:w-[52%]',
 					imgFirst

@@ -45,7 +45,6 @@ export default function Skills({ skills }: SkillsProps) {
 			title="My Skills"
 			className="bg-ghost-white py-5 dark:bg-bg-section-black md:py-10 lg:py-[60px]"
 			titleClassName="text-center md:text-left"
-			subTitle="These are the skills I use most of the time"
 		>
 			<div className="mt-[30px] flex flex-wrap justify-center gap-[15px]">
 				{skills.map((skill) => (
