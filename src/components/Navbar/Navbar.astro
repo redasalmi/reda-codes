@@ -1,0 +1,17 @@
+---
+import Logo from '~/components/Navbar/Logo.astro';
+import NavLinks from '~/components/Navbar/NavLinks.astro';
+import NavMenu from '~/components/Navbar/NavMenu.astro';
+---
+
+<nav
+	class="h-[90px] border-b-[1px] border-light-gray bg-white py-5 dark:border-dim-gray dark:bg-bg-section-dark-gray"
+>
+	<div
+		class="container mx-auto flex h-[54px] items-center justify-between px-4"
+	>
+		<Logo />
+		<NavLinks />
+		<NavMenu />
+	</div>
+</nav>

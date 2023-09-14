@@ -1,6 +1,7 @@
 ---
 import '@fontsource/poppins';
-import '../assets/styles/tailwind.css';
+import Navbar from '~/components/Navbar/Navbar.astro';
+import '~/assets/styles/tailwind.css';
 
 type Props = {
 	title: string;
@@ -47,7 +48,8 @@ const { title, description, previewImage } = Astro.props;
 		<link rel="icon" href="/icon.svg" type="image/svg+xml" />
 		<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 	</head>
-	<body>
+	<body id="top" tabindex="-1">
+		<Navbar />
 		<slot />
 	</body>
 </html>

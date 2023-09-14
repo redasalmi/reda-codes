@@ -3,6 +3,13 @@
 @tailwind utilities;
 
 @layer base {
+	:root {
+		--text-color: theme(colors.fg.black);
+		--link-hover: theme(colors.chocolate);
+		--element-shadow: theme(colors.dark-gray);
+		--scroll-up-pulse: theme(colors.royal-blue.opac);
+	}
+
 	*,
 	*::before,
 	*::after {
@@ -15,5 +22,58 @@
 
 	html {
 		font-size: clamp(0.75rem, 0.5rem + 1.2vw, 1rem);
+
+		&.dark {
+			--text-color: theme(colors.fg.white);
+			--link-hover: theme(colors.dark-orange);
+			--element-shadow: theme(colors.bg.shadow-black);
+			--scroll-up-pulse: theme(colors.lime-green.opac);
+		}
+	}
+
+	body,
+	a {
+		color: var(--text-color);
+	}
+}
+
+@layer components {
+	.animated-link {
+		&:hover {
+			color: var(--link-hover);
+		}
+
+		&::after {
+			content: '';
+			width: 0;
+			height: 2px;
+			display: block;
+			background-color: var(--link-hover);
+			transition: width 0.1s linear;
+
+			@media (prefers-reduced-motion: reduce) {
+				transition: none;
+			}
+		}
+
+		&:hover::after {
+			width: 100%;
+		}
+	}
+
+	nav-menu[data-open='true'] {
+		@apply container fixed left-0 right-0 mx-auto px-4 md:static md:m-0 md:max-w-none md:p-0;
+
+		div#mobile-nav-menu {
+			display: flex;
+
+			ul {
+				transform: translateX(0);
+
+				li {
+					pointer-events: all;
+				}
+			}
+		}
 	}
 }

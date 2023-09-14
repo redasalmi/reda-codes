@@ -1,0 +1,37 @@
+---
+const navLinks = [
+	{
+		href: '/#projects',
+		text: 'Projects',
+	},
+	{
+		href: '/#skills',
+		text: 'Skills',
+	},
+	{
+		href: '/#about',
+		text: 'About',
+	},
+	{
+		href: '/#contact',
+		text: 'Contact',
+	},
+];
+---
+
+<div class="hidden md:block">
+	<ul class="md:flex md:list-none md:gap-[30px] lg:gap-[50px]">
+		{
+			navLinks.map((link) => (
+				<li>
+					<a
+						href={link.href}
+						class="animated-link block text-[1.1rem] font-bold text-fg-black dark:text-fg-white"
+					>
+						{link.text}
+					</a>
+				</li>
+			))
+		}
+	</ul>
+</div>

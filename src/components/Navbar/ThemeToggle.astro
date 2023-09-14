@@ -1,0 +1,14 @@
+---
+import { Image } from 'astro:assets';
+import sun from '~/assets/icons/sun.svg';
+import moon from '~/assets/icons/moon.svg';
+---
+
+<button aria-live="polite" class="h-11 w-11">
+	<Image
+		src={sun}
+		alt="sun"
+		aria-label="toggle dark theme"
+		class="m-auto block h-8 w-8"
+	/>
+</button>

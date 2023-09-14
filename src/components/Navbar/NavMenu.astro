@@ -1,0 +1,92 @@
+---
+import ThemeToggle from '~/components/Navbar/ThemeToggle.astro';
+import HamburgerMenu from '~/components/Navbar/HamburgerMenu.astro';
+import GithubLink from '~/components/Navbar/GithubLink.astro';
+---
+
+<nav-menu
+	data-open="false"
+	class="z-[3] flex flex-1 items-center justify-end gap-[10px] md:flex-[0]"
+>
+	<div>
+		<ThemeToggle />
+	</div>
+
+	<div class="md:hidden">
+		<HamburgerMenu />
+	</div>
+
+	<div class="hidden md:block">
+		<GithubLink />
+	</div>
+</nav-menu>
+
+<script>
+	import {
+		$isNavMenuOpen,
+		hamburgerBtnId,
+		mobileMenuId,
+	} from '~/stores/navMenu';
+
+	class NavMenu extends HTMLElement {
+		constructor() {
+			super();
+		}
+
+		connectedCallback() {
+			window.addEventListener('keydown', this._handleEscapeKey);
+			window.addEventListener('keyup', this._handleTabKey);
+
+			const hamburgerBtn = this.querySelector(`button#${hamburgerBtnId}`);
+			if (hamburgerBtn) {
+				hamburgerBtn.addEventListener('click', this._toggleMobileMenu);
+			}
+
+			const links = this.querySelectorAll(`li a`);
+			if (links) {
+				links.forEach((link) => {
+					link.addEventListener('click', this._toggleMobileMenu);
+				});
+			}
+		}
+
+		disconnectedCallback() {
+			window.removeEventListener('keydown', this._handleEscapeKey);
+			window.removeEventListener('keyup', this._handleTabKey);
+
+			const hanmburgerBtn = this.querySelector(`button#${hamburgerBtnId}`);
+			if (hanmburgerBtn) {
+				hanmburgerBtn.removeEventListener('click', this._toggleMobileMenu);
+			}
+
+			const links = this.querySelectorAll(`li a`);
+			if (links) {
+				links.forEach((link) => {
+					link.removeEventListener('click', this._toggleMobileMenu);
+				});
+			}
+		}
+
+		_handleEscapeKey(event) {
+			if (event.key.toLowerCase() === 'escape') {
+				$isNavMenuOpen.set(false);
+			}
+		}
+
+		_handleTabKey(event) {
+			if (event.key.toLowerCase() === 'tab') {
+				const mobileMenu = document.querySelector(
+					`nav-menu div#${mobileMenuId}`,
+				);
+				const toggleNavbar = mobileMenu.contains(document.activeElement);
+				$isNavMenuOpen.set(toggleNavbar);
+			}
+		}
+
+		_toggleMobileMenu() {
+			$isNavMenuOpen.set(!$isNavMenuOpen.get());
+		}
+	}
+
+	customElements.define('nav-menu', NavMenu);
+</script>
