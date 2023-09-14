@@ -1,8 +1,7 @@
 import { atom } from 'nanostores';
+import { hamburgerBtnId } from '~/constants';
 
 export const $isNavMenuOpen = atom(false);
-export const hamburgerBtnId = 'hamburgerBtn';
-export const mobileMenuId = 'mobile-nav-menu';
 
 $isNavMenuOpen.subscribe((isOpen) => {
 	if (typeof window !== 'undefined') {

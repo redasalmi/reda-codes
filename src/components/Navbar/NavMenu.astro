@@ -22,11 +22,8 @@ import GithubLink from '~/components/Navbar/GithubLink.astro';
 </nav-menu>
 
 <script>
-	import {
-		$isNavMenuOpen,
-		hamburgerBtnId,
-		mobileMenuId,
-	} from '~/stores/navMenu';
+	import { $isNavMenuOpen } from '~/stores/navMenu';
+	import { hamburgerBtnId, mobileMenuId } from '~/constants';
 
 	class NavMenu extends HTMLElement {
 		constructor() {

@@ -1,14 +1,38 @@
 ---
 import { Image } from 'astro:assets';
+import { themeToggleId } from '~/constants';
 import sun from '~/assets/icons/sun.svg';
 import moon from '~/assets/icons/moon.svg';
 ---
 
-<button aria-live="polite" class="h-11 w-11">
+<button id={themeToggleId} aria-live="polite" class="relative h-11 w-11">
 	<Image
 		src={sun}
 		alt="sun"
 		aria-label="toggle dark theme"
-		class="m-auto block h-8 w-8"
+		class="absolute inset-0 m-auto block h-8 w-8 dark:hidden"
+	/>
+	<Image
+		src={moon}
+		alt="moon"
+		aria-label="toggle light theme"
+		class="absolute inset-0 m-auto hidden h-8 w-8 dark:block dark:invert"
 	/>
 </button>
+
+<script>
+	import { themeToggleId } from '~/constants';
+
+	const updateTheme = () => {
+		window.__theme__.toggleTheme();
+	};
+
+	window.__theme__.reflectThemePreference();
+
+	const themeToggle = document.querySelector(`#${themeToggleId}`);
+	themeToggle?.addEventListener('click', updateTheme);
+
+	window
+		.matchMedia(`(prefers-color-scheme: dark)`)
+		.addEventListener('change', updateTheme);
+</script>
