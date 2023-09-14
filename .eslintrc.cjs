@@ -12,6 +12,7 @@ module.exports = {
 		'plugin:astro/jsx-a11y-recommended',
 		'plugin:astro/recommended',
 	],
+	parser: '@typescript-eslint/parser',
 	parserOptions: {
 		ecmaVersion: 'latest',
 		sourceType: 'module',
