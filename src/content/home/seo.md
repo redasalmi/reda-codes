@@ -1,0 +1,11 @@
+---
+title: Reda Salmi Portfolio
+description:
+  Reda Salmi personal website with projects, skills and contact informations
+previewImage: {
+  src: https://redacodes.com/preview.jpg,
+	alt: Reda codes website preview,
+	width: 1190,
+	height: 750,
+}
+---

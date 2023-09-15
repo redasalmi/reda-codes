@@ -1,0 +1,19 @@
+---
+projectsCtaText: See My Projects
+projectsCtaIcon: ✨
+projectsCtaLink: '#projects'
+
+aboutMeCtaText: More About Me
+aboutMeCtaIcon: 👋
+aboutMeCtaLink: '#about'
+---
+
+Hi, I'm Reda Salmi
+
+<h1 class="text-[1.8rem] font-bold md:text-2xl lg:text-[2rem] lg:leading-normal xl:text-[2.4rem] xl:leading-loose">
+	A Full Stack Web Developer
+</h1>
+
+I will help you bring your apps, websites and ideas to life while providing your
+users with a good
+<span class='font-bold text-chocolate dark:text-dark-orange'>UI/UX</span>.

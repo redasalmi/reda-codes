@@ -1,15 +1,12 @@
 ---
+import { getEntry } from 'astro:content';
 import Layout from '~/layouts/Layout.astro';
+import Hero from '~/components/Hero/Hero.astro';
 
-const title = 'Reda Salmi Portfolio';
-const description =
-	'Reda Salmi personal website with projects, skills and contact informations';
-const previewImage = {
-	src: 'https://redacodes.com/preview.jpg',
-	alt: 'Reda codes website preview',
-	width: '1190',
-	height: '750',
-};
+const seo = await getEntry('home', 'seo');
+const { title, description, previewImage } = seo.data;
 ---
 
-<Layout title={title} description={description} previewImage={previewImage} />
+<Layout title={title} description={description} previewImage={previewImage}>
+	<Hero />
+</Layout>

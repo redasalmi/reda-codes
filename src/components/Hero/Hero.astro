@@ -1,0 +1,44 @@
+---
+import { getEntry } from 'astro:content';
+import Section from '~/components/Shared/Section.astro';
+
+const hero = await getEntry('home', 'hero');
+const { Content } = await hero.render();
+const {
+	projectsCtaText,
+	projectsCtaIcon,
+	projectsCtaLink,
+	aboutMeCtaText,
+	aboutMeCtaIcon,
+	aboutMeCtaLink,
+} = hero.data;
+---
+
+<Section
+	sectionClass="bg-ghost-white pb-20 pt-[60px] dark:bg-bg-section-black md:py-20 lg:py-[120px]"
+	containerClass="flex flex-col gap-5 md:flex-row xl:justify-between"
+>
+	<div class="md:w-1/2 md:py-10 lg:py-[60px] lg:text-[1.2rem] xl:py-20">
+		<div>
+			<Content />
+		</div>
+
+		<div class="lg:mt-5 xl:mt-[30px] xl:flex xl:gap-[15px]">
+			<a
+				href={projectsCtaLink}
+				class="mt-[10px] flex h-14 w-[200px] items-center justify-center rounded-3xl bg-slate-blue px-6 py-3 text-center font-bold leading-none text-fg-white sm:w-[250px]"
+			>
+				<span>{projectsCtaText}</span>
+				<span class="inline-block pl-1">{projectsCtaIcon}</span>
+			</a>
+
+			<a
+				href={aboutMeCtaLink}
+				class="mt-[10px] flex h-14 w-[200px] items-center justify-center rounded-3xl border-2 border-slate-blue px-6 py-3 text-center font-bold leading-none text-fg-black dark:text-fg-white sm:w-[250px]"
+			>
+				<span>{aboutMeCtaText}</span>
+				<span class="inline-block pl-1">{aboutMeCtaIcon}</span>
+			</a>
+		</div>
+	</div>
+</Section>

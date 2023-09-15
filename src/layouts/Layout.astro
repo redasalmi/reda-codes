@@ -52,6 +52,8 @@ const { title, description, previewImage } = Astro.props;
 	</head>
 	<body id="top" tabindex="-1">
 		<Navbar />
-		<slot />
+		<main>
+			<slot />
+		</main>
 	</body>
 </html>

@@ -1,0 +1,25 @@
+---
+type Props = {
+	id?: string;
+	title?: string;
+	subTitle?: string;
+	sectionClass?: string;
+	containerClass?: string;
+	titleClass?: string;
+};
+
+const { id, title, subTitle, sectionClass, containerClass, titleClass } =
+	Astro.props;
+---
+
+<section id={id} class:list={sectionClass}>
+	<div class:list={['container mx-auto px-4', containerClass]}>
+		{
+			title ? (
+				<h2 class:list={['text-2xl font-bold', titleClass]}>{title}</h2>
+			) : null
+		}
+		{subTitle ? <p class:list={titleClass}>{subTitle}</p> : null}
+		<slot />
+	</div>
+</section>
