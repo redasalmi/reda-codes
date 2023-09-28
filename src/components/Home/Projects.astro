@@ -1,0 +1,48 @@
+---
+import { z } from 'astro:content';
+import * as projectsData from '~/mdx/projects.mdx';
+import Section from '~/components/Shared/Section.astro';
+import Project from '~/components/Home/Project.astro';
+
+const projectsSchema = z.object({
+	title: z.string(),
+	subTitle: z.string(),
+	projects: z.array(
+		z.object({
+			title: z.string(),
+			description: z.string(),
+			ownedBy: z.object({
+				name: z.string(),
+				link: z.string().optional(),
+			}),
+			img: z.object({
+				filename: z.string(),
+				extension: z.string(),
+				alt: z.string(),
+			}),
+			website: z.string(),
+			code: z.string().optional(),
+			techStack: z.array(z.string()),
+		}),
+	),
+});
+projectsSchema.parse(projectsData.frontmatter);
+
+type Projects = z.infer<typeof projectsSchema>;
+const { title, subTitle, projects } = projectsData.frontmatter as Projects;
+---
+
+{
+	projects.length ? (
+		<Section
+			title={title}
+			subTitle={subTitle}
+			titleClass="text-center md:text-left"
+			sectionClass="overflow-hidden bg-white py-5 dark:bg-bg-section-dark-gray md:py-10 lg:py-[60px]"
+		>
+			{projects.map((project, index) => (
+				<Project imgFirst={index % 2 !== 0} project={project} />
+			))}
+		</Section>
+	) : null
+}

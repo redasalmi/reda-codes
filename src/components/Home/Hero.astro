@@ -1,17 +1,25 @@
 ---
-import { getEntry } from 'astro:content';
+import { z } from 'astro:content';
+import * as hero from '~/mdx/hero.mdx';
 import Section from '~/components/Shared/Section.astro';
 
-const hero = await getEntry('home', 'hero');
-const { Content } = await hero.render();
-const {
-	projectsCtaText,
-	projectsCtaIcon,
-	projectsCtaLink,
-	aboutMeCtaText,
-	aboutMeCtaIcon,
-	aboutMeCtaLink,
-} = hero.data;
+const heroSchema = z.object({
+	project: z.object({
+		text: z.string(),
+		icon: z.string(),
+		link: z.string(),
+	}),
+	aboutMe: z.object({
+		text: z.string(),
+		icon: z.string(),
+		link: z.string(),
+	}),
+});
+heroSchema.parse(hero.frontmatter);
+
+type Hero = z.infer<typeof heroSchema>;
+const { Content, frontmatter } = hero;
+const { project, aboutMe } = frontmatter as Hero;
 ---
 
 <Section
@@ -25,19 +33,19 @@ const {
 
 		<div class="lg:mt-5 xl:mt-[30px] xl:flex xl:gap-[15px]">
 			<a
-				href={projectsCtaLink}
+				href={project.link}
 				class="mt-[10px] flex h-14 w-[200px] items-center justify-center rounded-3xl bg-slate-blue px-6 py-3 text-center font-bold leading-none text-fg-white sm:w-[250px]"
 			>
-				<span>{projectsCtaText}</span>
-				<span class="inline-block pl-1">{projectsCtaIcon}</span>
+				<span>{project.text}</span>
+				<span class="inline-block pl-1">{project.icon}</span>
 			</a>
 
 			<a
-				href={aboutMeCtaLink}
+				href={aboutMe.link}
 				class="mt-[10px] flex h-14 w-[200px] items-center justify-center rounded-3xl border-2 border-slate-blue px-6 py-3 text-center font-bold leading-none text-fg-black dark:text-fg-white sm:w-[250px]"
 			>
-				<span>{aboutMeCtaText}</span>
-				<span class="inline-block pl-1">{aboutMeCtaIcon}</span>
+				<span>{aboutMe.text}</span>
+				<span class="inline-block pl-1">{aboutMe.icon}</span>
 			</a>
 		</div>
 	</div>

@@ -1,12 +1,27 @@
 ---
-import { getEntry } from 'astro:content';
+import { z } from 'astro:content';
+import * as seo from '~/mdx/seo.mdx';
 import Layout from '~/layouts/Layout.astro';
-import Hero from '~/components/Hero/Hero.astro';
+import Hero from '~/components/Home/Hero.astro';
+import Projects from '~/components/Home/Projects.astro';
 
-const seo = await getEntry('home', 'seo');
-const { title, description, previewImage } = seo.data;
+const seoSchema = z.object({
+	title: z.string(),
+	description: z.string(),
+	previewImage: z.object({
+		src: z.string(),
+		alt: z.string(),
+		width: z.number(),
+		height: z.number(),
+	}),
+});
+seoSchema.parse(seo.frontmatter);
+
+type Seo = z.infer<typeof seoSchema>;
+const { title, description, previewImage } = seo.frontmatter as Seo;
 ---
 
 <Layout title={title} description={description} previewImage={previewImage}>
 	<Hero />
+	<Projects />
 </Layout>

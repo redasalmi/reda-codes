@@ -1,0 +1,151 @@
+---
+import { Image } from 'astro:assets';
+import { getLocalImage } from '~/utils';
+import type { LocalImage } from '~/types';
+
+type Props = {
+	imgFirst: boolean;
+	project: {
+		title: string;
+		description: string;
+		ownedBy: {
+			name: string;
+			link?: string;
+		};
+		img: {
+			filename: string;
+			extension: string;
+			alt: string;
+		};
+		website: string;
+		code?: string;
+		techStack: string[];
+	};
+};
+
+const { imgFirst, project } = Astro.props;
+const { title, description, ownedBy, img, website, code, techStack } = project;
+
+const images = (await Astro.glob('../../assets/images/*')) as LocalImage[];
+
+const order = {
+	first: 'order-1',
+	last: 'order-2',
+};
+
+const clip = {
+	first: 'project-card-first-clip',
+	last: 'project-card-last-clip',
+};
+
+const border = {
+	top: 'rounded-tl-[18px] rounded-tr-[18px] md:rounded-tr-none md:rounded-bl-[18px]',
+	bottom:
+		'rounded-bl-[18px] rounded-br-[18px] md:rounded-bl-none md:rounded-tr-[18px]',
+};
+
+const card = {
+	first: `${order.first} ${border.top} ${clip.first}`,
+	last: `${order.last} ${border.bottom} ${clip.last}`,
+};
+---
+
+<div
+	class="relative my-[30px] flex h-[480px] flex-col rounded-[18px] last-of-type:mb-0 sm:h-[520px] md:h-[360px] md:flex-row"
+>
+	<div
+		class:list={[
+			'h-[52%] w-full bg-ghost-white dark:bg-bg-section-black md:h-full md:w-[52%]',
+			imgFirst ? card.last : card.first,
+		]}
+	>
+		<div
+			class:list={[
+				'm-auto flex h-full flex-col justify-around p-5 md:px-10',
+				imgFirst ? border.bottom : border.top,
+			]}
+		>
+			<div>
+				<h2 class="text-[1.4rem] font-bold md:text-lg">{title}</h2>
+				<p>
+					{
+						!ownedBy.link ? (
+							ownedBy.name
+						) : (
+							<>
+								<span>Made for </span>
+								<a
+									href={ownedBy.link}
+									target="_blank"
+									rel="noreferrer"
+									class="animated-link inline-block font-bold text-chocolate dark:text-dark-orange"
+								>
+									{ownedBy.name}
+								</a>
+							</>
+						)
+					}
+				</p>
+			</div>
+
+			<div>
+				<p class="text-justify">{description}</p>
+				<ul
+					class="my-2 flex flex-wrap gap-2 text-sm text-royal-blue dark:text-lime-green"
+				>
+					{
+						techStack.map((teck) => (
+							<li class="rounded-3xl bg-white px-4 py-1  dark:bg-bg-section-dark-gray">
+								{teck}
+							</li>
+						))
+					}
+				</ul>
+			</div>
+
+			<div>
+				<a
+					href={website}
+					target="_blank"
+					rel="noreferrer"
+					aria-label={`Visit ${title} website`}
+					class="animated-link inline-block font-bold text-chocolate dark:text-dark-orange"
+				>
+					Visit Website
+				</a>
+
+				{
+					code ? (
+						<a
+							href={code}
+							target="_blank"
+							rel="noreferrer"
+							aria-label={`Check ${title} source code`}
+							class="animated-link ml-5 inline-block font-bold text-chocolate dark:text-dark-orange"
+						>
+							Source code
+						</a>
+					) : null
+				}
+			</div>
+		</div>
+	</div>
+
+	<div
+		class:list={[
+			'h-[52%] w-full md:h-full md:w-[52%]',
+			imgFirst
+				? `${card.first} mb-[-4%] sm:mb-[-3%] md:mb-0 md:mr-[-3%]`
+				: `${card.last} mt-[-4%] sm:mt-[-3%] md:ml-[-3%] md:mt-0`,
+		]}
+	>
+		<div class:list={['h-full w-full', imgFirst ? border.top : border.bottom]}>
+			<Image
+				alt={img.alt}
+				loading="lazy"
+				src={getLocalImage(images, img.filename, img.extension)}
+				class:list={['h-full w-full', imgFirst ? border.top : border.bottom]}
+			/>
+		</div>
+	</div>
+</div>

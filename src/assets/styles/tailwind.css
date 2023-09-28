@@ -77,3 +77,21 @@
 		}
 	}
 }
+
+@layer utilities {
+	.project-card-first-clip {
+		clip-path: polygon(0% 0%, 100% 0%, 100% 96%, 0% 100%);
+
+		@media screen(md) {
+			clip-path: polygon(0% 0%, 100% 0%, 96% 100%, 0% 100%);
+		}
+	}
+
+	.project-card-last-clip {
+		clip-path: polygon(0% 4%, 100% 0%, 100% 100%, 0% 100%);
+
+		@media screen(md) {
+			clip-path: polygon(4% 0%, 100% 0%, 100% 100%, 0% 100%);
+		}
+	}
+}
