@@ -1,0 +1,54 @@
+---
+import { z } from 'astro:content';
+import { Image } from 'astro:assets';
+import * as skillsData from '~/mdx/skills.mdx';
+import Section from '~/components/Shared/Section.astro';
+import { getLocalImage } from '~/utils';
+import type { LocalImage } from '~/types';
+
+const skillsSchema = z.object({
+	id: z.string(),
+	title: z.string(),
+	subTitle: z.string().optional(),
+	skills: z.array(
+		z.object({
+			title: z.string(),
+			img: z.object({
+				filename: z.string(),
+				extension: z.string(),
+				class: z.string().optional(),
+			}),
+		}),
+	),
+});
+skillsSchema.parse(skillsData.frontmatter);
+
+type Skills = z.infer<typeof skillsSchema>;
+const { id, title, subTitle, skills } = skillsData.frontmatter as Skills;
+
+const images = (await Astro.glob('../../assets/icons/*')) as LocalImage[];
+---
+
+{
+	skills.length ? (
+		<Section
+			id={id}
+			title={title}
+			subTitle={subTitle}
+			titleClass="text-center md:text-left"
+			sectionClass="bg-ghost-white py-5 dark:bg-bg-section-black md:py-10 lg:py-[60px]"
+		>
+			{skills.map(({ title, img }) => (
+				<div>
+					<p>{title}</p>
+					<Image
+						alt={'img.alt'}
+						loading="lazy"
+						src={getLocalImage(images, img.filename, img.extension)}
+						class:list={[img.class]}
+					/>
+				</div>
+			))}
+		</Section>
+	) : null
+}

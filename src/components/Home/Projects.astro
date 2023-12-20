@@ -5,8 +5,9 @@ import Section from '~/components/Shared/Section.astro';
 import Project from '~/components/Home/Project.astro';
 
 const projectsSchema = z.object({
+	id: z.string(),
 	title: z.string(),
-	subTitle: z.string(),
+	subTitle: z.string().optional(),
 	projects: z.array(
 		z.object({
 			title: z.string(),
@@ -29,12 +30,13 @@ const projectsSchema = z.object({
 projectsSchema.parse(projectsData.frontmatter);
 
 type Projects = z.infer<typeof projectsSchema>;
-const { title, subTitle, projects } = projectsData.frontmatter as Projects;
+const { id, title, subTitle, projects } = projectsData.frontmatter as Projects;
 ---
 
 {
 	projects.length ? (
 		<Section
+			id={id}
 			title={title}
 			subTitle={subTitle}
 			titleClass="text-center md:text-left"

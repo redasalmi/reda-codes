@@ -4,6 +4,7 @@ import * as seo from '~/mdx/seo.mdx';
 import Layout from '~/layouts/Layout.astro';
 import Hero from '~/components/Home/Hero.astro';
 import Projects from '~/components/Home/Projects.astro';
+import Skills from '~/components/Home/Skills.astro';
 
 const seoSchema = z.object({
 	title: z.string(),
@@ -24,4 +25,5 @@ const { title, description, previewImage } = seo.frontmatter as Seo;
 <Layout title={title} description={description} previewImage={previewImage}>
 	<Hero />
 	<Projects />
+	<Skills />
 </Layout>

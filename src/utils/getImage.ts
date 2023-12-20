@@ -7,7 +7,7 @@ export function getLocalImage(
 ) {
 	const image = imageList.find(
 		({ default: image }) =>
-			image.src.includes(fileName) && image.src.includes(fileExtension),
+			image.src.includes(fileName) && image.src.includes(`.${fileExtension}`),
 	);
 
 	if (!image) {
