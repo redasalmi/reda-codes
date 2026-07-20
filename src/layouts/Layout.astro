@@ -1,23 +1,22 @@
-<!doctype html>
+---
+import { Font } from "astro:assets";
+import Navbar from "../components/Navbar.astro";
+import "../styles/global.css";
+---
+
 <html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
+    <Font cssVariable="--font-ibm-plex-mono" />
+    <Font cssVariable="--font-space-mono" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" href="/favicon.ico" />
     <meta name="generator" content={Astro.generator} />
-    <title>Astro Basics</title>
+    <title>Reda Codes</title>
   </head>
-  <body>
+  <body class="bg-background font-body text-body text-foreground">
+    <Navbar />
     <slot />
   </body>
 </html>
-
-<style>
-  html,
-  body {
-    margin: 0;
-    width: 100%;
-    height: 100%;
-  }
-</style>

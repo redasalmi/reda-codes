@@ -1,0 +1,65 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
+@theme {
+  --spacing-page: clamp(1.25rem, 4vw, 4.5rem);
+
+  --color-foreground: #11110f;
+  --color-background: #f2f0e9;
+  --color-muted: #696860;
+  --color-border: #bdbab0;
+
+  --text-label: 0.75rem;
+  --text-label--line-height: 1.4;
+  --text-label--letter-spacing: 0.12em;
+
+  --text-small: 0.8125rem;
+  --text-small--line-height: 1.6;
+
+  --text-body: 0.9375rem;
+  --text-body--line-height: 1.6;
+
+  --text-title: 1.4rem;
+  --text-title--line-height: 1.2;
+  --text-title--letter-spacing: -0.04em;
+  --text-title--font-weight: 700;
+
+  --text-lead: clamp(1.1rem, 2vw, 1.55rem);
+  --text-lead--line-height: 1.45;
+  --text-lead--letter-spacing: -0.03em;
+
+  --text-heading: clamp(2rem, 4.5vw, 4.5rem);
+  --text-heading--line-height: 1;
+  --text-heading--letter-spacing: -0.065em;
+  --text-heading--font-weight: 700;
+
+  --text-display: clamp(3.4rem, 8.5vw, 8rem);
+  --text-display--line-height: 0.88;
+  --text-display--letter-spacing: -0.09em;
+  --text-display--font-weight: 700;
+}
+
+/* Astro provides the source font variables through the <Font /> component. */
+@theme inline {
+  --font-body: var(--font-ibm-plex-mono);
+  --font-display: var(--font-space-mono);
+}
+
+@layer base {
+  button:not(:disabled) {
+    cursor: pointer;
+  }
+}
+
+:root {
+  color-scheme: light;
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --color-foreground: #eceae3;
+  --color-background: #10100f;
+  --color-muted: #99978f;
+  --color-border: #3e3d39;
+}
