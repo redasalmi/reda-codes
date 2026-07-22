@@ -1,0 +1,55 @@
+---
+import { getCollection } from "astro:content";
+import SplitSection from "./SplitSection.astro";
+
+const projects = (
+  await getCollection("projects", ({ data }) => data.featured && !data.draft)
+).sort((a, b) => a.data.order - b.data.order);
+---
+
+<SplitSection id="work" name="03 / Work">
+  <div class="flex flex-col gap-14">
+    <div>
+      <h2 class="type-heading">
+        Useful things, <br />
+        carefully made.
+      </h2>
+    </div>
+    <div class="grid grid-cols-1 border-t border-border md:grid-cols-2">
+      {
+        projects.map(
+          ({ data: { title, summary, stack, website, source } }, index) => (
+            <article class="flex min-h-70 flex-col border-b border-border p-6 last:border-b-0 md:min-h-82.5 md:border-r md:border-b-0 md:last:border-r-0">
+              <p class="type-label text-muted">
+                P/{String(index + 1).padStart(2, "0")}
+              </p>
+              <h3 class="pt-14 pb-4 type-title">{title}</h3>
+              <p class="max-w-[36ch] type-small text-muted">{summary}</p>
+              <footer class="mt-auto flex items-center justify-between gap-4">
+                {stack.length ? (
+                  <p class="type-label">{stack.join(" · ")}</p>
+                ) : null}
+                {website ? (
+                  <a
+                    href={website}
+                    class="type-label hover:underline hover:underline-offset-4"
+                  >
+                    Visit
+                  </a>
+                ) : null}
+                {!website && source ? (
+                  <a
+                    href={source}
+                    class="type-label hover:underline hover:underline-offset-4"
+                  >
+                    Source
+                  </a>
+                ) : null}
+              </footer>
+            </article>
+          ),
+        )
+      }
+    </div>
+  </div>
+</SplitSection>

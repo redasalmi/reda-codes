@@ -2,6 +2,7 @@ type Experience = {
   title: string;
   company: string;
   date: string;
+  description?: string;
 };
 
 export const experiences: Experience[] = [
@@ -9,6 +10,8 @@ export const experiences: Experience[] = [
     title: "Software Engineer",
     company: "The Codest",
     date: "2022—NOW",
+    description:
+      "Building and maintaining high-volume Shopify storefronts for established international brands.",
   },
   {
     title: "Full Stack Developer",
