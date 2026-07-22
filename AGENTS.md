@@ -8,6 +8,10 @@ astro dev --background
 
 Manage the background server with `astro dev stop`, `astro dev status`, and `astro dev logs`.
 
+## UI conventions
+
+Before implementing or reviewing layout spacing, read and follow [`docs/spacing-guidelines.md`](docs/spacing-guidelines.md).
+
 ## Documentation
 
 Full documentation: https://docs.astro.build

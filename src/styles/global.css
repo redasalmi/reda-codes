@@ -63,3 +63,31 @@
   --color-muted: #99978f;
   --color-border: #3e3d39;
 }
+
+@utility type-display {
+  @apply font-display text-display;
+}
+
+@utility type-heading {
+  @apply font-display text-heading;
+}
+
+@utility type-title {
+  @apply font-display text-title;
+}
+
+@utility type-lead {
+  @apply font-body text-lead;
+}
+
+@utility type-body {
+  @apply font-body text-body;
+}
+
+@utility type-small {
+  @apply font-body text-small;
+}
+
+@utility type-label {
+  @apply font-body text-label uppercase;
+}
