@@ -1,43 +1,37 @@
-<section id="about" class="border-b border-border">
-  <div
-    class="grid grid-cols-1 md:grid-cols-[minmax(150px,0.5fr)_minmax(0,2fr)]"
-  >
-    <div
-      class="border-b border-border px-page py-5 md:border-r md:border-b-0 md:py-[clamp(4rem,8vw,8rem)]"
-    >
-      <p class="type-label text-nowrap text-muted">01 / About</p>
+---
+import SplitSection from "./SplitSection.astro";
+---
+
+<SplitSection id="about" name="01 / About">
+  <div class="flex flex-col gap-20">
+    <div class="flex flex-col gap-14">
+      <h2 id="about-title" class="type-heading">
+        Engineer first. <br />
+        Frontend by choice.
+      </h2>
+      <p class="max-w-225 type-intro">
+        I'm Reda, a self-taught developer with an engineering background. I care
+        about the details users notice and the systems developers rely on:
+        clear, accessible interfaces, thoughtful architecture, and code built to
+        last.
+      </p>
     </div>
 
-    <div class="flex flex-col gap-20 px-page py-[clamp(4rem,8vw,8rem)]">
-      <div class="flex flex-col gap-14">
-        <h2 class="type-heading">
-          Engineer first. <br />
-          Frontend by choice.
-        </h2>
-        <p class="max-w-225 type-intro">
-          I'm Reda, a self-taught developer with an engineering background. I
-          care about the details users notice and the systems developers rely
-          on: clear, accessible interfaces, thoughtful architecture, and code
-          built to last.
-        </p>
-      </div>
-
-      <div
-        class="grid grid-cols-1 gap-4 border-t border-border pt-4 type-note text-muted md:grid-cols-3"
-      >
-        <p class="flex flex-col">
-          <span class="uppercase">Based</span>
-          <span>Algiers, Algeria</span>
-        </p>
-        <p class="flex flex-col">
-          <span class="uppercase">Focus</span>
-          <span>UI engineering · DX</span>
-        </p>
-        <p class="flex flex-col">
-          <span class="uppercase">Offline</span>
-          <span>Linux · Gaming</span>
-        </p>
-      </div>
+    <div
+      class="grid grid-cols-1 gap-4 border-t border-border pt-4 type-note text-muted md:grid-cols-3"
+    >
+      <p class="flex flex-col">
+        <span class="uppercase">Based</span>
+        <span>Algiers, Algeria</span>
+      </p>
+      <p class="flex flex-col">
+        <span class="uppercase">Focus</span>
+        <span>UI engineering · DX</span>
+      </p>
+      <p class="flex flex-col">
+        <span class="uppercase">Offline</span>
+        <span>Linux · Gaming</span>
+      </p>
     </div>
   </div>
-</section>
+</SplitSection>
