@@ -14,9 +14,9 @@ if (!anniversaryHasPassed) years--;
 
 <section
   id="hero"
-  class="border-b border-border px-page pt-14 pb-[clamp(3rem,5vw,4.5rem)] md:pt-[clamp(4rem,7vw,6.5rem)]"
+  class="border-b border-border px-page pt-14 pb-hero-bottom md:pt-hero-top"
 >
-  <div class="flex flex-col gap-14">
+  <div class="flex flex-col gap-hero-content">
     <div class="flex flex-col gap-5">
       <p class="type-label text-muted">
         Frontend Engineer · Self-proclaimed legend
@@ -30,15 +30,15 @@ if (!anniversaryHasPassed) years--;
       </h1>
     </div>
 
-    <div class="flex flex-col gap-8 md:flex-row md:items-end">
-      <div class="max-w-170 md:flex-2">
+    <div class="grid grid-cols-1 items-end gap-8 md:grid-cols-[1.3fr_0.7fr]">
+      <div class="max-w-170">
         <p class="type-lead">
           I build fast, accessible Shopify storefronts and web interfaces that
           respect your time.
         </p>
       </div>
 
-      <div class="flex flex-col gap-1 md:flex-1 md:items-end">
+      <div class="flex flex-col gap-1 md:items-end">
         <p class="type-label text-nowrap text-muted">
           Shopify / UI / TypeScript
         </p>

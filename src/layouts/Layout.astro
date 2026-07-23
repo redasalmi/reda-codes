@@ -41,8 +41,12 @@ import "../styles/global.css";
     </script>
   </head>
   <body class="bg-background type-body text-foreground">
-    <Header />
-    <slot />
-    <Footer />
+    <div
+      class="mx-auto min-h-screen w-full max-w-[1500px] md:border-x md:border-border"
+    >
+      <Header />
+      <slot />
+      <Footer />
+    </div>
   </body>
 </html>

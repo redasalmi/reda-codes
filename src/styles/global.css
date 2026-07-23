@@ -4,6 +4,11 @@
 
 @theme {
   --spacing-page: clamp(1.25rem, 4vw, 4.5rem);
+  --spacing-section: clamp(4rem, 8vw, 8rem);
+  --spacing-hero-top: clamp(4rem, 7vw, 6.5rem);
+  --spacing-hero-bottom: clamp(3rem, 5vw, 4.5rem);
+  --spacing-hero-content: clamp(3.5rem, 6vw, 5.5rem);
+  --spacing-contact-top: clamp(5rem, 10vw, 10rem);
 
   --color-foreground: #11110f;
   --color-background: #f2f0e9;
@@ -58,6 +63,10 @@
     html {
       scroll-behavior: smooth;
     }
+  }
+
+  section {
+    scroll-margin-top: 2rem;
   }
 
   button:not(:disabled) {
