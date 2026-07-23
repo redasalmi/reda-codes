@@ -15,6 +15,29 @@ import "../styles/global.css";
     <link rel="icon" href="/favicon.ico" />
     <meta name="generator" content={Astro.generator} />
     <title>Reda Codes</title>
+
+    <script is:inline>
+      (() => {
+        const key = "theme";
+        let savedTheme = null;
+
+        try {
+          savedTheme = localStorage.getItem(key);
+        } catch {
+          // localStorage is not available, e.g. in private browsing mode
+        }
+
+        const systemTheme = matchMedia("(prefers-color-scheme: dark)").matches
+          ? "dark"
+          : "light";
+        const theme =
+          savedTheme === "light" || savedTheme === "dark"
+            ? savedTheme
+            : systemTheme;
+
+        document.documentElement.dataset.theme = theme;
+      })();
+    </script>
   </head>
   <body class="bg-background type-body text-foreground">
     <Header />

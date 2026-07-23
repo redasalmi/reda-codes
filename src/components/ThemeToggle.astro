@@ -1,0 +1,35 @@
+<button
+  id="theme-toggle"
+  type="button"
+  aria-label="Toggle color theme"
+  class="border border-border px-2.5 py-1.75 type-label font-medium hover:bg-foreground hover:text-background"
+>
+  <span class="dark:hidden">Dark mode</span>
+  <span class="hidden dark:inline">Light mode</span>
+</button>
+
+<script>
+  const button = document.querySelector<HTMLButtonElement>("#theme-toggle");
+
+  function syncButton() {
+    if (!button) return;
+
+    const isDark = document.documentElement.dataset.theme === "dark";
+    button.ariaPressed = String(isDark);
+  }
+
+  button?.addEventListener("click", () => {
+    const nextTheme =
+      document.documentElement.dataset.theme === "dark" ? "light" : "dark";
+
+    document.documentElement.dataset.theme = nextTheme;
+    try {
+      localStorage.setItem("theme", nextTheme);
+    } catch {
+      // localStorage is not available, e.g. in private browsing mode
+    }
+    syncButton();
+  });
+
+  syncButton();
+</script>

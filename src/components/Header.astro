@@ -1,3 +1,7 @@
+---
+import ThemeToggle from "./ThemeToggle.astro";
+---
+
 <header
   class="flex flex-col gap-6 border-b border-border px-page py-4 md:flex-row md:items-center md:justify-between"
 >
@@ -37,10 +41,6 @@
   </nav>
 
   <div>
-    <button
-      type="button"
-      class="border border-border px-2.5 py-1.75 type-label font-medium hover:bg-foreground hover:text-background"
-      >Light Mode</button
-    >
+    <ThemeToggle />
   </div>
 </header>
