@@ -3,44 +3,55 @@ import ThemeToggle from "./ThemeToggle.astro";
 ---
 
 <header
-  class="grid min-h-19 grid-cols-[1fr_auto] items-center border-b border-border px-page md:grid-cols-[1fr_auto_1fr]"
+  class="grid grid-cols-[1fr_auto] items-center border-b border-border px-page md:min-h-19 md:grid-cols-[1fr_auto_1fr]"
 >
-  <a href="/" class="type-body font-semibold">
+  <a
+    href="/"
+    class="col-start-1 row-start-1 flex min-h-19 items-center type-body font-semibold md:min-h-0"
+  >
     <span aria-hidden="true" class="text-muted">~/</span>
     reda
   </a>
 
-  <nav class="hidden md:block">
-    <ul class="flex items-center gap-[clamp(1rem,2.4vw,2.5rem)]">
-      <li>
+  <nav
+    aria-label="Primary"
+    class="col-span-2 row-start-2 -mx-page border-t border-border md:col-span-1 md:col-start-2 md:row-start-1 md:mx-0 md:border-t-0"
+  >
+    <ul
+      class="grid grid-cols-2 md:flex md:items-center md:gap-[clamp(1rem,2.4vw,2.5rem)]"
+    >
+      <li class="border-r border-b border-border md:border-0">
         <a
           href="#about"
-          class="type-label hover:underline hover:underline-offset-4">about</a
+          class="block px-page py-4 type-label hover:underline hover:underline-offset-4 md:p-0"
+          >about</a
         >
       </li>
-      <li>
+      <li class="border-b border-border md:border-0">
         <a
           href="#experience"
-          class="type-label hover:underline hover:underline-offset-4"
+          class="block px-page py-4 type-label hover:underline hover:underline-offset-4 md:p-0"
           >experience</a
         >
       </li>
-      <li>
+      <li class="border-r border-border md:border-0">
         <a
           href="#work"
-          class="type-label hover:underline hover:underline-offset-4">work</a
+          class="block px-page py-4 type-label hover:underline hover:underline-offset-4 md:p-0"
+          >work</a
         >
       </li>
       <li>
         <a
           href="#find-me"
-          class="type-label hover:underline hover:underline-offset-4">find me</a
+          class="block px-page py-4 type-label hover:underline hover:underline-offset-4 md:p-0"
+          >find me</a
         >
       </li>
     </ul>
   </nav>
 
-  <div class="justify-self-end">
+  <div class="col-start-2 row-start-1 justify-self-end md:col-start-3">
     <ThemeToggle />
   </div>
 </header>
