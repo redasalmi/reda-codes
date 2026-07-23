@@ -1,6 +1,6 @@
 ---
 title: Simply Invoice
-summary: A local-first desktop application for managing customers, services, taxes, and PDF invoices.
+summary: A local-first desktop app for managing customers, services, taxes, and PDF invoices without sending the data elsewhere.
 year: 2023
 role: Creator
 stack:
@@ -15,4 +15,4 @@ order: 3
 draft: true
 ---
 
-Simply Invoice is an in-progress desktop product built around local data ownership. It supports structured business records, invoice workflows, rich-text notes, and PDF generation.
+Simply Invoice keeps customer and invoice data on the user’s machine. It combines React, Tauri, and SQLite to handle business records, tax calculations, rich-text notes, and PDF generation.

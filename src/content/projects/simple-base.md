@@ -1,6 +1,6 @@
 ---
 title: Simple Base
-summary: A design system and UI component library built from shared design tokens and framework-ready primitives.
+summary: A design-system foundation for sharing tokens, styles, and accessible components across projects.
 year: 2026
 role: Creator
 stack:
@@ -14,4 +14,4 @@ order: 4
 draft: true
 ---
 
-Simple Base is an in-progress design system organized as a monorepo. It generates reusable CSS and TypeScript tokens and provides accessible UI primitives with a SolidJS implementation.
+Simple Base is my attempt to stop rebuilding the same UI foundations from scratch. The monorepo turns DTCG design tokens into reusable CSS and TypeScript, with accessible components implemented in SolidJS.

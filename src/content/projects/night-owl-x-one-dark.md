@@ -1,6 +1,6 @@
 ---
 title: Night Owl X One Dark
-summary: A maintained VS Code theme combining Night Owl and One Dark, installed by more than 6,500 developers.
+summary: A VS Code theme blending Night Owl’s interface with One Dark Pro’s syntax colors. More than 6,500 developers use it, which still feels slightly unreal.
 year: 2021
 role: Creator and maintainer
 stack:
@@ -13,4 +13,4 @@ order: 1
 draft: false
 ---
 
-Night Owl X One Dark combines Night Owl backgrounds and interface colors with One Dark Pro syntax colors, plus custom refinements. It is distributed through the Visual Studio Marketplace and Open VSX.
+I wanted Night Owl’s interface colors and One Dark Pro’s syntax palette in the same editor, so I put them together. It’s available on the Visual Studio Marketplace and Open VSX, with more than 6,500 installs so far.

@@ -1,6 +1,6 @@
 ---
 title: Just Chill SDDM Theme
-summary: A minimal SDDM login theme built with QML for Linux desktops.
+summary: A calm SDDM login theme built with QML for Linux desktops. A nicer way to start the session.
 year: 2024
 role: Creator and maintainer
 stack:
@@ -13,4 +13,4 @@ order: 2
 draft: false
 ---
 
-Just Chill is a focused login experience for the SDDM display manager, with documented installation and configuration for Linux desktops.
+Just Chill gives SDDM a quieter, cleaner login screen. It’s built with QML and includes straightforward installation and configuration for Linux desktops.

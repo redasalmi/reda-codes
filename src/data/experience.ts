@@ -11,7 +11,7 @@ export const experiences: Experience[] = [
     company: "The Codest",
     date: "2022—NOW",
     description:
-      "Building and maintaining high-volume Shopify storefronts for established international brands.",
+      "Building and maintaining high-traffic Shopify storefronts for international brands.",
   },
   {
     title: "Full Stack Developer",
