@@ -1,0 +1,33 @@
+---
+import { contacts } from "../data/contact";
+---
+
+<section
+  id="find-me"
+  class="flex min-h-[70vh] flex-col justify-between border-b border-border px-page pt-[clamp(5rem,10vw,10rem)] pb-8"
+>
+  <div>
+    <p class="type-label text-muted">04 / Find me</p>
+    <h2 class="max-w-250 type-display text-[clamp(2.8rem,7vw,7rem)]">
+      Have a hard problem? <br />
+      Let’s make it clear.
+    </h2>
+  </div>
+
+  <div>
+    <ul class="flex flex-col border-t border-border md:flex-row">
+      {
+        contacts.map(({ name, link }) => (
+          <li class="flex-1 border-b border-border md:border-b-0 md:not-last:border-r">
+            <a
+              href={link}
+              class="block py-5 type-body after:content-['_↗'] hover:bg-foreground hover:pl-5 hover:text-background md:p-5"
+            >
+              {name}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>

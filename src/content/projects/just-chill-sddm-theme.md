@@ -1,5 +1,5 @@
 ---
-title: Just Chill
+title: Just Chill SDDM Theme
 summary: A minimal SDDM login theme built with QML for Linux desktops.
 year: 2024
 role: Creator and maintainer

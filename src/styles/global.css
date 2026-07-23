@@ -54,6 +54,12 @@
 }
 
 @layer base {
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+  }
+
   button:not(:disabled) {
     cursor: pointer;
   }
