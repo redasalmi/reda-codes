@@ -1,7 +1,19 @@
 {
   "name": "reda-codes",
+  "private": true,
+  "description": "Personal portfolio of Reda Salmi, a frontend engineer specializing in Shopify, TypeScript, and accessible web interfaces.",
+  "author": {
+    "name": "Reda Salmi",
+    "email": "reda.salmi.elt@gmail.com",
+    "url": "https://redacodes.com"
+  },
+  "homepage": "https://redacodes.com",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/redasalmi/reda-codes.git"
+  },
+  "license": "MIT",
   "type": "module",
-  "version": "0.0.1",
   "engines": {
     "node": ">=22.12.0"
   },
