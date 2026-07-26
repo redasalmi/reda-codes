@@ -1,4 +1,6 @@
 ---
+import HeroAnimation from "./HeroAnimation.astro";
+
 const startedAt = new Date("2019-12-01T00:00:00Z");
 const today = new Date();
 
@@ -14,7 +16,7 @@ if (!anniversaryHasPassed) years--;
 
 <section
   id="hero"
-  class="border-b border-border px-page pt-14 pb-hero-bottom md:pt-hero-top"
+  class="relative flex flex-col gap-12 border-b border-border px-page pt-14 pb-hero-bottom md:pt-hero-top lg:block"
 >
   <div class="flex flex-col gap-hero-content">
     <div class="flex flex-col gap-5">
@@ -48,4 +50,6 @@ if (!anniversaryHasPassed) years--;
       </div>
     </div>
   </div>
+
+  <HeroAnimation />
 </section>
