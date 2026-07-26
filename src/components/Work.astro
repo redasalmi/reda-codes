@@ -1,0 +1,89 @@
+---
+import { getCollection } from "astro:content";
+import SplitSection from "./SplitSection.astro";
+
+const projects = (
+  await getCollection("projects", ({ data }) => data.featured && !data.draft)
+).sort((a, b) => a.data.order - b.data.order);
+---
+
+<SplitSection id="work" name="03 / Work">
+  <div class="flex flex-col gap-14">
+    <h2 class="type-heading">
+      Things I made <br />
+      because I needed them.
+    </h2>
+
+    <div class="grid grid-cols-1 border-t border-border md:grid-cols-2">
+      {
+        projects.map(
+          (
+            { data: { title, summary, year, role, stack, website, source } },
+            index,
+          ) => (
+            <article class="project-card flex min-h-70 flex-col gap-14 p-6 md:min-h-82.5">
+              <p class="type-label text-muted">
+                P/{String(index + 1).padStart(2, "0")} · {year}
+              </p>
+
+              <div class="flex flex-col gap-4">
+                <h3 class="type-title">{title}</h3>
+                <p class="max-w-[36ch] type-small text-muted">{summary}</p>
+              </div>
+
+              <footer class="mt-auto flex flex-col items-start gap-4 sm:flex-row sm:items-end sm:justify-between">
+                <div class="flex flex-col gap-1">
+                  <p class="type-note text-muted">{role}</p>
+                  {stack.length ? (
+                    <p class="type-label">{stack.join(" · ")}</p>
+                  ) : null}
+                </div>
+
+                <div class="flex flex-wrap gap-x-6 gap-y-3 sm:justify-end">
+                  {website ? (
+                    <a
+                      href={website}
+                      aria-label={`Visit ${title}`}
+                      class="type-label hover:underline hover:underline-offset-4"
+                    >
+                      Visit
+                    </a>
+                  ) : null}
+                  {source ? (
+                    <a
+                      href={source}
+                      aria-label={`View ${title} source code`}
+                      class="type-label hover:underline hover:underline-offset-4"
+                    >
+                      Source
+                    </a>
+                  ) : null}
+                </div>
+              </footer>
+            </article>
+          ),
+        )
+      }
+    </div>
+  </div>
+</SplitSection>
+
+<style>
+  .project-card {
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .project-card:last-child {
+    border-bottom: 0;
+  }
+
+  @media (min-width: 48rem) {
+    .project-card:nth-child(odd):not(:last-child) {
+      border-right: 1px solid var(--color-border);
+    }
+
+    .project-card:nth-last-child(2):nth-child(odd) {
+      border-bottom: 0;
+    }
+  }
+</style>

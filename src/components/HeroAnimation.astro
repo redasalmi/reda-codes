@@ -1,0 +1,213 @@
+---
+const items = [
+  { text: "Trade circuits for frontend", completed: true },
+  { text: "Ship my first production app", completed: true },
+  { text: "Move into Shopify", completed: true },
+  { text: "Maintain storefronts at scale", completed: true },
+  { text: "To be continued...", completed: false },
+];
+
+const initialDelay = 0.2;
+const stagger = 0.43;
+---
+
+<aside
+  aria-label="Professional progress"
+  class="w-full md:max-w-90 lg:absolute lg:top-hero-top lg:right-page lg:w-[min(31vw,22.5rem)]"
+>
+  <p class="border-b border-border pb-3 type-label text-muted">
+    ~/reda/checklist
+  </p>
+
+  <ul>
+    {
+      items.map(({ text, completed }, index) => {
+        const delay = initialDelay + index * stagger;
+
+        return (
+          <li
+            class:list={[
+              "checklist-item grid min-h-10 grid-cols-[2.5rem_1fr] items-center type-label",
+              completed
+                ? "checklist-item-completed border-b border-border"
+                : "checklist-item-pending min-h-12",
+            ]}
+            style={`--item-delay: ${delay}s`}
+          >
+            <span
+              aria-hidden="true"
+              class:list={[
+                "checklist-marker relative isolate w-max text-muted",
+                !completed && "checklist-marker-pending",
+              ]}
+            >
+              [
+              <span class="checklist-symbol text-foreground">
+                {completed ? "✓" : "•"}
+              </span>
+              ]
+            </span>
+
+            <span
+              class:list={[
+                "checklist-text relative inline-block w-max overflow-hidden",
+                completed ? "text-muted" : "text-foreground",
+              ]}
+            >
+              {text}
+              <span class="sr-only">
+                {completed ? " — completed" : " — pending"}
+              </span>
+              {completed && (
+                <>
+                  <span
+                    aria-hidden="true"
+                    class="checklist-text-overlay absolute inset-0 text-foreground"
+                  >
+                    {text}
+                  </span>
+                  <span
+                    aria-hidden="true"
+                    class="checklist-line absolute inset-x-0 top-1/2 z-10 h-px -translate-y-1/2 bg-foreground"
+                  />
+                </>
+              )}
+            </span>
+          </li>
+        );
+      })
+    }
+  </ul>
+</aside>
+
+<style>
+  .checklist-text-overlay {
+    pointer-events: none;
+  }
+
+  .checklist-line {
+    opacity: 0;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .checklist-item {
+      opacity: 0;
+      transform: translateY(0.3125rem);
+      animation: checklist-item-enter 0.18s steps(2, end) var(--item-delay)
+        forwards;
+    }
+
+    .checklist-text-overlay {
+      clip-path: inset(0 100% 0 0);
+      animation: checklist-text-fill 0.3s cubic-bezier(0.6, 0, 0.25, 1)
+        calc(var(--item-delay) + 0.08s) forwards;
+    }
+
+    .checklist-line {
+      transform: translateY(-50%) scaleX(0);
+      transform-origin: left;
+      animation: checklist-line-sweep 0.32s ease-out
+        calc(var(--item-delay) + 0.08s);
+    }
+
+    .checklist-item-completed .checklist-symbol {
+      display: inline-block;
+      opacity: 0;
+      transform: scale(0.35);
+      animation: checklist-check-enter 0.18s cubic-bezier(0.2, 1.7, 0.4, 1)
+        calc(var(--item-delay) + 0.21s) forwards;
+    }
+
+    .checklist-item-completed .checklist-marker::after {
+      position: absolute;
+      z-index: -1;
+      inset: -0.375rem -0.4375rem;
+      background: var(--color-foreground);
+      content: "";
+      opacity: 0;
+      animation: checklist-check-pulse 0.28s ease-out
+        calc(var(--item-delay) + 0.2s);
+    }
+
+    .checklist-item-pending {
+      transform: translateX(-0.3125rem);
+      animation: checklist-pending-enter 0.25s ease-out var(--item-delay)
+        forwards;
+    }
+
+    .checklist-marker-pending .checklist-symbol {
+      display: inline-block;
+      animation: checklist-pending-pulse 1.7s ease-in-out
+        calc(var(--item-delay) + 0.27s) 3 forwards;
+    }
+  }
+
+  @keyframes checklist-item-enter {
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  @keyframes checklist-text-fill {
+    to {
+      clip-path: inset(0);
+    }
+  }
+
+  @keyframes checklist-line-sweep {
+    0% {
+      opacity: 0;
+      transform: translateY(-50%) scaleX(0);
+    }
+    35% {
+      opacity: 0.8;
+      transform: translateY(-50%) scaleX(1);
+    }
+    100% {
+      opacity: 0;
+      transform: translateY(-50%) scaleX(1);
+    }
+  }
+
+  @keyframes checklist-check-enter {
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  @keyframes checklist-check-pulse {
+    0% {
+      opacity: 0;
+      transform: scale(0.6);
+    }
+    35% {
+      opacity: 1;
+      transform: scale(1);
+    }
+    100% {
+      opacity: 0;
+      transform: scale(1.5);
+    }
+  }
+
+  @keyframes checklist-pending-enter {
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  @keyframes checklist-pending-pulse {
+    0%,
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.35;
+      transform: scale(0.7);
+    }
+  }
+</style>

@@ -1,0 +1,55 @@
+---
+import HeroAnimation from "./HeroAnimation.astro";
+
+const startedAt = new Date("2019-12-01T00:00:00Z");
+const today = new Date();
+
+let years = today.getUTCFullYear() - startedAt.getUTCFullYear();
+
+const anniversaryHasPassed =
+  today.getUTCMonth() > startedAt.getUTCMonth() ||
+  (today.getUTCMonth() === startedAt.getUTCMonth() &&
+    today.getUTCDate() >= startedAt.getUTCDate());
+
+if (!anniversaryHasPassed) years--;
+---
+
+<section
+  id="hero"
+  class="relative flex flex-col gap-12 border-b border-border px-page pt-14 pb-hero-bottom md:pt-hero-top lg:block"
+>
+  <div class="flex flex-col gap-hero-content">
+    <div class="flex flex-col gap-5">
+      <p class="type-label text-muted">
+        Frontend Engineer · Self-proclaimed legend
+      </p>
+      <h1 class="flex flex-col type-display">
+        <span>Reda</span>
+        <span
+          class="text-background [-webkit-text-stroke:1.5px_var(--color-foreground)]"
+          >Salmi</span
+        >
+      </h1>
+    </div>
+
+    <div class="grid grid-cols-1 items-end gap-8 md:grid-cols-[1.3fr_0.7fr]">
+      <div class="max-w-170">
+        <p class="type-lead">
+          I build and maintain Shopify storefronts for international brands,
+          with a focus on accessibility and UI that holds up in production.
+        </p>
+      </div>
+
+      <div class="flex flex-col gap-1 md:items-end">
+        <p class="type-label text-nowrap text-muted">
+          Shopify / UI / TypeScript
+        </p>
+        <p class="type-label text-nowrap text-muted">
+          {years}+ years in production
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <HeroAnimation />
+</section>

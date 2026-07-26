@@ -1,68 +1,71 @@
 # Reda Codes
 
-Second version of my Portfolio, presenting my projects and skills. found at:
-[Reda Salmi Portfolio](https://redacodes.com/).
+The third version of my personal portfolio, built to showcase my experience, selected work, and approach to frontend engineering.
+
+[redacodes.com](https://redacodes.com)
 
 ## Built With
 
-- [Remix](https://remix.run/)
-- [Tailwindcss](https://tailwindcss.com/)
-- [Framer motion](https://www.framer.com/motion/)
+- [Astro](https://astro.build/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Cloudflare Pages](https://pages.cloudflare.com/)
 
-## Inspirations
+## Features
 
-- The light theme was inspired by this color palette:
-  [Happy Hues](https://www.happyhues.co/palettes/6).
-- The dark theme was inspired by this color palette:
-  [Happy Hues](https://www.happyhues.co/palettes/4).
-- The light/dark theme toggle was made following this article:
-  [Building a Theme Switch Component](https://web.dev/building-a-theme-switch-component/).
-- The logo animation was inspired by
-  [Cassie Evans website logo](https://www.cassie.codes/), she has a really good
-  article explaining how it works found here:
-  [logo animation article](https://www.cassie.codes/posts/creating-my-logo-animation/).
-- The favicon was made following this article:
-  [How to Favicon](https://evilmartians.com/chronicles/how-to-favicon-in-2021-six-files-that-fit-most-needs).
-
-## Netlify Setup
-
-Install the [Netlify CLI](https://www.netlify.com/products/dev/):
-
-```sh
-npm i -g netlify-cli
-```
-
-If you have previously installed the Netlify CLI, you should update it to the
-latest version:
-
-```sh
-npm i -g netlify-cli@latest
-```
+- Responsive, accessible interface
+- Light and dark themes
+- Animated hero checklist with reduced-motion support
+- Project content managed with Astro content collections
+- SEO metadata, structured data, and sitemap generation
+- Locally optimized fonts through Astro's Fonts API
 
 ## Development
 
-The Netlify CLI starts your app in development mode, rebuilding assets on file
-changes.
+### Requirements
+
+- Node.js 22.12 or newer
+- npm
+
+Install the dependencies:
+
+```sh
+npm install
+```
+
+Start the development server:
 
 ```sh
 npm run dev
 ```
 
-Open up [http://localhost:3000](http://localhost:3000), and you should be ready
-to go!
+The site will be available at [localhost:4321](http://localhost:4321).
+
+## Commands
+
+| Command                   | Action                               |
+| ------------------------- | ------------------------------------ |
+| `npm run dev`             | Start the local development server   |
+| `npm run build`           | Build the production site to `dist/` |
+| `npm run check`           | Run Astro and TypeScript checks      |
+| `npm run format:check`    | Check formatting with Prettier       |
+| `npm run validate`        | Run all project validation           |
+| `npm run preview`         | Preview the production build locally |
+| `npm run astro -- --help` | Display the Astro CLI help           |
 
 ## Deployment
 
-There are two ways to deploy your app to Netlify, you can either link your app
-to your git repo and have it auto deploy changes to Netlify, or you can deploy
-your app manually. If you've followed the setup instructions already, all you
-need to do is run this:
+The site is configured as a static Astro project and can be deployed to Cloudflare Pages with these build settings:
 
-```sh
-$ npm run build
-# preview deployment
-$ netlify deploy
+| Setting                | Value              |
+| ---------------------- | ------------------ |
+| Production branch      | `main`             |
+| Build command          | `npm run build`    |
+| Build output directory | `dist`             |
+| Node.js version        | `22.12.0` or newer |
 
-# production deployment
-$ netlify deploy --prod
-```
+Connect the GitHub repository to Cloudflare Pages to enable automatic production and preview deployments.
+
+## License
+
+Licensed under the [MIT License](LICENSE).

@@ -1,22 +1,9 @@
 {
-	"include": ["remix.env.d.ts", "**/*.ts", "**/*.tsx"],
-	"compilerOptions": {
-		"lib": ["DOM", "DOM.Iterable", "ES2019"],
-		"types": ["vitest/globals", "@testing-library/jest-dom"],
-		"isolatedModules": true,
-		"esModuleInterop": true,
-		"jsx": "react-jsx",
-		"moduleResolution": "node",
-		"resolveJsonModule": true,
-		"target": "ES2019",
-		"strict": true,
-		"allowJs": true,
-		"forceConsistentCasingInFileNames": true,
-		"baseUrl": ".",
-		"paths": {
-			"~/*": ["./app/*"]
-		},
-		"skipLibCheck": true,
-		"noEmit": true
-	}
+  "extends": "astro/tsconfigs/strict",
+  "include": [".astro/types.d.ts", "**/*"],
+  "exclude": ["dist"],
+  "compilerOptions": {
+    "strictNullChecks": true,
+    "allowJs": true
+  }
 }

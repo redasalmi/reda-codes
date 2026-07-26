@@ -1,0 +1,24 @@
+<button
+  id="theme-toggle"
+  type="button"
+  class="border border-muted px-2.5 py-1.75 type-label font-medium hover:bg-foreground hover:text-background"
+>
+  <span class="dark:hidden">Dark mode</span>
+  <span class="hidden dark:inline">Light mode</span>
+</button>
+
+<script>
+  const button = document.querySelector<HTMLButtonElement>("#theme-toggle");
+
+  button?.addEventListener("click", () => {
+    const nextTheme =
+      document.documentElement.dataset.theme === "dark" ? "light" : "dark";
+
+    document.documentElement.dataset.theme = nextTheme;
+    try {
+      localStorage.setItem("theme", nextTheme);
+    } catch {
+      // localStorage is not available, e.g. in private browsing mode
+    }
+  });
+</script>

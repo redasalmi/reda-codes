@@ -1,0 +1,38 @@
+---
+import SplitSection from "./SplitSection.astro";
+---
+
+<SplitSection id="about" name="01 / About">
+  <div class="flex flex-col gap-20">
+    <div class="flex flex-col gap-14">
+      <h2 class="type-heading">
+        Engineer first. <br />
+        Frontend by choice.
+      </h2>
+      <p class="max-w-225 type-intro">
+        I'm Reda. I came to frontend through a master's in electrical
+        engineering, a Python course in 2014, and a lot of self-directed
+        learning. I moved into professional web development in 2019; today I
+        build and maintain Shopify storefronts with a focus on accessible,
+        practical UI.
+      </p>
+    </div>
+
+    <div
+      class="grid grid-cols-1 gap-4 border-t border-border pt-4 type-note text-muted md:grid-cols-3"
+    >
+      <p class="flex flex-col">
+        <span class="uppercase">Based</span>
+        <span>Algiers, Algeria</span>
+      </p>
+      <p class="flex flex-col">
+        <span class="uppercase">Focus</span>
+        <span>Shopify · UI</span>
+      </p>
+      <p class="flex flex-col">
+        <span class="uppercase">Offline</span>
+        <span>Linux · Gaming</span>
+      </p>
+    </div>
+  </div>
+</SplitSection>

@@ -1,0 +1,128 @@
+@import "tailwindcss" source("../");
+
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
+@theme {
+  --spacing-page: clamp(1.25rem, 4vw, 4.5rem);
+  --spacing-section: clamp(4rem, 8vw, 8rem);
+  --spacing-hero-top: clamp(4rem, 7vw, 6.5rem);
+  --spacing-hero-bottom: clamp(3rem, 5vw, 4.5rem);
+  --spacing-hero-content: clamp(3.5rem, 6vw, 5.5rem);
+  --spacing-contact-top: clamp(5rem, 10vw, 10rem);
+
+  --color-foreground: #11110f;
+  --color-background: #f2f0e9;
+  --color-muted: #696860;
+  --color-border: #bdbab0;
+
+  --text-label: 0.75rem;
+  --text-label--line-height: 1.4;
+  --text-label--letter-spacing: 0.12em;
+
+  --text-small: 0.8125rem;
+  --text-small--line-height: 1.6;
+
+  --text-body: 0.9375rem;
+  --text-body--line-height: 1.6;
+
+  --text-title: 1.4rem;
+  --text-title--line-height: 1.2;
+  --text-title--letter-spacing: -0.04em;
+  --text-title--font-weight: 700;
+
+  --text-lead: clamp(1.1rem, 2vw, 1.55rem);
+  --text-lead--line-height: 1.45;
+  --text-lead--letter-spacing: -0.03em;
+
+  --text-intro: clamp(1.25rem, 2.4vw, 2.1rem);
+  --text-intro--line-height: 1.45;
+  --text-intro--letter-spacing: -0.045em;
+
+  --text-note: 0.75rem;
+  --text-note--line-height: 1.6;
+
+  --text-heading: clamp(2rem, 4.5vw, 4.5rem);
+  --text-heading--line-height: 1;
+  --text-heading--letter-spacing: -0.065em;
+  --text-heading--font-weight: 700;
+
+  --text-display: clamp(3.4rem, 8.5vw, 8rem);
+  --text-display--line-height: 0.88;
+  --text-display--letter-spacing: -0.09em;
+  --text-display--font-weight: 700;
+}
+
+/* Astro provides the source font variables through the <Font /> component. */
+@theme inline {
+  --font-body: var(--font-ibm-plex-mono);
+  --font-display: var(--font-space-mono);
+}
+
+@layer base {
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+  }
+
+  section {
+    scroll-margin-top: 2rem;
+  }
+
+  button:not(:disabled) {
+    cursor: pointer;
+  }
+}
+
+:root {
+  color-scheme: light;
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --color-foreground: #eceae3;
+  --color-background: #10100f;
+  --color-muted: #99978f;
+  --color-border: #3e3d39;
+}
+
+:where(a, button):focus-visible {
+  outline: 2px solid var(--color-foreground);
+  outline-offset: 4px;
+}
+
+@utility type-display {
+  @apply font-display text-display;
+}
+
+@utility type-heading {
+  @apply font-display text-heading;
+}
+
+@utility type-title {
+  @apply font-display text-title;
+}
+
+@utility type-lead {
+  @apply font-body text-lead;
+}
+
+@utility type-intro {
+  @apply font-body text-intro;
+}
+
+@utility type-note {
+  @apply font-body text-note;
+}
+
+@utility type-body {
+  @apply font-body text-body;
+}
+
+@utility type-small {
+  @apply font-body text-small;
+}
+
+@utility type-label {
+  @apply font-body text-label uppercase;
+}

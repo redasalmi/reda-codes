@@ -1,0 +1,24 @@
+---
+interface Props {
+  id: string;
+  name: string;
+}
+
+const { id, name } = Astro.props;
+---
+
+<section id={id} class="border-b border-border">
+  <div
+    class="grid grid-cols-1 md:grid-cols-[minmax(150px,0.5fr)_minmax(0,2fr)]"
+  >
+    <div
+      class="border-b border-border px-page py-5 md:border-r md:border-b-0 md:py-16"
+    >
+      <p class="type-label text-muted">{name}</p>
+    </div>
+
+    <div class="px-page py-section">
+      <slot />
+    </div>
+  </div>
+</section>
