@@ -5,23 +5,20 @@ import { experiences } from "../data/experience";
 
 <SplitSection id="experience" name="02 / Experience">
   <div class="flex flex-col gap-14">
-    <div>
-      <h2 class="type-heading">
-        Production <br />
-        history.
-      </h2>
-    </div>
+    <h2 class="type-heading">
+      Production <br />
+      history.
+    </h2>
+
     <div>
       {
         experiences.map(({ company, title, date, description }) => (
-          <article class="grid grid-cols-1 gap-x-8 gap-y-1 border-t border-border py-7 md:grid-cols-[1fr_1fr_auto]">
-            <strong class="type-body font-medium">{company}</strong>
+          <article class="grid grid-cols-1 gap-x-8 gap-y-2 border-t border-border py-7 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)_8rem]">
+            <h3 class="type-body font-medium">{company}</h3>
             <span class="type-body text-muted">{title}</span>
-            <time class="type-body text-muted md:text-right">{date}</time>
+            <span class="type-body text-muted md:text-right">{date}</span>
             {description ? (
-              <p class="type-small text-muted md:col-span-3 md:mt-2">
-                {description}
-              </p>
+              <p class="type-small text-muted md:col-span-3">{description}</p>
             ) : null}
           </article>
         ))

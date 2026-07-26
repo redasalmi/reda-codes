@@ -20,6 +20,9 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
+    "check": "astro check",
+    "format:check": "prettier --check .",
+    "validate": "npm run check && npm run format:check && npm run build",
     "preview": "astro preview",
     "astro": "astro"
   },
@@ -30,8 +33,10 @@
     "tailwindcss": "^4.3.3"
   },
   "devDependencies": {
+    "@astrojs/check": "^0.9.9",
     "prettier": "3.9.5",
     "prettier-plugin-astro": "0.14.1",
-    "prettier-plugin-tailwindcss": "^0.8.1"
+    "prettier-plugin-tailwindcss": "^0.8.1",
+    "typescript": "^6.0.3"
   }
 }

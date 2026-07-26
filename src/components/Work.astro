@@ -9,42 +9,56 @@ const projects = (
 
 <SplitSection id="work" name="03 / Work">
   <div class="flex flex-col gap-14">
-    <div>
-      <h2 class="type-heading">
-        Things I made <br />
-        because I needed them.
-      </h2>
-    </div>
+    <h2 class="type-heading">
+      Things I made <br />
+      because I needed them.
+    </h2>
+
     <div class="grid grid-cols-1 border-t border-border md:grid-cols-2">
       {
         projects.map(
-          ({ data: { title, summary, stack, website, source } }, index) => (
-            <article class="flex min-h-70 flex-col border-b border-border p-6 last:border-b-0 md:min-h-82.5 md:border-r md:border-b-0 md:last:border-r-0">
+          (
+            { data: { title, summary, year, role, stack, website, source } },
+            index,
+          ) => (
+            <article class="project-card flex min-h-70 flex-col gap-14 p-6 md:min-h-82.5">
               <p class="type-label text-muted">
-                P/{String(index + 1).padStart(2, "0")}
+                P/{String(index + 1).padStart(2, "0")} · {year}
               </p>
-              <h3 class="pt-14 pb-4 type-title">{title}</h3>
-              <p class="max-w-[36ch] type-small text-muted">{summary}</p>
-              <footer class="mt-auto flex items-center justify-between gap-4 pt-6">
-                {stack.length ? (
-                  <p class="type-label">{stack.join(" · ")}</p>
-                ) : null}
-                {website ? (
-                  <a
-                    href={website}
-                    class="type-label hover:underline hover:underline-offset-4"
-                  >
-                    Visit
-                  </a>
-                ) : null}
-                {!website && source ? (
-                  <a
-                    href={source}
-                    class="type-label hover:underline hover:underline-offset-4"
-                  >
-                    Source
-                  </a>
-                ) : null}
+
+              <div class="flex flex-col gap-4">
+                <h3 class="type-title">{title}</h3>
+                <p class="max-w-[36ch] type-small text-muted">{summary}</p>
+              </div>
+
+              <footer class="mt-auto flex flex-col items-start gap-4 sm:flex-row sm:items-end sm:justify-between">
+                <div class="flex flex-col gap-1">
+                  <p class="type-note text-muted">{role}</p>
+                  {stack.length ? (
+                    <p class="type-label">{stack.join(" · ")}</p>
+                  ) : null}
+                </div>
+
+                <div class="flex flex-wrap gap-x-6 gap-y-3 sm:justify-end">
+                  {website ? (
+                    <a
+                      href={website}
+                      aria-label={`Visit ${title}`}
+                      class="type-label hover:underline hover:underline-offset-4"
+                    >
+                      Visit
+                    </a>
+                  ) : null}
+                  {source ? (
+                    <a
+                      href={source}
+                      aria-label={`View ${title} source code`}
+                      class="type-label hover:underline hover:underline-offset-4"
+                    >
+                      Source
+                    </a>
+                  ) : null}
+                </div>
               </footer>
             </article>
           ),
@@ -53,3 +67,23 @@ const projects = (
     </div>
   </div>
 </SplitSection>
+
+<style>
+  .project-card {
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .project-card:last-child {
+    border-bottom: 0;
+  }
+
+  @media (min-width: 48rem) {
+    .project-card:nth-child(odd):not(:last-child) {
+      border-right: 1px solid var(--color-border);
+    }
+
+    .project-card:nth-last-child(2):nth-child(odd) {
+      border-bottom: 0;
+    }
+  }
+</style>

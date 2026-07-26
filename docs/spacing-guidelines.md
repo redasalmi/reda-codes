@@ -96,15 +96,15 @@ Prefer Tailwind's spacing scale instead of repeating arbitrary values. Add a cus
 
 Recommended rhythm:
 
-| Size | Typical use |
-| --- | --- |
-| 4px | Micro spacing |
-| 8px | Tight relationships |
-| 12px | Compact controls |
-| 16px | Normal component spacing |
-| 24px | Related groups |
-| 32px | Component groups |
-| 48px | Section groups |
+| Size  | Typical use              |
+| ----- | ------------------------ |
+| 4px   | Micro spacing            |
+| 8px   | Tight relationships      |
+| 12px  | Compact controls         |
+| 16px  | Normal component spacing |
+| 24px  | Related groups           |
+| 32px  | Component groups         |
+| 48px  | Section groups           |
 | 64px+ | Major section boundaries |
 
 Fluid global spacing belongs in Tailwind's theme:

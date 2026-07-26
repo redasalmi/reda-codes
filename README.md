@@ -1,46 +1,71 @@
-# Astro Starter Kit: Basics
+# Reda Codes
+
+The third version of my personal portfolio, built to showcase my experience, selected work, and approach to frontend engineering.
+
+[redacodes.com](https://redacodes.com)
+
+## Built With
+
+- [Astro](https://astro.build/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Cloudflare Pages](https://pages.cloudflare.com/)
+
+## Features
+
+- Responsive, accessible interface
+- Light and dark themes
+- Animated hero checklist with reduced-motion support
+- Project content managed with Astro content collections
+- SEO metadata, structured data, and sitemap generation
+- Locally optimized fonts through Astro's Fonts API
+
+## Development
+
+### Requirements
+
+- Node.js 22.12 or newer
+- npm
+
+Install the dependencies:
 
 ```sh
-npm create astro@latest -- --template basics
+npm install
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+Start the development server:
 
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
+```sh
+npm run dev
 ```
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+The site will be available at [localhost:4321](http://localhost:4321).
 
-## 🧞 Commands
+## Commands
 
-All commands are run from the root of the project, from a terminal:
+| Command                   | Action                               |
+| ------------------------- | ------------------------------------ |
+| `npm run dev`             | Start the local development server   |
+| `npm run build`           | Build the production site to `dist/` |
+| `npm run check`           | Run Astro and TypeScript checks      |
+| `npm run format:check`    | Check formatting with Prettier       |
+| `npm run validate`        | Run all project validation           |
+| `npm run preview`         | Preview the production build locally |
+| `npm run astro -- --help` | Display the Astro CLI help           |
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+## Deployment
 
-## 👀 Want to learn more?
+The site is configured as a static Astro project and can be deployed to Cloudflare Pages with these build settings:
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+| Setting                | Value              |
+| ---------------------- | ------------------ |
+| Production branch      | `main`             |
+| Build command          | `npm run build`    |
+| Build output directory | `dist`             |
+| Node.js version        | `22.12.0` or newer |
+
+Connect the GitHub repository to Cloudflare Pages to enable automatic production and preview deployments.
+
+## License
+
+Licensed under the [MIT License](LICENSE).

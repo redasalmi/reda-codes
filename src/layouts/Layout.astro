@@ -85,6 +85,7 @@ const structuredData = {
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
     <script
+      is:inline
       type="application/ld+json"
       set:html={JSON.stringify(structuredData)}
     />

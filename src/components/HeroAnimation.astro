@@ -1,9 +1,9 @@
 ---
 const items = [
-  { text: "Build for Shopify", completed: true },
-  { text: "Sweat the UI details", completed: true },
-  { text: "Make accessibility a standard", completed: true },
-  { text: "Ship to production", completed: true },
+  { text: "Trade circuits for frontend", completed: true },
+  { text: "Ship my first production app", completed: true },
+  { text: "Move into Shopify", completed: true },
+  { text: "Maintain storefronts at scale", completed: true },
   { text: "To be continued...", completed: false },
 ];
 
@@ -53,17 +53,24 @@ const stagger = 0.43;
                 "checklist-text relative inline-block w-max overflow-hidden",
                 completed ? "text-muted" : "text-foreground",
               ]}
-              data-text={completed ? text : undefined}
             >
               {text}
               <span class="sr-only">
                 {completed ? " — completed" : " — pending"}
               </span>
               {completed && (
-                <span
-                  aria-hidden="true"
-                  class="checklist-line absolute inset-x-0 top-1/2 z-10 h-px -translate-y-1/2 bg-foreground"
-                />
+                <>
+                  <span
+                    aria-hidden="true"
+                    class="checklist-text-overlay absolute inset-0 text-foreground"
+                  >
+                    {text}
+                  </span>
+                  <span
+                    aria-hidden="true"
+                    class="checklist-line absolute inset-x-0 top-1/2 z-10 h-px -translate-y-1/2 bg-foreground"
+                  />
+                </>
               )}
             </span>
           </li>
@@ -74,11 +81,7 @@ const stagger = 0.43;
 </aside>
 
 <style>
-  .checklist-text[data-text]::after {
-    position: absolute;
-    inset: 0;
-    color: var(--color-foreground);
-    content: attr(data-text);
+  .checklist-text-overlay {
     pointer-events: none;
   }
 
@@ -94,7 +97,7 @@ const stagger = 0.43;
         forwards;
     }
 
-    .checklist-text[data-text]::after {
+    .checklist-text-overlay {
       clip-path: inset(0 100% 0 0);
       animation: checklist-text-fill 0.3s cubic-bezier(0.6, 0, 0.25, 1)
         calc(var(--item-delay) + 0.08s) forwards;
@@ -135,7 +138,7 @@ const stagger = 0.43;
     .checklist-marker-pending .checklist-symbol {
       display: inline-block;
       animation: checklist-pending-pulse 1.7s ease-in-out
-        calc(var(--item-delay) + 0.27s) infinite;
+        calc(var(--item-delay) + 0.27s) 3 forwards;
     }
   }
 
@@ -199,12 +202,12 @@ const stagger = 0.43;
   @keyframes checklist-pending-pulse {
     0%,
     100% {
-      opacity: 0.35;
-      transform: scale(0.7);
-    }
-    50% {
       opacity: 1;
       transform: scale(1);
+    }
+    50% {
+      opacity: 0.35;
+      transform: scale(0.7);
     }
   }
 </style>
