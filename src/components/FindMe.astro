@@ -1,12 +1,43 @@
 ---
-import { contacts } from "../data/contact";
+import type { SvgComponent } from "astro/types";
+import EmailIcon from "../assets/icons/email.svg";
+import GitHubIcon from "../assets/icons/github.svg";
+import LinkedInIcon from "../assets/icons/linkedin.svg";
+
+type Contact = {
+  name: string;
+  link: string;
+  external: boolean;
+  Icon: SvgComponent;
+};
+
+const contacts = [
+  {
+    name: "Email",
+    link: "mailto:reda.salmi.elt@gmail.com",
+    external: false,
+    Icon: EmailIcon,
+  },
+  {
+    name: "GitHub",
+    link: "https://github.com/redasalmi",
+    external: true,
+    Icon: GitHubIcon,
+  },
+  {
+    name: "LinkedIn",
+    link: "https://www.linkedin.com/in/reda-salmi-424a30168/",
+    external: true,
+    Icon: LinkedInIcon,
+  },
+] satisfies Contact[];
 ---
 
 <section
   id="find-me"
-  class="flex min-h-[70vh] flex-col justify-between border-b border-border px-page pt-contact-top pb-8"
+  class="flex flex-col gap-16 border-b border-border px-page py-section md:gap-24"
 >
-  <div>
+  <div class="flex flex-col gap-5">
     <p class="type-label text-muted">04 / Find me</p>
     <h2
       class="max-w-250 type-display text-[clamp(2.8rem,5vw,5rem)] leading-[0.95] md:leading-none"
@@ -19,13 +50,25 @@ import { contacts } from "../data/contact";
   <div>
     <ul class="flex flex-col border-t border-border md:flex-row">
       {
-        contacts.map(({ name, link }) => (
+        contacts.map(({ name, link, external, Icon }) => (
           <li class="flex-1 border-b border-border md:border-b-0 md:not-last:border-r">
             <a
               href={link}
-              class="block py-5 type-body after:content-['_↗'] hover:bg-foreground hover:pl-5 hover:text-background md:p-5"
+              target={external ? "_blank" : undefined}
+              rel={external ? "noopener noreferrer" : undefined}
+              aria-label={external ? `${name} (opens in a new tab)` : undefined}
+              class="group flex items-center justify-between gap-4 py-5 type-body hover:bg-foreground hover:px-5 hover:text-background md:p-5"
             >
-              {name}
+              <span class="flex items-center gap-3">
+                <Icon aria-hidden="true" class="size-6" />
+                {name}
+              </span>
+              <span
+                aria-hidden="true"
+                class="transition-transform duration-200 motion-safe:group-hover:translate-x-1 motion-safe:group-hover:-translate-y-1"
+              >
+                ↗
+              </span>
             </a>
           </li>
         ))

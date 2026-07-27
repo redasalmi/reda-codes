@@ -7,18 +7,25 @@ const projects = defineCollection({
     base: "./src/content/projects",
     pattern: "**/*.{md,mdx}",
   }),
-  schema: z.object({
-    title: z.string(),
-    summary: z.string(),
-    year: z.number().int(),
-    role: z.string(),
-    stack: z.array(z.string()),
-    website: z.url().optional(),
-    source: z.url().optional(),
-    featured: z.boolean().default(false),
-    order: z.number().int().nonnegative(),
-    draft: z.boolean().default(false),
-  }),
+  schema: ({ image }) =>
+    z.object({
+      title: z.string(),
+      summary: z.string(),
+      year: z.number().int(),
+      role: z.string(),
+      stack: z.array(z.string()),
+      image: z
+        .object({
+          src: image(),
+          alt: z.string(),
+        })
+        .optional(),
+      website: z.url().optional(),
+      source: z.url().optional(),
+      featured: z.boolean().default(false),
+      order: z.number().int().nonnegative(),
+      draft: z.boolean().default(false),
+    }),
 });
 
 export const collections = { projects };

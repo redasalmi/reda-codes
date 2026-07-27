@@ -19,6 +19,7 @@ Suggested fields:
 - `year`
 - `role`
 - `stack`
+- `image` (`src` and `alt`)
 - `website`
 - `source`
 - `featured`

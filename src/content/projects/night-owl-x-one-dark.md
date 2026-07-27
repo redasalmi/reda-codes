@@ -6,6 +6,9 @@ role: Creator and maintainer
 stack:
   - VS Code
   - TypeScript
+image:
+  src: ../../assets/projects/night-owl.webp
+  alt: Night Owl X One Dark theme showing colorful JavaScript syntax in Visual Studio Code
 website: https://marketplace.visualstudio.com/items?itemName=reda-salmi.night-owl-x-one-dark
 source: https://github.com/redasalmi/night-owl-x-one-dark
 featured: true
