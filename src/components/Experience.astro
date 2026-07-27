@@ -1,6 +1,59 @@
 ---
+import { Image } from "astro:assets";
 import SplitSection from "./SplitSection.astro";
-import { experiences } from "../data/experience";
+import theCodestLogo from "../assets/companies/the-codest.svg";
+import imaginePartnersLogo from "../assets/companies/imagine-partners.webp";
+import emploiPartnerLogo from "../assets/companies/emploi-partner-monochrome.png";
+
+type Experience = {
+  title: string;
+  company: string;
+  date: string;
+  website: string;
+  description?: string;
+};
+
+const experiences: Experience[] = [
+  {
+    title: "Software Engineer",
+    company: "The Codest",
+    date: "2022—PRESENT",
+    website: "https://thecodest.co/",
+    description:
+      "Built and maintained Shopify storefronts for international brands across migrations, subscriptions, checkout, and custom applications.",
+  },
+  {
+    title: "Full Stack Developer",
+    company: "ImaginePartners",
+    date: "2020—2021",
+    website: "https://imaginepartners.com/",
+    description:
+      "Contributed to recruitment and food-delivery platforms using React and Next.js across frontend and backend integration.",
+  },
+  {
+    title: "Full Stack Developer",
+    company: "EmploiPartner",
+    date: "2019—2020",
+    website: "https://www.emploipartner.com/",
+    description:
+      "Built recruitment and car-rental applications with React and Symfony, delivering features across the stack.",
+  },
+];
+
+const companyLogos = {
+  "The Codest": {
+    src: theCodestLogo,
+    imageClass: "w-36 brightness-0 dark:invert",
+  },
+  ImaginePartners: {
+    src: imaginePartnersLogo,
+    imageClass: "w-32 opacity-75 brightness-0 dark:invert",
+  },
+  EmploiPartner: {
+    src: emploiPartnerLogo,
+    imageClass: "w-40 opacity-75 dark:invert",
+  },
+};
 ---
 
 <SplitSection id="experience" name="02 / Experience">
@@ -10,18 +63,71 @@ import { experiences } from "../data/experience";
       history.
     </h2>
 
-    <div>
+    <div
+      class="grid grid-cols-1 border-t border-l border-border md:grid-cols-3"
+    >
       {
-        experiences.map(({ company, title, date, description }) => (
-          <article class="grid grid-cols-1 gap-x-8 gap-y-2 border-t border-border py-7 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)_8rem]">
-            <h3 class="type-body font-medium">{company}</h3>
-            <span class="type-body text-muted">{title}</span>
-            <span class="type-body text-muted md:text-right">{date}</span>
-            {description ? (
-              <p class="type-small text-muted md:col-span-3">{description}</p>
-            ) : null}
-          </article>
-        ))
+        experiences.map(
+          ({ company, title, date, website, description }, index) => {
+            const logo = companyLogos[company as keyof typeof companyLogos];
+
+            return (
+              <article class="min-w-0 border-r border-b border-border">
+                <a
+                  href={website}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`Visit ${company} website (opens in a new tab)`}
+                  class="group flex h-full flex-col focus-visible:-outline-offset-2"
+                >
+                  {logo ? (
+                    <div class="grid h-44 place-items-center border-b border-border p-8">
+                      <Image
+                        src={logo.src}
+                        alt={`${company} logo`}
+                        loading="lazy"
+                        decoding="async"
+                        class:list={[
+                          "max-h-24 object-contain transition-transform duration-200 motion-safe:group-hover:scale-105",
+                          logo.imageClass,
+                        ]}
+                      />
+                    </div>
+                  ) : null}
+
+                  <div class="flex flex-1 flex-col gap-8 p-5">
+                    <div class="flex items-start justify-between gap-4">
+                      <div class="flex flex-col gap-1">
+                        <h3 class="type-title group-hover:underline group-hover:underline-offset-4">
+                          {company}
+                        </h3>
+                        <span class="type-small text-muted">{title}</span>
+                      </div>
+                      <div class="flex items-center gap-3">
+                        {index === 0 ? (
+                          <span class="bg-foreground px-2 py-1 type-label text-background">
+                            Now
+                          </span>
+                        ) : null}
+                        <span aria-hidden="true" class="type-body">
+                          ↗
+                        </span>
+                      </div>
+                    </div>
+
+                    {description ? (
+                      <p class="type-small text-muted">{description}</p>
+                    ) : null}
+
+                    <p class="mt-auto border-t border-border pt-3 type-label text-muted">
+                      {date}
+                    </p>
+                  </div>
+                </a>
+              </article>
+            );
+          },
+        )
       }
     </div>
   </div>

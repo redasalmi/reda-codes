@@ -1,0 +1,95 @@
+---
+import type { SvgComponent } from "astro/types";
+import PythonIcon from "../assets/icons/python-monochrome.svg";
+import ShopifyIcon from "../assets/icons/shopify-monochrome.svg";
+import BrowserIcon from "../assets/icons/browser.svg";
+import CircuitIcon from "../assets/icons/circuit.svg";
+
+interface Milestone {
+  label: string;
+  detail: string;
+  Icon: SvgComponent;
+  iconClass: string;
+}
+
+const milestones: Milestone[] = [
+  {
+    label: "Circuits",
+    detail: "Electrical engineering",
+    Icon: CircuitIcon,
+    iconClass: "size-8",
+  },
+  {
+    label: "Python",
+    detail: "Learning Python · 2014",
+    Icon: PythonIcon,
+    iconClass: "h-9 w-auto",
+  },
+  {
+    label: "Web",
+    detail: "Production · 2019",
+    Icon: BrowserIcon,
+    iconClass: "size-8",
+  },
+  {
+    label: "Shopify",
+    detail: "E-commerce engineering",
+    Icon: ShopifyIcon,
+    iconClass: "h-9 w-auto dark:invert",
+  },
+];
+---
+
+<figure class="border border-border" aria-labelledby="journey-caption">
+  <figcaption
+    id="journey-caption"
+    class="border-b border-border px-4 py-3 type-label text-muted"
+  >
+    ~/reda/journey
+  </figcaption>
+
+  <ol class="grid grid-cols-2 md:grid-cols-4">
+    {
+      milestones.map(({ label, detail, Icon, iconClass }, index) => (
+        <li class="journey-step flex min-h-36 flex-col justify-between gap-6 p-4">
+          <div class="flex min-h-10 items-start justify-between gap-4">
+            <Icon aria-hidden="true" class={iconClass} />
+            <span class="type-label text-muted">
+              {String(index + 1).padStart(2, "0")}
+            </span>
+          </div>
+
+          <div class="flex flex-col gap-1">
+            <strong class="type-body font-medium">{label}</strong>
+            <span class="type-note text-muted">{detail}</span>
+          </div>
+        </li>
+      ))
+    }
+  </ol>
+</figure>
+
+<style>
+  .journey-step {
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .journey-step:nth-child(odd) {
+    border-right: 1px solid var(--color-border);
+  }
+
+  .journey-step:nth-last-child(-n + 2) {
+    border-bottom: 0;
+  }
+
+  @media (min-width: 48rem) {
+    .journey-step {
+      border-right: 1px solid var(--color-border);
+      border-bottom: 0;
+    }
+
+    .journey-step:last-child {
+      border-right: 0;
+    }
+  }
+</style>

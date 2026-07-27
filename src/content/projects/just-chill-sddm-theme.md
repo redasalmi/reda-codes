@@ -7,6 +7,9 @@ stack:
   - QML
   - Qt
   - Linux
+image:
+  src: ../../assets/projects/just-chill.webp
+  alt: Just Chill SDDM login screen with a high-contrast illustrated background
 source: https://github.com/redasalmi/sddm-just-chill-theme
 featured: true
 order: 2
